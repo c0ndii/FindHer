@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Find(H)er.props" />
+</Project>
