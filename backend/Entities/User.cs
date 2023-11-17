@@ -1,8 +1,12 @@
-﻿namespace Find_H_er.Entities
+﻿using wBialy.Entities;
+
+namespace Find_H_er.Entities
 {
     public class User
     {
         public int UserId { get; set; }
+        public string Email { get; set; }
+        public string PasswordHash { get; set; }
         public string Name { get; set; }
         public int Age { get; set; }
         public string Description { get; set; }
@@ -18,5 +22,7 @@
         //public  zaczepka
         public List<Preference> Preferences { get; set; }
         public List<Interest> Interests { get; set; }
+        public int RoleId { get; set; }
+        public virtual Role Role { get; set; }
     }
 }
