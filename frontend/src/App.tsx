@@ -1,29 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import {MantineProvider} from "@mantine/core";
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import { Button, Group, MantineProvider } from "@mantine/core";
+import { Route, Routes } from "react-router-dom";
+import { Root } from "./routes/Root";
 
 const App = () => {
   return (
-    <MantineProvider>
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    </MantineProvider>
+    <Routes>
+      <Route path="/" element={<Root />} />
+      <Route path="/SignIn" element={<Root />} />
+      <Route path="/SignUp" element={<Root />} />
+    </Routes>
   );
-}
+};
 
 export default App;

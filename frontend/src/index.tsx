@@ -3,24 +3,25 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Root } from "./routes/Root";
+import { BrowserRouter } from "react-router-dom";
+import "@mantine/core/styles.css";
+
+import { MantineProvider } from "@mantine/core";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
 );
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Root />,
-  },
-]);
+//www.figma.com/file/yV0ktGUvoK3i7vuLPMSm18/Find-h-er?fuid=1303656757044373890&source=email_invite
 
 root.render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>,
+  <MantineProvider>
+    <React.StrictMode>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </React.StrictMode>
+  </MantineProvider>,
 );
 
 // If you want to start measuring performance in your app, pass a function
