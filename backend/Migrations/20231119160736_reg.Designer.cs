@@ -4,6 +4,7 @@ using Find_H_er.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Find_H_er.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231119160736_reg")]
+    partial class reg
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -229,13 +232,13 @@ namespace Find_H_er.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ForYouId")
+                    b.Property<int>("ForYouId")
                         .HasColumnType("int");
 
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("MatchFormId")
+                    b.Property<int>("MatchFormId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -246,7 +249,7 @@ namespace Find_H_er.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("RoleId")
+                    b.Property<int>("RoleId")
                         .HasColumnType("int");
 
                     b.Property<string>("Sex")
@@ -401,15 +404,21 @@ namespace Find_H_er.Migrations
                 {
                     b.HasOne("Find_H_er.Entities.ForYou", "ForYou")
                         .WithMany("UsersForYou")
-                        .HasForeignKey("ForYouId");
+                        .HasForeignKey("ForYouId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Find_H_er.Entities.MatchForm", "MatchForm")
                         .WithMany()
-                        .HasForeignKey("MatchFormId");
+                        .HasForeignKey("MatchFormId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("wBialy.Entities.Role", "Role")
                         .WithMany()
-                        .HasForeignKey("RoleId");
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("ForYou");
 
