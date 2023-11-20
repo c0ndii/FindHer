@@ -7,7 +7,7 @@ export const Header = () => {
       <Text c="white" size={rem(40)}>
         Masz już konto?
       </Text>
-      <Button size="lg" color="red" radius={15}>
+      <Button component="a" href="/SignIn" size="lg" color="red" radius={15}>
         Zaloguj się
       </Button>
     </Group>

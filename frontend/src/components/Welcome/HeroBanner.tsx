@@ -18,6 +18,8 @@ export const HeroBanner = () => {
             </Text>{' '}
           </Title>
           <Button
+            component="a"
+            href="/SignUp"
             radius={25}
             mt={rem(40)}
             variant="filled"
