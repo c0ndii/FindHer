@@ -1,12 +1,6 @@
 import {
-  Button,
   Container,
-  Group,
-  Paper,
-  PasswordInput,
   Stack,
-  TextInput,
-  Title,
   rem,
 } from '@mantine/core'
 import classes from './FormContainer.module.css'
