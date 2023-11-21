@@ -17,7 +17,6 @@ import { isAuthenticated } from './utils/Authentication'
 
 const App = () => {
   const [isAuth,] = useAtom(isAuthenticated);
-  console.log(isAuth);
   return (
     <Routes>
       <Route path="/" element={<Welcome />} />
