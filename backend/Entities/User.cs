@@ -14,6 +14,7 @@ namespace Find_H_er.Entities
         public string? Image { get; set; }
         public List<Chat>? Chats { get; set; }
         public int? MatchFormId { get; set; }
+        public int? MatchFormScore { get; set; } = 50;
         public virtual MatchForm? MatchForm { get; set; }
         public List<Pinch>? Pinches { get; set; }
         public int? ForYouId { get; set; }

@@ -1413,3 +1413,1292 @@ WHERE [UserId] = @p10;
 2023-11-28 14:12:39.4798|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
 2023-11-28 14:12:39.4798|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (1ms). 
 2023-11-28 14:12:39.4798|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 PUT https://localhost:7055/api/account/editprofile application/json 100 - 200 0 - 1058.5903ms 
+2023-11-28 15:13:10.3029|10401|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|An 'IServiceProvider' was created for internal use by Entity Framework. 
+2023-11-28 15:13:10.6297|10601|DEBUG|Microsoft.EntityFrameworkCore.Model|The index {'ChatsChatId'} was not created on entity type 'ChatUser (Dictionary<string, object>)' as the properties are already covered by the index {'ChatsChatId', 'UsersUserId'}. 
+2023-11-28 15:13:10.6297|10601|DEBUG|Microsoft.EntityFrameworkCore.Model|The index {'InterestsInterestId'} was not created on entity type 'InterestUser (Dictionary<string, object>)' as the properties are already covered by the index {'InterestsInterestId', 'UsersUserId'}. 
+2023-11-28 15:13:10.6297|10601|DEBUG|Microsoft.EntityFrameworkCore.Model|The index {'PinchesPinchId'} was not created on entity type 'PinchUser (Dictionary<string, object>)' as the properties are already covered by the index {'PinchesPinchId', 'UsersUserId'}. 
+2023-11-28 15:13:10.6297|10601|DEBUG|Microsoft.EntityFrameworkCore.Model|The index {'PreferencesPreferenceId'} was not created on entity type 'PreferenceUser (Dictionary<string, object>)' as the properties are already covered by the index {'PreferencesPreferenceId', 'UsersUserId'}. 
+2023-11-28 15:13:10.7055|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'ChatUser (Dictionary<string, object>).ChatsChatId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-11-28 15:13:10.7055|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'ChatUser (Dictionary<string, object>).UsersUserId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-11-28 15:13:10.7055|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'Question.MatchFormId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-11-28 15:13:10.7055|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'InterestUser (Dictionary<string, object>).InterestsInterestId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-11-28 15:13:10.7055|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'InterestUser (Dictionary<string, object>).UsersUserId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-11-28 15:13:10.7055|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'PinchUser (Dictionary<string, object>).PinchesPinchId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-11-28 15:13:10.7055|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'PinchUser (Dictionary<string, object>).UsersUserId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-11-28 15:13:10.7055|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'PreferenceUser (Dictionary<string, object>).PreferencesPreferenceId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-11-28 15:13:10.7055|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'PreferenceUser (Dictionary<string, object>).UsersUserId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-11-28 15:13:10.8229|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 7.0.13 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.13' with options: None 
+2023-11-28 15:13:10.8596|10601|DEBUG|Microsoft.EntityFrameworkCore.Model|The index {'ChatsChatId'} was not created on entity type 'ChatUser (Dictionary<string, object>)' as the properties are already covered by the index {'ChatsChatId', 'UsersUserId'}. 
+2023-11-28 15:13:10.8596|10601|DEBUG|Microsoft.EntityFrameworkCore.Model|The index {'InterestsInterestId'} was not created on entity type 'InterestUser (Dictionary<string, object>)' as the properties are already covered by the index {'InterestsInterestId', 'UsersUserId'}. 
+2023-11-28 15:13:10.8596|10601|DEBUG|Microsoft.EntityFrameworkCore.Model|The index {'PinchesPinchId'} was not created on entity type 'PinchUser (Dictionary<string, object>)' as the properties are already covered by the index {'PinchesPinchId', 'UsersUserId'}. 
+2023-11-28 15:13:10.8596|10601|DEBUG|Microsoft.EntityFrameworkCore.Model|The index {'PreferencesPreferenceId'} was not created on entity type 'PreferenceUser (Dictionary<string, object>)' as the properties are already covered by the index {'PreferencesPreferenceId', 'UsersUserId'}. 
+2023-11-28 15:13:10.8657|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'ChatUser (Dictionary<string, object>).ChatsChatId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-11-28 15:13:10.8657|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'ChatUser (Dictionary<string, object>).UsersUserId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-11-28 15:13:10.8657|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'Question.MatchFormId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-11-28 15:13:10.8657|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'InterestUser (Dictionary<string, object>).InterestsInterestId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-11-28 15:13:10.8657|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'InterestUser (Dictionary<string, object>).UsersUserId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-11-28 15:13:10.8657|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'PinchUser (Dictionary<string, object>).PinchesPinchId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-11-28 15:13:10.8657|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'PinchUser (Dictionary<string, object>).UsersUserId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-11-28 15:13:10.8657|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'PreferenceUser (Dictionary<string, object>).PreferencesPreferenceId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-11-28 15:13:10.8657|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'PreferenceUser (Dictionary<string, object>).UsersUserId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-11-28 15:13:11.0339|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'AppDbContext' disposed. 
+2023-11-28 15:13:34.0025|10401|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|An 'IServiceProvider' was created for internal use by Entity Framework. 
+2023-11-28 15:13:34.3209|10601|DEBUG|Microsoft.EntityFrameworkCore.Model|The index {'ChatsChatId'} was not created on entity type 'ChatUser (Dictionary<string, object>)' as the properties are already covered by the index {'ChatsChatId', 'UsersUserId'}. 
+2023-11-28 15:13:34.3209|10601|DEBUG|Microsoft.EntityFrameworkCore.Model|The index {'InterestsInterestId'} was not created on entity type 'InterestUser (Dictionary<string, object>)' as the properties are already covered by the index {'InterestsInterestId', 'UsersUserId'}. 
+2023-11-28 15:13:34.3209|10601|DEBUG|Microsoft.EntityFrameworkCore.Model|The index {'PinchesPinchId'} was not created on entity type 'PinchUser (Dictionary<string, object>)' as the properties are already covered by the index {'PinchesPinchId', 'UsersUserId'}. 
+2023-11-28 15:13:34.3209|10601|DEBUG|Microsoft.EntityFrameworkCore.Model|The index {'PreferencesPreferenceId'} was not created on entity type 'PreferenceUser (Dictionary<string, object>)' as the properties are already covered by the index {'PreferencesPreferenceId', 'UsersUserId'}. 
+2023-11-28 15:13:34.3935|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'ChatUser (Dictionary<string, object>).ChatsChatId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-11-28 15:13:34.3935|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'ChatUser (Dictionary<string, object>).UsersUserId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-11-28 15:13:34.3935|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'Question.MatchFormId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-11-28 15:13:34.3935|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'InterestUser (Dictionary<string, object>).InterestsInterestId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-11-28 15:13:34.3935|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'InterestUser (Dictionary<string, object>).UsersUserId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-11-28 15:13:34.3935|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'PinchUser (Dictionary<string, object>).PinchesPinchId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-11-28 15:13:34.3935|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'PinchUser (Dictionary<string, object>).UsersUserId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-11-28 15:13:34.3935|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'PreferenceUser (Dictionary<string, object>).PreferencesPreferenceId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-11-28 15:13:34.3935|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'PreferenceUser (Dictionary<string, object>).UsersUserId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-11-28 15:13:34.5076|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 7.0.13 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.13' with options: None 
+2023-11-28 15:13:34.5217|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2023-11-28 15:13:34.6756|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (152ms). 
+2023-11-28 15:13:34.6756|20400|DEBUG|Microsoft.EntityFrameworkCore.Migrations|Migrating using database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:13:34.6756|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:13:35.0641|20004|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|An error occurred using the connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:13:35.0641|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:13:35.0641|20004|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|An error occurred using the connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:13:35.1100|10601|DEBUG|Microsoft.EntityFrameworkCore.Model|The index {'ChatsChatId'} was not created on entity type 'ChatUser (Dictionary<string, object>)' as the properties are already covered by the index {'ChatsChatId', 'UsersUserId'}. 
+2023-11-28 15:13:35.1100|10601|DEBUG|Microsoft.EntityFrameworkCore.Model|The index {'InterestsInterestId'} was not created on entity type 'InterestUser (Dictionary<string, object>)' as the properties are already covered by the index {'InterestsInterestId', 'UsersUserId'}. 
+2023-11-28 15:13:35.1100|10601|DEBUG|Microsoft.EntityFrameworkCore.Model|The index {'PinchesPinchId'} was not created on entity type 'PinchUser (Dictionary<string, object>)' as the properties are already covered by the index {'PinchesPinchId', 'UsersUserId'}. 
+2023-11-28 15:13:35.1100|10601|DEBUG|Microsoft.EntityFrameworkCore.Model|The index {'PreferencesPreferenceId'} was not created on entity type 'PreferenceUser (Dictionary<string, object>)' as the properties are already covered by the index {'PreferencesPreferenceId', 'UsersUserId'}. 
+2023-11-28 15:13:35.1100|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'ChatUser (Dictionary<string, object>).ChatsChatId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-11-28 15:13:35.1100|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'ChatUser (Dictionary<string, object>).UsersUserId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-11-28 15:13:35.1100|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'Question.MatchFormId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-11-28 15:13:35.1100|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'InterestUser (Dictionary<string, object>).InterestsInterestId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-11-28 15:13:35.1100|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'InterestUser (Dictionary<string, object>).UsersUserId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-11-28 15:13:35.1100|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'PinchUser (Dictionary<string, object>).PinchesPinchId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-11-28 15:13:35.1100|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'PinchUser (Dictionary<string, object>).UsersUserId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-11-28 15:13:35.1100|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'PreferenceUser (Dictionary<string, object>).PreferencesPreferenceId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-11-28 15:13:35.1100|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'PreferenceUser (Dictionary<string, object>).UsersUserId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-11-28 15:13:35.1343|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2023-11-28 15:13:35.1343|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2023-11-28 15:13:35.1343|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'master' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:13:35.1454|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'master' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:13:35.1454|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.1454|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (3ms). 
+2023-11-28 15:13:35.1454|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (7ms). 
+2023-11-28 15:13:35.1594|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='60']
+CREATE DATABASE [Findher]; 
+2023-11-28 15:13:35.3348|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (176ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+CREATE DATABASE [Findher]; 
+2023-11-28 15:13:35.3348|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.3348|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.3348|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.3348|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [Findher] SET READ_COMMITTED_SNAPSHOT ON;
+END; 
+2023-11-28 15:13:35.3790|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (43ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [Findher] SET READ_COMMITTED_SNAPSHOT ON;
+END; 
+2023-11-28 15:13:35.3790|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'master' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:13:35.3790|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'master' on server '(localdb)\MSSQLLocalDB' (3ms). 
+2023-11-28 15:13:35.3790|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'master' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:13:35.3790|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2023-11-28 15:13:35.3790|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:13:35.3790|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:13:35.3790|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.3790|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.3790|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.3790|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1 
+2023-11-28 15:13:35.3962|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1 
+2023-11-28 15:13:35.3962|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:13:35.3962|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'Findher' on server '(localdb)\MSSQLLocalDB' (0ms). 
+2023-11-28 15:13:35.4383|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.4383|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.4383|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.4383|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:13:35.4383|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:13:35.4383|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+); 
+2023-11-28 15:13:35.4383|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+); 
+2023-11-28 15:13:35.4383|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:13:35.4383|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'Findher' on server '(localdb)\MSSQLLocalDB' (0ms). 
+2023-11-28 15:13:35.4383|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:13:35.4383|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:13:35.4383|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.4383|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.4383|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.4383|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1 
+2023-11-28 15:13:35.4383|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1 
+2023-11-28 15:13:35.4383|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:13:35.4383|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'Findher' on server '(localdb)\MSSQLLocalDB' (0ms). 
+2023-11-28 15:13:35.4383|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteScalar'. 
+2023-11-28 15:13:35.4383|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteScalar' (0ms). 
+2023-11-28 15:13:35.4383|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteScalar' (0ms). 
+2023-11-28 15:13:35.4383|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:13:35.4383|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:13:35.4383|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]'); 
+2023-11-28 15:13:35.4583|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (10ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]'); 
+2023-11-28 15:13:35.4583|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:13:35.4583|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'Findher' on server '(localdb)\MSSQLLocalDB' (0ms). 
+2023-11-28 15:13:35.4583|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2023-11-28 15:13:35.4583|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2023-11-28 15:13:35.4583|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2023-11-28 15:13:35.4583|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:13:35.4583|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:13:35.4583|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId]; 
+2023-11-28 15:13:35.4583|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId]; 
+2023-11-28 15:13:35.4583|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:13:35.4583|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'Findher' on server '(localdb)\MSSQLLocalDB' is being disposed after spending 1ms reading results. 
+2023-11-28 15:13:35.4583|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:13:35.4583|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'Findher' on server '(localdb)\MSSQLLocalDB' (0ms). 
+2023-11-28 15:13:35.4716|20402|INFO|Microsoft.EntityFrameworkCore.Migrations|Applying migration '20231026125137_init'. 
+2023-11-28 15:13:35.5107|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:13:35.5107|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:13:35.5107|20209|DEBUG|Microsoft.EntityFrameworkCore.Database.Transaction|Beginning transaction with isolation level 'Unspecified'. 
+2023-11-28 15:13:35.5107|20200|DEBUG|Microsoft.EntityFrameworkCore.Database.Transaction|Began transaction with isolation level 'ReadCommitted'. 
+2023-11-28 15:13:35.5164|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.5164|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5164|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5164|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [Answers] (
+    [AnswerId] int NOT NULL IDENTITY,
+    [AnswerContent] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Answers] PRIMARY KEY ([AnswerId])
+); 
+2023-11-28 15:13:35.5164|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [Answers] (
+    [AnswerId] int NOT NULL IDENTITY,
+    [AnswerContent] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Answers] PRIMARY KEY ([AnswerId])
+); 
+2023-11-28 15:13:35.5164|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.5164|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5164|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5164|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [Chats] (
+    [ChatId] int NOT NULL IDENTITY,
+    CONSTRAINT [PK_Chats] PRIMARY KEY ([ChatId])
+); 
+2023-11-28 15:13:35.5164|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [Chats] (
+    [ChatId] int NOT NULL IDENTITY,
+    CONSTRAINT [PK_Chats] PRIMARY KEY ([ChatId])
+); 
+2023-11-28 15:13:35.5164|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.5164|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5164|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5164|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [ForYous] (
+    [ForYouId] int NOT NULL IDENTITY,
+    [Distance] int NOT NULL,
+    CONSTRAINT [PK_ForYous] PRIMARY KEY ([ForYouId])
+); 
+2023-11-28 15:13:35.5164|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [ForYous] (
+    [ForYouId] int NOT NULL IDENTITY,
+    [Distance] int NOT NULL,
+    CONSTRAINT [PK_ForYous] PRIMARY KEY ([ForYouId])
+); 
+2023-11-28 15:13:35.5164|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.5164|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5164|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5164|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [Interests] (
+    [InterestId] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NOT NULL,
+    [Type] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Interests] PRIMARY KEY ([InterestId])
+); 
+2023-11-28 15:13:35.5164|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [Interests] (
+    [InterestId] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NOT NULL,
+    [Type] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Interests] PRIMARY KEY ([InterestId])
+); 
+2023-11-28 15:13:35.5164|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.5164|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5164|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5164|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [MatchForms] (
+    [MatchFormId] int NOT NULL IDENTITY,
+    CONSTRAINT [PK_MatchForms] PRIMARY KEY ([MatchFormId])
+); 
+2023-11-28 15:13:35.5164|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [MatchForms] (
+    [MatchFormId] int NOT NULL IDENTITY,
+    CONSTRAINT [PK_MatchForms] PRIMARY KEY ([MatchFormId])
+); 
+2023-11-28 15:13:35.5164|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.5164|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5164|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5164|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [Pinches] (
+    [PinchId] int NOT NULL IDENTITY,
+    [isMatched] bit NOT NULL,
+    CONSTRAINT [PK_Pinches] PRIMARY KEY ([PinchId])
+); 
+2023-11-28 15:13:35.5164|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [Pinches] (
+    [PinchId] int NOT NULL IDENTITY,
+    [isMatched] bit NOT NULL,
+    CONSTRAINT [PK_Pinches] PRIMARY KEY ([PinchId])
+); 
+2023-11-28 15:13:35.5164|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.5164|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5164|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5164|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [Preferences] (
+    [PreferenceId] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NOT NULL,
+    [Type] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Preferences] PRIMARY KEY ([PreferenceId])
+); 
+2023-11-28 15:13:35.5164|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [Preferences] (
+    [PreferenceId] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NOT NULL,
+    [Type] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Preferences] PRIMARY KEY ([PreferenceId])
+); 
+2023-11-28 15:13:35.5164|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.5164|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5164|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5164|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [UserSettings] (
+    [UserId] int NOT NULL IDENTITY,
+    [Theme] int NOT NULL,
+    [FontSize] int NOT NULL,
+    [Language] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_UserSettings] PRIMARY KEY ([UserId])
+); 
+2023-11-28 15:13:35.5164|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [UserSettings] (
+    [UserId] int NOT NULL IDENTITY,
+    [Theme] int NOT NULL,
+    [FontSize] int NOT NULL,
+    [Language] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_UserSettings] PRIMARY KEY ([UserId])
+); 
+2023-11-28 15:13:35.5164|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.5164|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5164|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5164|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [Questions] (
+    [QuestionId] int NOT NULL IDENTITY,
+    [QuestionContent] nvarchar(max) NOT NULL,
+    [AnswerId] int NOT NULL,
+    [MatchFormId] int NULL,
+    CONSTRAINT [PK_Questions] PRIMARY KEY ([QuestionId]),
+    CONSTRAINT [FK_Questions_Answers_AnswerId] FOREIGN KEY ([AnswerId]) REFERENCES [Answers] ([AnswerId]) ON DELETE CASCADE,
+    CONSTRAINT [FK_Questions_MatchForms_MatchFormId] FOREIGN KEY ([MatchFormId]) REFERENCES [MatchForms] ([MatchFormId])
+); 
+2023-11-28 15:13:35.5164|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [Questions] (
+    [QuestionId] int NOT NULL IDENTITY,
+    [QuestionContent] nvarchar(max) NOT NULL,
+    [AnswerId] int NOT NULL,
+    [MatchFormId] int NULL,
+    CONSTRAINT [PK_Questions] PRIMARY KEY ([QuestionId]),
+    CONSTRAINT [FK_Questions_Answers_AnswerId] FOREIGN KEY ([AnswerId]) REFERENCES [Answers] ([AnswerId]) ON DELETE CASCADE,
+    CONSTRAINT [FK_Questions_MatchForms_MatchFormId] FOREIGN KEY ([MatchFormId]) REFERENCES [MatchForms] ([MatchFormId])
+); 
+2023-11-28 15:13:35.5164|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.5164|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5164|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5164|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [Users] (
+    [UserId] int NOT NULL IDENTITY,
+    [Name] nvarchar(25) NOT NULL,
+    [Age] int NOT NULL,
+    [Description] nvarchar(max) NOT NULL,
+    [Sex] nvarchar(max) NOT NULL,
+    [Image] nvarchar(max) NOT NULL,
+    [MatchFormId] int NOT NULL,
+    [ForYouId] int NOT NULL,
+    CONSTRAINT [PK_Users] PRIMARY KEY ([UserId]),
+    CONSTRAINT [FK_Users_ForYous_ForYouId] FOREIGN KEY ([ForYouId]) REFERENCES [ForYous] ([ForYouId]) ON DELETE CASCADE,
+    CONSTRAINT [FK_Users_MatchForms_MatchFormId] FOREIGN KEY ([MatchFormId]) REFERENCES [MatchForms] ([MatchFormId]) ON DELETE CASCADE
+); 
+2023-11-28 15:13:35.5164|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [Users] (
+    [UserId] int NOT NULL IDENTITY,
+    [Name] nvarchar(25) NOT NULL,
+    [Age] int NOT NULL,
+    [Description] nvarchar(max) NOT NULL,
+    [Sex] nvarchar(max) NOT NULL,
+    [Image] nvarchar(max) NOT NULL,
+    [MatchFormId] int NOT NULL,
+    [ForYouId] int NOT NULL,
+    CONSTRAINT [PK_Users] PRIMARY KEY ([UserId]),
+    CONSTRAINT [FK_Users_ForYous_ForYouId] FOREIGN KEY ([ForYouId]) REFERENCES [ForYous] ([ForYouId]) ON DELETE CASCADE,
+    CONSTRAINT [FK_Users_MatchForms_MatchFormId] FOREIGN KEY ([MatchFormId]) REFERENCES [MatchForms] ([MatchFormId]) ON DELETE CASCADE
+); 
+2023-11-28 15:13:35.5164|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.5164|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5164|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5164|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [ChatUser] (
+    [ChatsChatId] int NOT NULL,
+    [UsersUserId] int NOT NULL,
+    CONSTRAINT [PK_ChatUser] PRIMARY KEY ([ChatsChatId], [UsersUserId]),
+    CONSTRAINT [FK_ChatUser_Chats_ChatsChatId] FOREIGN KEY ([ChatsChatId]) REFERENCES [Chats] ([ChatId]) ON DELETE CASCADE,
+    CONSTRAINT [FK_ChatUser_Users_UsersUserId] FOREIGN KEY ([UsersUserId]) REFERENCES [Users] ([UserId]) ON DELETE CASCADE
+); 
+2023-11-28 15:13:35.5164|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [ChatUser] (
+    [ChatsChatId] int NOT NULL,
+    [UsersUserId] int NOT NULL,
+    CONSTRAINT [PK_ChatUser] PRIMARY KEY ([ChatsChatId], [UsersUserId]),
+    CONSTRAINT [FK_ChatUser_Chats_ChatsChatId] FOREIGN KEY ([ChatsChatId]) REFERENCES [Chats] ([ChatId]) ON DELETE CASCADE,
+    CONSTRAINT [FK_ChatUser_Users_UsersUserId] FOREIGN KEY ([UsersUserId]) REFERENCES [Users] ([UserId]) ON DELETE CASCADE
+); 
+2023-11-28 15:13:35.5164|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.5164|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5164|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5164|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [InterestUser] (
+    [InterestsInterestId] int NOT NULL,
+    [UsersUserId] int NOT NULL,
+    CONSTRAINT [PK_InterestUser] PRIMARY KEY ([InterestsInterestId], [UsersUserId]),
+    CONSTRAINT [FK_InterestUser_Interests_InterestsInterestId] FOREIGN KEY ([InterestsInterestId]) REFERENCES [Interests] ([InterestId]) ON DELETE CASCADE,
+    CONSTRAINT [FK_InterestUser_Users_UsersUserId] FOREIGN KEY ([UsersUserId]) REFERENCES [Users] ([UserId]) ON DELETE CASCADE
+); 
+2023-11-28 15:13:35.5320|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [InterestUser] (
+    [InterestsInterestId] int NOT NULL,
+    [UsersUserId] int NOT NULL,
+    CONSTRAINT [PK_InterestUser] PRIMARY KEY ([InterestsInterestId], [UsersUserId]),
+    CONSTRAINT [FK_InterestUser_Interests_InterestsInterestId] FOREIGN KEY ([InterestsInterestId]) REFERENCES [Interests] ([InterestId]) ON DELETE CASCADE,
+    CONSTRAINT [FK_InterestUser_Users_UsersUserId] FOREIGN KEY ([UsersUserId]) REFERENCES [Users] ([UserId]) ON DELETE CASCADE
+); 
+2023-11-28 15:13:35.5320|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.5320|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5320|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5320|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [Messages] (
+    [MessageId] int NOT NULL IDENTITY,
+    [Content] nvarchar(max) NOT NULL,
+    [SendTime] datetime2 NOT NULL,
+    [UserId] int NOT NULL,
+    [ChatId] int NOT NULL,
+    CONSTRAINT [PK_Messages] PRIMARY KEY ([MessageId]),
+    CONSTRAINT [FK_Messages_Chats_ChatId] FOREIGN KEY ([ChatId]) REFERENCES [Chats] ([ChatId]) ON DELETE CASCADE,
+    CONSTRAINT [FK_Messages_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([UserId]) ON DELETE CASCADE
+); 
+2023-11-28 15:13:35.5320|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [Messages] (
+    [MessageId] int NOT NULL IDENTITY,
+    [Content] nvarchar(max) NOT NULL,
+    [SendTime] datetime2 NOT NULL,
+    [UserId] int NOT NULL,
+    [ChatId] int NOT NULL,
+    CONSTRAINT [PK_Messages] PRIMARY KEY ([MessageId]),
+    CONSTRAINT [FK_Messages_Chats_ChatId] FOREIGN KEY ([ChatId]) REFERENCES [Chats] ([ChatId]) ON DELETE CASCADE,
+    CONSTRAINT [FK_Messages_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([UserId]) ON DELETE CASCADE
+); 
+2023-11-28 15:13:35.5320|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.5320|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5320|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5320|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [PinchUser] (
+    [PinchesPinchId] int NOT NULL,
+    [UsersUserId] int NOT NULL,
+    CONSTRAINT [PK_PinchUser] PRIMARY KEY ([PinchesPinchId], [UsersUserId]),
+    CONSTRAINT [FK_PinchUser_Pinches_PinchesPinchId] FOREIGN KEY ([PinchesPinchId]) REFERENCES [Pinches] ([PinchId]) ON DELETE CASCADE,
+    CONSTRAINT [FK_PinchUser_Users_UsersUserId] FOREIGN KEY ([UsersUserId]) REFERENCES [Users] ([UserId]) ON DELETE CASCADE
+); 
+2023-11-28 15:13:35.5320|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [PinchUser] (
+    [PinchesPinchId] int NOT NULL,
+    [UsersUserId] int NOT NULL,
+    CONSTRAINT [PK_PinchUser] PRIMARY KEY ([PinchesPinchId], [UsersUserId]),
+    CONSTRAINT [FK_PinchUser_Pinches_PinchesPinchId] FOREIGN KEY ([PinchesPinchId]) REFERENCES [Pinches] ([PinchId]) ON DELETE CASCADE,
+    CONSTRAINT [FK_PinchUser_Users_UsersUserId] FOREIGN KEY ([UsersUserId]) REFERENCES [Users] ([UserId]) ON DELETE CASCADE
+); 
+2023-11-28 15:13:35.5320|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.5320|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5320|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5320|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [PreferenceUser] (
+    [PreferencesPreferenceId] int NOT NULL,
+    [UsersUserId] int NOT NULL,
+    CONSTRAINT [PK_PreferenceUser] PRIMARY KEY ([PreferencesPreferenceId], [UsersUserId]),
+    CONSTRAINT [FK_PreferenceUser_Preferences_PreferencesPreferenceId] FOREIGN KEY ([PreferencesPreferenceId]) REFERENCES [Preferences] ([PreferenceId]) ON DELETE CASCADE,
+    CONSTRAINT [FK_PreferenceUser_Users_UsersUserId] FOREIGN KEY ([UsersUserId]) REFERENCES [Users] ([UserId]) ON DELETE CASCADE
+); 
+2023-11-28 15:13:35.5320|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [PreferenceUser] (
+    [PreferencesPreferenceId] int NOT NULL,
+    [UsersUserId] int NOT NULL,
+    CONSTRAINT [PK_PreferenceUser] PRIMARY KEY ([PreferencesPreferenceId], [UsersUserId]),
+    CONSTRAINT [FK_PreferenceUser_Preferences_PreferencesPreferenceId] FOREIGN KEY ([PreferencesPreferenceId]) REFERENCES [Preferences] ([PreferenceId]) ON DELETE CASCADE,
+    CONSTRAINT [FK_PreferenceUser_Users_UsersUserId] FOREIGN KEY ([UsersUserId]) REFERENCES [Users] ([UserId]) ON DELETE CASCADE
+); 
+2023-11-28 15:13:35.5320|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.5320|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5320|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5320|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX [IX_ChatUser_UsersUserId] ON [ChatUser] ([UsersUserId]); 
+2023-11-28 15:13:35.5320|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX [IX_ChatUser_UsersUserId] ON [ChatUser] ([UsersUserId]); 
+2023-11-28 15:13:35.5320|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.5320|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5320|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5320|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX [IX_InterestUser_UsersUserId] ON [InterestUser] ([UsersUserId]); 
+2023-11-28 15:13:35.5320|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX [IX_InterestUser_UsersUserId] ON [InterestUser] ([UsersUserId]); 
+2023-11-28 15:13:35.5320|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.5320|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5320|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5320|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX [IX_Messages_ChatId] ON [Messages] ([ChatId]); 
+2023-11-28 15:13:35.5320|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX [IX_Messages_ChatId] ON [Messages] ([ChatId]); 
+2023-11-28 15:13:35.5320|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.5320|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5320|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5320|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX [IX_Messages_UserId] ON [Messages] ([UserId]); 
+2023-11-28 15:13:35.5320|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX [IX_Messages_UserId] ON [Messages] ([UserId]); 
+2023-11-28 15:13:35.5320|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.5320|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5320|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5320|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX [IX_PinchUser_UsersUserId] ON [PinchUser] ([UsersUserId]); 
+2023-11-28 15:13:35.5320|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX [IX_PinchUser_UsersUserId] ON [PinchUser] ([UsersUserId]); 
+2023-11-28 15:13:35.5320|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.5320|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5320|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5320|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX [IX_PreferenceUser_UsersUserId] ON [PreferenceUser] ([UsersUserId]); 
+2023-11-28 15:13:35.5320|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX [IX_PreferenceUser_UsersUserId] ON [PreferenceUser] ([UsersUserId]); 
+2023-11-28 15:13:35.5320|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.5320|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5320|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5320|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX [IX_Questions_AnswerId] ON [Questions] ([AnswerId]); 
+2023-11-28 15:13:35.5320|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX [IX_Questions_AnswerId] ON [Questions] ([AnswerId]); 
+2023-11-28 15:13:35.5320|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.5320|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5320|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5320|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX [IX_Questions_MatchFormId] ON [Questions] ([MatchFormId]); 
+2023-11-28 15:13:35.5320|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX [IX_Questions_MatchFormId] ON [Questions] ([MatchFormId]); 
+2023-11-28 15:13:35.5320|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.5320|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5320|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5320|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX [IX_Users_ForYouId] ON [Users] ([ForYouId]); 
+2023-11-28 15:13:35.5320|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX [IX_Users_ForYouId] ON [Users] ([ForYouId]); 
+2023-11-28 15:13:35.5320|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.5320|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5320|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5320|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX [IX_Users_MatchFormId] ON [Users] ([MatchFormId]); 
+2023-11-28 15:13:35.5320|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX [IX_Users_MatchFormId] ON [Users] ([MatchFormId]); 
+2023-11-28 15:13:35.5320|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.5320|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5320|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5320|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20231026125137_init', N'7.0.13'); 
+2023-11-28 15:13:35.5320|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20231026125137_init', N'7.0.13'); 
+2023-11-28 15:13:35.5320|20210|DEBUG|Microsoft.EntityFrameworkCore.Database.Transaction|Committing transaction. 
+2023-11-28 15:13:35.5492|20202|DEBUG|Microsoft.EntityFrameworkCore.Database.Transaction|Committed transaction. 
+2023-11-28 15:13:35.5492|20204|DEBUG|Microsoft.EntityFrameworkCore.Database.Transaction|Disposing transaction. 
+2023-11-28 15:13:35.5492|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:13:35.5492|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'Findher' on server '(localdb)\MSSQLLocalDB' (0ms). 
+2023-11-28 15:13:35.5492|20402|INFO|Microsoft.EntityFrameworkCore.Migrations|Applying migration '20231117231406_login'. 
+2023-11-28 15:13:35.5653|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:13:35.5653|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:13:35.5653|20209|DEBUG|Microsoft.EntityFrameworkCore.Database.Transaction|Beginning transaction with isolation level 'Unspecified'. 
+2023-11-28 15:13:35.5653|20200|DEBUG|Microsoft.EntityFrameworkCore.Database.Transaction|Began transaction with isolation level 'ReadCommitted'. 
+2023-11-28 15:13:35.5653|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.5653|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5653|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5653|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE [Users] ADD [Email] nvarchar(max) NOT NULL DEFAULT N''; 
+2023-11-28 15:13:35.5653|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE [Users] ADD [Email] nvarchar(max) NOT NULL DEFAULT N''; 
+2023-11-28 15:13:35.5653|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.5653|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5653|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5653|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE [Users] ADD [PasswordHash] nvarchar(max) NOT NULL DEFAULT N''; 
+2023-11-28 15:13:35.5653|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE [Users] ADD [PasswordHash] nvarchar(max) NOT NULL DEFAULT N''; 
+2023-11-28 15:13:35.5653|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.5653|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5653|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5653|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE [Users] ADD [RoleId] int NOT NULL DEFAULT 0; 
+2023-11-28 15:13:35.5653|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE [Users] ADD [RoleId] int NOT NULL DEFAULT 0; 
+2023-11-28 15:13:35.5653|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.5653|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5653|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5653|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [Role] (
+    [RoleId] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Role] PRIMARY KEY ([RoleId])
+); 
+2023-11-28 15:13:35.5653|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [Role] (
+    [RoleId] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Role] PRIMARY KEY ([RoleId])
+); 
+2023-11-28 15:13:35.5653|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.5653|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5653|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5653|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX [IX_Users_RoleId] ON [Users] ([RoleId]); 
+2023-11-28 15:13:35.5653|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE INDEX [IX_Users_RoleId] ON [Users] ([RoleId]); 
+2023-11-28 15:13:35.5653|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.5653|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5653|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5653|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE [Users] ADD CONSTRAINT [FK_Users_Role_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [Role] ([RoleId]) ON DELETE CASCADE; 
+2023-11-28 15:13:35.5653|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE [Users] ADD CONSTRAINT [FK_Users_Role_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [Role] ([RoleId]) ON DELETE CASCADE; 
+2023-11-28 15:13:35.5653|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.5653|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5653|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5653|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20231117231406_login', N'7.0.13'); 
+2023-11-28 15:13:35.5653|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20231117231406_login', N'7.0.13'); 
+2023-11-28 15:13:35.5653|20210|DEBUG|Microsoft.EntityFrameworkCore.Database.Transaction|Committing transaction. 
+2023-11-28 15:13:35.5653|20202|DEBUG|Microsoft.EntityFrameworkCore.Database.Transaction|Committed transaction. 
+2023-11-28 15:13:35.5653|20204|DEBUG|Microsoft.EntityFrameworkCore.Database.Transaction|Disposing transaction. 
+2023-11-28 15:13:35.5653|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:13:35.5653|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'Findher' on server '(localdb)\MSSQLLocalDB' (0ms). 
+2023-11-28 15:13:35.5653|20402|INFO|Microsoft.EntityFrameworkCore.Migrations|Applying migration '20231119160736_reg'. 
+2023-11-28 15:13:35.5913|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:13:35.5913|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:13:35.5913|20209|DEBUG|Microsoft.EntityFrameworkCore.Database.Transaction|Beginning transaction with isolation level 'Unspecified'. 
+2023-11-28 15:13:35.5913|20200|DEBUG|Microsoft.EntityFrameworkCore.Database.Transaction|Began transaction with isolation level 'ReadCommitted'. 
+2023-11-28 15:13:35.5913|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.5913|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5913|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.5913|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+DECLARE @var0 sysname;
+SELECT @var0 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Users]') AND [c].[name] = N'Sex');
+IF @var0 IS NOT NULL EXEC(N'ALTER TABLE [Users] DROP CONSTRAINT [' + @var0 + '];');
+ALTER TABLE [Users] ALTER COLUMN [Sex] nvarchar(max) NULL; 
+2023-11-28 15:13:35.6288|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (37ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+DECLARE @var0 sysname;
+SELECT @var0 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Users]') AND [c].[name] = N'Sex');
+IF @var0 IS NOT NULL EXEC(N'ALTER TABLE [Users] DROP CONSTRAINT [' + @var0 + '];');
+ALTER TABLE [Users] ALTER COLUMN [Sex] nvarchar(max) NULL; 
+2023-11-28 15:13:35.6288|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.6288|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.6288|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.6288|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+DECLARE @var1 sysname;
+SELECT @var1 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Users]') AND [c].[name] = N'Name');
+IF @var1 IS NOT NULL EXEC(N'ALTER TABLE [Users] DROP CONSTRAINT [' + @var1 + '];');
+ALTER TABLE [Users] ALTER COLUMN [Name] nvarchar(25) NULL; 
+2023-11-28 15:13:35.6288|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (9ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+DECLARE @var1 sysname;
+SELECT @var1 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Users]') AND [c].[name] = N'Name');
+IF @var1 IS NOT NULL EXEC(N'ALTER TABLE [Users] DROP CONSTRAINT [' + @var1 + '];');
+ALTER TABLE [Users] ALTER COLUMN [Name] nvarchar(25) NULL; 
+2023-11-28 15:13:35.6288|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.6288|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.6288|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.6288|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+DECLARE @var2 sysname;
+SELECT @var2 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Users]') AND [c].[name] = N'Image');
+IF @var2 IS NOT NULL EXEC(N'ALTER TABLE [Users] DROP CONSTRAINT [' + @var2 + '];');
+ALTER TABLE [Users] ALTER COLUMN [Image] nvarchar(max) NULL; 
+2023-11-28 15:13:35.6481|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (9ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+DECLARE @var2 sysname;
+SELECT @var2 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Users]') AND [c].[name] = N'Image');
+IF @var2 IS NOT NULL EXEC(N'ALTER TABLE [Users] DROP CONSTRAINT [' + @var2 + '];');
+ALTER TABLE [Users] ALTER COLUMN [Image] nvarchar(max) NULL; 
+2023-11-28 15:13:35.6481|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.6481|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.6481|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.6481|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+DECLARE @var3 sysname;
+SELECT @var3 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Users]') AND [c].[name] = N'Description');
+IF @var3 IS NOT NULL EXEC(N'ALTER TABLE [Users] DROP CONSTRAINT [' + @var3 + '];');
+ALTER TABLE [Users] ALTER COLUMN [Description] nvarchar(max) NULL; 
+2023-11-28 15:13:35.6612|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (13ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+DECLARE @var3 sysname;
+SELECT @var3 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Users]') AND [c].[name] = N'Description');
+IF @var3 IS NOT NULL EXEC(N'ALTER TABLE [Users] DROP CONSTRAINT [' + @var3 + '];');
+ALTER TABLE [Users] ALTER COLUMN [Description] nvarchar(max) NULL; 
+2023-11-28 15:13:35.6612|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.6612|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.6612|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.6612|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+DECLARE @var4 sysname;
+SELECT @var4 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Users]') AND [c].[name] = N'Age');
+IF @var4 IS NOT NULL EXEC(N'ALTER TABLE [Users] DROP CONSTRAINT [' + @var4 + '];');
+ALTER TABLE [Users] ALTER COLUMN [Age] int NULL; 
+2023-11-28 15:13:35.6612|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (9ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+DECLARE @var4 sysname;
+SELECT @var4 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Users]') AND [c].[name] = N'Age');
+IF @var4 IS NOT NULL EXEC(N'ALTER TABLE [Users] DROP CONSTRAINT [' + @var4 + '];');
+ALTER TABLE [Users] ALTER COLUMN [Age] int NULL; 
+2023-11-28 15:13:35.6612|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.6612|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.6612|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.6612|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20231119160736_reg', N'7.0.13'); 
+2023-11-28 15:13:35.6612|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20231119160736_reg', N'7.0.13'); 
+2023-11-28 15:13:35.6612|20210|DEBUG|Microsoft.EntityFrameworkCore.Database.Transaction|Committing transaction. 
+2023-11-28 15:13:35.6612|20202|DEBUG|Microsoft.EntityFrameworkCore.Database.Transaction|Committed transaction. 
+2023-11-28 15:13:35.6612|20204|DEBUG|Microsoft.EntityFrameworkCore.Database.Transaction|Disposing transaction. 
+2023-11-28 15:13:35.6612|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:13:35.6612|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'Findher' on server '(localdb)\MSSQLLocalDB' (0ms). 
+2023-11-28 15:13:35.6612|20402|INFO|Microsoft.EntityFrameworkCore.Migrations|Applying migration '20231119161434_regs'. 
+2023-11-28 15:13:35.6878|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:13:35.6878|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:13:35.6878|20209|DEBUG|Microsoft.EntityFrameworkCore.Database.Transaction|Beginning transaction with isolation level 'Unspecified'. 
+2023-11-28 15:13:35.6878|20200|DEBUG|Microsoft.EntityFrameworkCore.Database.Transaction|Began transaction with isolation level 'ReadCommitted'. 
+2023-11-28 15:13:35.6878|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.6878|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.6878|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.6878|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE [Users] DROP CONSTRAINT [FK_Users_ForYous_ForYouId]; 
+2023-11-28 15:13:35.6878|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE [Users] DROP CONSTRAINT [FK_Users_ForYous_ForYouId]; 
+2023-11-28 15:13:35.6878|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.6878|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.6878|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.6878|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE [Users] DROP CONSTRAINT [FK_Users_MatchForms_MatchFormId]; 
+2023-11-28 15:13:35.6878|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE [Users] DROP CONSTRAINT [FK_Users_MatchForms_MatchFormId]; 
+2023-11-28 15:13:35.6878|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.6878|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.6878|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.6878|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE [Users] DROP CONSTRAINT [FK_Users_Role_RoleId]; 
+2023-11-28 15:13:35.6878|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE [Users] DROP CONSTRAINT [FK_Users_Role_RoleId]; 
+2023-11-28 15:13:35.6878|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.6878|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.6878|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.6878|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+DECLARE @var5 sysname;
+SELECT @var5 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Users]') AND [c].[name] = N'RoleId');
+IF @var5 IS NOT NULL EXEC(N'ALTER TABLE [Users] DROP CONSTRAINT [' + @var5 + '];');
+ALTER TABLE [Users] ALTER COLUMN [RoleId] int NULL; 
+2023-11-28 15:13:35.7041|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (12ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+DECLARE @var5 sysname;
+SELECT @var5 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Users]') AND [c].[name] = N'RoleId');
+IF @var5 IS NOT NULL EXEC(N'ALTER TABLE [Users] DROP CONSTRAINT [' + @var5 + '];');
+ALTER TABLE [Users] ALTER COLUMN [RoleId] int NULL; 
+2023-11-28 15:13:35.7041|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.7041|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.7041|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.7041|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+DECLARE @var6 sysname;
+SELECT @var6 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Users]') AND [c].[name] = N'MatchFormId');
+IF @var6 IS NOT NULL EXEC(N'ALTER TABLE [Users] DROP CONSTRAINT [' + @var6 + '];');
+ALTER TABLE [Users] ALTER COLUMN [MatchFormId] int NULL; 
+2023-11-28 15:13:35.7041|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (10ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+DECLARE @var6 sysname;
+SELECT @var6 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Users]') AND [c].[name] = N'MatchFormId');
+IF @var6 IS NOT NULL EXEC(N'ALTER TABLE [Users] DROP CONSTRAINT [' + @var6 + '];');
+ALTER TABLE [Users] ALTER COLUMN [MatchFormId] int NULL; 
+2023-11-28 15:13:35.7041|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.7041|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.7041|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.7041|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+DECLARE @var7 sysname;
+SELECT @var7 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Users]') AND [c].[name] = N'ForYouId');
+IF @var7 IS NOT NULL EXEC(N'ALTER TABLE [Users] DROP CONSTRAINT [' + @var7 + '];');
+ALTER TABLE [Users] ALTER COLUMN [ForYouId] int NULL; 
+2023-11-28 15:13:35.7242|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (10ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+DECLARE @var7 sysname;
+SELECT @var7 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Users]') AND [c].[name] = N'ForYouId');
+IF @var7 IS NOT NULL EXEC(N'ALTER TABLE [Users] DROP CONSTRAINT [' + @var7 + '];');
+ALTER TABLE [Users] ALTER COLUMN [ForYouId] int NULL; 
+2023-11-28 15:13:35.7242|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.7242|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.7242|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.7242|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE [Users] ADD CONSTRAINT [FK_Users_ForYous_ForYouId] FOREIGN KEY ([ForYouId]) REFERENCES [ForYous] ([ForYouId]); 
+2023-11-28 15:13:35.7242|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE [Users] ADD CONSTRAINT [FK_Users_ForYous_ForYouId] FOREIGN KEY ([ForYouId]) REFERENCES [ForYous] ([ForYouId]); 
+2023-11-28 15:13:35.7242|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.7242|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.7242|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.7242|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE [Users] ADD CONSTRAINT [FK_Users_MatchForms_MatchFormId] FOREIGN KEY ([MatchFormId]) REFERENCES [MatchForms] ([MatchFormId]); 
+2023-11-28 15:13:35.7242|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE [Users] ADD CONSTRAINT [FK_Users_MatchForms_MatchFormId] FOREIGN KEY ([MatchFormId]) REFERENCES [MatchForms] ([MatchFormId]); 
+2023-11-28 15:13:35.7242|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.7242|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.7242|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.7242|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE [Users] ADD CONSTRAINT [FK_Users_Role_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [Role] ([RoleId]); 
+2023-11-28 15:13:35.7242|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE [Users] ADD CONSTRAINT [FK_Users_Role_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [Role] ([RoleId]); 
+2023-11-28 15:13:35.7242|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.7242|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.7242|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.7242|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20231119161434_regs', N'7.0.13'); 
+2023-11-28 15:13:35.7242|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20231119161434_regs', N'7.0.13'); 
+2023-11-28 15:13:35.7242|20210|DEBUG|Microsoft.EntityFrameworkCore.Database.Transaction|Committing transaction. 
+2023-11-28 15:13:35.7242|20202|DEBUG|Microsoft.EntityFrameworkCore.Database.Transaction|Committed transaction. 
+2023-11-28 15:13:35.7242|20204|DEBUG|Microsoft.EntityFrameworkCore.Database.Transaction|Disposing transaction. 
+2023-11-28 15:13:35.7242|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:13:35.7242|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'Findher' on server '(localdb)\MSSQLLocalDB' (0ms). 
+2023-11-28 15:13:35.7242|20402|INFO|Microsoft.EntityFrameworkCore.Migrations|Applying migration '20231119162112_regss'. 
+2023-11-28 15:13:35.7415|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:13:35.7415|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:13:35.7415|20209|DEBUG|Microsoft.EntityFrameworkCore.Database.Transaction|Beginning transaction with isolation level 'Unspecified'. 
+2023-11-28 15:13:35.7415|20200|DEBUG|Microsoft.EntityFrameworkCore.Database.Transaction|Began transaction with isolation level 'ReadCommitted'. 
+2023-11-28 15:13:35.7415|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.7415|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.7415|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.7415|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20231119162112_regss', N'7.0.13'); 
+2023-11-28 15:13:35.7415|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20231119162112_regss', N'7.0.13'); 
+2023-11-28 15:13:35.7415|20210|DEBUG|Microsoft.EntityFrameworkCore.Database.Transaction|Committing transaction. 
+2023-11-28 15:13:35.7415|20202|DEBUG|Microsoft.EntityFrameworkCore.Database.Transaction|Committed transaction. 
+2023-11-28 15:13:35.7415|20204|DEBUG|Microsoft.EntityFrameworkCore.Database.Transaction|Disposing transaction. 
+2023-11-28 15:13:35.7415|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:13:35.7415|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'Findher' on server '(localdb)\MSSQLLocalDB' (0ms). 
+2023-11-28 15:13:35.7415|20402|INFO|Microsoft.EntityFrameworkCore.Migrations|Applying migration '20231128124100_editprofile'. 
+2023-11-28 15:13:35.7588|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:13:35.7588|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:13:35.7588|20209|DEBUG|Microsoft.EntityFrameworkCore.Database.Transaction|Beginning transaction with isolation level 'Unspecified'. 
+2023-11-28 15:13:35.7588|20200|DEBUG|Microsoft.EntityFrameworkCore.Database.Transaction|Began transaction with isolation level 'ReadCommitted'. 
+2023-11-28 15:13:35.7588|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.7588|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.7588|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.7588|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE [Users] DROP CONSTRAINT [FK_Users_Role_RoleId]; 
+2023-11-28 15:13:35.7588|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE [Users] DROP CONSTRAINT [FK_Users_Role_RoleId]; 
+2023-11-28 15:13:35.7588|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.7588|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.7588|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.7588|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+DROP TABLE [Role]; 
+2023-11-28 15:13:35.7588|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+DROP TABLE [Role]; 
+2023-11-28 15:13:35.7588|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.7588|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.7588|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.7588|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [Roles] (
+    [RoleId] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Roles] PRIMARY KEY ([RoleId])
+); 
+2023-11-28 15:13:35.7588|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [Roles] (
+    [RoleId] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Roles] PRIMARY KEY ([RoleId])
+); 
+2023-11-28 15:13:35.7588|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.7588|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.7588|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.7588|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE [Users] ADD CONSTRAINT [FK_Users_Roles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [Roles] ([RoleId]); 
+2023-11-28 15:13:35.7588|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE [Users] ADD CONSTRAINT [FK_Users_Roles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [Roles] ([RoleId]); 
+2023-11-28 15:13:35.7588|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.7588|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.7588|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.7588|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20231128124100_editprofile', N'7.0.13'); 
+2023-11-28 15:13:35.7588|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20231128124100_editprofile', N'7.0.13'); 
+2023-11-28 15:13:35.7588|20210|DEBUG|Microsoft.EntityFrameworkCore.Database.Transaction|Committing transaction. 
+2023-11-28 15:13:35.7588|20202|DEBUG|Microsoft.EntityFrameworkCore.Database.Transaction|Committed transaction. 
+2023-11-28 15:13:35.7588|20204|DEBUG|Microsoft.EntityFrameworkCore.Database.Transaction|Disposing transaction. 
+2023-11-28 15:13:35.7588|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:13:35.7588|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'Findher' on server '(localdb)\MSSQLLocalDB' (0ms). 
+2023-11-28 15:13:35.7588|20402|INFO|Microsoft.EntityFrameworkCore.Migrations|Applying migration '20231128141310_MatchForm'. 
+2023-11-28 15:13:35.7783|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:13:35.7783|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:13:35.7783|20209|DEBUG|Microsoft.EntityFrameworkCore.Database.Transaction|Beginning transaction with isolation level 'Unspecified'. 
+2023-11-28 15:13:35.7783|20200|DEBUG|Microsoft.EntityFrameworkCore.Database.Transaction|Began transaction with isolation level 'ReadCommitted'. 
+2023-11-28 15:13:35.7783|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.7783|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.7783|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.7783|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE [Users] ADD [MatchFormScore] int NULL; 
+2023-11-28 15:13:35.7783|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE [Users] ADD [MatchFormScore] int NULL; 
+2023-11-28 15:13:35.7783|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.7783|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.7783|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.7783|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE [Answers] ADD [AnswerLetter] nvarchar(max) NOT NULL DEFAULT N''; 
+2023-11-28 15:13:35.7783|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE [Answers] ADD [AnswerLetter] nvarchar(max) NOT NULL DEFAULT N''; 
+2023-11-28 15:13:35.7783|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:13:35.7783|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.7783|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2023-11-28 15:13:35.7783|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20231128141310_MatchForm', N'7.0.13'); 
+2023-11-28 15:13:35.7783|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20231128141310_MatchForm', N'7.0.13'); 
+2023-11-28 15:13:35.7783|20210|DEBUG|Microsoft.EntityFrameworkCore.Database.Transaction|Committing transaction. 
+2023-11-28 15:13:35.7783|20202|DEBUG|Microsoft.EntityFrameworkCore.Database.Transaction|Committed transaction. 
+2023-11-28 15:13:35.7783|20204|DEBUG|Microsoft.EntityFrameworkCore.Database.Transaction|Disposing transaction. 
+2023-11-28 15:13:35.7783|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:13:35.7783|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'Findher' on server '(localdb)\MSSQLLocalDB' (0ms). 
+2023-11-28 15:13:35.7827|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'AppDbContext' disposed. 
+2023-11-28 15:13:35.7827|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:13:35.7827|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2023-11-28 15:14:19.9717|10401|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|An 'IServiceProvider' was created for internal use by Entity Framework. 
+2023-11-28 15:14:20.3657|10601|DEBUG|Microsoft.EntityFrameworkCore.Model|The index {'ChatsChatId'} was not created on entity type 'ChatUser (Dictionary<string, object>)' as the properties are already covered by the index {'ChatsChatId', 'UsersUserId'}. 
+2023-11-28 15:14:20.3657|10601|DEBUG|Microsoft.EntityFrameworkCore.Model|The index {'InterestsInterestId'} was not created on entity type 'InterestUser (Dictionary<string, object>)' as the properties are already covered by the index {'InterestsInterestId', 'UsersUserId'}. 
+2023-11-28 15:14:20.3657|10601|DEBUG|Microsoft.EntityFrameworkCore.Model|The index {'PinchesPinchId'} was not created on entity type 'PinchUser (Dictionary<string, object>)' as the properties are already covered by the index {'PinchesPinchId', 'UsersUserId'}. 
+2023-11-28 15:14:20.3657|10601|DEBUG|Microsoft.EntityFrameworkCore.Model|The index {'PreferencesPreferenceId'} was not created on entity type 'PreferenceUser (Dictionary<string, object>)' as the properties are already covered by the index {'PreferencesPreferenceId', 'UsersUserId'}. 
+2023-11-28 15:14:20.4396|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'ChatUser (Dictionary<string, object>).ChatsChatId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-11-28 15:14:20.4396|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'ChatUser (Dictionary<string, object>).UsersUserId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-11-28 15:14:20.4396|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'Question.MatchFormId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-11-28 15:14:20.4396|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'InterestUser (Dictionary<string, object>).InterestsInterestId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-11-28 15:14:20.4396|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'InterestUser (Dictionary<string, object>).UsersUserId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-11-28 15:14:20.4396|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'PinchUser (Dictionary<string, object>).PinchesPinchId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-11-28 15:14:20.4396|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'PinchUser (Dictionary<string, object>).UsersUserId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-11-28 15:14:20.4396|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'PreferenceUser (Dictionary<string, object>).PreferencesPreferenceId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-11-28 15:14:20.4396|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'PreferenceUser (Dictionary<string, object>).UsersUserId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-11-28 15:14:20.5526|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 7.0.13 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.13' with options: None 
+2023-11-28 15:14:20.5660|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2023-11-28 15:14:20.5967|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (29ms). 
+2023-11-28 15:14:20.5967|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:14:20.8516|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:14:20.8516|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-11-28 15:14:20.8607|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (4ms). 
+2023-11-28 15:14:20.8607|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (7ms). 
+2023-11-28 15:14:20.8607|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1 
+2023-11-28 15:14:20.8850|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (19ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1 
+2023-11-28 15:14:20.8850|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:14:20.8925|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'Findher' on server '(localdb)\MSSQLLocalDB' (3ms). 
+2023-11-28 15:14:20.9359|10111|DEBUG|Microsoft.EntityFrameworkCore.Query|Compiling query expression: 
+'DbSet<Role>()
+    .Any()' 
+2023-11-28 15:14:21.0402|10107|DEBUG|Microsoft.EntityFrameworkCore.Query|Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<bool>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT EXISTS (
+            SELECT 1
+            FROM Roles AS r)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, bool>, 
+    Find_H_er.Entities.AppDbContext, 
+    False, 
+    False, 
+    True
+)
+    .Single()' 
+2023-11-28 15:14:21.0605|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2023-11-28 15:14:21.0605|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2023-11-28 15:14:21.0605|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2023-11-28 15:14:21.0605|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:14:21.0605|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:14:21.0605|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Roles] AS [r]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END 
+2023-11-28 15:14:21.0687|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Roles] AS [r]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END 
+2023-11-28 15:14:21.0687|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:14:21.0687|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'Findher' on server '(localdb)\MSSQLLocalDB' is being disposed after spending 7ms reading results. 
+2023-11-28 15:14:21.0687|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:14:21.0687|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'Findher' on server '(localdb)\MSSQLLocalDB' (0ms). 
+2023-11-28 15:14:21.0991|10808|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|'"AppDbContext"' generated a temporary value for the property '"RoleId"."Role"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2023-11-28 15:14:21.1383|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'AppDbContext' started tracking 'Role' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2023-11-28 15:14:21.1383|10808|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|'"AppDbContext"' generated a temporary value for the property '"RoleId"."Role"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2023-11-28 15:14:21.1383|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'AppDbContext' started tracking 'Role' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2023-11-28 15:14:21.1414|10004|DEBUG|Microsoft.EntityFrameworkCore.Update|SaveChanges starting for 'AppDbContext'. 
+2023-11-28 15:14:21.1414|10800|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|DetectChanges starting for 'AppDbContext'. 
+2023-11-28 15:14:21.1414|10801|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|DetectChanges completed for 'AppDbContext'. 
+2023-11-28 15:14:21.1857|20700|DEBUG|Microsoft.EntityFrameworkCore.Update|Executing 2 update commands as a batch. 
+2023-11-28 15:14:21.1916|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:14:21.1916|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:14:21.1916|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2023-11-28 15:14:21.1916|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2023-11-28 15:14:21.1916|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (2ms). 
+2023-11-28 15:14:21.1916|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [Roles] USING (
+VALUES (@p0, 0),
+(@p1, 1)) AS i ([Name], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([Name])
+VALUES (i.[Name])
+OUTPUT INSERTED.[RoleId], i._Position; 
+2023-11-28 15:14:21.2417|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (47ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [Roles] USING (
+VALUES (@p0, 0),
+(@p1, 1)) AS i ([Name], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([Name])
+VALUES (i.[Name])
+OUTPUT INSERTED.[RoleId], i._Position; 
+2023-11-28 15:14:21.2417|10803|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|The foreign key property 'Role.RoleId' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values. 
+2023-11-28 15:14:21.2417|10803|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|The foreign key property 'Role.RoleId' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values. 
+2023-11-28 15:14:21.2516|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:14:21.2516|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'Findher' on server '(localdb)\MSSQLLocalDB' is being disposed after spending 9ms reading results. 
+2023-11-28 15:14:21.2516|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-11-28 15:14:21.2516|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'Findher' on server '(localdb)\MSSQLLocalDB' (0ms). 
+2023-11-28 15:14:21.2516|10807|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|An entity of type 'Role' tracked by 'AppDbContext' changed state from 'Added' to 'Unchanged'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2023-11-28 15:14:21.2516|10807|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|An entity of type 'Role' tracked by 'AppDbContext' changed state from 'Added' to 'Unchanged'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2023-11-28 15:14:21.2516|10005|DEBUG|Microsoft.EntityFrameworkCore.Update|SaveChanges completed for 'AppDbContext' with 2 entities written to the database. 
+2023-11-28 15:14:21.3211|12|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ModelBinderFactory|Registered model binder providers, in the following order: Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider 
+2023-11-28 15:14:21.3613|1|DEBUG|Microsoft.Extensions.Hosting.Internal.Host|Hosting starting 
+2023-11-28 15:14:21.3822|63|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\user\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest. 
+2023-11-28 15:14:21.3822|37|DEBUG|Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository|Reading data from file 'C:\Users\user\AppData\Local\ASP.NET\DataProtection-Keys\key-04225d81-604f-4a56-ae92-ed39037cf040.xml'. 
+2023-11-28 15:14:21.4043|18|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|Found key {04225d81-604f-4a56-ae92-ed39037cf040}. 
+2023-11-28 15:14:21.4142|13|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.DefaultKeyResolver|Considering key {04225d81-604f-4a56-ae92-ed39037cf040} with expiration date 2024-01-13 21:00:43Z as default key. 
+2023-11-28 15:14:21.4142|0|DEBUG|Microsoft.AspNetCore.DataProtection.TypeForwardingActivator|Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=7.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60 
+2023-11-28 15:14:21.4142|51|DEBUG|Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor|Decrypting secret element using Windows DPAPI. 
+2023-11-28 15:14:21.4142|0|DEBUG|Microsoft.AspNetCore.DataProtection.TypeForwardingActivator|Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=7.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60 
+2023-11-28 15:14:21.4142|4|DEBUG|Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.CngCbcAuthenticatedEncryptorFactory|Opening CNG algorithm 'AES' from provider '(null)' with chaining mode CBC. 
+2023-11-28 15:14:21.4142|3|DEBUG|Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.CngCbcAuthenticatedEncryptorFactory|Opening CNG algorithm 'SHA256' from provider '(null)' with HMAC. 
+2023-11-28 15:14:21.4142|2|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingProvider|Using key {04225d81-604f-4a56-ae92-ed39037cf040} as the default key. 
+2023-11-28 15:14:21.4142|65|DEBUG|Microsoft.AspNetCore.DataProtection.Internal.DataProtectionHostedService|Key ring with default key {04225d81-604f-4a56-ae92-ed39037cf040} was loaded during application startup. 
+2023-11-28 15:14:21.5864|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7055 
+2023-11-28 15:14:21.5864|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5152 
+2023-11-28 15:14:21.5864|13|DEBUG|Microsoft.AspNetCore.Hosting.Diagnostics|Loaded hosting startup assembly Find(H)er 
+2023-11-28 15:14:21.5864|13|DEBUG|Microsoft.AspNetCore.Hosting.Diagnostics|Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh 
+2023-11-28 15:14:21.5864|13|DEBUG|Microsoft.AspNetCore.Hosting.Diagnostics|Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net 
+2023-11-28 15:14:21.5864|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2023-11-28 15:14:21.5864|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2023-11-28 15:14:21.5864|0|INFO|Microsoft.Hosting.Lifetime|Content root path: F:\GitHub\Find_H_er\backend 
+2023-11-28 15:14:21.5864|2|DEBUG|Microsoft.Extensions.Hosting.Internal.Host|Hosting started 
+2023-11-28 15:14:21.7196|39|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HMVG3H8L5NE4" accepted. 
+2023-11-28 15:14:21.7196|1|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HMVG3H8L5NE4" started. 
+2023-11-28 15:14:21.7196|39|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HMVG3H8L5NE5" accepted. 
+2023-11-28 15:14:21.7196|1|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HMVG3H8L5NE5" started. 
+2023-11-28 15:14:23.7325|39|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HMVG3H8L5NE6" accepted. 
+2023-11-28 15:14:23.7325|1|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HMVG3H8L5NE6" started. 
+2023-11-28 15:14:23.7771|3|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware|Connection 0HMVG3H8L5NE6 established using the following protocol: Tls13 
+2023-11-28 15:14:23.8142|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending SETTINGS frame for stream ID 0 with length 24 and flags NONE. 
+2023-11-28 15:14:23.8142|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending WINDOW_UPDATE frame for stream ID 0 with length 4 and flags 0x0. 
+2023-11-28 15:14:23.8142|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" received SETTINGS frame for stream ID 0 with length 24 and flags NONE. 
+2023-11-28 15:14:23.8142|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending SETTINGS frame for stream ID 0 with length 0 and flags ACK. 
+2023-11-28 15:14:23.8142|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" received WINDOW_UPDATE frame for stream ID 0 with length 4 and flags 0x0. 
+2023-11-28 15:14:23.8307|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" received HEADERS frame for stream ID 1 with length 462 and flags END_STREAM, END_HEADERS, PRIORITY. 
+2023-11-28 15:14:23.8585|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" received SETTINGS frame for stream ID 0 with length 0 and flags ACK. 
+2023-11-28 15:14:23.8874|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:7055/swagger - - 
+2023-11-28 15:14:24.0314|0|DEBUG|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|Wildcard detected, all requests with hosts will be allowed. 
+2023-11-28 15:14:24.0314|2|TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2023-11-28 15:14:24.0706|1000|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|No candidates found for the request path '/swagger' 
+2023-11-28 15:14:24.0706|2|DEBUG|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|Request did not match any endpoints 
+2023-11-28 15:14:24.0972|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:7055/swagger - - - 301 0 - 211.4771ms 
+2023-11-28 15:14:24.0972|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending HEADERS frame for stream ID 1 with length 69 and flags END_STREAM, END_HEADERS. 
+2023-11-28 15:14:24.0972|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" received HEADERS frame for stream ID 3 with length 36 and flags END_STREAM, END_HEADERS, PRIORITY. 
+2023-11-28 15:14:24.1116|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:7055/swagger/index.html - - 
+2023-11-28 15:14:24.1116|2|TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2023-11-28 15:14:24.1116|1000|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|No candidates found for the request path '/swagger/index.html' 
+2023-11-28 15:14:24.1116|2|DEBUG|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|Request did not match any endpoints 
+2023-11-28 15:14:24.1986|1|DEBUG|Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware|Response markup is scheduled to include browser refresh script injection. 
+2023-11-28 15:14:24.1986|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending HEADERS frame for stream ID 3 with length 28 and flags END_HEADERS. 
+2023-11-28 15:14:24.2095|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 3 with length 4096 and flags NONE. 
+2023-11-28 15:14:24.2095|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 3 with length 989 and flags NONE. 
+2023-11-28 15:14:24.2095|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 3 with length 81 and flags NONE. 
+2023-11-28 15:14:24.2219|2|DEBUG|Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware|Response markup was updated to include browser refresh script injection. 
+2023-11-28 15:14:24.2219|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 3 with length 0 and flags END_STREAM. 
+2023-11-28 15:14:24.2219|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:7055/swagger/index.html - - - 200 - text/html;charset=utf-8 110.9313ms 
+2023-11-28 15:14:24.2428|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" received HEADERS frame for stream ID 5 with length 107 and flags END_STREAM, END_HEADERS, PRIORITY. 
+2023-11-28 15:14:24.2428|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:7055/swagger/swagger-ui.css - - 
+2023-11-28 15:14:24.2428|2|TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2023-11-28 15:14:24.2428|1000|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|No candidates found for the request path '/swagger/swagger-ui.css' 
+2023-11-28 15:14:24.2428|2|DEBUG|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|Request did not match any endpoints 
+2023-11-28 15:14:24.2428|0|TRACE|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|Range header's value is empty. 
+2023-11-28 15:14:24.2521|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" received HEADERS frame for stream ID 7 with length 52 and flags END_STREAM, END_HEADERS, PRIORITY. 
+2023-11-28 15:14:24.2521|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" received HEADERS frame for stream ID 9 with length 50 and flags END_STREAM, END_HEADERS, PRIORITY. 
+2023-11-28 15:14:24.2521|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:7055/swagger/swagger-ui-bundle.js - - 
+2023-11-28 15:14:24.2521|2|TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2023-11-28 15:14:24.2521|1000|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|No candidates found for the request path '/swagger/swagger-ui-bundle.js' 
+2023-11-28 15:14:24.2521|2|DEBUG|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|Request did not match any endpoints 
+2023-11-28 15:14:24.2521|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:7055/swagger/swagger-ui-standalone-preset.js - - 
+2023-11-28 15:14:24.2521|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" received HEADERS frame for stream ID 11 with length 51 and flags END_STREAM, END_HEADERS, PRIORITY. 
+2023-11-28 15:14:24.2521|2|TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2023-11-28 15:14:24.2521|1000|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|No candidates found for the request path '/swagger/swagger-ui-standalone-preset.js' 
+2023-11-28 15:14:24.2521|2|DEBUG|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|Request did not match any endpoints 
+2023-11-28 15:14:24.2521|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:7055/_framework/aspnetcore-browser-refresh.js - - 
+2023-11-28 15:14:24.2521|0|TRACE|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|Range header's value is empty. 
+2023-11-28 15:14:24.2521|0|TRACE|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|Range header's value is empty. 
+2023-11-28 15:14:24.2521|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" received HEADERS frame for stream ID 13 with length 33 and flags END_STREAM, END_HEADERS, PRIORITY. 
+2023-11-28 15:14:24.2521|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:7055/_vs/browserLink - - 
+2023-11-28 15:14:24.2521|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending HEADERS frame for stream ID 5 with length 79 and flags END_HEADERS. 
+2023-11-28 15:14:24.2521|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 5 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.2687|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 5 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.2687|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 5 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.2687|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 5 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3036|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending HEADERS frame for stream ID 7 with length 51 and flags END_HEADERS. 
+2023-11-28 15:14:24.3036|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3036|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3036|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3036|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3216|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending HEADERS frame for stream ID 9 with length 34 and flags END_HEADERS. 
+2023-11-28 15:14:24.3216|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 9 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3216|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 9 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3216|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 9 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3216|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 9 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3216|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending HEADERS frame for stream ID 11 with length 60 and flags END_HEADERS. 
+2023-11-28 15:14:24.3216|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 11 with length 13754 and flags NONE. 
+2023-11-28 15:14:24.3216|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 5 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3216|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 5 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3216|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 5 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3216|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 5 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3216|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3216|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3216|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3216|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3216|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:7055/_framework/aspnetcore-browser-refresh.js - - - 200 13754 application/javascript;+charset=utf-8 70.6627ms 
+2023-11-28 15:14:24.3216|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 9 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3216|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 9 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3216|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 9 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3216|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 9 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3216|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 5 with length 12871 and flags NONE. 
+2023-11-28 15:14:24.3216|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 11 with length 0 and flags END_STREAM. 
+2023-11-28 15:14:24.3286|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3286|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3286|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3286|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3286|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 9 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3286|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 9 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3286|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 9 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3286|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 9 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3286|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3286|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3286|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3286|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3286|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 9 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3286|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 9 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3286|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 9 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3286|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 9 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3286|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3286|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3286|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3286|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3286|2|INFO|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A' 
+2023-11-28 15:14:24.3286|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:7055/swagger/swagger-ui.css - - - 200 143943 text/css 94.9226ms 
+2023-11-28 15:14:24.3286|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 9 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3286|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 9 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3286|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 9 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3286|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 9 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3286|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 5 with length 0 and flags END_STREAM. 
+2023-11-28 15:14:24.3286|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3286|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3286|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3286|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3286|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 9 with length 11806 and flags NONE. 
+2023-11-28 15:14:24.3286|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3286|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3286|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3286|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3286|2|INFO|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A' 
+2023-11-28 15:14:24.3286|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 9 with length 0 and flags END_STREAM. 
+2023-11-28 15:14:24.3286|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:7055/swagger/swagger-ui-standalone-preset.js - - - 200 339486 text/javascript 89.2541ms 
+2023-11-28 15:14:24.3286|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3286|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3286|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3286|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3489|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3489|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3489|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3489|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3489|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3489|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3489|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3489|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3489|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3489|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3489|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3489|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3489|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3489|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3489|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3489|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3489|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3489|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3489|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3489|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3489|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3489|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3489|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3489|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3489|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3489|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3489|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3489|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3489|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3489|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3489|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3489|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3489|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3489|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 16384 and flags NONE. 
+2023-11-28 15:14:24.3489|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 14801 and flags NONE. 
+2023-11-28 15:14:24.3604|2|INFO|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A' 
+2023-11-28 15:14:24.3604|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:7055/swagger/swagger-ui-bundle.js - - - 200 1096145 text/javascript 107.5595ms 
+2023-11-28 15:14:24.3604|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 7 with length 0 and flags END_STREAM. 
+2023-11-28 15:14:24.3604|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending HEADERS frame for stream ID 13 with length 149 and flags END_HEADERS. 
+2023-11-28 15:14:24.3604|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 13 with length 9986 and flags NONE. 
+2023-11-28 15:14:24.3790|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 13 with length 10240 and flags NONE. 
+2023-11-28 15:14:24.3790|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 13 with length 10240 and flags NONE. 
+2023-11-28 15:14:24.3790|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 13 with length 10240 and flags NONE. 
+2023-11-28 15:14:24.3790|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 13 with length 10240 and flags NONE. 
+2023-11-28 15:14:24.3790|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 13 with length 10240 and flags NONE. 
+2023-11-28 15:14:24.3790|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 13 with length 10240 and flags NONE. 
+2023-11-28 15:14:24.3790|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 13 with length 10240 and flags NONE. 
+2023-11-28 15:14:24.3790|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 13 with length 10240 and flags NONE. 
+2023-11-28 15:14:24.3790|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 13 with length 10240 and flags NONE. 
+2023-11-28 15:14:24.3790|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 13 with length 10240 and flags NONE. 
+2023-11-28 15:14:24.3790|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 13 with length 10240 and flags NONE. 
+2023-11-28 15:14:24.3790|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 13 with length 10240 and flags NONE. 
+2023-11-28 15:14:24.3790|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 13 with length 10240 and flags NONE. 
+2023-11-28 15:14:24.3790|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 13 with length 10240 and flags NONE. 
+2023-11-28 15:14:24.3790|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 13 with length 160 and flags NONE. 
+2023-11-28 15:14:24.3790|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 13 with length 0 and flags END_STREAM. 
+2023-11-28 15:14:24.3790|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:7055/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 125.6320ms 
+2023-11-28 15:14:24.5171|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" received HEADERS frame for stream ID 15 with length 66 and flags END_STREAM, END_HEADERS, PRIORITY. 
+2023-11-28 15:14:24.5171|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:7055/swagger/v1/swagger.json - - 
+2023-11-28 15:14:24.5171|2|TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2023-11-28 15:14:24.5171|1000|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|No candidates found for the request path '/swagger/v1/swagger.json' 
+2023-11-28 15:14:24.5171|2|DEBUG|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|Request did not match any endpoints 
+2023-11-28 15:14:24.5341|37|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" received HEADERS frame for stream ID 17 with length 88 and flags END_STREAM, END_HEADERS, PRIORITY. 
+2023-11-28 15:14:24.5341|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:7055/swagger/favicon-32x32.png - - 
+2023-11-28 15:14:24.5341|2|TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2023-11-28 15:14:24.5341|1000|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|No candidates found for the request path '/swagger/favicon-32x32.png' 
+2023-11-28 15:14:24.5341|2|DEBUG|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|Request did not match any endpoints 
+2023-11-28 15:14:24.5341|0|TRACE|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|Range header's value is empty. 
+2023-11-28 15:14:24.5341|2|INFO|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A' 
+2023-11-28 15:14:24.5341|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending HEADERS frame for stream ID 17 with length 41 and flags END_HEADERS. 
+2023-11-28 15:14:24.5341|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:7055/swagger/favicon-32x32.png - - - 200 628 image/png 0.5516ms 
+2023-11-28 15:14:24.5341|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 17 with length 628 and flags NONE. 
+2023-11-28 15:14:24.5341|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 17 with length 0 and flags END_STREAM. 
+2023-11-28 15:14:24.6169|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending HEADERS frame for stream ID 15 with length 35 and flags END_HEADERS. 
+2023-11-28 15:14:24.6169|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 15 with length 6191 and flags NONE. 
+2023-11-28 15:14:24.6169|49|TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HMVG3H8L5NE6" sending DATA frame for stream ID 15 with length 0 and flags END_STREAM. 
+2023-11-28 15:14:24.6169|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:7055/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 97.9542ms 
+2023-11-28 15:14:31.7607|2|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware|Authentication of the HTTPS connection timed out. 
+2023-11-28 15:14:31.7607|2|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware|Authentication of the HTTPS connection timed out. 
+2023-11-28 15:14:31.7607|2|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HMVG3H8L5NE4" stopped. 
+2023-11-28 15:14:31.7607|2|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HMVG3H8L5NE5" stopped. 
+2023-11-28 15:14:31.7607|7|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets|Connection id "0HMVG3H8L5NE4" sending FIN because: "The Socket transport's send loop completed gracefully." 
+2023-11-28 15:14:31.7607|7|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets|Connection id "0HMVG3H8L5NE5" sending FIN because: "The Socket transport's send loop completed gracefully." 

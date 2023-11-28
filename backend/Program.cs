@@ -56,6 +56,7 @@ builder.Services.AddScoped<IValidator<LoginDto>, LoginDtoValidator>();
 builder.Services.AddScoped<IValidator<EditProfileDto>, EditProfileDtoValidator>();
 builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
 builder.Services.AddScoped<IAccountService, AccountService>();
+builder.Services.AddScoped<IMatchFormService, MatchFormService>();
 builder.Services.AddScoped<IUserContextService, UserContextService>();
 builder.Services.AddScoped<ErrorHandlingMiddleware>();
 var app = builder.Build();
