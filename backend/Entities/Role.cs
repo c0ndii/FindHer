@@ -1,4 +1,4 @@
-﻿namespace wBialy.Entities
+﻿namespace Find_H_er.Entities
 {
     public class Role
     {

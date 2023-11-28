@@ -6,6 +6,10 @@ using System.Security.Claims;
 using System.Text;
 using Find_H_er.Entities;
 using Find_H_er.Models;
+using Microsoft.AspNetCore.Mvc;
+using Find_H_er.Exceptions;
+using Microsoft.AspNetCore.Authorization;
+using Find_H_er.Authorization;
 
 namespace Find_H_er.Services
 {
@@ -13,6 +17,7 @@ namespace Find_H_er.Services
     {
         Task<string> GenerateJwt(LoginDto dto);
         Task RegisterUser(RegisterUserDto dto);
+        Task EditProfile(EditProfileDto dto);
     }
 
     public class AccountService : IAccountService
@@ -20,11 +25,15 @@ namespace Find_H_er.Services
         private readonly AppDbContext _context;
         private readonly IPasswordHasher<User> _passwordHasher;
         private readonly AuthenticationSettings _authenticationSettings;
-        public AccountService(AppDbContext context, IPasswordHasher<User> passwordHasher, AuthenticationSettings authenticationSettings)
+        private readonly IUserContextService _userContextService;
+        private readonly IAuthorizationService _authorizationService;
+        public AccountService(AppDbContext context, IPasswordHasher<User> passwordHasher, AuthenticationSettings authenticationSettings, IUserContextService userContextService, IAuthorizationService authorizationService)
         {
             _context = context;
             _passwordHasher = passwordHasher;
             _authenticationSettings = authenticationSettings;
+            _userContextService = userContextService;
+            _authorizationService = authorizationService;
         }
         public async Task RegisterUser(RegisterUserDto dto)
         {
@@ -34,7 +43,7 @@ namespace Find_H_er.Services
             };
             var hashedPassword = _passwordHasher.HashPassword(newUser, dto.Password);
             newUser.PasswordHash = hashedPassword;
-            newUser.RoleId = 1;
+            newUser.Role = await _context.Roles.FirstOrDefaultAsync(x => x.Name == "User");
             await _context.Users.AddAsync(newUser);
             await _context.SaveChangesAsync();
         }
@@ -75,6 +84,23 @@ namespace Find_H_er.Services
 
             var tokenHandler = new JwtSecurityTokenHandler();
             return await Task.FromResult(tokenHandler.WriteToken(token));
+        }
+        public async Task EditProfile(EditProfileDto dto)
+        {
+            var userId = _userContextService.GetUserId;
+            var user = await _context.Users.FirstOrDefaultAsync(x => x.UserId == userId);
+            Console.Write(user.UserId + "   " + userId);
+            if(user is null)
+            {
+                throw new NotFoundException("User not found");
+            }
+            user.Name = dto.Name;
+            user.Description = dto.Description;
+            user.Age = dto.Age;
+            user.Sex = dto.Sex;
+            user.Image = dto.Image;
+            _context.Update(user);
+            await _context.SaveChangesAsync();
         }
     }
 }

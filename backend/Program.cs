@@ -5,14 +5,20 @@ using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Find_H_er.Middleware;
 using Find_H_er;
 using Find_H_er.Services;
 using Microsoft.AspNetCore.Identity;
 using FluentValidation;
 using Find_H_er.Models;
 using Find_H_er.Models.Validators;
+using NLog.Web;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Logging.ClearProviders();
+builder.Logging.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Trace);
+builder.Host.UseNLog();
 
 var authenticationSetting = new AuthenticationSettings();
 builder.Configuration.GetSection("Authentication").Bind(authenticationSetting);
@@ -44,14 +50,20 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddControllers().AddFluentValidation();
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("appDb")));
 builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<FindHerSeeder>();
 builder.Services.AddScoped<IValidator<RegisterUserDto>, RegisterUserDtoValidator>();
 builder.Services.AddScoped<IValidator<LoginDto>, LoginDtoValidator>();
+builder.Services.AddScoped<IValidator<EditProfileDto>, EditProfileDtoValidator>();
 builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
 builder.Services.AddScoped<IAccountService, AccountService>();
 builder.Services.AddScoped<IUserContextService, UserContextService>();
+builder.Services.AddScoped<ErrorHandlingMiddleware>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+var scope = app.Services.CreateScope();
+var seeder = scope.ServiceProvider.GetRequiredService<FindHerSeeder>();
+seeder.Seed();
 app.UseCors(x => x
     .AllowAnyMethod()
     .AllowAnyHeader()
@@ -62,6 +74,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseMiddleware<ErrorHandlingMiddleware>();
 app.UseAuthentication();
 app.UseHttpsRedirection();
 

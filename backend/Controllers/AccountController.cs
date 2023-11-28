@@ -2,6 +2,7 @@
 using Find_H_er.Entities;
 using Find_H_er.Services;
 using Find_H_er.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Find_H_er.Controllers
 {
@@ -25,6 +26,13 @@ namespace Find_H_er.Controllers
         {
             string token = await _accountService.GenerateJwt(dto);
             return await Task.FromResult(Ok(token));
+        }
+        [HttpPut("editprofile")]
+        [Authorize]
+        public async Task<ActionResult> EditProfile([FromBody] EditProfileDto profileToUpdate)
+        {
+            await _accountService.EditProfile(profileToUpdate);
+            return await Task.FromResult(Ok());
         }
     }
 }

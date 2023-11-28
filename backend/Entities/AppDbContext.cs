@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
+
 namespace Find_H_er.Entities
 {
     public class AppDbContext : DbContext
@@ -15,6 +16,7 @@ namespace Find_H_er.Entities
         public DbSet<UserSetting> UserSettings { get; set; }
         public DbSet<Interest> Interests { get; set; }
         public DbSet<Preference> Preferences { get; set; }
+        public DbSet<Role> Roles { get; set; }
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
             
