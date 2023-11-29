@@ -7,6 +7,7 @@ import {
   IconSettings,
   IconThumbUp,
   IconLogout,
+  IconForms
 } from '@tabler/icons-react';
 import classes from './Sidebar.module.css';
 import { NavLink } from "react-router-dom";
@@ -36,6 +37,7 @@ const mockdata = [
   { icon: IconUser, label: 'Account' },
   { icon: IconHeart, label: 'Preferences' },
   { icon: IconThumbUp, label: 'Interests' },
+  { icon: IconForms, label: 'Matchform' },
   { icon: IconSettings, label: 'Settings' },
 ];
 

@@ -3,6 +3,7 @@ import { Avatar, Text, Stack, Tooltip, ActionIcon, Box  } from '@mantine/core';
 import { IconBrandFacebook, IconBrandX, IconBrandSpotify, IconBrandInstagram} from '@tabler/icons-react';
 import classes from './AccountView.module.css';
 import { NavLink } from "react-router-dom";
+import { EditUserForm } from '../../components/User';
 
 export const AccountView = () => {
 
@@ -12,10 +13,11 @@ export const AccountView = () => {
 
           <Grid.Col span={{ base: 12, xs: 5 }} style={{display:'flex',alignItems:'center',height:'700px',width:'500px'}}>
             <Avatar
-            src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-2.png"
+            src=""
             size={300}
             radius='xl'
             alt='avatar'
+         
             />
           </Grid.Col>
 
@@ -41,10 +43,11 @@ export const AccountView = () => {
             </Box>
 
             <Box>
-                <Text fz="md" fw={400} className={classes.name} style={{paddingTop:'16px'}}>
+                <Text fz="md" fw={400} className={classes.name} style={{paddingTop:'16px',paddingBottom:'16px'}}>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consequat urna eget nibh accumsan, vitae dictum augue euismod. Duis augue tortor, efficitur nec suscipit at, sagittis sed nunc. Curabitur quis ex dui. Donec congue orci risus, ultrices commodo ante gravida ut. Sed volutpat id dui ut dapibus. In varius ante tincidunt, mollis turpis nec, placerat risus. Fusce molestie dui eget justo dictum vestibulum. 
                 </Text>
             </Box>
+            <EditUserForm />
           </Grid.Col>
 
           <Grid.Col span={{ base: 2, xs: 12 }}>

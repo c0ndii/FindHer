@@ -13,6 +13,7 @@ import LogoutView from './view/LogoutView/LogoutView'
 import { ProtectedRoute } from './components/ProtectedRoute/ProtectedRoute'
 import { useAtom } from 'jotai';
 import { isAuthenticated } from './utils/Authentication'
+import { MatchForm } from './components/MatchForm'
 
 
 const App = () => {
@@ -22,10 +23,11 @@ const App = () => {
       <Route path="/" element={<Welcome />} />
       <Route path="/SignIn" element={<SignIn />} />
       <Route path="/SignUp" element={<SignUp />} />
-      <Route path="/app" element={<ProtectedRoute isAuth={isAuth}><Layout /></ProtectedRoute>}>
+      <Route path="/app" element={<Layout />}>
         <Route path="Account" element={<AccountView />} />
         <Route path="Preferences" element={<PreferencesView />} />
         <Route path="Interests" element={<InterestsView />} />
+        <Route path="Matchform" element={<MatchForm />} />
         <Route path="Settings" element={<SettingsView />} />
         <Route path="Logout" element={<LogoutView />} />
       </Route>
