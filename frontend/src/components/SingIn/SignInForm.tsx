@@ -5,78 +5,106 @@ import {
   PasswordInput,
   TextInput,
   Title,
-  Text,
 } from '@mantine/core'
 import { FormContainer } from '../Common/FormContainer'
-import { SubmitHandler, useForm } from 'react-hook-form';
-import { loginModel, loginSchema } from '../../api/schema';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { Link, useNavigate } from 'react-router-dom'
-import { useState } from 'react';
-import { loginUser } from '../../api/Signin';
-import { useAtom } from 'jotai';
-import { isAuthenticated } from '../../utils/Authentication';
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { hasLength, isEmail, useForm } from '@mantine/form'
+import api from '../../api/api'
+import { useAuth } from '../Authentication/hooks/useAuth'
+import { Role_Claim } from '../Authentication/Constants/claimsConstans'
+import { jwtDecode } from 'jwt-decode'
+import { AuthState } from '../Authentication/components/AuthProvider'
+import Cookies from 'js-cookie'
+import { TokenData } from '../Authentication/Models/tokenData'
+
+interface loginModel {
+  email: string
+  password: string
+}
 
 export const SignInForm = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: {errors}
-  } = useForm<loginModel>({
-    resolver: zodResolver(loginSchema)
-  })
-  const [errorMessage, setErrorMessage] = useState<string | undefined>(undefined);
-  const [, setIsAuthenticated] = useAtom(isAuthenticated);
-  const navigate  = useNavigate();
+  const { auth, setAuth } = useAuth()
+  const navigate = useNavigate()
+  const location = useLocation()
+  const from = location.state?.from?.pathname || '/app/account'
 
-  const onSubmit: SubmitHandler<loginModel> = async (data) => {
+  console.log(auth)
+
+  const handleSubmit = async (values: loginModel) => {
     try {
-      await loginUser(data);
-      setIsAuthenticated(true);
-      navigate('/app/account');
-    } catch (error:any) {
-      setErrorMessage(error.message);
+      const response = await api.post('/api/account/login', values)
+      const token = response?.data as string
+      saveToken(token, setAuth)
+      navigate(from, { replace: true })
+    } catch (err) {
+      console.log('error')
     }
-  };
-  
+  }
+
+  const saveToken = (
+    token: string,
+    setAuth: React.Dispatch<React.SetStateAction<AuthState | null>>
+  ) => {
+    const decoded = jwtDecode<TokenData>(token)
+    const roles = decoded[Role_Claim] as string[]
+    const exp = decoded.exp
+
+    setAuth({
+      accessToken: token,
+      expirationTime: exp,
+      roles: roles,
+    })
+
+    Cookies.set('token', token, { expires: exp })
+  }
+
+  const form = useForm({
+    initialValues: {
+      email: '',
+      password: '',
+    } as loginModel,
+    validate: {
+      email: isEmail('Proszę wprowadź poprawny email'),
+      password: hasLength({ min: 8 }, 'Hasło musi mieć minimum 8 znaków'),
+    },
+  })
+
   return (
     <Box ml={250} mt={250}>
-      <form onSubmit={handleSubmit(onSubmit)}>
-      <FormContainer>
-        <Title c="white">Zaloguj się</Title>
+      <form onSubmit={form.onSubmit((values) => handleSubmit(values))}>
+        <FormContainer>
+          <Title c="white">Zaloguj się</Title>
 
-        <TextInput
-          c="#FFFFFF"
-          label="Adres email"
-          description=""
-          placeholder="Adres email"
-          {...register("email")}
-          error={errors.email?.message}
-        ></TextInput>
+          <TextInput
+            c="#FFFFFF"
+            label="Adres email"
+            description=""
+            placeholder="Adres email"
+            {...form.getInputProps('email')}
+          ></TextInput>
 
-        <PasswordInput
-          c="#FFFFFF"
-          label="Hasło"
-          placeholder="Hasło"
-          {...register("password")}
-          error={errors.password?.message}
-        ></PasswordInput>
-        {errorMessage && (<Text size='xs' color='red'>{errorMessage}</Text>)}
-        <Group mb="sm">
-          <Button color="red" variant="filled" type='submit'>
-            Zaloguj
-          </Button>
-          <Button
-            component={Link}
-            to="/SignUp"
-            bg={'white'}
-            color="red"
-            variant="outline"
-          >
-            Załóż konto
-          </Button>
-        </Group>
-      </FormContainer>
+          <PasswordInput
+            c="#FFFFFF"
+            label="Hasło"
+            placeholder="Hasło"
+            {...form.getInputProps('password')}
+          ></PasswordInput>
+
+          <Group mb="sm">
+            <Button color="red" variant="filled" type="submit">
+              Zaloguj
+            </Button>
+            <Button
+              component={Link}
+              to="/SignUp"
+              bg={'white'}
+              color="red"
+              variant="outline"
+            >
+              Załóż konto
+            </Button>
+          </Group>
+        </FormContainer>
       </form>
     </Box>
   )

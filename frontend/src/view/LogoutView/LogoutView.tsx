@@ -1,26 +1,26 @@
-import React, { useEffect } from 'react';
-import { useAtom } from 'jotai';
-import { useNavigate } from 'react-router-dom';
-import { isAuthenticated } from '../../utils/Authentication';
-
+/* import React, { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { isAuthenticated } from '../../utils/Authentication'
 
 const LogoutView = () => {
-  const [, setIsAuthenticated] = useAtom(isAuthenticated);
-  const navigate = useNavigate();
+  const [, setIsAuthenticated] = useAtom(isAuthenticated)
+  const navigate = useNavigate()
 
   useEffect(() => {
+    localStorage.removeItem('Authorization')
 
-    localStorage.removeItem('Authorization');
+    setIsAuthenticated(false)
 
-    setIsAuthenticated(false);
+    navigate('/SignIn')
+  }, [setIsAuthenticated, navigate])
 
-    navigate('/SignIn');
-  }, [setIsAuthenticated, navigate]);
+  return <></>
+}
 
-  return (
-    <>
-    </>
-  );
-};
+export default LogoutView
+function useAtom(isAuthenticated: any): [any, any] {
+  throw new Error('Function not implemented.')
+}
 
-export default LogoutView;
+ */
+export {}
