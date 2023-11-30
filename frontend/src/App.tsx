@@ -10,6 +10,7 @@ import { SignIn } from './routes/SignIn'
 import { SignUp } from './routes/SignUp'
 //import LogoutView from './view/LogoutView/LogoutView'
 import RequireAuth from './components/Authentication/components/RequireAuth'
+import { MatchForm } from './components/MatchForm'
 
 const App = () => {
   return (
@@ -23,7 +24,6 @@ const App = () => {
         <Route path="Interests" element={<InterestsView />} />
         <Route path="Matchform" element={<MatchForm />} />
         <Route path="Settings" element={<SettingsView />} />
-        {/* <Route path="Logout" element={<LogoutView />} /> */}
       </Route>
     </Routes>
   )

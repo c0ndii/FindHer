@@ -1,22 +1,15 @@
 import {
   Button,
   Group,
-  TextInput,
-  Text,
-  Modal,
-  NumberInput,
-  FileInput,
   Stepper,
   Select,
   Box,
 } from '@mantine/core'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useNavigate } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { userModel, userSchema } from '../../api/User/schema'
 import { editUser } from './../../api/User/Edit'
-import { useDisclosure } from '@mantine/hooks'
 
 export const MatchForm = () => {
   const [active, setActive] = useState(1)
