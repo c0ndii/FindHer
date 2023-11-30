@@ -21,6 +21,7 @@ const App = () => {
         <Route path="Account" element={<AccountView />} />
         <Route path="Preferences" element={<PreferencesView />} />
         <Route path="Interests" element={<InterestsView />} />
+        <Route path="Matchform" element={<MatchForm />} />
         <Route path="Settings" element={<SettingsView />} />
         {/* <Route path="Logout" element={<LogoutView />} /> */}
       </Route>
