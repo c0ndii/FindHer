@@ -1,3 +1,4 @@
+import Cookies from 'js-cookie';
 import { userModel } from './schema';
 import axios from 'axios';
 
@@ -8,7 +9,11 @@ export const editUser = async (userData : userModel) => {
         const response = await axios.put(baseUrl,
             JSON.stringify(userData),
             {
-                headers: {'Content-Type': 'application/json'},
+                headers: 
+                {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + Cookies.get('token')?.toString(),
+                },
                 withCredentials: true,
                 responseType: 'text',
             }

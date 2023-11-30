@@ -4,12 +4,13 @@ import {
   Stepper,
   Select,
   Box,
+  Center
 } from '@mantine/core'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useState } from 'react'
-import { userModel, userSchema } from '../../api/User/schema'
-import { editUser } from './../../api/User/Edit'
+import { matchPost } from '../../api/Match/Match'
+import { matchModel, matchSchema } from '../../api/Match/schema'
 
 export const MatchForm = () => {
   const [active, setActive] = useState(1)
@@ -19,33 +20,41 @@ export const MatchForm = () => {
     setActive((current) => (current > 0 ? current - 1 : current))
 
   const {
-    register,
+    setValue,
     handleSubmit,
     formState: { errors },
-  } = useForm<userModel>({
-    resolver: zodResolver(userSchema),
+  } = useForm<matchModel>({
+    resolver: zodResolver(matchSchema),
   })
   const [errorMessage, setErrorMessage] = useState<string | undefined>(
     undefined
   )
 
-  const onSubmit: SubmitHandler<userModel> = async (data) => {
+  const onSubmit: SubmitHandler<matchModel> = async (data) => {
     try {
-      await editUser(data)
+      console.log(data);
+      await matchPost(data)
     } catch (error: any) {
       setErrorMessage(error.message)
     }
   }
 
+  type QuestionKey = "question1" | "question2" | "question3" | "question4" | "question5";
+
+  const handleChange = (index: number, value: string) => {
+    console.log(index);
+    const key = `question${index}` as QuestionKey;
+    setValue(key, value);
+  };
+
   return (
-    <>
+    <Center>
       <form
         onSubmit={handleSubmit(onSubmit)}
         style={{
           display: 'flex',
           flexDirection: 'column',
           gap: '25px',
-          justifyContent: 'center',
         }}
       >
         <Stepper active={active} onStepClick={setActive} color="red">
@@ -56,27 +65,37 @@ export const MatchForm = () => {
               <Select
                 label="Pytanie 1"
                 placeholder="Odpowiedź"
+                clearable
                 data={['Odp1', 'Odp2', 'Odp3', 'Odp4']}
+                onChange={(selectedValue) => handleChange(1, selectedValue || "")}
               />
               <Select
                 label="Pytanie 2"
                 placeholder="Odpowiedź"
-                data={['Odp1', 'Odp2', 'Odp3', 'Odp4']}
+                clearable
+                data={['Odp1', 'Odp2', 'Odp19', 'Odp4']}
+                onChange={(selectedValue) => handleChange(2, selectedValue || "")}
               />
               <Select
                 label="Pytanie 3"
                 placeholder="Odpowiedź"
+                clearable
                 data={['Odp1', 'Odp2', 'Odp3', 'Odp4']}
+                onChange={(selectedValue) => handleChange(3, selectedValue || "")}
               />
               <Select
                 label="Pytanie 4"
+                clearable
                 placeholder="Odpowiedź"
                 data={['Odp1', 'Odp2', 'Odp3', 'Odp4']}
+                onChange={(selectedValue) => handleChange(4, selectedValue || "")}
               />
               <Select
                 label="Pytanie 5"
                 placeholder="Odpowiedź"
+                clearable
                 data={['Odp1', 'Odp2', 'Odp3', 'Odp4']}
+                onChange={(selectedValue) => handleChange(5, selectedValue || "")}
               />
             </Box>
           </Stepper.Step>
@@ -88,27 +107,37 @@ export const MatchForm = () => {
               <Select
                 label="Pytanie 6"
                 placeholder="Odpowiedź"
+                clearable
                 data={['Odp1', 'Odp2', 'Odp3', 'Odp4']}
+                onChange={(selectedValue) => handleChange(6, selectedValue || "")}
               />
               <Select
                 label="Pytanie 7"
                 placeholder="Odpowiedź"
+                clearable
                 data={['Odp1', 'Odp2', 'Odp3', 'Odp4']}
+                onChange={(selectedValue) => handleChange(7, selectedValue || "")}
               />
               <Select
                 label="Pytanie 8"
                 placeholder="Odpowiedź"
+                clearable
                 data={['Odp1', 'Odp2', 'Odp3', 'Odp4']}
+                onChange={(selectedValue) => handleChange(8, selectedValue || "")}
               />
               <Select
                 label="Pytanie 9"
                 placeholder="Odpowiedź"
+                clearable
                 data={['Odp1', 'Odp2', 'Odp3', 'Odp4']}
+                onChange={(selectedValue) => handleChange(9, selectedValue || "")}
               />
               <Select
                 label="Pytanie 10"
                 placeholder="Odpowiedź"
+                clearable
                 data={['Odp1', 'Odp2', 'Odp3', 'Odp4']}
+                onChange={(selectedValue) => handleChange(10, selectedValue || "")}
               />
             </Box>
           </Stepper.Step>
@@ -120,27 +149,37 @@ export const MatchForm = () => {
               <Select
                 label="Pytanie 11"
                 placeholder="Odpowiedź"
+                clearable
                 data={['Odp1', 'Odp2', 'Odp3', 'Odp4']}
+                onChange={(selectedValue) => handleChange(11, selectedValue || "")}
               />
               <Select
                 label="Pytanie 12"
                 placeholder="Odpowiedź"
+                clearable
                 data={['Odp1', 'Odp2', 'Odp3', 'Odp4']}
+                onChange={(selectedValue) => handleChange(12, selectedValue || "")}
               />
               <Select
                 label="Pytanie 13"
                 placeholder="Odpowiedź"
+                clearable
                 data={['Odp1', 'Odp2', 'Odp3', 'Odp4']}
+                onChange={(selectedValue) => handleChange(13, selectedValue || "")}
               />
               <Select
                 label="Pytanie 14"
                 placeholder="Odpowiedź"
+                clearable
                 data={['Odp1', 'Odp2', 'Odp3', 'Odp4']}
+                onChange={(selectedValue) => handleChange(14, selectedValue || "")}
               />
               <Select
                 label="Pytanie 15"
                 placeholder="Odpowiedź"
+                clearable
                 data={['Odp1', 'Odp2', 'Odp3', 'Odp4']}
+                onChange={(selectedValue) => handleChange(15, selectedValue || "")}
               />
             </Box>
           </Stepper.Step>
@@ -154,11 +193,11 @@ export const MatchForm = () => {
           <Button variant="default" onClick={prevStep}>
             Wróć
           </Button>
-          <Button onClick={nextStep} color="red">
+          <Button onClick={nextStep} type='submit' color="red">
             Dalej
           </Button>
         </Group>
       </form>
-    </>
+    </Center>
   )
 }

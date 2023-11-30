@@ -6,6 +6,7 @@ import {
   Modal,
   NumberInput,
   FileInput,
+  Textarea
 } from '@mantine/core'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -73,12 +74,12 @@ export const EditUserForm = () => {
             error={errors.age?.message}
           ></NumberInput>
 
-          <TextInput
+          <Textarea
             label="Opis"
             placeholder="Opis"
             {...register('description')}
             error={errors.description?.message}
-          ></TextInput>
+          />
 
           <TextInput
             label="Płeć"
