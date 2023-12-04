@@ -7,17 +7,19 @@ import {
   IconSettings,
   IconThumbUp,
   IconLogout,
-  IconForms
+  IconForms,
 } from '@tabler/icons-react'
 import classes from './Sidebar.module.css'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import Logo from '../../assets/logo.png'
+import { useAuth } from '../Authentication/hooks/useAuth'
+import Cookies from 'js-cookie'
 
 interface NavbarLinkProps {
   icon: typeof IconHome2
   label: string
   active?: boolean
-  onClick?(): void
+  onClick(): void
 }
 
 function NavbarLink({ icon: Icon, label, active, onClick }: NavbarLinkProps) {
@@ -25,6 +27,7 @@ function NavbarLink({ icon: Icon, label, active, onClick }: NavbarLinkProps) {
     <Tooltip label={label} position="right" transitionProps={{ duration: 0 }}>
       <NavLink to={label} style={{ textDecoration: 'none', color: 'inherit' }}>
         <UnstyledButton
+          component="a"
           onClick={onClick}
           className={classes.link}
           data-active={active || undefined}
@@ -47,6 +50,15 @@ const mockdata = [
 
 export const Sidebar = () => {
   const [active, setActive] = useState(1)
+  const navigate = useNavigate()
+
+  const { setAuth } = useAuth()
+
+  const logOut = () => {
+    setAuth(null)
+    Cookies.remove('token')
+    navigate('/')
+  }
 
   const links = mockdata.map((link, index) => (
     <NavbarLink
@@ -70,7 +82,7 @@ export const Sidebar = () => {
         </div>
 
         <Stack justify="center" gap={0}>
-          <NavbarLink icon={IconLogout} label="Logout" />
+          <NavbarLink icon={IconLogout} label="Logout" onClick={logOut} />
         </Stack>
       </Stack>
     </nav>
