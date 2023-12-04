@@ -4,6 +4,7 @@ using Find_H_er.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Find_H_er.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231204115214_asnwerss")]
+    partial class asnwerss
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -201,11 +204,16 @@ namespace Find_H_er.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("QuestionId"));
 
+                    b.Property<int?>("MatchFormId")
+                        .HasColumnType("int");
+
                     b.Property<string>("QuestionContent")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("QuestionId");
+
+                    b.HasIndex("MatchFormId");
 
                     b.ToTable("Questions");
                 });
@@ -251,6 +259,9 @@ namespace Find_H_er.Migrations
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("MatchFormId")
+                        .HasColumnType("int");
+
                     b.Property<int?>("MatchFormScore")
                         .HasColumnType("int");
 
@@ -271,6 +282,8 @@ namespace Find_H_er.Migrations
                     b.HasKey("UserId");
 
                     b.HasIndex("ForYouId");
+
+                    b.HasIndex("MatchFormId");
 
                     b.HasIndex("RoleId");
 
@@ -313,21 +326,6 @@ namespace Find_H_er.Migrations
                     b.HasIndex("UsersUserId");
 
                     b.ToTable("InterestUser");
-                });
-
-            modelBuilder.Entity("MatchFormQuestion", b =>
-                {
-                    b.Property<int>("MatchFormsMatchFormId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("QuestionsQuestionId")
-                        .HasColumnType("int");
-
-                    b.HasKey("MatchFormsMatchFormId", "QuestionsQuestionId");
-
-                    b.HasIndex("QuestionsQuestionId");
-
-                    b.ToTable("MatchFormQuestion");
                 });
 
             modelBuilder.Entity("PinchUser", b =>
@@ -405,17 +403,30 @@ namespace Find_H_er.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("Find_H_er.Entities.Question", b =>
+                {
+                    b.HasOne("Find_H_er.Entities.MatchForm", null)
+                        .WithMany("Questions")
+                        .HasForeignKey("MatchFormId");
+                });
+
             modelBuilder.Entity("Find_H_er.Entities.User", b =>
                 {
                     b.HasOne("Find_H_er.Entities.ForYou", "ForYou")
                         .WithMany("UsersForYou")
                         .HasForeignKey("ForYouId");
 
+                    b.HasOne("Find_H_er.Entities.MatchForm", "MatchForm")
+                        .WithMany()
+                        .HasForeignKey("MatchFormId");
+
                     b.HasOne("Find_H_er.Entities.Role", "Role")
                         .WithMany()
                         .HasForeignKey("RoleId");
 
                     b.Navigation("ForYou");
+
+                    b.Navigation("MatchForm");
 
                     b.Navigation("Role");
                 });
@@ -431,21 +442,6 @@ namespace Find_H_er.Migrations
                     b.HasOne("Find_H_er.Entities.User", null)
                         .WithMany()
                         .HasForeignKey("UsersUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("MatchFormQuestion", b =>
-                {
-                    b.HasOne("Find_H_er.Entities.MatchForm", null)
-                        .WithMany()
-                        .HasForeignKey("MatchFormsMatchFormId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Find_H_er.Entities.Question", null)
-                        .WithMany()
-                        .HasForeignKey("QuestionsQuestionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -488,6 +484,11 @@ namespace Find_H_er.Migrations
             modelBuilder.Entity("Find_H_er.Entities.ForYou", b =>
                 {
                     b.Navigation("UsersForYou");
+                });
+
+            modelBuilder.Entity("Find_H_er.Entities.MatchForm", b =>
+                {
+                    b.Navigation("Questions");
                 });
 
             modelBuilder.Entity("Find_H_er.Entities.Question", b =>

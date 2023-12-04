@@ -13,6 +13,7 @@ using FluentValidation;
 using Find_H_er.Models;
 using Find_H_er.Models.Validators;
 using NLog.Web;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -40,6 +41,7 @@ builder.Services.AddAuthentication(option =>
     };
 });
 builder.Services.AddScoped<IAuthorizationHandler, ResourceOperationRequirementHandler>();
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 // Add services to the container.
 
 

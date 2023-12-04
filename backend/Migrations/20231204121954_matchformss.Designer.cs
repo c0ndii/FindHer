@@ -4,6 +4,7 @@ using Find_H_er.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Find_H_er.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231204121954_matchformss")]
+    partial class matchformss
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -121,7 +124,13 @@ namespace Find_H_er.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MatchFormId"));
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("MatchFormId");
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
 
                     b.ToTable("MatchForms");
                 });
@@ -250,6 +259,9 @@ namespace Find_H_er.Migrations
 
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("MatchFormId")
+                        .HasColumnType("int");
 
                     b.Property<int?>("MatchFormScore")
                         .HasColumnType("int");
@@ -386,6 +398,17 @@ namespace Find_H_er.Migrations
                     b.Navigation("Question");
                 });
 
+            modelBuilder.Entity("Find_H_er.Entities.MatchForm", b =>
+                {
+                    b.HasOne("Find_H_er.Entities.User", "User")
+                        .WithOne("MatchForm")
+                        .HasForeignKey("Find_H_er.Entities.MatchForm", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Find_H_er.Entities.Message", b =>
                 {
                     b.HasOne("Find_H_er.Entities.Chat", "Chat")
@@ -497,6 +520,8 @@ namespace Find_H_er.Migrations
 
             modelBuilder.Entity("Find_H_er.Entities.User", b =>
                 {
+                    b.Navigation("MatchForm");
+
                     b.Navigation("Messages");
                 });
 #pragma warning restore 612, 618

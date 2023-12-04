@@ -1,4 +1,5 @@
 ﻿using Find_H_er.Entities;
+using Find_H_er.Models;
 using Find_H_er.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,7 +15,7 @@ namespace Find_H_er.Controllers
             _matchFormService = matchFormService;
         }
         [HttpGet]
-        public async Task<List<MatchForm>> GetMatchForm()
+        public async Task<MatchFormDto> GetMatchForm()
         {
             var result = await _matchFormService.GetMatchForm();
             return await Task.FromResult(result);

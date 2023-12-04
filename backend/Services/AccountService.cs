@@ -44,6 +44,14 @@ namespace Find_H_er.Services
             var hashedPassword = _passwordHasher.HashPassword(newUser, dto.Password);
             newUser.PasswordHash = hashedPassword;
             newUser.Role = await _context.Roles.FirstOrDefaultAsync(x => x.Name == "User");
+            var matchForm = new MatchForm()
+            {
+                Questions = await _context.Questions.ToListAsync(),
+                //User = newUser,
+                //UserId = newUser.UserId,
+            };
+            //newUser.MatchForm = matchForm;
+            await _context.MatchForms.AddAsync(matchForm);
             await _context.Users.AddAsync(newUser);
             await _context.SaveChangesAsync();
         }
