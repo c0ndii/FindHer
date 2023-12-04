@@ -1,11 +1,26 @@
 import { Button, Group, Stepper, Select, Box, Center } from '@mantine/core'
-import { useState } from 'react'
-import { matchPost } from '../../api/Match/Match'
-import { matchModel, matchSchema } from '../../api/Match/schema'
+import { useEffect, useState } from 'react'
 import { useForm } from '@mantine/form'
+import { matchGet } from '../../api/Match/getMatch'
+
+type Answer = {
+  answerContent: string
+  answerLetter: string
+}
+
+type Question = {
+  questionId: number
+  questionContent: string
+  answers: Answer[]
+}
+
+type MatchFormData = {
+  questions: Question[]
+}
 
 export const MatchForm = () => {
-  const [active, setActive] = useState(1)
+  const [active, setActive] = useState(0)
+  const [questions, setQuestions] = useState<MatchFormData | null>(null)
   const form = useForm()
 
   const nextStep = () =>
@@ -13,14 +28,18 @@ export const MatchForm = () => {
   const prevStep = () =>
     setActive((current) => (current > 0 ? current - 1 : current))
 
-  //Dla dawida - w linijce 43 masz pokazane jak wygladaja pytania z odp
+  const fetchQuestions = async () => {
+    try {
+      const response = await matchGet()
+      setQuestions(response.data as MatchFormData)
+    } catch (error) {
+      console.error('Failed to fetch questions', error)
+    }
+  }
 
-  type QuestionKey =
-    | 'question1'
-    | 'question2'
-    | 'question3'
-    | 'question4'
-    | 'question5'
+  useEffect(() => {
+    fetchQuestions()
+  }, [])
 
   return (
     <Center>
@@ -37,58 +56,63 @@ export const MatchForm = () => {
               style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}
             >
               <Select
-                label="Pytanie 1"
+                label={questions?.questions.at(0)?.questionContent}
                 placeholder="Odpowiedź"
                 clearable
-                data={[
-                  { value: 'react', label: 'React' },
-                  { value: 'ng', label: 'Angular' },
-                  { value: 'vue', label: 'Vue', disabled: true },
-                  { value: 'svelte', label: 'Svelte', disabled: true },
-                ]}
+                data={
+                  questions?.questions.at(0)?.answers.map((answer) => ({
+                    value: answer.answerLetter,
+                    label: answer.answerContent,
+                  })) || []
+                }
                 {...form.getInputProps('question1')}
               />
               <Select
-                label="Pytanie 2"
+                label={questions?.questions.at(1)?.questionContent}
                 placeholder="Odpowiedź"
                 clearable
-                data={['Odp1', 'Odp2', 'Odp19', 'Odp4']}
+                data={
+                  questions?.questions.at(1)?.answers.map((answer) => ({
+                    value: answer.answerLetter,
+                    label: answer.answerContent,
+                  })) || []
+                }
                 {...form.getInputProps('question2')}
               />
               <Select
-                label="Pytanie 3"
+                label={questions?.questions.at(2)?.questionContent}
                 placeholder="Odpowiedź"
                 clearable
-                data={[
-                  { value: 'react', label: 'React' },
-                  { value: 'ng', label: 'Angular' },
-                  { value: 'vue', label: 'Vue', disabled: true },
-                  { value: 'svelte', label: 'Svelte', disabled: true },
-                ]}
+                data={
+                  questions?.questions.at(2)?.answers.map((answer) => ({
+                    value: answer.answerLetter,
+                    label: answer.answerContent,
+                  })) || []
+                }
                 {...form.getInputProps('question3')}
               />
               <Select
-                label="Pytanie 4"
+                label={questions?.questions.at(3)?.questionContent}
                 clearable
                 placeholder="Odpowiedź"
-                data={[
-                  { value: 'react', label: 'React' },
-                  { value: 'ng', label: 'Angular' },
-                  { value: 'vue', label: 'Vue', disabled: true },
-                  { value: 'svelte', label: 'Svelte', disabled: true },
-                ]}
+                data={
+                  questions?.questions.at(3)?.answers.map((answer) => ({
+                    value: answer.answerLetter,
+                    label: answer.answerContent,
+                  })) || []
+                }
                 {...form.getInputProps('question4')}
               />
               <Select
-                label="Pytanie 5"
+                label={questions?.questions.at(4)?.questionContent}
                 placeholder="Odpowiedź"
                 clearable
-                data={[
-                  { value: 'react', label: 'React' },
-                  { value: 'ng', label: 'Angular' },
-                  { value: 'vue', label: 'Vue', disabled: true },
-                  { value: 'svelte', label: 'Svelte', disabled: true },
-                ]}
+                data={
+                  questions?.questions.at(4)?.answers.map((answer) => ({
+                    value: answer.answerLetter,
+                    label: answer.answerContent,
+                  })) || []
+                }
                 {...form.getInputProps('question5')}
               />
             </Box>
@@ -107,63 +131,63 @@ export const MatchForm = () => {
               style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}
             >
               <Select
-                label="Pytanie 6"
+                label={questions?.questions.at(5)?.questionContent}
                 placeholder="Odpowiedź"
                 clearable
-                data={[
-                  { value: 'react', label: 'React' },
-                  { value: 'ng', label: 'Angular' },
-                  { value: 'vue', label: 'Vue', disabled: true },
-                  { value: 'svelte', label: 'Svelte', disabled: true },
-                ]}
+                data={
+                  questions?.questions.at(5)?.answers.map((answer) => ({
+                    value: answer.answerLetter,
+                    label: answer.answerContent,
+                  })) || []
+                }
                 {...form.getInputProps('question6')}
               />
               <Select
-                label="Pytanie 7"
+                label={questions?.questions.at(6)?.questionContent}
                 placeholder="Odpowiedź"
                 clearable
-                data={[
-                  { value: 'react', label: 'React' },
-                  { value: 'ng', label: 'Angular' },
-                  { value: 'vue', label: 'Vue', disabled: true },
-                  { value: 'svelte', label: 'Svelte', disabled: true },
-                ]}
+                data={
+                  questions?.questions.at(6)?.answers.map((answer) => ({
+                    value: answer.answerLetter,
+                    label: answer.answerContent,
+                  })) || []
+                }
                 {...form.getInputProps('question7')}
               />
               <Select
-                label="Pytanie 8"
+                label={questions?.questions.at(7)?.questionContent}
                 placeholder="Odpowiedź"
                 clearable
-                data={[
-                  { value: 'react', label: 'React' },
-                  { value: 'ng', label: 'Angular' },
-                  { value: 'vue', label: 'Vue', disabled: true },
-                  { value: 'svelte', label: 'Svelte', disabled: true },
-                ]}
+                data={
+                  questions?.questions.at(7)?.answers.map((answer) => ({
+                    value: answer.answerLetter,
+                    label: answer.answerContent,
+                  })) || []
+                }
                 {...form.getInputProps('question8')}
               />
               <Select
-                label="Pytanie 9"
+                label={questions?.questions.at(8)?.questionContent}
                 placeholder="Odpowiedź"
                 clearable
-                data={[
-                  { value: 'react', label: 'React' },
-                  { value: 'ng', label: 'Angular' },
-                  { value: 'vue', label: 'Vue', disabled: true },
-                  { value: 'svelte', label: 'Svelte', disabled: true },
-                ]}
+                data={
+                  questions?.questions.at(8)?.answers.map((answer) => ({
+                    value: answer.answerLetter,
+                    label: answer.answerContent,
+                  })) || []
+                }
                 {...form.getInputProps('question9')}
               />
               <Select
-                label="Pytanie 10"
+                label={questions?.questions.at(9)?.questionContent}
                 placeholder="Odpowiedź"
                 clearable
-                data={[
-                  { value: 'react', label: 'React' },
-                  { value: 'ng', label: 'Angular' },
-                  { value: 'vue', label: 'Vue', disabled: true },
-                  { value: 'svelte', label: 'Svelte', disabled: true },
-                ]}
+                data={
+                  questions?.questions.at(9)?.answers.map((answer) => ({
+                    value: answer.answerLetter,
+                    label: answer.answerContent,
+                  })) || []
+                }
                 {...form.getInputProps('question10')}
               />
             </Box>
@@ -182,63 +206,63 @@ export const MatchForm = () => {
               style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}
             >
               <Select
-                label="Pytanie 11"
+                label={questions?.questions.at(10)?.questionContent}
                 placeholder="Odpowiedź"
                 clearable
-                data={[
-                  { value: 'react', label: 'React' },
-                  { value: 'ng', label: 'Angular' },
-                  { value: 'vue', label: 'Vue', disabled: true },
-                  { value: 'svelte', label: 'Svelte', disabled: true },
-                ]}
+                data={
+                  questions?.questions.at(10)?.answers.map((answer) => ({
+                    value: answer.answerLetter,
+                    label: answer.answerContent,
+                  })) || []
+                }
                 {...form.getInputProps('question11')}
               />
               <Select
-                label="Pytanie 12"
+                label={questions?.questions.at(11)?.questionContent}
                 placeholder="Odpowiedź"
                 clearable
-                data={[
-                  { value: 'react', label: 'React' },
-                  { value: 'ng', label: 'Angular' },
-                  { value: 'vue', label: 'Vue', disabled: true },
-                  { value: 'svelte', label: 'Svelte', disabled: true },
-                ]}
+                data={
+                  questions?.questions.at(11)?.answers.map((answer) => ({
+                    value: answer.answerLetter,
+                    label: answer.answerContent,
+                  })) || []
+                }
                 {...form.getInputProps('question12')}
               />
               <Select
-                label="Pytanie 13"
+                label={questions?.questions.at(12)?.questionContent}
                 placeholder="Odpowiedź"
                 clearable
-                data={[
-                  { value: 'react', label: 'React' },
-                  { value: 'ng', label: 'Angular' },
-                  { value: 'vue', label: 'Vue', disabled: true },
-                  { value: 'svelte', label: 'Svelte', disabled: true },
-                ]}
+                data={
+                  questions?.questions.at(12)?.answers.map((answer) => ({
+                    value: answer.answerLetter,
+                    label: answer.answerContent,
+                  })) || []
+                }
                 {...form.getInputProps('question13')}
               />
               <Select
-                label="Pytanie 14"
+                label={questions?.questions.at(13)?.questionContent}
                 placeholder="Odpowiedź"
                 clearable
-                data={[
-                  { value: 'react', label: 'React' },
-                  { value: 'ng', label: 'Angular' },
-                  { value: 'vue', label: 'Vue', disabled: true },
-                  { value: 'svelte', label: 'Svelte', disabled: true },
-                ]}
+                data={
+                  questions?.questions.at(13)?.answers.map((answer) => ({
+                    value: answer.answerLetter,
+                    label: answer.answerContent,
+                  })) || []
+                }
                 {...form.getInputProps('question14')}
               />
               <Select
-                label="Pytanie 15"
+                label={questions?.questions.at(14)?.questionContent}
                 placeholder="Odpowiedź"
                 clearable
-                data={[
-                  { value: 'react', label: 'React' },
-                  { value: 'ng', label: 'Angular' },
-                  { value: 'vue', label: 'Vue', disabled: true },
-                  { value: 'svelte', label: 'Svelte', disabled: true },
-                ]}
+                data={
+                  questions?.questions.at(14)?.answers.map((answer) => ({
+                    value: answer.answerLetter,
+                    label: answer.answerContent,
+                  })) || []
+                }
                 {...form.getInputProps('question15')}
               />
             </Box>
