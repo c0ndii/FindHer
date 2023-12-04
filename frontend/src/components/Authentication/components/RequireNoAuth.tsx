@@ -1,20 +1,15 @@
 import React from 'react'
 import { useAuth } from '../hooks/useAuth'
 import { Navigate, Outlet, useLocation } from 'react-router-dom'
-import { Sidebar } from '../../Sidebar'
-import { Flex } from '@mantine/core'
 
 const RequireNoAuth: React.FC = () => {
-  const { auth, isAuthorized } = useAuth()
+  const { isAuthorized } = useAuth()
   const location = useLocation()
 
-  return isAuthorized() ? (
-    <Flex>
-      <Sidebar />
-      <Outlet />
-    </Flex>
+  return !isAuthorized ? ( //true / false
+    <Outlet />
   ) : (
-    <Navigate to="/SignIn" state={{ from: location }} replace />
+    <Navigate to="/app/Account" state={{ from: location }} replace />
   )
 }
 

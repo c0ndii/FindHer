@@ -1,0 +1,1000 @@
+2023-12-01 10:40:36.5224|10401|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|An 'IServiceProvider' was created for internal use by Entity Framework. 
+2023-12-01 10:40:37.9694|10601|DEBUG|Microsoft.EntityFrameworkCore.Model|The index {'ChatsChatId'} was not created on entity type 'ChatUser (Dictionary<string, object>)' as the properties are already covered by the index {'ChatsChatId', 'UsersUserId'}. 
+2023-12-01 10:40:37.9755|10601|DEBUG|Microsoft.EntityFrameworkCore.Model|The index {'InterestsInterestId'} was not created on entity type 'InterestUser (Dictionary<string, object>)' as the properties are already covered by the index {'InterestsInterestId', 'UsersUserId'}. 
+2023-12-01 10:40:37.9755|10601|DEBUG|Microsoft.EntityFrameworkCore.Model|The index {'PinchesPinchId'} was not created on entity type 'PinchUser (Dictionary<string, object>)' as the properties are already covered by the index {'PinchesPinchId', 'UsersUserId'}. 
+2023-12-01 10:40:37.9755|10601|DEBUG|Microsoft.EntityFrameworkCore.Model|The index {'PreferencesPreferenceId'} was not created on entity type 'PreferenceUser (Dictionary<string, object>)' as the properties are already covered by the index {'PreferencesPreferenceId', 'UsersUserId'}. 
+2023-12-01 10:40:38.2014|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'ChatUser (Dictionary<string, object>).ChatsChatId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-12-01 10:40:38.2014|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'ChatUser (Dictionary<string, object>).UsersUserId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-12-01 10:40:38.2014|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'Question.MatchFormId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-12-01 10:40:38.2014|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'InterestUser (Dictionary<string, object>).InterestsInterestId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-12-01 10:40:38.2014|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'InterestUser (Dictionary<string, object>).UsersUserId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-12-01 10:40:38.2014|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'PinchUser (Dictionary<string, object>).PinchesPinchId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-12-01 10:40:38.2014|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'PinchUser (Dictionary<string, object>).UsersUserId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-12-01 10:40:38.2014|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'PreferenceUser (Dictionary<string, object>).PreferencesPreferenceId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-12-01 10:40:38.2014|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'PreferenceUser (Dictionary<string, object>).UsersUserId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2023-12-01 10:40:38.6234|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 7.0.13 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.13' with options: None 
+2023-12-01 10:40:38.6979|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2023-12-01 10:40:38.7826|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (82ms). 
+2023-12-01 10:40:38.7826|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 10:40:43.8531|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 10:40:43.8897|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2023-12-01 10:40:43.9114|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (20ms). 
+2023-12-01 10:40:43.9196|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (35ms). 
+2023-12-01 10:40:43.9369|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1 
+2023-12-01 10:40:44.0130|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (82ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1 
+2023-12-01 10:40:44.0130|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 10:40:44.0438|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'Findher' on server '(localdb)\MSSQLLocalDB' (15ms). 
+2023-12-01 10:40:44.1636|10111|DEBUG|Microsoft.EntityFrameworkCore.Query|Compiling query expression: 
+'DbSet<Role>()
+    .Any()' 
+2023-12-01 10:40:44.4551|10107|DEBUG|Microsoft.EntityFrameworkCore.Query|Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<bool>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT EXISTS (
+            SELECT 1
+            FROM Roles AS r)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, bool>, 
+    Find_H_er.Entities.AppDbContext, 
+    False, 
+    False, 
+    True
+)
+    .Single()' 
+2023-12-01 10:40:44.5128|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2023-12-01 10:40:44.5128|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2023-12-01 10:40:44.5134|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2023-12-01 10:40:44.5134|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 10:40:44.5189|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 10:40:44.5189|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Roles] AS [r]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END 
+2023-12-01 10:40:44.7973|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (277ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Roles] AS [r]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END 
+2023-12-01 10:40:44.8134|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 10:40:44.8134|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'Findher' on server '(localdb)\MSSQLLocalDB' is being disposed after spending 23ms reading results. 
+2023-12-01 10:40:44.8264|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 10:40:44.8264|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'Findher' on server '(localdb)\MSSQLLocalDB' (0ms). 
+2023-12-01 10:40:45.0394|12|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ModelBinderFactory|Registered model binder providers, in the following order: Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider 
+2023-12-01 10:40:45.1404|1|DEBUG|Microsoft.Extensions.Hosting.Internal.Host|Hosting starting 
+2023-12-01 10:40:45.1948|63|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\slikm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest. 
+2023-12-01 10:40:45.2115|37|DEBUG|Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository|Reading data from file 'C:\Users\slikm\AppData\Local\ASP.NET\DataProtection-Keys\key-087db598-a3c9-4d87-beff-1e3bc91a783d.xml'. 
+2023-12-01 10:40:45.2364|37|DEBUG|Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository|Reading data from file 'C:\Users\slikm\AppData\Local\ASP.NET\DataProtection-Keys\key-15b25211-e88e-48ba-9647-e97b7b727fe1.xml'. 
+2023-12-01 10:40:45.2552|37|DEBUG|Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository|Reading data from file 'C:\Users\slikm\AppData\Local\ASP.NET\DataProtection-Keys\key-37906291-5aee-494c-ab8b-db4f87d50d6e.xml'. 
+2023-12-01 10:40:45.2726|37|DEBUG|Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository|Reading data from file 'C:\Users\slikm\AppData\Local\ASP.NET\DataProtection-Keys\key-aacf3986-d8fd-42f2-b594-3a6a798f6fd9.xml'. 
+2023-12-01 10:40:45.2726|37|DEBUG|Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository|Reading data from file 'C:\Users\slikm\AppData\Local\ASP.NET\DataProtection-Keys\key-dd392df9-fd95-450d-89d1-ba97e11219c0.xml'. 
+2023-12-01 10:40:45.3089|37|DEBUG|Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository|Reading data from file 'C:\Users\slikm\AppData\Local\ASP.NET\DataProtection-Keys\key-e9f0f898-348e-4b56-a617-8c570b40fd7a.xml'. 
+2023-12-01 10:40:45.3314|18|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|Found key {087db598-a3c9-4d87-beff-1e3bc91a783d}. 
+2023-12-01 10:40:45.3314|18|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|Found key {15b25211-e88e-48ba-9647-e97b7b727fe1}. 
+2023-12-01 10:40:45.3314|18|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|Found key {37906291-5aee-494c-ab8b-db4f87d50d6e}. 
+2023-12-01 10:40:45.3314|18|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|Found key {aacf3986-d8fd-42f2-b594-3a6a798f6fd9}. 
+2023-12-01 10:40:45.3314|18|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|Found key {dd392df9-fd95-450d-89d1-ba97e11219c0}. 
+2023-12-01 10:40:45.3314|18|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|Found key {e9f0f898-348e-4b56-a617-8c570b40fd7a}. 
+2023-12-01 10:40:45.3550|13|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.DefaultKeyResolver|Considering key {087db598-a3c9-4d87-beff-1e3bc91a783d} with expiration date 2023-12-02 14:28:36Z as default key. 
+2023-12-01 10:40:45.3550|0|DEBUG|Microsoft.AspNetCore.DataProtection.TypeForwardingActivator|Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60 
+2023-12-01 10:40:45.3550|51|DEBUG|Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor|Decrypting secret element using Windows DPAPI. 
+2023-12-01 10:40:45.3550|0|DEBUG|Microsoft.AspNetCore.DataProtection.TypeForwardingActivator|Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60 
+2023-12-01 10:40:45.3550|4|DEBUG|Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.CngCbcAuthenticatedEncryptorFactory|Opening CNG algorithm 'AES' from provider '(null)' with chaining mode CBC. 
+2023-12-01 10:40:45.3550|3|DEBUG|Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.CngCbcAuthenticatedEncryptorFactory|Opening CNG algorithm 'SHA256' from provider '(null)' with HMAC. 
+2023-12-01 10:40:45.3633|52|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.DefaultKeyResolver|Default key expiration imminent and repository contains no viable successor. Caller should generate a successor. 
+2023-12-01 10:40:45.3633|57|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingProvider|Policy resolution states that a new key should be added to the key ring. 
+2023-12-01 10:40:45.3633|58|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|Creating key {c2965f48-5cef-4803-8634-170836b90035} with creation date 2023-12-01 09:40:45Z, activation date 2023-12-02 14:28:36Z, and expiration date 2024-02-29 09:40:45Z. 
+2023-12-01 10:40:45.3786|32|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|Descriptor deserializer type for key {c2965f48-5cef-4803-8634-170836b90035} is 'Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=7.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60'. 
+2023-12-01 10:40:45.3786|34|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|No key escrow sink found. Not writing key {c2965f48-5cef-4803-8634-170836b90035} to escrow. 
+2023-12-01 10:40:45.3786|26|DEBUG|Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlEncryptor|Encrypting to Windows DPAPI for current user account (BLACK-CLICKER\slikm). 
+2023-12-01 10:40:45.3786|39|INFO|Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository|Writing data to file 'C:\Users\slikm\AppData\Local\ASP.NET\DataProtection-Keys\key-c2965f48-5cef-4803-8634-170836b90035.xml'. 
+2023-12-01 10:40:45.3786|23|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|Key cache expiration token triggered by 'CreateNewKey' operation. 
+2023-12-01 10:40:45.3786|37|DEBUG|Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository|Reading data from file 'C:\Users\slikm\AppData\Local\ASP.NET\DataProtection-Keys\key-087db598-a3c9-4d87-beff-1e3bc91a783d.xml'. 
+2023-12-01 10:40:45.3935|37|DEBUG|Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository|Reading data from file 'C:\Users\slikm\AppData\Local\ASP.NET\DataProtection-Keys\key-15b25211-e88e-48ba-9647-e97b7b727fe1.xml'. 
+2023-12-01 10:40:45.3935|37|DEBUG|Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository|Reading data from file 'C:\Users\slikm\AppData\Local\ASP.NET\DataProtection-Keys\key-37906291-5aee-494c-ab8b-db4f87d50d6e.xml'. 
+2023-12-01 10:40:45.3935|37|DEBUG|Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository|Reading data from file 'C:\Users\slikm\AppData\Local\ASP.NET\DataProtection-Keys\key-aacf3986-d8fd-42f2-b594-3a6a798f6fd9.xml'. 
+2023-12-01 10:40:45.3935|37|DEBUG|Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository|Reading data from file 'C:\Users\slikm\AppData\Local\ASP.NET\DataProtection-Keys\key-c2965f48-5cef-4803-8634-170836b90035.xml'. 
+2023-12-01 10:40:45.4200|37|DEBUG|Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository|Reading data from file 'C:\Users\slikm\AppData\Local\ASP.NET\DataProtection-Keys\key-dd392df9-fd95-450d-89d1-ba97e11219c0.xml'. 
+2023-12-01 10:40:45.4200|37|DEBUG|Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository|Reading data from file 'C:\Users\slikm\AppData\Local\ASP.NET\DataProtection-Keys\key-e9f0f898-348e-4b56-a617-8c570b40fd7a.xml'. 
+2023-12-01 10:40:45.4200|18|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|Found key {087db598-a3c9-4d87-beff-1e3bc91a783d}. 
+2023-12-01 10:40:45.4200|18|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|Found key {15b25211-e88e-48ba-9647-e97b7b727fe1}. 
+2023-12-01 10:40:45.4200|18|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|Found key {37906291-5aee-494c-ab8b-db4f87d50d6e}. 
+2023-12-01 10:40:45.4200|18|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|Found key {aacf3986-d8fd-42f2-b594-3a6a798f6fd9}. 
+2023-12-01 10:40:45.4200|18|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|Found key {c2965f48-5cef-4803-8634-170836b90035}. 
+2023-12-01 10:40:45.4200|18|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|Found key {dd392df9-fd95-450d-89d1-ba97e11219c0}. 
+2023-12-01 10:40:45.4200|18|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|Found key {e9f0f898-348e-4b56-a617-8c570b40fd7a}. 
+2023-12-01 10:40:45.4200|13|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.DefaultKeyResolver|Considering key {087db598-a3c9-4d87-beff-1e3bc91a783d} with expiration date 2023-12-02 14:28:36Z as default key. 
+2023-12-01 10:40:45.4200|0|DEBUG|Microsoft.AspNetCore.DataProtection.TypeForwardingActivator|Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60 
+2023-12-01 10:40:45.4200|51|DEBUG|Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor|Decrypting secret element using Windows DPAPI. 
+2023-12-01 10:40:45.4200|0|DEBUG|Microsoft.AspNetCore.DataProtection.TypeForwardingActivator|Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60 
+2023-12-01 10:40:45.4200|4|DEBUG|Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.CngCbcAuthenticatedEncryptorFactory|Opening CNG algorithm 'AES' from provider '(null)' with chaining mode CBC. 
+2023-12-01 10:40:45.4200|3|DEBUG|Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.CngCbcAuthenticatedEncryptorFactory|Opening CNG algorithm 'SHA256' from provider '(null)' with HMAC. 
+2023-12-01 10:40:45.4200|2|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingProvider|Using key {087db598-a3c9-4d87-beff-1e3bc91a783d} as the default key. 
+2023-12-01 10:40:45.4200|65|DEBUG|Microsoft.AspNetCore.DataProtection.Internal.DataProtectionHostedService|Key ring with default key {087db598-a3c9-4d87-beff-1e3bc91a783d} was loaded during application startup. 
+2023-12-01 10:40:45.5969|13|DEBUG|Microsoft.AspNetCore.Hosting.Diagnostics|Loaded hosting startup assembly Find(H)er 
+2023-12-01 10:40:45.5969|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2023-12-01 10:40:45.5969|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2023-12-01 10:40:45.5969|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\slikm\Pulpit\Studia\Semestr V\Find_H_er\backend 
+2023-12-01 10:40:45.5969|2|DEBUG|Microsoft.Extensions.Hosting.Internal.Host|Hosting started 
+2023-12-01 10:40:45.6973|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:44360/swagger/index.html - - 
+2023-12-01 10:40:45.6995|0|DEBUG|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|Wildcard detected, all requests with hosts will be allowed. 
+2023-12-01 10:40:45.6995|2|TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2023-12-01 10:40:45.7316|1000|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|No candidates found for the request path '/swagger/index.html' 
+2023-12-01 10:40:45.7316|2|DEBUG|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|Request did not match any endpoints 
+2023-12-01 10:40:45.9754|1|DEBUG|Microsoft.AspNetCore.Server.IIS.Core.IISHttpServer|Connection ID "18302628917309079554" disconnecting. 
+2023-12-01 10:40:45.9754|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:44360/swagger/index.html - - - 200 - text/html;charset=utf-8 287.7381ms 
+2023-12-01 10:40:46.3058|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:44360/swagger/v1/swagger.json - - 
+2023-12-01 10:40:46.3058|2|TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2023-12-01 10:40:46.3058|1000|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|No candidates found for the request path '/swagger/v1/swagger.json' 
+2023-12-01 10:40:46.3058|2|DEBUG|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|Request did not match any endpoints 
+2023-12-01 10:40:46.5876|1|DEBUG|Microsoft.AspNetCore.Server.IIS.Core.IISHttpServer|Connection ID "18374686519936942083" disconnecting. 
+2023-12-01 10:40:46.5876|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:44360/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 282.0340ms 
+2023-12-01 10:42:21.0724|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:44360/swagger/index.html - - 
+2023-12-01 10:42:21.0724|2|TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2023-12-01 10:42:21.0724|1000|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|No candidates found for the request path '/swagger/index.html' 
+2023-12-01 10:42:21.0724|2|DEBUG|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|Request did not match any endpoints 
+2023-12-01 10:42:21.0724|1|DEBUG|Microsoft.AspNetCore.Server.IIS.Core.IISHttpServer|Connection ID "18374686515641974787" disconnecting. 
+2023-12-01 10:42:21.0724|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:44360/swagger/index.html - - - 200 - text/html;charset=utf-8 3.9807ms 
+2023-12-01 10:42:21.3900|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:44360/swagger/v1/swagger.json - - 
+2023-12-01 10:42:21.3900|2|TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2023-12-01 10:42:21.3900|1000|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|No candidates found for the request path '/swagger/v1/swagger.json' 
+2023-12-01 10:42:21.3900|2|DEBUG|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|Request did not match any endpoints 
+2023-12-01 10:42:21.3978|1|DEBUG|Microsoft.AspNetCore.Server.IIS.Core.IISHttpServer|Connection ID "18374686524231909379" disconnecting. 
+2023-12-01 10:42:21.3978|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:44360/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 7.8603ms 
+2023-12-01 10:44:07.2635|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:44360/swagger/index.html - - 
+2023-12-01 10:44:07.2635|2|TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2023-12-01 10:44:07.2635|1000|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|No candidates found for the request path '/swagger/index.html' 
+2023-12-01 10:44:07.2635|2|DEBUG|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|Request did not match any endpoints 
+2023-12-01 10:44:07.2635|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:44360/swagger/index.html - - - 200 - text/html;charset=utf-8 1.6636ms 
+2023-12-01 10:44:07.2635|1|DEBUG|Microsoft.AspNetCore.Server.IIS.Core.IISHttpServer|Connection ID "18158513729233223681" disconnecting. 
+2023-12-01 10:44:07.4369|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:44360/swagger/v1/swagger.json - - 
+2023-12-01 10:44:07.4369|2|TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2023-12-01 10:44:07.4369|1000|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|No candidates found for the request path '/swagger/v1/swagger.json' 
+2023-12-01 10:44:07.4369|2|DEBUG|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|Request did not match any endpoints 
+2023-12-01 10:44:07.4369|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:44360/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 2.3065ms 
+2023-12-01 10:44:07.4369|1|DEBUG|Microsoft.AspNetCore.Server.IIS.Core.IISHttpServer|Connection ID "18374686515641974789" disconnecting. 
+2023-12-01 10:44:31.2373|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 OPTIONS https://localhost:44360/api/account/login - - 
+2023-12-01 10:44:31.2373|2|TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2023-12-01 10:44:31.2373|1001|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|1 candidate(s) found for the request path '/api/account/login' 
+2023-12-01 10:44:31.2373|1|DEBUG|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|Request matched endpoint '405 HTTP Method Not Supported' 
+2023-12-01 10:44:31.2373|2|DEBUG|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|The request has an origin header: 'http://localhost:3000'. 
+2023-12-01 10:44:31.2373|4|INFO|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|CORS policy execution successful. 
+2023-12-01 10:44:31.2524|1|DEBUG|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|The request is a preflight request. 
+2023-12-01 10:44:31.2524|1|DEBUG|Microsoft.AspNetCore.Server.IIS.Core.IISHttpServer|Connection ID "18302628921604046851" disconnecting. 
+2023-12-01 10:44:31.2524|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 OPTIONS https://localhost:44360/api/account/login - - - 204 - - 17.3256ms 
+2023-12-01 10:44:31.2524|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 POST https://localhost:44360/api/account/login application/json 41 
+2023-12-01 10:44:31.2524|2|TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2023-12-01 10:44:31.2524|1001|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|1 candidate(s) found for the request path '/api/account/login' 
+2023-12-01 10:44:31.2524|1005|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|Endpoint 'Find_H_er.Controllers.AccountController.Login (Find(H)er)' with route pattern 'api/account/login' is valid for the request path '/api/account/login' 
+2023-12-01 10:44:31.2524|1|DEBUG|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|Request matched endpoint 'Find_H_er.Controllers.AccountController.Login (Find(H)er)' 
+2023-12-01 10:44:31.2524|2|DEBUG|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|The request has an origin header: 'http://localhost:3000'. 
+2023-12-01 10:44:31.2524|4|INFO|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|CORS policy execution successful. 
+2023-12-01 10:44:31.2524|15|DEBUG|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|Static files was skipped as the request already matched an endpoint. 
+2023-12-01 10:44:31.4153|9|DEBUG|Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler|AuthenticationScheme: Bearer was not authenticated. 
+2023-12-01 10:44:31.4153|0|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Find_H_er.Controllers.AccountController.Login (Find(H)er)' 
+2023-12-01 10:44:31.4553|102|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] Login(Find_H_er.Models.LoginDto) on controller Find_H_er.Controllers.AccountController (Find(H)er). 
+2023-12-01 10:44:31.4553|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of authorization filters (in the following order): None 
+2023-12-01 10:44:31.4553|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of resource filters (in the following order): None 
+2023-12-01 10:44:31.4553|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of action filters (in the following order): Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000), Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000) 
+2023-12-01 10:44:31.4553|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of exception filters (in the following order): None 
+2023-12-01 10:44:31.4553|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of result filters (in the following order): Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000) 
+2023-12-01 10:44:31.4553|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing controller factory for controller Find_H_er.Controllers.AccountController (Find(H)er) 
+2023-12-01 10:44:31.4553|2|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed controller factory for controller Find_H_er.Controllers.AccountController (Find(H)er) 
+2023-12-01 10:44:31.4710|22|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Attempting to bind parameter 'dto' of type 'Find_H_er.Models.LoginDto' ... 
+2023-12-01 10:44:31.4710|44|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder|Attempting to bind parameter 'dto' of type 'Find_H_er.Models.LoginDto' using the name '' in request data ... 
+2023-12-01 10:44:31.4710|1|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder|Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'. 
+2023-12-01 10:44:31.4957|2|DEBUG|Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter|JSON input formatter succeeded, deserializing to type 'Find_H_er.Models.LoginDto' 
+2023-12-01 10:44:31.4957|45|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder|Done attempting to bind parameter 'dto' of type 'Find_H_er.Models.LoginDto'. 
+2023-12-01 10:44:31.4957|23|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Done attempting to bind parameter 'dto' of type 'Find_H_er.Models.LoginDto'. 
+2023-12-01 10:44:31.4957|26|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Attempting to validate the bound parameter 'dto' of type 'Find_H_er.Models.LoginDto' ... 
+2023-12-01 10:44:31.6110|27|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Done attempting to validate the bound parameter 'dto' of type 'Find_H_er.Models.LoginDto'. 
+2023-12-01 10:44:31.6110|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2023-12-01 10:44:31.6110|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2023-12-01 10:44:31.6110|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2023-12-01 10:44:31.6156|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2023-12-01 10:44:31.6156|101|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing action method Find_H_er.Controllers.AccountController.Login (Find(H)er) - Validation state: Valid 
+2023-12-01 10:44:31.6156|102|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing action method Find_H_er.Controllers.AccountController.Login (Find(H)er) with arguments (Find_H_er.Models.LoginDto) 
+2023-12-01 10:44:31.6503|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 7.0.13 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.13' with options: None 
+2023-12-01 10:44:31.6745|10111|DEBUG|Microsoft.EntityFrameworkCore.Query|Compiling query expression: 
+'DbSet<User>()
+    .Include(x => x.Role)
+    .FirstOrDefault(x => x.Email == __dto_Email_0)' 
+2023-12-01 10:44:31.7179|10112|DEBUG|Microsoft.EntityFrameworkCore.Query|Including navigation: 'User.Role'. 
+2023-12-01 10:44:31.8630|10107|DEBUG|Microsoft.EntityFrameworkCore.Query|Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync<User>(
+    asyncEnumerable: new SingleQueryingEnumerable<User>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.QueryExpression(
+            Client Projections:
+                0 -> Dictionary<IProperty, int> { [Property: User.UserId (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: User.Age (int?), 1], [Property: User.Description (string), 2], [Property: User.Email (string) Required, 3], [Property: User.ForYouId (int?) FK Index, 4], [Property: User.Image (string), 5], [Property: User.MatchFormId (int?) FK Index, 6], [Property: User.MatchFormScore (int?), 7], [Property: User.Name (string) MaxLength(25), 8], [Property: User.PasswordHash (string) Required, 9], [Property: User.RoleId (int?) FK Index, 10], [Property: User.Sex (string), 11] }
+                1 -> Dictionary<IProperty, int> { [Property: Role.RoleId (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 12], [Property: Role.Name (string) Required, 13] }
+            SELECT TOP(1) u.UserId, u.Age, u.Description, u.Email, u.ForYouId, u.Image, u.MatchFormId, u.MatchFormScore, u.Name, u.PasswordHash, u.RoleId, u.Sex, r.RoleId, r.Name
+            FROM Users AS u
+            LEFT JOIN Roles AS r ON u.RoleId == r.RoleId
+            WHERE u.Email == @__dto_Email_0), 
+        null, 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, User>, 
+        Find_H_er.Entities.AppDbContext, 
+        False, 
+        False, 
+        True
+    ), 
+    cancellationToken: queryContext.CancellationToken)' 
+2023-12-01 10:44:31.8934|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2023-12-01 10:44:31.8934|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2023-12-01 10:44:31.8957|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (2ms). 
+2023-12-01 10:44:31.8957|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (4ms). 
+2023-12-01 10:44:31.8957|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (14ms). 
+2023-12-01 10:44:31.8957|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 10:44:31.9180|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 10:44:31.9180|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[@__dto_Email_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[Age], [u].[Description], [u].[Email], [u].[ForYouId], [u].[Image], [u].[MatchFormId], [u].[MatchFormScore], [u].[Name], [u].[PasswordHash], [u].[RoleId], [u].[Sex], [r].[RoleId], [r].[Name]
+FROM [Users] AS [u]
+LEFT JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[RoleId]
+WHERE [u].[Email] = @__dto_Email_0 
+2023-12-01 10:44:31.9766|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (57ms) [Parameters=[@__dto_Email_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[Age], [u].[Description], [u].[Email], [u].[ForYouId], [u].[Image], [u].[MatchFormId], [u].[MatchFormScore], [u].[Name], [u].[PasswordHash], [u].[RoleId], [u].[Sex], [r].[RoleId], [r].[Name]
+FROM [Users] AS [u]
+LEFT JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[RoleId]
+WHERE [u].[Email] = @__dto_Email_0 
+2023-12-01 10:44:32.0806|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'AppDbContext' started tracking 'User' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2023-12-01 10:44:32.1726|10805|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|The navigation 'User.Role' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2023-12-01 10:44:32.1726|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'AppDbContext' started tracking 'Role' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2023-12-01 10:44:32.1887|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 10:44:32.1887|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'Findher' on server '(localdb)\MSSQLLocalDB' is being disposed after spending 213ms reading results. 
+2023-12-01 10:44:32.1887|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 10:44:32.1887|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'Findher' on server '(localdb)\MSSQLLocalDB' (0ms). 
+2023-12-01 10:44:32.5618|103|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action method Find_H_er.Controllers.AccountController.Login (Find(H)er), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 935.1746ms. 
+2023-12-01 10:44:32.5618|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2023-12-01 10:44:32.5618|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2023-12-01 10:44:32.5659|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2023-12-01 10:44:32.5659|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2023-12-01 10:44:32.5659|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: Before executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2023-12-01 10:44:32.5659|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: After executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2023-12-01 10:44:32.5659|5|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Before executing action result Microsoft.AspNetCore.Mvc.OkObjectResult. 
+2023-12-01 10:44:32.5659|11|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|List of registered output formatters, in the following order: Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter 
+2023-12-01 10:44:32.5659|4|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|No information found on request to perform content negotiation. 
+2023-12-01 10:44:32.5659|8|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|Attempting to select an output formatter without using a content type as no explicit content types were specified for the response. 
+2023-12-01 10:44:32.5659|10|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|Attempting to select the first formatter in the output formatters list which can write the result. 
+2023-12-01 10:44:32.5659|2|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter' and content type 'text/plain' to write the response. 
+2023-12-01 10:44:32.5659|1|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'System.String'. 
+2023-12-01 10:44:32.5659|6|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|After executing action result Microsoft.AspNetCore.Mvc.OkObjectResult. 
+2023-12-01 10:44:32.5659|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: Before executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2023-12-01 10:44:32.5659|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: After executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2023-12-01 10:44:32.5866|105|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Find_H_er.Controllers.AccountController.Login (Find(H)er) in 1123.5174ms 
+2023-12-01 10:44:32.5866|1|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Find_H_er.Controllers.AccountController.Login (Find(H)er)' 
+2023-12-01 10:44:32.5866|1|DEBUG|Microsoft.AspNetCore.Server.IIS.Core.IISHttpServer|Connection ID "18230571318976184324" disconnecting. 
+2023-12-01 10:44:32.6014|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'AppDbContext' disposed. 
+2023-12-01 10:44:32.6014|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 10:44:32.6137|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (3ms). 
+2023-12-01 10:44:32.6137|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 POST https://localhost:44360/api/account/login application/json 41 - 200 - text/plain;+charset=utf-8 1353.4424ms 
+2023-12-01 10:50:48.9000|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 OPTIONS https://localhost:44360/api/account/login - - 
+2023-12-01 10:50:48.9000|2|TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2023-12-01 10:50:48.9000|1001|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|1 candidate(s) found for the request path '/api/account/login' 
+2023-12-01 10:50:48.9000|1|DEBUG|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|Request matched endpoint '405 HTTP Method Not Supported' 
+2023-12-01 10:50:48.9000|2|DEBUG|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|The request has an origin header: 'http://localhost:3000'. 
+2023-12-01 10:50:48.9000|4|INFO|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|CORS policy execution successful. 
+2023-12-01 10:50:48.9000|1|DEBUG|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|The request is a preflight request. 
+2023-12-01 10:50:48.9000|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 OPTIONS https://localhost:44360/api/account/login - - - 204 - - 1.4834ms 
+2023-12-01 10:50:48.9000|1|DEBUG|Microsoft.AspNetCore.Server.IIS.Core.IISHttpServer|Connection ID "18302628904424177665" disconnecting. 
+2023-12-01 10:50:48.9000|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 POST https://localhost:44360/api/account/login application/json 41 
+2023-12-01 10:50:48.9000|2|TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2023-12-01 10:50:48.9000|1001|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|1 candidate(s) found for the request path '/api/account/login' 
+2023-12-01 10:50:48.9000|1005|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|Endpoint 'Find_H_er.Controllers.AccountController.Login (Find(H)er)' with route pattern 'api/account/login' is valid for the request path '/api/account/login' 
+2023-12-01 10:50:48.9000|1|DEBUG|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|Request matched endpoint 'Find_H_er.Controllers.AccountController.Login (Find(H)er)' 
+2023-12-01 10:50:48.9000|2|DEBUG|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|The request has an origin header: 'http://localhost:3000'. 
+2023-12-01 10:50:48.9000|4|INFO|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|CORS policy execution successful. 
+2023-12-01 10:50:48.9000|15|DEBUG|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|Static files was skipped as the request already matched an endpoint. 
+2023-12-01 10:50:48.9000|9|DEBUG|Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler|AuthenticationScheme: Bearer was not authenticated. 
+2023-12-01 10:50:48.9000|0|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Find_H_er.Controllers.AccountController.Login (Find(H)er)' 
+2023-12-01 10:50:48.9000|102|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] Login(Find_H_er.Models.LoginDto) on controller Find_H_er.Controllers.AccountController (Find(H)er). 
+2023-12-01 10:50:48.9000|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of authorization filters (in the following order): None 
+2023-12-01 10:50:48.9000|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of resource filters (in the following order): None 
+2023-12-01 10:50:48.9000|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of action filters (in the following order): Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000), Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000) 
+2023-12-01 10:50:48.9000|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of exception filters (in the following order): None 
+2023-12-01 10:50:48.9000|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of result filters (in the following order): Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000) 
+2023-12-01 10:50:48.9084|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing controller factory for controller Find_H_er.Controllers.AccountController (Find(H)er) 
+2023-12-01 10:50:48.9084|2|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed controller factory for controller Find_H_er.Controllers.AccountController (Find(H)er) 
+2023-12-01 10:50:48.9084|22|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Attempting to bind parameter 'dto' of type 'Find_H_er.Models.LoginDto' ... 
+2023-12-01 10:50:48.9084|44|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder|Attempting to bind parameter 'dto' of type 'Find_H_er.Models.LoginDto' using the name '' in request data ... 
+2023-12-01 10:50:48.9084|1|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder|Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'. 
+2023-12-01 10:50:48.9084|2|DEBUG|Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter|JSON input formatter succeeded, deserializing to type 'Find_H_er.Models.LoginDto' 
+2023-12-01 10:50:48.9084|45|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder|Done attempting to bind parameter 'dto' of type 'Find_H_er.Models.LoginDto'. 
+2023-12-01 10:50:48.9084|23|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Done attempting to bind parameter 'dto' of type 'Find_H_er.Models.LoginDto'. 
+2023-12-01 10:50:48.9084|26|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Attempting to validate the bound parameter 'dto' of type 'Find_H_er.Models.LoginDto' ... 
+2023-12-01 10:50:48.9084|27|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Done attempting to validate the bound parameter 'dto' of type 'Find_H_er.Models.LoginDto'. 
+2023-12-01 10:50:48.9084|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2023-12-01 10:50:48.9084|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2023-12-01 10:50:48.9084|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2023-12-01 10:50:48.9084|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2023-12-01 10:50:48.9084|101|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing action method Find_H_er.Controllers.AccountController.Login (Find(H)er) - Validation state: Valid 
+2023-12-01 10:50:48.9084|102|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing action method Find_H_er.Controllers.AccountController.Login (Find(H)er) with arguments (Find_H_er.Models.LoginDto) 
+2023-12-01 10:50:48.9858|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 7.0.13 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.13' with options: None 
+2023-12-01 10:50:48.9858|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2023-12-01 10:50:48.9858|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2023-12-01 10:50:48.9858|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2023-12-01 10:50:48.9858|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2023-12-01 10:50:48.9858|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2023-12-01 10:50:48.9858|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 10:50:49.0417|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 10:50:49.0417|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[@__dto_Email_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[Age], [u].[Description], [u].[Email], [u].[ForYouId], [u].[Image], [u].[MatchFormId], [u].[MatchFormScore], [u].[Name], [u].[PasswordHash], [u].[RoleId], [u].[Sex], [r].[RoleId], [r].[Name]
+FROM [Users] AS [u]
+LEFT JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[RoleId]
+WHERE [u].[Email] = @__dto_Email_0 
+2023-12-01 10:50:49.0417|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (11ms) [Parameters=[@__dto_Email_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[Age], [u].[Description], [u].[Email], [u].[ForYouId], [u].[Image], [u].[MatchFormId], [u].[MatchFormScore], [u].[Name], [u].[PasswordHash], [u].[RoleId], [u].[Sex], [r].[RoleId], [r].[Name]
+FROM [Users] AS [u]
+LEFT JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[RoleId]
+WHERE [u].[Email] = @__dto_Email_0 
+2023-12-01 10:50:49.0417|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'AppDbContext' started tracking 'User' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2023-12-01 10:50:49.0417|10805|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|The navigation 'User.Role' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2023-12-01 10:50:49.0417|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'AppDbContext' started tracking 'Role' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2023-12-01 10:50:49.0417|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 10:50:49.0417|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'Findher' on server '(localdb)\MSSQLLocalDB' is being disposed after spending 1ms reading results. 
+2023-12-01 10:50:49.0417|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 10:50:49.0417|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'Findher' on server '(localdb)\MSSQLLocalDB' (0ms). 
+2023-12-01 10:50:49.1531|103|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action method Find_H_er.Controllers.AccountController.Login (Find(H)er), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 238.6839ms. 
+2023-12-01 10:50:49.1531|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2023-12-01 10:50:49.1531|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2023-12-01 10:50:49.1531|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2023-12-01 10:50:49.1531|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2023-12-01 10:50:49.1531|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: Before executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2023-12-01 10:50:49.1531|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: After executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2023-12-01 10:50:49.1531|5|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Before executing action result Microsoft.AspNetCore.Mvc.OkObjectResult. 
+2023-12-01 10:50:49.1531|11|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|List of registered output formatters, in the following order: Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter 
+2023-12-01 10:50:49.1531|4|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|No information found on request to perform content negotiation. 
+2023-12-01 10:50:49.1531|8|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|Attempting to select an output formatter without using a content type as no explicit content types were specified for the response. 
+2023-12-01 10:50:49.1531|10|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|Attempting to select the first formatter in the output formatters list which can write the result. 
+2023-12-01 10:50:49.1531|2|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter' and content type 'text/plain' to write the response. 
+2023-12-01 10:50:49.1531|1|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'System.String'. 
+2023-12-01 10:50:49.1531|6|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|After executing action result Microsoft.AspNetCore.Mvc.OkObjectResult. 
+2023-12-01 10:50:49.1531|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: Before executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2023-12-01 10:50:49.1531|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: After executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2023-12-01 10:50:49.1531|105|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Find_H_er.Controllers.AccountController.Login (Find(H)er) in 246.4548ms 
+2023-12-01 10:50:49.1531|1|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Find_H_er.Controllers.AccountController.Login (Find(H)er)' 
+2023-12-01 10:50:49.1531|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'AppDbContext' disposed. 
+2023-12-01 10:50:49.1531|1|DEBUG|Microsoft.AspNetCore.Server.IIS.Core.IISHttpServer|Connection ID "18374686485577203716" disconnecting. 
+2023-12-01 10:50:49.1531|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 10:50:49.1531|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2023-12-01 10:50:49.1531|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 POST https://localhost:44360/api/account/login application/json 41 - 200 - text/plain;+charset=utf-8 250.9593ms 
+2023-12-01 10:52:05.9660|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 OPTIONS https://localhost:44360/api/account/login - - 
+2023-12-01 10:52:05.9660|2|TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2023-12-01 10:52:05.9660|1001|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|1 candidate(s) found for the request path '/api/account/login' 
+2023-12-01 10:52:05.9660|1|DEBUG|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|Request matched endpoint '405 HTTP Method Not Supported' 
+2023-12-01 10:52:05.9660|2|DEBUG|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|The request has an origin header: 'http://localhost:3000'. 
+2023-12-01 10:52:05.9660|4|INFO|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|CORS policy execution successful. 
+2023-12-01 10:52:05.9660|1|DEBUG|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|The request is a preflight request. 
+2023-12-01 10:52:05.9660|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 OPTIONS https://localhost:44360/api/account/login - - - 204 - - 1.4180ms 
+2023-12-01 10:52:05.9660|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 POST https://localhost:44360/api/account/login application/json 41 
+2023-12-01 10:52:05.9660|2|TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2023-12-01 10:52:05.9660|1001|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|1 candidate(s) found for the request path '/api/account/login' 
+2023-12-01 10:52:05.9660|1005|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|Endpoint 'Find_H_er.Controllers.AccountController.Login (Find(H)er)' with route pattern 'api/account/login' is valid for the request path '/api/account/login' 
+2023-12-01 10:52:05.9660|1|DEBUG|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|Request matched endpoint 'Find_H_er.Controllers.AccountController.Login (Find(H)er)' 
+2023-12-01 10:52:05.9660|2|DEBUG|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|The request has an origin header: 'http://localhost:3000'. 
+2023-12-01 10:52:05.9660|4|INFO|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|CORS policy execution successful. 
+2023-12-01 10:52:05.9660|15|DEBUG|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|Static files was skipped as the request already matched an endpoint. 
+2023-12-01 10:52:05.9735|9|DEBUG|Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler|AuthenticationScheme: Bearer was not authenticated. 
+2023-12-01 10:52:05.9735|0|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Find_H_er.Controllers.AccountController.Login (Find(H)er)' 
+2023-12-01 10:52:05.9735|102|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] Login(Find_H_er.Models.LoginDto) on controller Find_H_er.Controllers.AccountController (Find(H)er). 
+2023-12-01 10:52:05.9735|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of authorization filters (in the following order): None 
+2023-12-01 10:52:05.9735|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of resource filters (in the following order): None 
+2023-12-01 10:52:05.9735|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of action filters (in the following order): Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000), Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000) 
+2023-12-01 10:52:05.9735|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of exception filters (in the following order): None 
+2023-12-01 10:52:05.9735|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of result filters (in the following order): Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000) 
+2023-12-01 10:52:05.9735|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing controller factory for controller Find_H_er.Controllers.AccountController (Find(H)er) 
+2023-12-01 10:52:05.9735|2|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed controller factory for controller Find_H_er.Controllers.AccountController (Find(H)er) 
+2023-12-01 10:52:05.9735|22|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Attempting to bind parameter 'dto' of type 'Find_H_er.Models.LoginDto' ... 
+2023-12-01 10:52:05.9735|44|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder|Attempting to bind parameter 'dto' of type 'Find_H_er.Models.LoginDto' using the name '' in request data ... 
+2023-12-01 10:52:05.9735|1|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder|Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'. 
+2023-12-01 10:52:05.9735|2|DEBUG|Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter|JSON input formatter succeeded, deserializing to type 'Find_H_er.Models.LoginDto' 
+2023-12-01 10:52:05.9735|45|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder|Done attempting to bind parameter 'dto' of type 'Find_H_er.Models.LoginDto'. 
+2023-12-01 10:52:05.9735|23|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Done attempting to bind parameter 'dto' of type 'Find_H_er.Models.LoginDto'. 
+2023-12-01 10:52:05.9735|26|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Attempting to validate the bound parameter 'dto' of type 'Find_H_er.Models.LoginDto' ... 
+2023-12-01 10:52:05.9735|27|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Done attempting to validate the bound parameter 'dto' of type 'Find_H_er.Models.LoginDto'. 
+2023-12-01 10:52:05.9735|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2023-12-01 10:52:05.9735|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2023-12-01 10:52:05.9735|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2023-12-01 10:52:05.9735|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2023-12-01 10:52:05.9735|101|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing action method Find_H_er.Controllers.AccountController.Login (Find(H)er) - Validation state: Valid 
+2023-12-01 10:52:05.9735|102|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing action method Find_H_er.Controllers.AccountController.Login (Find(H)er) with arguments (Find_H_er.Models.LoginDto) 
+2023-12-01 10:52:05.9735|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 7.0.13 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.13' with options: None 
+2023-12-01 10:52:05.9735|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2023-12-01 10:52:05.9735|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2023-12-01 10:52:05.9735|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2023-12-01 10:52:05.9735|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2023-12-01 10:52:05.9735|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2023-12-01 10:52:05.9735|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 10:52:05.9735|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 10:52:05.9735|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[@__dto_Email_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[Age], [u].[Description], [u].[Email], [u].[ForYouId], [u].[Image], [u].[MatchFormId], [u].[MatchFormScore], [u].[Name], [u].[PasswordHash], [u].[RoleId], [u].[Sex], [r].[RoleId], [r].[Name]
+FROM [Users] AS [u]
+LEFT JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[RoleId]
+WHERE [u].[Email] = @__dto_Email_0 
+2023-12-01 10:52:05.9735|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[@__dto_Email_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[Age], [u].[Description], [u].[Email], [u].[ForYouId], [u].[Image], [u].[MatchFormId], [u].[MatchFormScore], [u].[Name], [u].[PasswordHash], [u].[RoleId], [u].[Sex], [r].[RoleId], [r].[Name]
+FROM [Users] AS [u]
+LEFT JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[RoleId]
+WHERE [u].[Email] = @__dto_Email_0 
+2023-12-01 10:52:05.9735|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'AppDbContext' started tracking 'User' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2023-12-01 10:52:05.9735|10805|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|The navigation 'User.Role' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2023-12-01 10:52:05.9735|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'AppDbContext' started tracking 'Role' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2023-12-01 10:52:05.9735|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 10:52:05.9735|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'Findher' on server '(localdb)\MSSQLLocalDB' is being disposed after spending 0ms reading results. 
+2023-12-01 10:52:05.9735|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 10:52:05.9735|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'Findher' on server '(localdb)\MSSQLLocalDB' (0ms). 
+2023-12-01 10:52:06.0652|103|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action method Find_H_er.Controllers.AccountController.Login (Find(H)er), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 84.8135ms. 
+2023-12-01 10:52:06.0652|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2023-12-01 10:52:06.0652|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2023-12-01 10:52:06.0652|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2023-12-01 10:52:06.0652|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2023-12-01 10:52:06.0652|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: Before executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2023-12-01 10:52:06.0652|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: After executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2023-12-01 10:52:06.0652|5|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Before executing action result Microsoft.AspNetCore.Mvc.OkObjectResult. 
+2023-12-01 10:52:06.0652|11|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|List of registered output formatters, in the following order: Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter 
+2023-12-01 10:52:06.0652|4|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|No information found on request to perform content negotiation. 
+2023-12-01 10:52:06.0652|8|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|Attempting to select an output formatter without using a content type as no explicit content types were specified for the response. 
+2023-12-01 10:52:06.0652|10|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|Attempting to select the first formatter in the output formatters list which can write the result. 
+2023-12-01 10:52:06.0652|2|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter' and content type 'text/plain' to write the response. 
+2023-12-01 10:52:06.0652|1|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'System.String'. 
+2023-12-01 10:52:06.0652|6|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|After executing action result Microsoft.AspNetCore.Mvc.OkObjectResult. 
+2023-12-01 10:52:06.0652|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: Before executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2023-12-01 10:52:06.0652|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: After executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2023-12-01 10:52:06.0652|105|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Find_H_er.Controllers.AccountController.Login (Find(H)er) in 92.5842ms 
+2023-12-01 10:52:06.0652|1|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Find_H_er.Controllers.AccountController.Login (Find(H)er)' 
+2023-12-01 10:52:06.0652|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'AppDbContext' disposed. 
+2023-12-01 10:52:06.0652|1|DEBUG|Microsoft.AspNetCore.Server.IIS.Core.IISHttpServer|Connection ID "18158513707758387202" disconnecting. 
+2023-12-01 10:52:06.0652|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 10:52:06.0652|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2023-12-01 10:52:06.0652|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 POST https://localhost:44360/api/account/login application/json 41 - 200 - text/plain;+charset=utf-8 96.4200ms 
+2023-12-01 10:59:27.6540|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 OPTIONS https://localhost:44360/api/account/login - - 
+2023-12-01 10:59:27.6540|2|TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2023-12-01 10:59:27.6540|1001|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|1 candidate(s) found for the request path '/api/account/login' 
+2023-12-01 10:59:27.6540|1|DEBUG|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|Request matched endpoint '405 HTTP Method Not Supported' 
+2023-12-01 10:59:27.6540|2|DEBUG|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|The request has an origin header: 'http://localhost:3000'. 
+2023-12-01 10:59:27.6540|4|INFO|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|CORS policy execution successful. 
+2023-12-01 10:59:27.6540|1|DEBUG|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|The request is a preflight request. 
+2023-12-01 10:59:27.6540|1|DEBUG|Microsoft.AspNetCore.Server.IIS.Core.IISHttpServer|Connection ID "18374686485577203720" disconnecting. 
+2023-12-01 10:59:27.6540|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 OPTIONS https://localhost:44360/api/account/login - - - 204 - - 1.5281ms 
+2023-12-01 10:59:27.6540|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 POST https://localhost:44360/api/account/login application/json 41 
+2023-12-01 10:59:27.6540|2|TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2023-12-01 10:59:27.6540|1001|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|1 candidate(s) found for the request path '/api/account/login' 
+2023-12-01 10:59:27.6540|1005|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|Endpoint 'Find_H_er.Controllers.AccountController.Login (Find(H)er)' with route pattern 'api/account/login' is valid for the request path '/api/account/login' 
+2023-12-01 10:59:27.6540|1|DEBUG|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|Request matched endpoint 'Find_H_er.Controllers.AccountController.Login (Find(H)er)' 
+2023-12-01 10:59:27.6540|2|DEBUG|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|The request has an origin header: 'http://localhost:3000'. 
+2023-12-01 10:59:27.6540|4|INFO|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|CORS policy execution successful. 
+2023-12-01 10:59:27.6540|15|DEBUG|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|Static files was skipped as the request already matched an endpoint. 
+2023-12-01 10:59:27.6540|9|DEBUG|Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler|AuthenticationScheme: Bearer was not authenticated. 
+2023-12-01 10:59:27.6540|0|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Find_H_er.Controllers.AccountController.Login (Find(H)er)' 
+2023-12-01 10:59:27.6540|102|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] Login(Find_H_er.Models.LoginDto) on controller Find_H_er.Controllers.AccountController (Find(H)er). 
+2023-12-01 10:59:27.6540|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of authorization filters (in the following order): None 
+2023-12-01 10:59:27.6540|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of resource filters (in the following order): None 
+2023-12-01 10:59:27.6540|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of action filters (in the following order): Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000), Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000) 
+2023-12-01 10:59:27.6540|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of exception filters (in the following order): None 
+2023-12-01 10:59:27.6540|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of result filters (in the following order): Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000) 
+2023-12-01 10:59:27.6540|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing controller factory for controller Find_H_er.Controllers.AccountController (Find(H)er) 
+2023-12-01 10:59:27.6540|2|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed controller factory for controller Find_H_er.Controllers.AccountController (Find(H)er) 
+2023-12-01 10:59:27.6540|22|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Attempting to bind parameter 'dto' of type 'Find_H_er.Models.LoginDto' ... 
+2023-12-01 10:59:27.6540|44|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder|Attempting to bind parameter 'dto' of type 'Find_H_er.Models.LoginDto' using the name '' in request data ... 
+2023-12-01 10:59:27.6540|1|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder|Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'. 
+2023-12-01 10:59:27.6540|2|DEBUG|Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter|JSON input formatter succeeded, deserializing to type 'Find_H_er.Models.LoginDto' 
+2023-12-01 10:59:27.6540|45|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder|Done attempting to bind parameter 'dto' of type 'Find_H_er.Models.LoginDto'. 
+2023-12-01 10:59:27.6540|23|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Done attempting to bind parameter 'dto' of type 'Find_H_er.Models.LoginDto'. 
+2023-12-01 10:59:27.6540|26|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Attempting to validate the bound parameter 'dto' of type 'Find_H_er.Models.LoginDto' ... 
+2023-12-01 10:59:27.6540|27|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Done attempting to validate the bound parameter 'dto' of type 'Find_H_er.Models.LoginDto'. 
+2023-12-01 10:59:27.6540|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2023-12-01 10:59:27.6540|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2023-12-01 10:59:27.6540|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2023-12-01 10:59:27.6540|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2023-12-01 10:59:27.6540|101|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing action method Find_H_er.Controllers.AccountController.Login (Find(H)er) - Validation state: Valid 
+2023-12-01 10:59:27.6540|102|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing action method Find_H_er.Controllers.AccountController.Login (Find(H)er) with arguments (Find_H_er.Models.LoginDto) 
+2023-12-01 10:59:27.6540|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 7.0.13 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.13' with options: None 
+2023-12-01 10:59:27.6540|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2023-12-01 10:59:27.6540|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2023-12-01 10:59:27.6540|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2023-12-01 10:59:27.6540|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2023-12-01 10:59:27.6540|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2023-12-01 10:59:27.6540|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 10:59:27.7109|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 10:59:27.7109|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[@__dto_Email_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[Age], [u].[Description], [u].[Email], [u].[ForYouId], [u].[Image], [u].[MatchFormId], [u].[MatchFormScore], [u].[Name], [u].[PasswordHash], [u].[RoleId], [u].[Sex], [r].[RoleId], [r].[Name]
+FROM [Users] AS [u]
+LEFT JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[RoleId]
+WHERE [u].[Email] = @__dto_Email_0 
+2023-12-01 10:59:27.7109|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (8ms) [Parameters=[@__dto_Email_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[Age], [u].[Description], [u].[Email], [u].[ForYouId], [u].[Image], [u].[MatchFormId], [u].[MatchFormScore], [u].[Name], [u].[PasswordHash], [u].[RoleId], [u].[Sex], [r].[RoleId], [r].[Name]
+FROM [Users] AS [u]
+LEFT JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[RoleId]
+WHERE [u].[Email] = @__dto_Email_0 
+2023-12-01 10:59:27.7109|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'AppDbContext' started tracking 'User' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2023-12-01 10:59:27.7109|10805|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|The navigation 'User.Role' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2023-12-01 10:59:27.7109|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'AppDbContext' started tracking 'Role' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2023-12-01 10:59:27.7109|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 10:59:27.7109|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'Findher' on server '(localdb)\MSSQLLocalDB' is being disposed after spending 0ms reading results. 
+2023-12-01 10:59:27.7109|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 10:59:27.7109|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'Findher' on server '(localdb)\MSSQLLocalDB' (0ms). 
+2023-12-01 10:59:27.8018|103|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action method Find_H_er.Controllers.AccountController.Login (Find(H)er), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 140.5172ms. 
+2023-12-01 10:59:27.8018|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2023-12-01 10:59:27.8018|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2023-12-01 10:59:27.8018|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2023-12-01 10:59:27.8018|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2023-12-01 10:59:27.8018|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: Before executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2023-12-01 10:59:27.8018|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: After executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2023-12-01 10:59:27.8018|5|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Before executing action result Microsoft.AspNetCore.Mvc.OkObjectResult. 
+2023-12-01 10:59:27.8018|11|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|List of registered output formatters, in the following order: Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter 
+2023-12-01 10:59:27.8018|4|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|No information found on request to perform content negotiation. 
+2023-12-01 10:59:27.8018|8|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|Attempting to select an output formatter without using a content type as no explicit content types were specified for the response. 
+2023-12-01 10:59:27.8018|10|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|Attempting to select the first formatter in the output formatters list which can write the result. 
+2023-12-01 10:59:27.8018|2|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter' and content type 'text/plain' to write the response. 
+2023-12-01 10:59:27.8018|1|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'System.String'. 
+2023-12-01 10:59:27.8018|6|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|After executing action result Microsoft.AspNetCore.Mvc.OkObjectResult. 
+2023-12-01 10:59:27.8018|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: Before executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2023-12-01 10:59:27.8018|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: After executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2023-12-01 10:59:27.8018|105|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Find_H_er.Controllers.AccountController.Login (Find(H)er) in 143.1586ms 
+2023-12-01 10:59:27.8018|1|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Find_H_er.Controllers.AccountController.Login (Find(H)er)' 
+2023-12-01 10:59:27.8018|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'AppDbContext' disposed. 
+2023-12-01 10:59:27.8018|1|DEBUG|Microsoft.AspNetCore.Server.IIS.Core.IISHttpServer|Connection ID "18374686494167138307" disconnecting. 
+2023-12-01 10:59:27.8018|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 10:59:27.8018|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2023-12-01 10:59:27.8018|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 POST https://localhost:44360/api/account/login application/json 41 - 200 - text/plain;+charset=utf-8 144.5813ms 
+2023-12-01 11:03:50.0536|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 OPTIONS https://localhost:44360/api/account/login - - 
+2023-12-01 11:03:50.0536|2|TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2023-12-01 11:03:50.0536|1001|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|1 candidate(s) found for the request path '/api/account/login' 
+2023-12-01 11:03:50.0536|1|DEBUG|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|Request matched endpoint '405 HTTP Method Not Supported' 
+2023-12-01 11:03:50.0536|2|DEBUG|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|The request has an origin header: 'http://localhost:3000'. 
+2023-12-01 11:03:50.0536|4|INFO|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|CORS policy execution successful. 
+2023-12-01 11:03:50.0536|1|DEBUG|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|The request is a preflight request. 
+2023-12-01 11:03:50.0536|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 OPTIONS https://localhost:44360/api/account/login - - - 204 - - 0.9283ms 
+2023-12-01 11:03:50.0536|1|DEBUG|Microsoft.AspNetCore.Server.IIS.Core.IISHttpServer|Connection ID "18374686519936942086" disconnecting. 
+2023-12-01 11:03:50.0536|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 POST https://localhost:44360/api/account/login application/json 41 
+2023-12-01 11:03:50.0536|2|TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2023-12-01 11:03:50.0536|1001|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|1 candidate(s) found for the request path '/api/account/login' 
+2023-12-01 11:03:50.0536|1005|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|Endpoint 'Find_H_er.Controllers.AccountController.Login (Find(H)er)' with route pattern 'api/account/login' is valid for the request path '/api/account/login' 
+2023-12-01 11:03:50.0536|1|DEBUG|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|Request matched endpoint 'Find_H_er.Controllers.AccountController.Login (Find(H)er)' 
+2023-12-01 11:03:50.0536|2|DEBUG|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|The request has an origin header: 'http://localhost:3000'. 
+2023-12-01 11:03:50.0536|4|INFO|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|CORS policy execution successful. 
+2023-12-01 11:03:50.0536|15|DEBUG|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|Static files was skipped as the request already matched an endpoint. 
+2023-12-01 11:03:50.0536|9|DEBUG|Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler|AuthenticationScheme: Bearer was not authenticated. 
+2023-12-01 11:03:50.0536|0|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Find_H_er.Controllers.AccountController.Login (Find(H)er)' 
+2023-12-01 11:03:50.0536|102|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] Login(Find_H_er.Models.LoginDto) on controller Find_H_er.Controllers.AccountController (Find(H)er). 
+2023-12-01 11:03:50.0536|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of authorization filters (in the following order): None 
+2023-12-01 11:03:50.0536|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of resource filters (in the following order): None 
+2023-12-01 11:03:50.0536|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of action filters (in the following order): Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000), Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000) 
+2023-12-01 11:03:50.0536|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of exception filters (in the following order): None 
+2023-12-01 11:03:50.0536|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of result filters (in the following order): Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000) 
+2023-12-01 11:03:50.0536|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing controller factory for controller Find_H_er.Controllers.AccountController (Find(H)er) 
+2023-12-01 11:03:50.0536|2|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed controller factory for controller Find_H_er.Controllers.AccountController (Find(H)er) 
+2023-12-01 11:03:50.0536|22|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Attempting to bind parameter 'dto' of type 'Find_H_er.Models.LoginDto' ... 
+2023-12-01 11:03:50.0536|44|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder|Attempting to bind parameter 'dto' of type 'Find_H_er.Models.LoginDto' using the name '' in request data ... 
+2023-12-01 11:03:50.0536|1|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder|Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'. 
+2023-12-01 11:03:50.0536|2|DEBUG|Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter|JSON input formatter succeeded, deserializing to type 'Find_H_er.Models.LoginDto' 
+2023-12-01 11:03:50.0536|45|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder|Done attempting to bind parameter 'dto' of type 'Find_H_er.Models.LoginDto'. 
+2023-12-01 11:03:50.0536|23|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Done attempting to bind parameter 'dto' of type 'Find_H_er.Models.LoginDto'. 
+2023-12-01 11:03:50.0536|26|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Attempting to validate the bound parameter 'dto' of type 'Find_H_er.Models.LoginDto' ... 
+2023-12-01 11:03:50.0536|27|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Done attempting to validate the bound parameter 'dto' of type 'Find_H_er.Models.LoginDto'. 
+2023-12-01 11:03:50.0536|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2023-12-01 11:03:50.0536|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2023-12-01 11:03:50.0536|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2023-12-01 11:03:50.0536|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2023-12-01 11:03:50.0536|101|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing action method Find_H_er.Controllers.AccountController.Login (Find(H)er) - Validation state: Valid 
+2023-12-01 11:03:50.0536|102|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing action method Find_H_er.Controllers.AccountController.Login (Find(H)er) with arguments (Find_H_er.Models.LoginDto) 
+2023-12-01 11:03:50.0536|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 7.0.13 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.13' with options: None 
+2023-12-01 11:03:50.0536|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2023-12-01 11:03:50.0536|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2023-12-01 11:03:50.0536|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2023-12-01 11:03:50.0536|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2023-12-01 11:03:50.0536|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2023-12-01 11:03:50.0536|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 11:03:50.0536|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 11:03:50.0536|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[@__dto_Email_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[Age], [u].[Description], [u].[Email], [u].[ForYouId], [u].[Image], [u].[MatchFormId], [u].[MatchFormScore], [u].[Name], [u].[PasswordHash], [u].[RoleId], [u].[Sex], [r].[RoleId], [r].[Name]
+FROM [Users] AS [u]
+LEFT JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[RoleId]
+WHERE [u].[Email] = @__dto_Email_0 
+2023-12-01 11:03:50.0536|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[@__dto_Email_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[Age], [u].[Description], [u].[Email], [u].[ForYouId], [u].[Image], [u].[MatchFormId], [u].[MatchFormScore], [u].[Name], [u].[PasswordHash], [u].[RoleId], [u].[Sex], [r].[RoleId], [r].[Name]
+FROM [Users] AS [u]
+LEFT JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[RoleId]
+WHERE [u].[Email] = @__dto_Email_0 
+2023-12-01 11:03:50.0536|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'AppDbContext' started tracking 'User' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2023-12-01 11:03:50.0647|10805|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|The navigation 'User.Role' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2023-12-01 11:03:50.0647|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'AppDbContext' started tracking 'Role' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2023-12-01 11:03:50.0647|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 11:03:50.0647|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'Findher' on server '(localdb)\MSSQLLocalDB' is being disposed after spending 0ms reading results. 
+2023-12-01 11:03:50.0647|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 11:03:50.0647|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'Findher' on server '(localdb)\MSSQLLocalDB' (0ms). 
+2023-12-01 11:03:50.1761|103|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action method Find_H_er.Controllers.AccountController.Login (Find(H)er), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 115.1539ms. 
+2023-12-01 11:03:50.1761|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2023-12-01 11:03:50.1761|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2023-12-01 11:03:50.1761|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2023-12-01 11:03:50.1761|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2023-12-01 11:03:50.1761|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: Before executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2023-12-01 11:03:50.1761|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: After executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2023-12-01 11:03:50.1761|5|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Before executing action result Microsoft.AspNetCore.Mvc.OkObjectResult. 
+2023-12-01 11:03:50.1761|11|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|List of registered output formatters, in the following order: Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter 
+2023-12-01 11:03:50.1761|4|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|No information found on request to perform content negotiation. 
+2023-12-01 11:03:50.1761|8|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|Attempting to select an output formatter without using a content type as no explicit content types were specified for the response. 
+2023-12-01 11:03:50.1761|10|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|Attempting to select the first formatter in the output formatters list which can write the result. 
+2023-12-01 11:03:50.1761|2|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter' and content type 'text/plain' to write the response. 
+2023-12-01 11:03:50.1761|1|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'System.String'. 
+2023-12-01 11:03:50.1761|6|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|After executing action result Microsoft.AspNetCore.Mvc.OkObjectResult. 
+2023-12-01 11:03:50.1761|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: Before executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2023-12-01 11:03:50.1761|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: After executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2023-12-01 11:03:50.1761|105|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Find_H_er.Controllers.AccountController.Login (Find(H)er) in 118.4284ms 
+2023-12-01 11:03:50.1761|1|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Find_H_er.Controllers.AccountController.Login (Find(H)er)' 
+2023-12-01 11:03:50.1761|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'AppDbContext' disposed. 
+2023-12-01 11:03:50.1761|1|DEBUG|Microsoft.AspNetCore.Server.IIS.Core.IISHttpServer|Connection ID "18230571323271151619" disconnecting. 
+2023-12-01 11:03:50.1761|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 11:03:50.1761|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2023-12-01 11:03:50.1761|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 POST https://localhost:44360/api/account/login application/json 41 - 200 - text/plain;+charset=utf-8 120.0309ms 
+2023-12-01 11:04:00.2921|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 OPTIONS https://localhost:44360/api/account/login - - 
+2023-12-01 11:04:00.2921|2|TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2023-12-01 11:04:00.2921|1001|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|1 candidate(s) found for the request path '/api/account/login' 
+2023-12-01 11:04:00.2921|1|DEBUG|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|Request matched endpoint '405 HTTP Method Not Supported' 
+2023-12-01 11:04:00.2921|2|DEBUG|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|The request has an origin header: 'http://localhost:3000'. 
+2023-12-01 11:04:00.2921|4|INFO|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|CORS policy execution successful. 
+2023-12-01 11:04:00.2921|1|DEBUG|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|The request is a preflight request. 
+2023-12-01 11:04:00.2921|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 OPTIONS https://localhost:44360/api/account/login - - - 204 - - 0.9323ms 
+2023-12-01 11:04:00.2921|1|DEBUG|Microsoft.AspNetCore.Server.IIS.Core.IISHttpServer|Connection ID "18086456126605361157" disconnecting. 
+2023-12-01 11:04:00.2921|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 POST https://localhost:44360/api/account/login application/json 41 
+2023-12-01 11:04:00.2921|2|TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2023-12-01 11:04:00.2921|1001|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|1 candidate(s) found for the request path '/api/account/login' 
+2023-12-01 11:04:00.2921|1005|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|Endpoint 'Find_H_er.Controllers.AccountController.Login (Find(H)er)' with route pattern 'api/account/login' is valid for the request path '/api/account/login' 
+2023-12-01 11:04:00.2921|1|DEBUG|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|Request matched endpoint 'Find_H_er.Controllers.AccountController.Login (Find(H)er)' 
+2023-12-01 11:04:00.2921|2|DEBUG|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|The request has an origin header: 'http://localhost:3000'. 
+2023-12-01 11:04:00.2921|4|INFO|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|CORS policy execution successful. 
+2023-12-01 11:04:00.2921|15|DEBUG|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|Static files was skipped as the request already matched an endpoint. 
+2023-12-01 11:04:00.2921|9|DEBUG|Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler|AuthenticationScheme: Bearer was not authenticated. 
+2023-12-01 11:04:00.2921|0|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Find_H_er.Controllers.AccountController.Login (Find(H)er)' 
+2023-12-01 11:04:00.2921|102|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] Login(Find_H_er.Models.LoginDto) on controller Find_H_er.Controllers.AccountController (Find(H)er). 
+2023-12-01 11:04:00.2921|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of authorization filters (in the following order): None 
+2023-12-01 11:04:00.2921|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of resource filters (in the following order): None 
+2023-12-01 11:04:00.2921|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of action filters (in the following order): Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000), Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000) 
+2023-12-01 11:04:00.2921|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of exception filters (in the following order): None 
+2023-12-01 11:04:00.2921|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of result filters (in the following order): Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000) 
+2023-12-01 11:04:00.2921|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing controller factory for controller Find_H_er.Controllers.AccountController (Find(H)er) 
+2023-12-01 11:04:00.2921|2|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed controller factory for controller Find_H_er.Controllers.AccountController (Find(H)er) 
+2023-12-01 11:04:00.2921|22|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Attempting to bind parameter 'dto' of type 'Find_H_er.Models.LoginDto' ... 
+2023-12-01 11:04:00.2921|44|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder|Attempting to bind parameter 'dto' of type 'Find_H_er.Models.LoginDto' using the name '' in request data ... 
+2023-12-01 11:04:00.2921|1|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder|Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'. 
+2023-12-01 11:04:00.2921|2|DEBUG|Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter|JSON input formatter succeeded, deserializing to type 'Find_H_er.Models.LoginDto' 
+2023-12-01 11:04:00.2921|45|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder|Done attempting to bind parameter 'dto' of type 'Find_H_er.Models.LoginDto'. 
+2023-12-01 11:04:00.2921|23|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Done attempting to bind parameter 'dto' of type 'Find_H_er.Models.LoginDto'. 
+2023-12-01 11:04:00.2921|26|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Attempting to validate the bound parameter 'dto' of type 'Find_H_er.Models.LoginDto' ... 
+2023-12-01 11:04:00.2921|27|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Done attempting to validate the bound parameter 'dto' of type 'Find_H_er.Models.LoginDto'. 
+2023-12-01 11:04:00.2921|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2023-12-01 11:04:00.2921|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2023-12-01 11:04:00.2921|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2023-12-01 11:04:00.2921|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2023-12-01 11:04:00.2921|101|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing action method Find_H_er.Controllers.AccountController.Login (Find(H)er) - Validation state: Valid 
+2023-12-01 11:04:00.2921|102|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing action method Find_H_er.Controllers.AccountController.Login (Find(H)er) with arguments (Find_H_er.Models.LoginDto) 
+2023-12-01 11:04:00.2921|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 7.0.13 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.13' with options: None 
+2023-12-01 11:04:00.2921|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2023-12-01 11:04:00.2921|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2023-12-01 11:04:00.2921|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2023-12-01 11:04:00.2921|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2023-12-01 11:04:00.2921|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2023-12-01 11:04:00.2921|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 11:04:00.2921|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 11:04:00.2921|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[@__dto_Email_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[Age], [u].[Description], [u].[Email], [u].[ForYouId], [u].[Image], [u].[MatchFormId], [u].[MatchFormScore], [u].[Name], [u].[PasswordHash], [u].[RoleId], [u].[Sex], [r].[RoleId], [r].[Name]
+FROM [Users] AS [u]
+LEFT JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[RoleId]
+WHERE [u].[Email] = @__dto_Email_0 
+2023-12-01 11:04:00.2921|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[@__dto_Email_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[Age], [u].[Description], [u].[Email], [u].[ForYouId], [u].[Image], [u].[MatchFormId], [u].[MatchFormScore], [u].[Name], [u].[PasswordHash], [u].[RoleId], [u].[Sex], [r].[RoleId], [r].[Name]
+FROM [Users] AS [u]
+LEFT JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[RoleId]
+WHERE [u].[Email] = @__dto_Email_0 
+2023-12-01 11:04:00.2921|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'AppDbContext' started tracking 'User' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2023-12-01 11:04:00.2921|10805|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|The navigation 'User.Role' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2023-12-01 11:04:00.2921|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'AppDbContext' started tracking 'Role' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2023-12-01 11:04:00.2921|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 11:04:00.2921|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'Findher' on server '(localdb)\MSSQLLocalDB' is being disposed after spending 0ms reading results. 
+2023-12-01 11:04:00.2921|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 11:04:00.2921|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'Findher' on server '(localdb)\MSSQLLocalDB' (0ms). 
+2023-12-01 11:04:00.3865|103|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action method Find_H_er.Controllers.AccountController.Login (Find(H)er), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 90.0126ms. 
+2023-12-01 11:04:00.3865|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2023-12-01 11:04:00.3865|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2023-12-01 11:04:00.3865|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2023-12-01 11:04:00.3865|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2023-12-01 11:04:00.3865|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: Before executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2023-12-01 11:04:00.3865|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: After executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2023-12-01 11:04:00.3865|5|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Before executing action result Microsoft.AspNetCore.Mvc.OkObjectResult. 
+2023-12-01 11:04:00.3865|11|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|List of registered output formatters, in the following order: Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter 
+2023-12-01 11:04:00.3865|4|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|No information found on request to perform content negotiation. 
+2023-12-01 11:04:00.3865|8|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|Attempting to select an output formatter without using a content type as no explicit content types were specified for the response. 
+2023-12-01 11:04:00.3865|10|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|Attempting to select the first formatter in the output formatters list which can write the result. 
+2023-12-01 11:04:00.3865|2|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter' and content type 'text/plain' to write the response. 
+2023-12-01 11:04:00.3865|1|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'System.String'. 
+2023-12-01 11:04:00.3865|6|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|After executing action result Microsoft.AspNetCore.Mvc.OkObjectResult. 
+2023-12-01 11:04:00.3865|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: Before executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2023-12-01 11:04:00.3865|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: After executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2023-12-01 11:04:00.3865|105|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Find_H_er.Controllers.AccountController.Login (Find(H)er) in 92.0405ms 
+2023-12-01 11:04:00.3865|1|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Find_H_er.Controllers.AccountController.Login (Find(H)er)' 
+2023-12-01 11:04:00.3865|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'AppDbContext' disposed. 
+2023-12-01 11:04:00.3865|1|DEBUG|Microsoft.AspNetCore.Server.IIS.Core.IISHttpServer|Connection ID "18374686515641974792" disconnecting. 
+2023-12-01 11:04:00.3865|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 11:04:00.3865|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2023-12-01 11:04:00.3865|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 POST https://localhost:44360/api/account/login application/json 41 - 200 - text/plain;+charset=utf-8 93.0627ms 
+2023-12-01 11:04:11.7241|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 OPTIONS https://localhost:44360/api/account/login - - 
+2023-12-01 11:04:11.7241|2|TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2023-12-01 11:04:11.7241|1001|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|1 candidate(s) found for the request path '/api/account/login' 
+2023-12-01 11:04:11.7241|1|DEBUG|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|Request matched endpoint '405 HTTP Method Not Supported' 
+2023-12-01 11:04:11.7241|2|DEBUG|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|The request has an origin header: 'http://localhost:3000'. 
+2023-12-01 11:04:11.7241|4|INFO|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|CORS policy execution successful. 
+2023-12-01 11:04:11.7241|1|DEBUG|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|The request is a preflight request. 
+2023-12-01 11:04:11.7241|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 OPTIONS https://localhost:44360/api/account/login - - - 204 - - 1.0666ms 
+2023-12-01 11:04:11.7241|1|DEBUG|Microsoft.AspNetCore.Server.IIS.Core.IISHttpServer|Connection ID "18302628904424177669" disconnecting. 
+2023-12-01 11:04:11.7241|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 POST https://localhost:44360/api/account/login application/json 41 
+2023-12-01 11:04:11.7241|2|TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2023-12-01 11:04:11.7241|1001|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|1 candidate(s) found for the request path '/api/account/login' 
+2023-12-01 11:04:11.7241|1005|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|Endpoint 'Find_H_er.Controllers.AccountController.Login (Find(H)er)' with route pattern 'api/account/login' is valid for the request path '/api/account/login' 
+2023-12-01 11:04:11.7241|1|DEBUG|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|Request matched endpoint 'Find_H_er.Controllers.AccountController.Login (Find(H)er)' 
+2023-12-01 11:04:11.7241|2|DEBUG|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|The request has an origin header: 'http://localhost:3000'. 
+2023-12-01 11:04:11.7241|4|INFO|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|CORS policy execution successful. 
+2023-12-01 11:04:11.7241|15|DEBUG|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|Static files was skipped as the request already matched an endpoint. 
+2023-12-01 11:04:11.7241|9|DEBUG|Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler|AuthenticationScheme: Bearer was not authenticated. 
+2023-12-01 11:04:11.7241|0|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Find_H_er.Controllers.AccountController.Login (Find(H)er)' 
+2023-12-01 11:04:11.7241|102|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] Login(Find_H_er.Models.LoginDto) on controller Find_H_er.Controllers.AccountController (Find(H)er). 
+2023-12-01 11:04:11.7241|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of authorization filters (in the following order): None 
+2023-12-01 11:04:11.7241|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of resource filters (in the following order): None 
+2023-12-01 11:04:11.7241|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of action filters (in the following order): Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000), Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000) 
+2023-12-01 11:04:11.7241|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of exception filters (in the following order): None 
+2023-12-01 11:04:11.7241|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of result filters (in the following order): Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000) 
+2023-12-01 11:04:11.7241|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing controller factory for controller Find_H_er.Controllers.AccountController (Find(H)er) 
+2023-12-01 11:04:11.7241|2|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed controller factory for controller Find_H_er.Controllers.AccountController (Find(H)er) 
+2023-12-01 11:04:11.7241|22|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Attempting to bind parameter 'dto' of type 'Find_H_er.Models.LoginDto' ... 
+2023-12-01 11:04:11.7241|44|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder|Attempting to bind parameter 'dto' of type 'Find_H_er.Models.LoginDto' using the name '' in request data ... 
+2023-12-01 11:04:11.7241|1|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder|Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'. 
+2023-12-01 11:04:11.7241|2|DEBUG|Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter|JSON input formatter succeeded, deserializing to type 'Find_H_er.Models.LoginDto' 
+2023-12-01 11:04:11.7241|45|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder|Done attempting to bind parameter 'dto' of type 'Find_H_er.Models.LoginDto'. 
+2023-12-01 11:04:11.7241|23|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Done attempting to bind parameter 'dto' of type 'Find_H_er.Models.LoginDto'. 
+2023-12-01 11:04:11.7241|26|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Attempting to validate the bound parameter 'dto' of type 'Find_H_er.Models.LoginDto' ... 
+2023-12-01 11:04:11.7241|27|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Done attempting to validate the bound parameter 'dto' of type 'Find_H_er.Models.LoginDto'. 
+2023-12-01 11:04:11.7241|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2023-12-01 11:04:11.7241|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2023-12-01 11:04:11.7241|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2023-12-01 11:04:11.7241|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2023-12-01 11:04:11.7241|101|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing action method Find_H_er.Controllers.AccountController.Login (Find(H)er) - Validation state: Valid 
+2023-12-01 11:04:11.7241|102|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing action method Find_H_er.Controllers.AccountController.Login (Find(H)er) with arguments (Find_H_er.Models.LoginDto) 
+2023-12-01 11:04:11.7241|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 7.0.13 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.13' with options: None 
+2023-12-01 11:04:11.7241|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2023-12-01 11:04:11.7241|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2023-12-01 11:04:11.7241|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2023-12-01 11:04:11.7241|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2023-12-01 11:04:11.7241|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2023-12-01 11:04:11.7241|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 11:04:11.7241|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 11:04:11.7241|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[@__dto_Email_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[Age], [u].[Description], [u].[Email], [u].[ForYouId], [u].[Image], [u].[MatchFormId], [u].[MatchFormScore], [u].[Name], [u].[PasswordHash], [u].[RoleId], [u].[Sex], [r].[RoleId], [r].[Name]
+FROM [Users] AS [u]
+LEFT JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[RoleId]
+WHERE [u].[Email] = @__dto_Email_0 
+2023-12-01 11:04:11.7241|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[@__dto_Email_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[Age], [u].[Description], [u].[Email], [u].[ForYouId], [u].[Image], [u].[MatchFormId], [u].[MatchFormScore], [u].[Name], [u].[PasswordHash], [u].[RoleId], [u].[Sex], [r].[RoleId], [r].[Name]
+FROM [Users] AS [u]
+LEFT JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[RoleId]
+WHERE [u].[Email] = @__dto_Email_0 
+2023-12-01 11:04:11.7241|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'AppDbContext' started tracking 'User' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2023-12-01 11:04:11.7241|10805|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|The navigation 'User.Role' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2023-12-01 11:04:11.7241|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'AppDbContext' started tracking 'Role' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2023-12-01 11:04:11.7241|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 11:04:11.7241|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'Findher' on server '(localdb)\MSSQLLocalDB' is being disposed after spending 0ms reading results. 
+2023-12-01 11:04:11.7241|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 11:04:11.7241|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'Findher' on server '(localdb)\MSSQLLocalDB' (0ms). 
+2023-12-01 11:04:11.8056|103|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action method Find_H_er.Controllers.AccountController.Login (Find(H)er), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 77.5312ms. 
+2023-12-01 11:04:11.8056|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2023-12-01 11:04:11.8056|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2023-12-01 11:04:11.8056|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2023-12-01 11:04:11.8056|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2023-12-01 11:04:11.8056|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: Before executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2023-12-01 11:04:11.8056|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: After executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2023-12-01 11:04:11.8056|5|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Before executing action result Microsoft.AspNetCore.Mvc.OkObjectResult. 
+2023-12-01 11:04:11.8056|11|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|List of registered output formatters, in the following order: Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter 
+2023-12-01 11:04:11.8056|4|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|No information found on request to perform content negotiation. 
+2023-12-01 11:04:11.8056|8|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|Attempting to select an output formatter without using a content type as no explicit content types were specified for the response. 
+2023-12-01 11:04:11.8056|10|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|Attempting to select the first formatter in the output formatters list which can write the result. 
+2023-12-01 11:04:11.8056|2|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter' and content type 'text/plain' to write the response. 
+2023-12-01 11:04:11.8056|1|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'System.String'. 
+2023-12-01 11:04:11.8056|6|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|After executing action result Microsoft.AspNetCore.Mvc.OkObjectResult. 
+2023-12-01 11:04:11.8056|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: Before executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2023-12-01 11:04:11.8056|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: After executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2023-12-01 11:04:11.8056|105|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Find_H_er.Controllers.AccountController.Login (Find(H)er) in 79.5023ms 
+2023-12-01 11:04:11.8056|1|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Find_H_er.Controllers.AccountController.Login (Find(H)er)' 
+2023-12-01 11:04:11.8056|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'AppDbContext' disposed. 
+2023-12-01 11:04:11.8056|1|DEBUG|Microsoft.AspNetCore.Server.IIS.Core.IISHttpServer|Connection ID "18158513707758387204" disconnecting. 
+2023-12-01 11:04:11.8056|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 11:04:11.8056|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2023-12-01 11:04:11.8056|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 POST https://localhost:44360/api/account/login application/json 41 - 200 - text/plain;+charset=utf-8 80.5526ms 
+2023-12-01 11:06:12.8224|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 OPTIONS https://localhost:44360/api/account/login - - 
+2023-12-01 11:06:12.8224|2|TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2023-12-01 11:06:12.8224|1001|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|1 candidate(s) found for the request path '/api/account/login' 
+2023-12-01 11:06:12.8224|1|DEBUG|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|Request matched endpoint '405 HTTP Method Not Supported' 
+2023-12-01 11:06:12.8224|2|DEBUG|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|The request has an origin header: 'http://localhost:3000'. 
+2023-12-01 11:06:12.8224|4|INFO|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|CORS policy execution successful. 
+2023-12-01 11:06:12.8224|1|DEBUG|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|The request is a preflight request. 
+2023-12-01 11:06:12.8224|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 OPTIONS https://localhost:44360/api/account/login - - - 204 - - 0.9968ms 
+2023-12-01 11:06:12.8224|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 POST https://localhost:44360/api/account/login application/json 41 
+2023-12-01 11:06:12.8224|2|TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2023-12-01 11:06:12.8224|1001|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|1 candidate(s) found for the request path '/api/account/login' 
+2023-12-01 11:06:12.8224|1005|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|Endpoint 'Find_H_er.Controllers.AccountController.Login (Find(H)er)' with route pattern 'api/account/login' is valid for the request path '/api/account/login' 
+2023-12-01 11:06:12.8224|1|DEBUG|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|Request matched endpoint 'Find_H_er.Controllers.AccountController.Login (Find(H)er)' 
+2023-12-01 11:06:12.8224|2|DEBUG|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|The request has an origin header: 'http://localhost:3000'. 
+2023-12-01 11:06:12.8224|4|INFO|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|CORS policy execution successful. 
+2023-12-01 11:06:12.8224|15|DEBUG|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|Static files was skipped as the request already matched an endpoint. 
+2023-12-01 11:06:12.8224|9|DEBUG|Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler|AuthenticationScheme: Bearer was not authenticated. 
+2023-12-01 11:06:12.8224|0|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Find_H_er.Controllers.AccountController.Login (Find(H)er)' 
+2023-12-01 11:06:12.8224|102|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] Login(Find_H_er.Models.LoginDto) on controller Find_H_er.Controllers.AccountController (Find(H)er). 
+2023-12-01 11:06:12.8224|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of authorization filters (in the following order): None 
+2023-12-01 11:06:12.8224|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of resource filters (in the following order): None 
+2023-12-01 11:06:12.8224|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of action filters (in the following order): Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000), Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000) 
+2023-12-01 11:06:12.8224|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of exception filters (in the following order): None 
+2023-12-01 11:06:12.8224|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of result filters (in the following order): Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000) 
+2023-12-01 11:06:12.8224|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing controller factory for controller Find_H_er.Controllers.AccountController (Find(H)er) 
+2023-12-01 11:06:12.8224|2|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed controller factory for controller Find_H_er.Controllers.AccountController (Find(H)er) 
+2023-12-01 11:06:12.8224|22|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Attempting to bind parameter 'dto' of type 'Find_H_er.Models.LoginDto' ... 
+2023-12-01 11:06:12.8224|44|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder|Attempting to bind parameter 'dto' of type 'Find_H_er.Models.LoginDto' using the name '' in request data ... 
+2023-12-01 11:06:12.8224|1|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder|Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'. 
+2023-12-01 11:06:12.8224|2|DEBUG|Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter|JSON input formatter succeeded, deserializing to type 'Find_H_er.Models.LoginDto' 
+2023-12-01 11:06:12.8224|45|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder|Done attempting to bind parameter 'dto' of type 'Find_H_er.Models.LoginDto'. 
+2023-12-01 11:06:12.8224|23|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Done attempting to bind parameter 'dto' of type 'Find_H_er.Models.LoginDto'. 
+2023-12-01 11:06:12.8224|26|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Attempting to validate the bound parameter 'dto' of type 'Find_H_er.Models.LoginDto' ... 
+2023-12-01 11:06:12.8224|27|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Done attempting to validate the bound parameter 'dto' of type 'Find_H_er.Models.LoginDto'. 
+2023-12-01 11:06:12.8224|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2023-12-01 11:06:12.8224|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2023-12-01 11:06:12.8224|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2023-12-01 11:06:12.8224|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2023-12-01 11:06:12.8224|101|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing action method Find_H_er.Controllers.AccountController.Login (Find(H)er) - Validation state: Valid 
+2023-12-01 11:06:12.8224|102|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing action method Find_H_er.Controllers.AccountController.Login (Find(H)er) with arguments (Find_H_er.Models.LoginDto) 
+2023-12-01 11:06:12.8224|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 7.0.13 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.13' with options: None 
+2023-12-01 11:06:12.8224|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2023-12-01 11:06:12.8224|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2023-12-01 11:06:12.8224|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2023-12-01 11:06:12.8224|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2023-12-01 11:06:12.8224|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2023-12-01 11:06:12.8224|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 11:06:12.8310|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 11:06:12.8310|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[@__dto_Email_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[Age], [u].[Description], [u].[Email], [u].[ForYouId], [u].[Image], [u].[MatchFormId], [u].[MatchFormScore], [u].[Name], [u].[PasswordHash], [u].[RoleId], [u].[Sex], [r].[RoleId], [r].[Name]
+FROM [Users] AS [u]
+LEFT JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[RoleId]
+WHERE [u].[Email] = @__dto_Email_0 
+2023-12-01 11:06:12.8310|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[@__dto_Email_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[Age], [u].[Description], [u].[Email], [u].[ForYouId], [u].[Image], [u].[MatchFormId], [u].[MatchFormScore], [u].[Name], [u].[PasswordHash], [u].[RoleId], [u].[Sex], [r].[RoleId], [r].[Name]
+FROM [Users] AS [u]
+LEFT JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[RoleId]
+WHERE [u].[Email] = @__dto_Email_0 
+2023-12-01 11:06:12.8310|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'AppDbContext' started tracking 'User' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2023-12-01 11:06:12.8310|10805|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|The navigation 'User.Role' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2023-12-01 11:06:12.8310|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'AppDbContext' started tracking 'Role' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2023-12-01 11:06:12.8310|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 11:06:12.8310|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'Findher' on server '(localdb)\MSSQLLocalDB' is being disposed after spending 0ms reading results. 
+2023-12-01 11:06:12.8310|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 11:06:12.8310|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'Findher' on server '(localdb)\MSSQLLocalDB' (0ms). 
+2023-12-01 11:06:12.9068|103|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action method Find_H_er.Controllers.AccountController.Login (Find(H)er), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 78.2308ms. 
+2023-12-01 11:06:12.9068|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2023-12-01 11:06:12.9068|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2023-12-01 11:06:12.9068|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2023-12-01 11:06:12.9068|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2023-12-01 11:06:12.9068|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: Before executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2023-12-01 11:06:12.9068|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: After executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2023-12-01 11:06:12.9068|5|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Before executing action result Microsoft.AspNetCore.Mvc.OkObjectResult. 
+2023-12-01 11:06:12.9068|11|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|List of registered output formatters, in the following order: Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter 
+2023-12-01 11:06:12.9068|4|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|No information found on request to perform content negotiation. 
+2023-12-01 11:06:12.9068|8|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|Attempting to select an output formatter without using a content type as no explicit content types were specified for the response. 
+2023-12-01 11:06:12.9068|10|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|Attempting to select the first formatter in the output formatters list which can write the result. 
+2023-12-01 11:06:12.9068|2|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter' and content type 'text/plain' to write the response. 
+2023-12-01 11:06:12.9068|1|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'System.String'. 
+2023-12-01 11:06:12.9068|6|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|After executing action result Microsoft.AspNetCore.Mvc.OkObjectResult. 
+2023-12-01 11:06:12.9068|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: Before executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2023-12-01 11:06:12.9068|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: After executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2023-12-01 11:06:12.9068|105|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Find_H_er.Controllers.AccountController.Login (Find(H)er) in 81.0354ms 
+2023-12-01 11:06:12.9068|1|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Find_H_er.Controllers.AccountController.Login (Find(H)er)' 
+2023-12-01 11:06:12.9068|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'AppDbContext' disposed. 
+2023-12-01 11:06:12.9068|1|DEBUG|Microsoft.AspNetCore.Server.IIS.Core.IISHttpServer|Connection ID "18374686485577203722" disconnecting. 
+2023-12-01 11:06:12.9068|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 11:06:12.9068|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2023-12-01 11:06:12.9068|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 POST https://localhost:44360/api/account/login application/json 41 - 200 - text/plain;+charset=utf-8 82.4764ms 
+2023-12-01 11:30:53.2343|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 OPTIONS https://localhost:44360/api/account/login - - 
+2023-12-01 11:30:53.2343|2|TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2023-12-01 11:30:53.2343|1001|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|1 candidate(s) found for the request path '/api/account/login' 
+2023-12-01 11:30:53.2343|1|DEBUG|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|Request matched endpoint '405 HTTP Method Not Supported' 
+2023-12-01 11:30:53.2343|2|DEBUG|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|The request has an origin header: 'http://localhost:3000'. 
+2023-12-01 11:30:53.2343|4|INFO|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|CORS policy execution successful. 
+2023-12-01 11:30:53.2343|1|DEBUG|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|The request is a preflight request. 
+2023-12-01 11:30:53.2343|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 OPTIONS https://localhost:44360/api/account/login - - - 204 - - 1.2493ms 
+2023-12-01 11:30:53.2343|1|DEBUG|Microsoft.AspNetCore.Server.IIS.Core.IISHttpServer|Connection ID "18086456126605361159" disconnecting. 
+2023-12-01 11:30:53.2388|1|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 POST https://localhost:44360/api/account/login application/json 41 
+2023-12-01 11:30:53.2388|2|TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2023-12-01 11:30:53.2388|1001|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|1 candidate(s) found for the request path '/api/account/login' 
+2023-12-01 11:30:53.2388|1005|DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|Endpoint 'Find_H_er.Controllers.AccountController.Login (Find(H)er)' with route pattern 'api/account/login' is valid for the request path '/api/account/login' 
+2023-12-01 11:30:53.2388|1|DEBUG|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|Request matched endpoint 'Find_H_er.Controllers.AccountController.Login (Find(H)er)' 
+2023-12-01 11:30:53.2388|2|DEBUG|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|The request has an origin header: 'http://localhost:3000'. 
+2023-12-01 11:30:53.2388|4|INFO|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|CORS policy execution successful. 
+2023-12-01 11:30:53.2388|15|DEBUG|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|Static files was skipped as the request already matched an endpoint. 
+2023-12-01 11:30:53.2388|9|DEBUG|Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler|AuthenticationScheme: Bearer was not authenticated. 
+2023-12-01 11:30:53.2388|0|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'Find_H_er.Controllers.AccountController.Login (Find(H)er)' 
+2023-12-01 11:30:53.2388|102|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] Login(Find_H_er.Models.LoginDto) on controller Find_H_er.Controllers.AccountController (Find(H)er). 
+2023-12-01 11:30:53.2388|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of authorization filters (in the following order): None 
+2023-12-01 11:30:53.2388|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of resource filters (in the following order): None 
+2023-12-01 11:30:53.2388|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of action filters (in the following order): Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000), Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000) 
+2023-12-01 11:30:53.2388|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of exception filters (in the following order): None 
+2023-12-01 11:30:53.2388|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of result filters (in the following order): Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000) 
+2023-12-01 11:30:53.2388|1|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing controller factory for controller Find_H_er.Controllers.AccountController (Find(H)er) 
+2023-12-01 11:30:53.2388|2|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed controller factory for controller Find_H_er.Controllers.AccountController (Find(H)er) 
+2023-12-01 11:30:53.2388|22|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Attempting to bind parameter 'dto' of type 'Find_H_er.Models.LoginDto' ... 
+2023-12-01 11:30:53.2388|44|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder|Attempting to bind parameter 'dto' of type 'Find_H_er.Models.LoginDto' using the name '' in request data ... 
+2023-12-01 11:30:53.2388|1|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder|Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'. 
+2023-12-01 11:30:53.2388|2|DEBUG|Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter|JSON input formatter succeeded, deserializing to type 'Find_H_er.Models.LoginDto' 
+2023-12-01 11:30:53.2388|45|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder|Done attempting to bind parameter 'dto' of type 'Find_H_er.Models.LoginDto'. 
+2023-12-01 11:30:53.2388|23|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Done attempting to bind parameter 'dto' of type 'Find_H_er.Models.LoginDto'. 
+2023-12-01 11:30:53.2388|26|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Attempting to validate the bound parameter 'dto' of type 'Find_H_er.Models.LoginDto' ... 
+2023-12-01 11:30:53.2388|27|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Done attempting to validate the bound parameter 'dto' of type 'Find_H_er.Models.LoginDto'. 
+2023-12-01 11:30:53.2388|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2023-12-01 11:30:53.2388|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2023-12-01 11:30:53.2388|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2023-12-01 11:30:53.2388|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2023-12-01 11:30:53.2388|101|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing action method Find_H_er.Controllers.AccountController.Login (Find(H)er) - Validation state: Valid 
+2023-12-01 11:30:53.2388|102|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing action method Find_H_er.Controllers.AccountController.Login (Find(H)er) with arguments (Find_H_er.Models.LoginDto) 
+2023-12-01 11:30:53.2388|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 7.0.13 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.13' with options: None 
+2023-12-01 11:30:53.2388|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2023-12-01 11:30:53.2388|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2023-12-01 11:30:53.2388|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (0ms). 
+2023-12-01 11:30:53.2388|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (1ms). 
+2023-12-01 11:30:53.2388|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (2ms). 
+2023-12-01 11:30:53.2388|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 11:30:54.2182|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 11:30:54.2182|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[@__dto_Email_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[Age], [u].[Description], [u].[Email], [u].[ForYouId], [u].[Image], [u].[MatchFormId], [u].[MatchFormScore], [u].[Name], [u].[PasswordHash], [u].[RoleId], [u].[Sex], [r].[RoleId], [r].[Name]
+FROM [Users] AS [u]
+LEFT JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[RoleId]
+WHERE [u].[Email] = @__dto_Email_0 
+2023-12-01 11:30:54.2290|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (9ms) [Parameters=[@__dto_Email_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[Age], [u].[Description], [u].[Email], [u].[ForYouId], [u].[Image], [u].[MatchFormId], [u].[MatchFormScore], [u].[Name], [u].[PasswordHash], [u].[RoleId], [u].[Sex], [r].[RoleId], [r].[Name]
+FROM [Users] AS [u]
+LEFT JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[RoleId]
+WHERE [u].[Email] = @__dto_Email_0 
+2023-12-01 11:30:54.2290|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'AppDbContext' started tracking 'User' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2023-12-01 11:30:54.2290|10805|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|The navigation 'User.Role' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2023-12-01 11:30:54.2290|10806|DEBUG|Microsoft.EntityFrameworkCore.ChangeTracking|Context 'AppDbContext' started tracking 'Role' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values. 
+2023-12-01 11:30:54.2290|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 11:30:54.2290|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'Findher' on server '(localdb)\MSSQLLocalDB' is being disposed after spending 1ms reading results. 
+2023-12-01 11:30:54.2290|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 11:30:54.2290|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'Findher' on server '(localdb)\MSSQLLocalDB' (0ms). 
+2023-12-01 11:30:54.3200|103|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action method Find_H_er.Controllers.AccountController.Login (Find(H)er), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 1078.8051ms. 
+2023-12-01 11:30:54.3200|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2023-12-01 11:30:54.3200|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2023-12-01 11:30:54.3200|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2023-12-01 11:30:54.3200|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2023-12-01 11:30:54.3200|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: Before executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2023-12-01 11:30:54.3200|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: After executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2023-12-01 11:30:54.3200|5|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Before executing action result Microsoft.AspNetCore.Mvc.OkObjectResult. 
+2023-12-01 11:30:54.3200|11|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|List of registered output formatters, in the following order: Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter 
+2023-12-01 11:30:54.3200|4|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|No information found on request to perform content negotiation. 
+2023-12-01 11:30:54.3200|8|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|Attempting to select an output formatter without using a content type as no explicit content types were specified for the response. 
+2023-12-01 11:30:54.3200|10|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|Attempting to select the first formatter in the output formatters list which can write the result. 
+2023-12-01 11:30:54.3200|2|DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter' and content type 'text/plain' to write the response. 
+2023-12-01 11:30:54.3200|1|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'System.String'. 
+2023-12-01 11:30:54.3200|6|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|After executing action result Microsoft.AspNetCore.Mvc.OkObjectResult. 
+2023-12-01 11:30:54.3200|52|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: Before executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2023-12-01 11:30:54.3200|53|TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: After executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2023-12-01 11:30:54.3200|105|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action Find_H_er.Controllers.AccountController.Login (Find(H)er) in 1083.9666ms 
+2023-12-01 11:30:54.3200|1|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'Find_H_er.Controllers.AccountController.Login (Find(H)er)' 
+2023-12-01 11:30:54.3200|1|DEBUG|Microsoft.AspNetCore.Server.IIS.Core.IISHttpServer|Connection ID "18302628900129210369" disconnecting. 
+2023-12-01 11:30:54.3200|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'AppDbContext' disposed. 
+2023-12-01 11:30:54.3200|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2023-12-01 11:30:54.3200|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
+2023-12-01 11:30:54.3200|2|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 POST https://localhost:44360/api/account/login application/json 41 - 200 - text/plain;+charset=utf-8 1085.7757ms 
+2023-12-01 11:44:30.0462|0|INFO|Microsoft.Hosting.Lifetime|Application is shutting down... 
+2023-12-01 11:44:30.0462|3|DEBUG|Microsoft.Extensions.Hosting.Internal.Host|Hosting stopping 
+2023-12-01 11:44:30.0462|4|DEBUG|Microsoft.Extensions.Hosting.Internal.Host|Hosting stopped 
