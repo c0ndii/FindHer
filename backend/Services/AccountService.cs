@@ -50,6 +50,15 @@ namespace Find_H_er.Services
                 //User = newUser,
                 //UserId = newUser.UserId,
             };
+            var forYous = new ForYou()
+            {
+                Distance = 20,
+                UsersForYou = new List<User>()
+                {
+                    await _context.Users.FirstOrDefaultAsync(),
+                },
+            };
+            newUser.ForYou = forYous;
             //newUser.MatchForm = matchForm;
             await _context.MatchForms.AddAsync(matchForm);
             await _context.Users.AddAsync(newUser);

@@ -25,6 +25,12 @@ namespace Find_H_er
                     _context.MatchForms.AddRange(questions);
                     _context.SaveChanges();
                 }
+                if (!_context.Users.Any())
+                {
+                    var users = GetUser();
+                    _context.Users.Add(users);
+                    _context.SaveChanges();
+                }
             }
             
             
@@ -47,6 +53,16 @@ namespace Find_H_er
                 },
             };
             return roles;
+        }
+        private static User GetUser()
+        {
+            var user = new User()
+            {
+                Email = "adam@wp.pl",
+                PasswordHash = "test123",
+                Name = "Adam",
+            };
+            return user;
         }
         private static IEnumerable<MatchForm> GetMatchform()
         {
