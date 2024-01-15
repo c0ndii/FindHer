@@ -34,5 +34,15 @@ namespace Find_H_er.Controllers
             await _accountService.EditProfile(profileToUpdate);
             return await Task.FromResult(Ok());
         }
+        [HttpGet("verifyemail/{token}")]
+        public async Task<IActionResult> VerifyEmail([FromRoute] string token)
+        {
+            var result = await _accountService.VerifyEmail(token);
+            if (result)
+            {
+                return await Task.FromResult(Ok("Email verification completed"));
+            }
+            return await Task.FromResult(NotFound("Couldn't verify email"));
+        }
     }
 }

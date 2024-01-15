@@ -12,6 +12,7 @@ namespace Find_H_er.Entities
         public string? Description { get; set; }
         public string? Sex { get; set; }
         public string? Image { get; set; }
+        public string? VerificationToken {  get; set; }
         public List<Chat>? Chats { get; set; }
         //public int? MatchFormId { get; set; }
         public int? MatchFormScore { get; set; } = 50;

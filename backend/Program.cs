@@ -22,7 +22,10 @@ builder.Logging.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Trace);
 builder.Host.UseNLog();
 
 var authenticationSetting = new AuthenticationSettings();
+var emailSenderSetting = new EmailSenderSettings();
 builder.Configuration.GetSection("Authentication").Bind(authenticationSetting);
+builder.Configuration.GetSection("EmailSender").Bind(emailSenderSetting);
+builder.Services.AddSingleton(emailSenderSetting);
 builder.Services.AddSingleton(authenticationSetting);
 builder.Services.AddAuthentication(option =>
 {
@@ -58,6 +61,7 @@ builder.Services.AddScoped<IValidator<LoginDto>, LoginDtoValidator>();
 builder.Services.AddScoped<IValidator<EditProfileDto>, EditProfileDtoValidator>();
 builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
 builder.Services.AddScoped<IAccountService, AccountService>();
+builder.Services.AddTransient<IEmailSenderService, EmailSenderService>();
 builder.Services.AddScoped<IMatchFormService, MatchFormService>();
 builder.Services.AddScoped<IForYouService, ForYouService>();
 builder.Services.AddScoped<IUserContextService, UserContextService>();

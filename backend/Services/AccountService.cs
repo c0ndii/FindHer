@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Find_H_er.Exceptions;
 using Microsoft.AspNetCore.Authorization;
 using Find_H_er.Authorization;
+using System.Security.Cryptography;
 
 namespace Find_H_er.Services
 {
@@ -18,6 +19,7 @@ namespace Find_H_er.Services
         Task<string> GenerateJwt(LoginDto dto);
         Task RegisterUser(RegisterUserDto dto);
         Task EditProfile(EditProfileDto dto);
+        Task<bool> VerifyEmail(string token);
     }
 
     public class AccountService : IAccountService
@@ -27,23 +29,26 @@ namespace Find_H_er.Services
         private readonly AuthenticationSettings _authenticationSettings;
         private readonly IUserContextService _userContextService;
         private readonly IAuthorizationService _authorizationService;
-        public AccountService(AppDbContext context, IPasswordHasher<User> passwordHasher, AuthenticationSettings authenticationSettings, IUserContextService userContextService, IAuthorizationService authorizationService)
+        private readonly IEmailSenderService _emailSenderService;
+        public AccountService(AppDbContext context, IPasswordHasher<User> passwordHasher, AuthenticationSettings authenticationSettings, IUserContextService userContextService, IAuthorizationService authorizationService, IEmailSenderService emailSenderService)
         {
             _context = context;
             _passwordHasher = passwordHasher;
             _authenticationSettings = authenticationSettings;
             _userContextService = userContextService;
             _authorizationService = authorizationService;
+            _emailSenderService = emailSenderService;
         }
         public async Task RegisterUser(RegisterUserDto dto)
         {
             var newUser = new User()
             {
                 Email = dto.Email,
+                VerificationToken = CreateRandomToken(),
             };
             var hashedPassword = _passwordHasher.HashPassword(newUser, dto.Password);
             newUser.PasswordHash = hashedPassword;
-            newUser.Role = await _context.Roles.FirstOrDefaultAsync(x => x.Name == "User");
+            newUser.Role = await _context.Roles.FirstOrDefaultAsync(x => x.Name == "Unconfirmed");
             var matchForm = new MatchForm()
             {
                 Questions = await _context.Questions.ToListAsync(),
@@ -63,6 +68,7 @@ namespace Find_H_er.Services
             await _context.MatchForms.AddAsync(matchForm);
             await _context.Users.AddAsync(newUser);
             await _context.SaveChangesAsync();
+            await _emailSenderService.SendEmailAsync(dto.Email, "Confirm your email", "http://localhost:7055/api/account/verifyemail/"+$"{newUser.VerificationToken}");
         }
         public async Task<string> GenerateJwt(LoginDto dto)
         {
@@ -118,6 +124,22 @@ namespace Find_H_er.Services
             user.Image = dto.Image;
             _context.Update(user);
             await _context.SaveChangesAsync();
+        }
+        private string CreateRandomToken()
+        {
+            return Convert.ToHexString(RandomNumberGenerator.GetBytes(64));
+        }
+        public async Task<bool> VerifyEmail(string token)
+        {
+            var user = await _context.Users.SingleOrDefaultAsync(x => token == x.VerificationToken && x.Role.Name == "Unconfirmed");
+            if (user is null)
+            {
+                return await Task.FromResult(false);
+            }
+            user.Role = await _context.Roles.SingleOrDefaultAsync(x => x.Name == "User");
+            _context.Update(user);
+            await _context.SaveChangesAsync();
+            return await Task.FromResult(true);
         }
     }
 }

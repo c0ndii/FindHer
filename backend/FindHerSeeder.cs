@@ -51,6 +51,10 @@ namespace Find_H_er
                 {
                     Name = "Admin"
                 },
+                new Role()
+                {
+                    Name = "Unconfirmed"
+                }
             };
             return roles;
         }
