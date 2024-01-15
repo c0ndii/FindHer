@@ -68,7 +68,7 @@ namespace Find_H_er.Services
             await _context.MatchForms.AddAsync(matchForm);
             await _context.Users.AddAsync(newUser);
             await _context.SaveChangesAsync();
-            await _emailSenderService.SendEmailAsync(dto.Email, "Confirm your email", "http://localhost:7055/api/account/verifyemail/"+$"{newUser.VerificationToken}");
+            await _emailSenderService.SendEmailAsync(dto.Email, "Confirm your email", "https://localhost:44360/api/account/verifyemail/"+$"{newUser.VerificationToken}");
         }
         public async Task<string> GenerateJwt(LoginDto dto)
         {
