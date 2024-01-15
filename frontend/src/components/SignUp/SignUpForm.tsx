@@ -7,11 +7,13 @@ import {
   Title,
   Text,
   rem,
+  Dialog
 } from '@mantine/core'
 import { FormContainer } from '../Common/FormContainer'
-import { Link } from 'react-router-dom'
+import { Link, redirect } from 'react-router-dom'
 import { hasLength, isEmail, useForm } from '@mantine/form'
 import api from '../../api/api'
+import { useDisclosure } from '@mantine/hooks';
 
 interface RegisterModel {
   email: string
@@ -19,7 +21,11 @@ interface RegisterModel {
   passwordConfirm: string
 }
 
+
 export const SignUpForm = () => {
+  const [opened, { toggle, close }] = useDisclosure(false);
+
+
   const form = useForm({
     initialValues: {
       email: '',
@@ -40,6 +46,7 @@ export const SignUpForm = () => {
   const handleSubmit = async (values: RegisterModel) => {
     try {
       await api.post('/api/account/register', values)
+      toggle();
       console.log('Konto zostało zarejestrowane pomyślnie')
     } catch {
       console.log('error')
@@ -87,6 +94,19 @@ export const SignUpForm = () => {
           </Group>
         </FormContainer>
       </form>
+      <Box>
+      <Dialog opened={opened} withCloseButton onClose={close} size="lg" radius="md">
+        <Text size="sm" mb="xs" fw={500}>
+          Zarejestrowano pomyślnie!
+        </Text>
+        <Text size="sm" mb="xs" fw={500}>
+          Aby się zalogować potwierdź adres email.
+        </Text>
+        <Group align="flex-end">
+          <Button component={Link} onClick={close} to="/SignIn" color='red'>Zaloguj</Button>
+        </Group>
+      </Dialog>
+      </Box>
     </Box>
   )
 }

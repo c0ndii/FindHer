@@ -2,7 +2,7 @@ import Cookies from 'js-cookie'
 import { matchModel } from './schema'
 import axios from 'axios'
 
-const baseUrl = 'https://localhost:7055/api/matchform/'
+const baseUrl = 'https://localhost:44360/api/matchform/'
 
 export const matchPost = async (userData: matchModel) => {
   try {
