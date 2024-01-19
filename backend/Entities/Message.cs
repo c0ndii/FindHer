@@ -4,10 +4,10 @@
     {
         public int MessageId { get; set; }
         public string Content { get; set; }
-        public DateTime SendTime { get; set; }
-        public int UserId { get; set; }
-        public virtual User User { get; set; }
-        public int ChatId { get; set; }
-        public virtual Chat Chat { get; set; }
+        public int SenderUserId {  get; set; }
+        public virtual User Sender {  get; set; }
+        public int ReceiverUserId {  get; set; }
+        public virtual User Receiver {  get; set; }
+        public DateTime SendTime { get; set; } = DateTime.Now;
     }
 }

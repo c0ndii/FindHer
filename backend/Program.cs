@@ -14,8 +14,11 @@ using Find_H_er.Models;
 using Find_H_er.Models.Validators;
 using NLog.Web;
 using System.Reflection;
+using Find_H_er.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddSignalR();
 
 builder.Logging.ClearProviders();
 builder.Logging.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Trace);
@@ -55,6 +58,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddControllers().AddFluentValidation();
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("appDb")));
 builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<ChatHub>();
 builder.Services.AddScoped<FindHerSeeder>();
 builder.Services.AddScoped<IValidator<RegisterUserDto>, RegisterUserDtoValidator>();
 builder.Services.AddScoped<IValidator<LoginDto>, LoginDtoValidator>();
@@ -89,5 +93,5 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
-
+app.MapHub<ChatHub>("/chatHub");
 app.Run();

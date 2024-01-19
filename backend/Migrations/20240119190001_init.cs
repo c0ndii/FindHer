@@ -12,31 +12,6 @@ namespace Find_H_er.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Answers",
-                columns: table => new
-                {
-                    AnswerId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    AnswerContent = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Answers", x => x.AnswerId);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Chats",
-                columns: table => new
-                {
-                    ChatId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1")
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Chats", x => x.ChatId);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "ForYous",
                 columns: table => new
                 {
@@ -103,6 +78,32 @@ namespace Find_H_er.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Questions",
+                columns: table => new
+                {
+                    QuestionId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    QuestionContent = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Questions", x => x.QuestionId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Roles",
+                columns: table => new
+                {
+                    RoleId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Roles", x => x.RoleId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "UserSettings",
                 columns: table => new
                 {
@@ -118,29 +119,48 @@ namespace Find_H_er.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Questions",
+                name: "Answers",
                 columns: table => new
                 {
-                    QuestionId = table.Column<int>(type: "int", nullable: false)
+                    AnswerId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    QuestionContent = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    AnswerId = table.Column<int>(type: "int", nullable: false),
-                    MatchFormId = table.Column<int>(type: "int", nullable: true)
+                    AnswerLetter = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    AnswerContent = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    QuestionId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Questions", x => x.QuestionId);
+                    table.PrimaryKey("PK_Answers", x => x.AnswerId);
                     table.ForeignKey(
-                        name: "FK_Questions_Answers_AnswerId",
-                        column: x => x.AnswerId,
-                        principalTable: "Answers",
-                        principalColumn: "AnswerId",
+                        name: "FK_Answers_Questions_QuestionId",
+                        column: x => x.QuestionId,
+                        principalTable: "Questions",
+                        principalColumn: "QuestionId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "MatchFormQuestion",
+                columns: table => new
+                {
+                    MatchFormsMatchFormId = table.Column<int>(type: "int", nullable: false),
+                    QuestionsQuestionId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_MatchFormQuestion", x => new { x.MatchFormsMatchFormId, x.QuestionsQuestionId });
+                    table.ForeignKey(
+                        name: "FK_MatchFormQuestion_MatchForms_MatchFormsMatchFormId",
+                        column: x => x.MatchFormsMatchFormId,
+                        principalTable: "MatchForms",
+                        principalColumn: "MatchFormId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Questions_MatchForms_MatchFormId",
-                        column: x => x.MatchFormId,
-                        principalTable: "MatchForms",
-                        principalColumn: "MatchFormId");
+                        name: "FK_MatchFormQuestion_Questions_QuestionsQuestionId",
+                        column: x => x.QuestionsQuestionId,
+                        principalTable: "Questions",
+                        principalColumn: "QuestionId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -149,13 +169,17 @@ namespace Find_H_er.Migrations
                 {
                     UserId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false),
-                    Age = table.Column<int>(type: "int", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Sex = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Image = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    MatchFormId = table.Column<int>(type: "int", nullable: false),
-                    ForYouId = table.Column<int>(type: "int", nullable: false)
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: true),
+                    Age = table.Column<int>(type: "int", nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Sex = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    VerificationToken = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MatchFormScore = table.Column<int>(type: "int", nullable: true),
+                    ForYouId = table.Column<int>(type: "int", nullable: true),
+                    RoleId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -164,38 +188,12 @@ namespace Find_H_er.Migrations
                         name: "FK_Users_ForYous_ForYouId",
                         column: x => x.ForYouId,
                         principalTable: "ForYous",
-                        principalColumn: "ForYouId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ForYouId");
                     table.ForeignKey(
-                        name: "FK_Users_MatchForms_MatchFormId",
-                        column: x => x.MatchFormId,
-                        principalTable: "MatchForms",
-                        principalColumn: "MatchFormId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "ChatUser",
-                columns: table => new
-                {
-                    ChatsChatId = table.Column<int>(type: "int", nullable: false),
-                    UsersUserId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ChatUser", x => new { x.ChatsChatId, x.UsersUserId });
-                    table.ForeignKey(
-                        name: "FK_ChatUser_Chats_ChatsChatId",
-                        column: x => x.ChatsChatId,
-                        principalTable: "Chats",
-                        principalColumn: "ChatId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_ChatUser_Users_UsersUserId",
-                        column: x => x.UsersUserId,
-                        principalTable: "Users",
-                        principalColumn: "UserId",
-                        onDelete: ReferentialAction.Cascade);
+                        name: "FK_Users_Roles_RoleId",
+                        column: x => x.RoleId,
+                        principalTable: "Roles",
+                        principalColumn: "RoleId");
                 });
 
             migrationBuilder.CreateTable(
@@ -229,25 +227,25 @@ namespace Find_H_er.Migrations
                     MessageId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    SendTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: false),
-                    ChatId = table.Column<int>(type: "int", nullable: false)
+                    SenderUserId = table.Column<int>(type: "int", nullable: false),
+                    ReceiverUserId = table.Column<int>(type: "int", nullable: false),
+                    SendTime = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Messages", x => x.MessageId);
                     table.ForeignKey(
-                        name: "FK_Messages_Chats_ChatId",
-                        column: x => x.ChatId,
-                        principalTable: "Chats",
-                        principalColumn: "ChatId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Messages_Users_UserId",
-                        column: x => x.UserId,
+                        name: "FK_Messages_Users_ReceiverUserId",
+                        column: x => x.ReceiverUserId,
                         principalTable: "Users",
                         principalColumn: "UserId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Messages_Users_SenderUserId",
+                        column: x => x.SenderUserId,
+                        principalTable: "Users",
+                        principalColumn: "UserId",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -299,9 +297,9 @@ namespace Find_H_er.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_ChatUser_UsersUserId",
-                table: "ChatUser",
-                column: "UsersUserId");
+                name: "IX_Answers_QuestionId",
+                table: "Answers",
+                column: "QuestionId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_InterestUser_UsersUserId",
@@ -309,14 +307,19 @@ namespace Find_H_er.Migrations
                 column: "UsersUserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Messages_ChatId",
-                table: "Messages",
-                column: "ChatId");
+                name: "IX_MatchFormQuestion_QuestionsQuestionId",
+                table: "MatchFormQuestion",
+                column: "QuestionsQuestionId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Messages_UserId",
+                name: "IX_Messages_ReceiverUserId",
                 table: "Messages",
-                column: "UserId");
+                column: "ReceiverUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Messages_SenderUserId",
+                table: "Messages",
+                column: "SenderUserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_PinchUser_UsersUserId",
@@ -329,34 +332,27 @@ namespace Find_H_er.Migrations
                 column: "UsersUserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Questions_AnswerId",
-                table: "Questions",
-                column: "AnswerId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Questions_MatchFormId",
-                table: "Questions",
-                column: "MatchFormId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Users_ForYouId",
                 table: "Users",
                 column: "ForYouId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Users_MatchFormId",
+                name: "IX_Users_RoleId",
                 table: "Users",
-                column: "MatchFormId");
+                column: "RoleId");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "ChatUser");
+                name: "Answers");
 
             migrationBuilder.DropTable(
                 name: "InterestUser");
+
+            migrationBuilder.DropTable(
+                name: "MatchFormQuestion");
 
             migrationBuilder.DropTable(
                 name: "Messages");
@@ -368,16 +364,16 @@ namespace Find_H_er.Migrations
                 name: "PreferenceUser");
 
             migrationBuilder.DropTable(
-                name: "Questions");
-
-            migrationBuilder.DropTable(
                 name: "UserSettings");
 
             migrationBuilder.DropTable(
                 name: "Interests");
 
             migrationBuilder.DropTable(
-                name: "Chats");
+                name: "MatchForms");
+
+            migrationBuilder.DropTable(
+                name: "Questions");
 
             migrationBuilder.DropTable(
                 name: "Pinches");
@@ -389,13 +385,10 @@ namespace Find_H_er.Migrations
                 name: "Users");
 
             migrationBuilder.DropTable(
-                name: "Answers");
-
-            migrationBuilder.DropTable(
                 name: "ForYous");
 
             migrationBuilder.DropTable(
-                name: "MatchForms");
+                name: "Roles");
         }
     }
 }

@@ -22,21 +22,6 @@ namespace Find_H_er.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("ChatUser", b =>
-                {
-                    b.Property<int>("ChatsChatId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UsersUserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ChatsChatId", "UsersUserId");
-
-                    b.HasIndex("UsersUserId");
-
-                    b.ToTable("ChatUser");
-                });
-
             modelBuilder.Entity("Find_H_er.Entities.Answer", b =>
                 {
                     b.Property<int>("AnswerId")
@@ -61,19 +46,6 @@ namespace Find_H_er.Migrations
                     b.HasIndex("QuestionId");
 
                     b.ToTable("Answers");
-                });
-
-            modelBuilder.Entity("Find_H_er.Entities.Chat", b =>
-                {
-                    b.Property<int>("ChatId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ChatId"));
-
-                    b.HasKey("ChatId");
-
-                    b.ToTable("Chats");
                 });
 
             modelBuilder.Entity("Find_H_er.Entities.ForYou", b =>
@@ -134,24 +106,24 @@ namespace Find_H_er.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MessageId"));
 
-                    b.Property<int>("ChatId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Content")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("ReceiverUserId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("SendTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("UserId")
+                    b.Property<int>("SenderUserId")
                         .HasColumnType("int");
 
                     b.HasKey("MessageId");
 
-                    b.HasIndex("ChatId");
+                    b.HasIndex("ReceiverUserId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("SenderUserId");
 
                     b.ToTable("Messages");
                 });
@@ -363,21 +335,6 @@ namespace Find_H_er.Migrations
                     b.ToTable("PreferenceUser");
                 });
 
-            modelBuilder.Entity("ChatUser", b =>
-                {
-                    b.HasOne("Find_H_er.Entities.Chat", null)
-                        .WithMany()
-                        .HasForeignKey("ChatsChatId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Find_H_er.Entities.User", null)
-                        .WithMany()
-                        .HasForeignKey("UsersUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("Find_H_er.Entities.Answer", b =>
                 {
                     b.HasOne("Find_H_er.Entities.Question", "Question")
@@ -391,21 +348,21 @@ namespace Find_H_er.Migrations
 
             modelBuilder.Entity("Find_H_er.Entities.Message", b =>
                 {
-                    b.HasOne("Find_H_er.Entities.Chat", "Chat")
-                        .WithMany("Messages")
-                        .HasForeignKey("ChatId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                    b.HasOne("Find_H_er.Entities.User", "Receiver")
+                        .WithMany("ReceivedMessages")
+                        .HasForeignKey("ReceiverUserId")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("Find_H_er.Entities.User", "User")
-                        .WithMany("Messages")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                    b.HasOne("Find_H_er.Entities.User", "Sender")
+                        .WithMany("SentMessages")
+                        .HasForeignKey("SenderUserId")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.Navigation("Chat");
+                    b.Navigation("Receiver");
 
-                    b.Navigation("User");
+                    b.Navigation("Sender");
                 });
 
             modelBuilder.Entity("Find_H_er.Entities.User", b =>
@@ -483,11 +440,6 @@ namespace Find_H_er.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Find_H_er.Entities.Chat", b =>
-                {
-                    b.Navigation("Messages");
-                });
-
             modelBuilder.Entity("Find_H_er.Entities.ForYou", b =>
                 {
                     b.Navigation("UsersForYou");
@@ -500,7 +452,9 @@ namespace Find_H_er.Migrations
 
             modelBuilder.Entity("Find_H_er.Entities.User", b =>
                 {
-                    b.Navigation("Messages");
+                    b.Navigation("ReceivedMessages");
+
+                    b.Navigation("SentMessages");
                 });
 #pragma warning restore 612, 618
         }

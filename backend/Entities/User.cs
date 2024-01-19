@@ -13,14 +13,14 @@ namespace Find_H_er.Entities
         public string? Sex { get; set; }
         public string? Image { get; set; }
         public string? VerificationToken {  get; set; }
-        public List<Chat>? Chats { get; set; }
         //public int? MatchFormId { get; set; }
         public int? MatchFormScore { get; set; } = 50;
         //public virtual MatchForm? MatchForm { get; set; }
         public List<Pinch>? Pinches { get; set; }
         public int? ForYouId { get; set; }
         public virtual ForYou? ForYou { get; set; }
-        public List<Message>? Messages { get; set; }
+        public List<Message> SentMessages { get; set; }
+        public List<Message> ReceivedMessages {  get; set; }
         //public  zaczepka
         public List<Preference>? Preferences { get; set; }
         public List<Interest>? Interests { get; set; }

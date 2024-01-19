@@ -65,6 +65,8 @@ namespace Find_H_er
                 Email = "adam@wp.pl",
                 PasswordHash = "test123",
                 Name = "Adam",
+                SentMessages = new List<Message>(),
+                ReceivedMessages = new List<Message>()
             };
             return user;
         }

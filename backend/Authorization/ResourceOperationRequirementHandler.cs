@@ -14,7 +14,7 @@ namespace Find_H_er.Authorization
         }
         var userId = context.User.FindFirst(x => x.Type == ClaimTypes.NameIdentifier).Value;
 
-        if (message.UserId == int.Parse(userId))
+        if (message.SenderUserId == int.Parse(userId))
         {
             context.Succeed(requirement);
         }

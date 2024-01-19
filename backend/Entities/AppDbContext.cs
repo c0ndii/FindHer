@@ -7,7 +7,6 @@ namespace Find_H_er.Entities
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Message> Messages { get; set; }
-        public DbSet<Chat> Chats { get; set; }
         public DbSet<ForYou> ForYous { get; set; }
         public DbSet<Pinch> Pinches { get; set; }
         public DbSet<Answer> Answers { get; set; }
@@ -27,6 +26,17 @@ namespace Find_H_er.Entities
             modelBuilder.Entity<User>()
                 .Property(x => x.Name)
                 .HasMaxLength(25);
+            modelBuilder.Entity<Message>()
+                .HasOne(x => x.Sender)
+                .WithMany(x => x.SentMessages)
+                .HasForeignKey(x => x.SenderUserId)
+                .OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Message>()
+                .HasOne(x => x.Receiver)
+                .WithMany(x => x.ReceivedMessages)
+                .HasForeignKey(x => x.ReceiverUserId)
+                .OnDelete(DeleteBehavior.Restrict);
+
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
