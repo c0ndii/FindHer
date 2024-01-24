@@ -71,7 +71,6 @@ builder.Services.AddScoped<IMatchFormService, MatchFormService>();
 builder.Services.AddScoped<IForYouService, ForYouService>();
 builder.Services.AddScoped<IUserContextService, UserContextService>();
 builder.Services.AddScoped<ErrorHandlingMiddleware>();
-builder.Services.AddSingleton<ChatHub>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

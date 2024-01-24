@@ -11,23 +11,21 @@ namespace Find_H_er.Hubs
     public class ChatHub : Hub
     {
         private readonly AppDbContext _context;
-        private readonly UserContextService _userContextService;
         private List<MessageDto> MessagesToAdd;
 
-        public ChatHub(AppDbContext context, UserContextService userContextService)
+        public ChatHub(AppDbContext context)
         {
             _context = context;
-            _userContextService = userContextService;
         }
 
-        public async Task SendMessage(int id, string message)
+        public async Task SendMessage(int senderId, int receiverId, string message)
         {
-            var sender = _context.Users.SingleOrDefault(x => x.UserId == _userContextService.GetUserId);
+            var sender = _context.Users.SingleOrDefault(x => x.UserId == senderId);
             if(sender is null)
             {
                 throw new NotFoundException("User not found");
             }
-            var receiver = _context.Users.SingleOrDefault(x => x.UserId == id);
+            var receiver = _context.Users.SingleOrDefault(x => x.UserId == receiverId);
             if(receiver is null)
             {
                 throw new NotFoundException("User not found");
@@ -40,12 +38,12 @@ namespace Find_H_er.Hubs
                 SenderId = sender.UserId,
                 ReceiverId = receiver.UserId
             });
-            Clients.Client(connectionId).SendAsync("ReceiveMessage",messageToSend);
+            Clients.Client(connectionId).SendAsync("ReceiveMessage", messageToSend);
             
         }
-        public async Task SaveUserConnection()
+        public async Task SaveUserConnection(int senderId)
         {
-            var user = await _context.Users.SingleOrDefaultAsync(x => x.UserId == _userContextService.GetUserId);
+            var user = await _context.Users.SingleOrDefaultAsync(x => x.UserId == senderId);
             if(user is null)
             {
                 throw new NotFoundException("User not found");

@@ -20,6 +20,7 @@ namespace Find_H_er.Services
         Task RegisterUser(RegisterUserDto dto);
         Task EditProfile(EditProfileDto dto);
         Task<bool> VerifyEmail(string token);
+        public int GetUserId();
     }
 
     public class AccountService : IAccountService
@@ -128,6 +129,11 @@ namespace Find_H_er.Services
         private string CreateRandomToken()
         {
             return Convert.ToHexString(RandomNumberGenerator.GetBytes(64));
+        }
+        public int GetUserId()
+        {
+            var id = _userContextService.GetUserId;
+            return (int)id;
         }
         public async Task<bool> VerifyEmail(string token)
         {

@@ -44,5 +44,11 @@ namespace Find_H_er.Controllers
             }
             return await Task.FromResult(NotFound("Couldn't verify email"));
         }
+        [HttpGet("getownid")]
+        public int GetOwnId()
+        {
+            var result = _accountService.GetUserId();
+            return result;
+        }
     }
 }
