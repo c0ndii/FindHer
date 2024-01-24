@@ -13,6 +13,7 @@ import RequireAuth from './components/Authentication/components/RequireAuth'
 import { MatchForm } from './components/MatchForm'
 import RequireNoAuth from './components/Authentication/components/RequireNoAuth'
 import { HomeView } from './view/HomeView'
+import { ChatView } from './view/ChatView'
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Route index element={<Welcome />} />
         <Route path="/SignIn" element={<SignIn />} />
         <Route path="/SignUp" element={<SignUp />} />
+        <Route path="/chat" element={<ChatView />} />
       </Route>
       <Route path="/app" element={<RequireAuth />}>
         <Route path="Account" element={<AccountView />} />

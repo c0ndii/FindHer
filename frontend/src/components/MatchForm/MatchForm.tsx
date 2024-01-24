@@ -56,6 +56,7 @@ export const MatchForm = () => {
               style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}
             >
               <Select
+                key={questions?.questions.at(0)?.questionId}
                 label={questions?.questions.at(0)?.questionContent}
                 placeholder="Odpowiedź"
                 clearable
@@ -68,6 +69,7 @@ export const MatchForm = () => {
                 {...form.getInputProps('question1')}
               />
               <Select
+                key={questions?.questions.at(1)?.questionId}
                 label={questions?.questions.at(1)?.questionContent}
                 placeholder="Odpowiedź"
                 clearable
@@ -80,6 +82,7 @@ export const MatchForm = () => {
                 {...form.getInputProps('question2')}
               />
               <Select
+                key={questions?.questions.at(2)?.questionId}
                 label={questions?.questions.at(2)?.questionContent}
                 placeholder="Odpowiedź"
                 clearable
@@ -92,6 +95,7 @@ export const MatchForm = () => {
                 {...form.getInputProps('question3')}
               />
               <Select
+                key={questions?.questions.at(3)?.questionId}
                 label={questions?.questions.at(3)?.questionContent}
                 clearable
                 placeholder="Odpowiedź"
@@ -104,6 +108,7 @@ export const MatchForm = () => {
                 {...form.getInputProps('question4')}
               />
               <Select
+              key={questions?.questions.at(4)?.questionId}
                 label={questions?.questions.at(4)?.questionContent}
                 placeholder="Odpowiedź"
                 clearable
@@ -131,6 +136,7 @@ export const MatchForm = () => {
               style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}
             >
               <Select
+                key={questions?.questions.at(5)?.questionId}
                 label={questions?.questions.at(5)?.questionContent}
                 placeholder="Odpowiedź"
                 clearable
@@ -143,6 +149,7 @@ export const MatchForm = () => {
                 {...form.getInputProps('question6')}
               />
               <Select
+                key={questions?.questions.at(6)?.questionId}
                 label={questions?.questions.at(6)?.questionContent}
                 placeholder="Odpowiedź"
                 clearable
@@ -155,6 +162,7 @@ export const MatchForm = () => {
                 {...form.getInputProps('question7')}
               />
               <Select
+                key={questions?.questions.at(7)?.questionId}
                 label={questions?.questions.at(7)?.questionContent}
                 placeholder="Odpowiedź"
                 clearable
@@ -167,6 +175,7 @@ export const MatchForm = () => {
                 {...form.getInputProps('question8')}
               />
               <Select
+                key={questions?.questions.at(8)?.questionId}
                 label={questions?.questions.at(8)?.questionContent}
                 placeholder="Odpowiedź"
                 clearable
@@ -179,6 +188,7 @@ export const MatchForm = () => {
                 {...form.getInputProps('question9')}
               />
               <Select
+                key={questions?.questions.at(9)?.questionId}
                 label={questions?.questions.at(9)?.questionContent}
                 placeholder="Odpowiedź"
                 clearable
@@ -206,6 +216,7 @@ export const MatchForm = () => {
               style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}
             >
               <Select
+              key={questions?.questions.at(10)?.questionId}
                 label={questions?.questions.at(10)?.questionContent}
                 placeholder="Odpowiedź"
                 clearable
@@ -218,6 +229,7 @@ export const MatchForm = () => {
                 {...form.getInputProps('question11')}
               />
               <Select
+              key={questions?.questions.at(11)?.questionId}
                 label={questions?.questions.at(11)?.questionContent}
                 placeholder="Odpowiedź"
                 clearable
@@ -230,6 +242,7 @@ export const MatchForm = () => {
                 {...form.getInputProps('question12')}
               />
               <Select
+              key={questions?.questions.at(12)?.questionId}
                 label={questions?.questions.at(12)?.questionContent}
                 placeholder="Odpowiedź"
                 clearable
@@ -242,6 +255,7 @@ export const MatchForm = () => {
                 {...form.getInputProps('question13')}
               />
               <Select
+              key={questions?.questions.at(13)?.questionId}
                 label={questions?.questions.at(13)?.questionContent}
                 placeholder="Odpowiedź"
                 clearable
@@ -254,6 +268,7 @@ export const MatchForm = () => {
                 {...form.getInputProps('question14')}
               />
               <Select
+              key={questions?.questions.at(14)?.questionId}
                 label={questions?.questions.at(14)?.questionContent}
                 placeholder="Odpowiedź"
                 clearable
