@@ -16,6 +16,7 @@ namespace Find_H_er.Entities
         public DbSet<Interest> Interests { get; set; }
         public DbSet<Preference> Preferences { get; set; }
         public DbSet<Role> Roles { get; set; }
+        public DbSet<Connection> Connections {  get; set; }
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
             
