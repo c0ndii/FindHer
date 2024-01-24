@@ -5,24 +5,34 @@ import {
   HubConnectionBuilder,
   LogLevel,
 } from '@microsoft/signalr'
+import { getId } from '../../api/User/GetId'
 
 export const ChatView = () => {
+  const [myid, setmyid] = useState<number>()
+  const [receiverid, setreceiverid] = useState<number>()
   const [connection, setConnection] = useState<HubConnection>()
   const [messages, setMessages] = useState<any[]>([])
 
-  const joinChatRoom = async (username: string) => {
+  const joinChatRoom = async (
+    username: number,
+    username2: number,
+    message: string
+  ) => {
     try {
       const conn = new HubConnectionBuilder()
         .withUrl('https://localhost:44360/chatHub')
         .configureLogging(LogLevel.Information)
         .build()
 
+      setmyid(username)
+      setreceiverid(username2)
+
       // conn.on('JoinSpecificChatRoom', (username, msg) => {
       //   console.log('msg', msg)
       // })
 
-      conn.on('ReceiveMessage', (username, msg) => {
-        setMessages((messages) => [...messages, { username, msg }])
+      conn.on('ReceiveMessage', (message) => {
+        setMessages((messages) => [...messages, message])
       })
 
       await conn.start()
@@ -36,7 +46,9 @@ export const ChatView = () => {
 
   const sendMessage = async (message: string) => {
     try {
-      await connection?.invoke('SendMessage', message)
+      console.log(myid, receiverid, message)
+      await connection?.invoke('SaveUserConnection', myid)
+      await connection?.invoke('SendMessage', myid, receiverid, message)
     } catch (e) {
       console.log(e)
     }

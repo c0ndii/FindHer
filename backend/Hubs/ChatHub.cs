@@ -20,6 +20,7 @@ namespace Find_H_er.Hubs
 
         public async Task SendMessage(int senderId, int receiverId, string message)
         {
+            MessagesToAdd = new List<MessageDto>();
             var sender = _context.Users.SingleOrDefault(x => x.UserId == senderId);
             if(sender is null)
             {

@@ -1,12 +1,10 @@
 export const Messagecontainer = ({ messages }: any) => {
   return (
     <div>
-      {messages.map((msg: { msg: string; username: string }, index: number) => (
+      {messages.map((msg: string, index: number) => (
         <table>
           <tr key={index}>
-            <td>
-              {msg.msg} - {msg.username}
-            </td>
+            <td>{msg}</td>
           </tr>
         </table>
       ))}
