@@ -2012,3 +2012,369 @@ END
    at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
 2024-01-24 22:39:08.9126|2|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HN0T4JIJBKD9" stopped. 
 2024-01-24 22:39:08.9126|7|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets|Connection id "0HN0T4JIJBKD9" sending FIN because: "The Socket transport's send loop completed gracefully." 
+2024-01-24 23:07:06.3710|10401|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|An 'IServiceProvider' was created for internal use by Entity Framework. 
+2024-01-24 23:07:06.8897|10607|DEBUG|Microsoft.EntityFrameworkCore.Model|No relationship from 'Message' to 'User' has been configured by convention because there are multiple properties on one entity type - {'Receiver', 'Sender'} that could be matched with the properties on the other entity type - {'ReceivedMessages', 'SentMessages'}. This message can be disregarded if explicit configuration has been specified in 'OnModelCreating'. 
+2024-01-24 23:07:06.9294|10607|DEBUG|Microsoft.EntityFrameworkCore.Model|No relationship from 'User' to 'Message' has been configured by convention because there are multiple properties on one entity type - {'ReceivedMessages', 'SentMessages'} that could be matched with the properties on the other entity type - {'Receiver', 'Sender'}. This message can be disregarded if explicit configuration has been specified in 'OnModelCreating'. 
+2024-01-24 23:07:06.9294|10607|DEBUG|Microsoft.EntityFrameworkCore.Model|No relationship from 'User' to 'Message' has been configured by convention because there are multiple properties on one entity type - {'ReceivedMessages', 'SentMessages'} that could be matched with the properties on the other entity type - {'Receiver', 'Sender'}. This message can be disregarded if explicit configuration has been specified in 'OnModelCreating'. 
+2024-01-24 23:07:07.1380|10607|DEBUG|Microsoft.EntityFrameworkCore.Model|No relationship from 'Message' to 'User' has been configured by convention because there are multiple properties on one entity type - {'Receiver', 'Sender'} that could be matched with the properties on the other entity type - {'ReceivedMessages', 'SentMessages'}. This message can be disregarded if explicit configuration has been specified in 'OnModelCreating'. 
+2024-01-24 23:07:07.1380|10607|DEBUG|Microsoft.EntityFrameworkCore.Model|No relationship from 'User' to 'Message' has been configured by convention because there are multiple properties on one entity type - {'ReceivedMessages', 'SentMessages'} that could be matched with the properties on the other entity type - {'Receiver', 'Sender'}. This message can be disregarded if explicit configuration has been specified in 'OnModelCreating'. 
+2024-01-24 23:07:07.1867|10601|DEBUG|Microsoft.EntityFrameworkCore.Model|The index {'InterestsInterestId'} was not created on entity type 'InterestUser (Dictionary<string, object>)' as the properties are already covered by the index {'InterestsInterestId', 'UsersUserId'}. 
+2024-01-24 23:07:07.1867|10601|DEBUG|Microsoft.EntityFrameworkCore.Model|The index {'MatchFormsMatchFormId'} was not created on entity type 'MatchFormQuestion (Dictionary<string, object>)' as the properties are already covered by the index {'MatchFormsMatchFormId', 'QuestionsQuestionId'}. 
+2024-01-24 23:07:07.1867|10601|DEBUG|Microsoft.EntityFrameworkCore.Model|The index {'PinchesPinchId'} was not created on entity type 'PinchUser (Dictionary<string, object>)' as the properties are already covered by the index {'PinchesPinchId', 'UsersUserId'}. 
+2024-01-24 23:07:07.1867|10601|DEBUG|Microsoft.EntityFrameworkCore.Model|The index {'PreferencesPreferenceId'} was not created on entity type 'PreferenceUser (Dictionary<string, object>)' as the properties are already covered by the index {'PreferencesPreferenceId', 'UsersUserId'}. 
+2024-01-24 23:07:07.3248|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'InterestUser (Dictionary<string, object>).InterestsInterestId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2024-01-24 23:07:07.3248|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'InterestUser (Dictionary<string, object>).UsersUserId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2024-01-24 23:07:07.3248|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'MatchFormQuestion (Dictionary<string, object>).MatchFormsMatchFormId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2024-01-24 23:07:07.3248|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'MatchFormQuestion (Dictionary<string, object>).QuestionsQuestionId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2024-01-24 23:07:07.3248|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'PinchUser (Dictionary<string, object>).PinchesPinchId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2024-01-24 23:07:07.3248|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'PinchUser (Dictionary<string, object>).UsersUserId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2024-01-24 23:07:07.3248|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'PreferenceUser (Dictionary<string, object>).PreferencesPreferenceId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2024-01-24 23:07:07.3248|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'PreferenceUser (Dictionary<string, object>).UsersUserId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2024-01-24 23:07:07.5595|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 7.0.13 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.13' with options: None 
+2024-01-24 23:07:07.6396|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2024-01-24 23:07:07.6967|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (57ms). 
+2024-01-24 23:07:07.6967|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2024-01-24 23:07:10.9554|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2024-01-24 23:07:10.9554|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2024-01-24 23:07:10.9554|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (5ms). 
+2024-01-24 23:07:10.9720|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (12ms). 
+2024-01-24 23:07:10.9905|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1 
+2024-01-24 23:07:11.0243|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (42ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1 
+2024-01-24 23:07:11.0243|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2024-01-24 23:07:11.0403|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'Findher' on server '(localdb)\MSSQLLocalDB' (5ms). 
+2024-01-24 23:07:11.2269|10111|DEBUG|Microsoft.EntityFrameworkCore.Query|Compiling query expression: 
+'DbSet<Role>()
+    .Any()' 
+2024-01-24 23:07:11.5807|10107|DEBUG|Microsoft.EntityFrameworkCore.Query|Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<bool>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT EXISTS (
+            SELECT 1
+            FROM Roles AS r)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, bool>, 
+    Find_H_er.Entities.AppDbContext, 
+    False, 
+    False, 
+    True
+)
+    .Single()' 
+2024-01-24 23:07:11.6243|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2024-01-24 23:07:11.6243|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2024-01-24 23:07:11.6243|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2024-01-24 23:07:11.6243|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2024-01-24 23:07:11.6243|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2024-01-24 23:07:11.6243|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Roles] AS [r]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END 
+2024-01-24 23:07:11.6415|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (15ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Roles] AS [r]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END 
+2024-01-24 23:07:11.6522|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2024-01-24 23:07:11.6522|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'Findher' on server '(localdb)\MSSQLLocalDB' is being disposed after spending 12ms reading results. 
+2024-01-24 23:07:11.6522|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2024-01-24 23:07:11.6522|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'Findher' on server '(localdb)\MSSQLLocalDB' (0ms). 
+2024-01-24 23:07:11.6522|10111|DEBUG|Microsoft.EntityFrameworkCore.Query|Compiling query expression: 
+'DbSet<MatchForm>()
+    .Any()' 
+2024-01-24 23:07:11.6605|10107|DEBUG|Microsoft.EntityFrameworkCore.Query|Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<bool>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT EXISTS (
+            SELECT 1
+            FROM MatchForms AS m)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, bool>, 
+    Find_H_er.Entities.AppDbContext, 
+    False, 
+    False, 
+    True
+)
+    .Single()' 
+2024-01-24 23:07:11.6605|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2024-01-24 23:07:11.6605|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2024-01-24 23:07:11.6605|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2024-01-24 23:07:11.6605|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2024-01-24 23:07:11.6605|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2024-01-24 23:07:11.6605|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [MatchForms] AS [m]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END 
+2024-01-24 23:07:11.6605|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [MatchForms] AS [m]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END 
+2024-01-24 23:07:11.6605|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2024-01-24 23:07:11.6605|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'Findher' on server '(localdb)\MSSQLLocalDB' is being disposed after spending 0ms reading results. 
+2024-01-24 23:07:11.6605|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2024-01-24 23:07:11.6605|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'Findher' on server '(localdb)\MSSQLLocalDB' (0ms). 
+2024-01-24 23:07:11.6605|10111|DEBUG|Microsoft.EntityFrameworkCore.Query|Compiling query expression: 
+'DbSet<User>()
+    .Any()' 
+2024-01-24 23:07:11.6605|10107|DEBUG|Microsoft.EntityFrameworkCore.Query|Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<bool>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT EXISTS (
+            SELECT 1
+            FROM Users AS u)), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, bool>, 
+    Find_H_er.Entities.AppDbContext, 
+    False, 
+    False, 
+    True
+)
+    .Single()' 
+2024-01-24 23:07:11.6605|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2024-01-24 23:07:11.6605|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2024-01-24 23:07:11.6605|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2024-01-24 23:07:11.6605|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2024-01-24 23:07:11.6605|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2024-01-24 23:07:11.6605|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END 
+2024-01-24 23:07:11.6741|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END 
+2024-01-24 23:07:11.6741|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2024-01-24 23:07:11.6741|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'Findher' on server '(localdb)\MSSQLLocalDB' is being disposed after spending 0ms reading results. 
+2024-01-24 23:07:11.6741|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2024-01-24 23:07:11.6741|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'Findher' on server '(localdb)\MSSQLLocalDB' (0ms). 
+2024-01-24 23:07:11.8284|12|DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ModelBinderFactory|Registered model binder providers, in the following order: Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider 
+2024-01-24 23:07:11.9281|1|DEBUG|Microsoft.AspNetCore.SignalR.Internal.DefaultHubProtocolResolver|Registered SignalR Protocol: json, implemented by Microsoft.AspNetCore.SignalR.Protocol.JsonHubProtocol. 
+2024-01-24 23:07:11.9575|9|TRACE|Microsoft.AspNetCore.SignalR.Internal.DefaultHubDispatcher|'ChatHub' hub method 'SendMessage' is bound. 
+2024-01-24 23:07:11.9575|9|TRACE|Microsoft.AspNetCore.SignalR.Internal.DefaultHubDispatcher|'ChatHub' hub method 'SaveUserConnection' is bound. 
+2024-01-24 23:07:11.9788|1|DEBUG|Microsoft.Extensions.Hosting.Internal.Host|Hosting starting 
+2024-01-24 23:07:12.0113|63|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\Mafisto CHEF\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest. 
+2024-01-24 23:07:12.0250|37|DEBUG|Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository|Reading data from file 'C:\Users\Mafisto CHEF\AppData\Local\ASP.NET\DataProtection-Keys\key-294342cb-ff4a-4785-b85b-c6bde2fef214.xml'. 
+2024-01-24 23:07:12.0355|37|DEBUG|Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository|Reading data from file 'C:\Users\Mafisto CHEF\AppData\Local\ASP.NET\DataProtection-Keys\key-43d38cb1-bb90-46b7-a6b4-b0a8181bbcb1.xml'. 
+2024-01-24 23:07:12.0355|37|DEBUG|Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository|Reading data from file 'C:\Users\Mafisto CHEF\AppData\Local\ASP.NET\DataProtection-Keys\key-43d5d9fe-25fc-4eca-9d11-b03947cd39ae.xml'. 
+2024-01-24 23:07:12.0355|37|DEBUG|Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository|Reading data from file 'C:\Users\Mafisto CHEF\AppData\Local\ASP.NET\DataProtection-Keys\key-b0059bb9-f9b9-4aa0-80c0-27a64e2e1ec2.xml'. 
+2024-01-24 23:07:12.0355|37|DEBUG|Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository|Reading data from file 'C:\Users\Mafisto CHEF\AppData\Local\ASP.NET\DataProtection-Keys\key-e8e90ef4-5040-4ea1-a216-7646e8ff1769.xml'. 
+2024-01-24 23:07:12.0355|18|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|Found key {294342cb-ff4a-4785-b85b-c6bde2fef214}. 
+2024-01-24 23:07:12.0619|18|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|Found key {43d38cb1-bb90-46b7-a6b4-b0a8181bbcb1}. 
+2024-01-24 23:07:12.0619|18|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|Found key {43d5d9fe-25fc-4eca-9d11-b03947cd39ae}. 
+2024-01-24 23:07:12.0619|18|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|Found key {b0059bb9-f9b9-4aa0-80c0-27a64e2e1ec2}. 
+2024-01-24 23:07:12.0619|18|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|Found key {e8e90ef4-5040-4ea1-a216-7646e8ff1769}. 
+2024-01-24 23:07:12.0793|13|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.DefaultKeyResolver|Considering key {e8e90ef4-5040-4ea1-a216-7646e8ff1769} with expiration date 2024-04-14 18:37:54Z as default key. 
+2024-01-24 23:07:12.0871|0|DEBUG|Microsoft.AspNetCore.DataProtection.TypeForwardingActivator|Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=7.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60 
+2024-01-24 23:07:12.0871|51|DEBUG|Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor|Decrypting secret element using Windows DPAPI. 
+2024-01-24 23:07:12.0871|0|DEBUG|Microsoft.AspNetCore.DataProtection.TypeForwardingActivator|Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=7.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60 
+2024-01-24 23:07:12.0871|4|DEBUG|Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.CngCbcAuthenticatedEncryptorFactory|Opening CNG algorithm 'AES' from provider '(null)' with chaining mode CBC. 
+2024-01-24 23:07:12.1309|3|DEBUG|Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.CngCbcAuthenticatedEncryptorFactory|Opening CNG algorithm 'SHA256' from provider '(null)' with HMAC. 
+2024-01-24 23:07:12.1309|2|DEBUG|Microsoft.AspNetCore.DataProtection.KeyManagement.KeyRingProvider|Using key {e8e90ef4-5040-4ea1-a216-7646e8ff1769} as the default key. 
+2024-01-24 23:07:12.1309|65|DEBUG|Microsoft.AspNetCore.DataProtection.Internal.DataProtectionHostedService|Key ring with default key {e8e90ef4-5040-4ea1-a216-7646e8ff1769} was loaded during application startup. 
+2024-01-24 23:07:12.4334|8|WARN|Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServer|The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert. 
+2024-01-24 23:07:12.4836|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7055 
+2024-01-24 23:07:12.4836|14|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5152 
+2024-01-24 23:07:12.4836|13|DEBUG|Microsoft.AspNetCore.Hosting.Diagnostics|Loaded hosting startup assembly Find(H)er 
+2024-01-24 23:07:12.4836|13|DEBUG|Microsoft.AspNetCore.Hosting.Diagnostics|Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh 
+2024-01-24 23:07:12.4836|13|DEBUG|Microsoft.AspNetCore.Hosting.Diagnostics|Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net 
+2024-01-24 23:07:12.4836|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2024-01-24 23:07:12.4836|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2024-01-24 23:07:12.4836|0|INFO|Microsoft.Hosting.Lifetime|Content root path: D:\Kurs\Find_H_er\backend 
+2024-01-24 23:07:12.4861|9|TRACE|Microsoft.AspNetCore.Http.Connections.Internal.HttpConnectionManager|Starting connection heartbeat. 
+2024-01-24 23:07:12.4861|2|DEBUG|Microsoft.Extensions.Hosting.Internal.Host|Hosting started 
+2024-01-24 23:07:12.7059|39|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HN0T538KMPAJ" accepted. 
+2024-01-24 23:07:12.7059|1|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HN0T538KMPAJ" started. 
+2024-01-24 23:07:12.7224|6|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets|Connection id "0HN0T538KMPAJ" received FIN. 
+2024-01-24 23:07:12.7574|1|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware|Failed to authenticate HTTPS connection. System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](Boolean receiveFirst, Byte[] reAuthenticationData, CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.ProcessAuthenticationWithTelemetryAsync(Boolean isAsync, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2024-01-24 23:07:12.8007|2|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HN0T538KMPAJ" stopped. 
+2024-01-24 23:07:12.8007|7|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets|Connection id "0HN0T538KMPAJ" sending FIN because: "The Socket transport's send loop completed gracefully." 
+2024-01-24 23:07:13.5508|39|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HN0T538KMPAK" accepted. 
+2024-01-24 23:07:13.5508|1|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HN0T538KMPAK" started. 
+2024-01-24 23:07:13.8228|6|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets|Connection id "0HN0T538KMPAK" received FIN. 
+2024-01-24 23:07:13.8439|1|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware|Failed to authenticate HTTPS connection. System.Security.Authentication.AuthenticationException: Authentication failed, see inner exception.
+ ---> System.ComponentModel.Win32Exception (0x80090327): Podczas przetwarzania certyfikatu wystąpił nieznany błąd.
+   --- End of inner exception stack trace ---
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](Boolean receiveFirst, Byte[] reAuthenticationData, CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.ProcessAuthenticationWithTelemetryAsync(Boolean isAsync, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2024-01-24 23:07:13.8439|2|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HN0T538KMPAK" stopped. 
+2024-01-24 23:07:13.8454|7|DEBUG|Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets|Connection id "0HN0T538KMPAK" sending FIN because: "The Socket transport's send loop completed gracefully." 
+2024-01-24 23:35:51.5883|10401|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|An 'IServiceProvider' was created for internal use by Entity Framework. 
+2024-01-24 23:35:51.9070|10607|DEBUG|Microsoft.EntityFrameworkCore.Model|No relationship from 'Message' to 'User' has been configured by convention because there are multiple properties on one entity type - {'Receiver', 'Sender'} that could be matched with the properties on the other entity type - {'ReceivedMessages', 'SentMessages'}. This message can be disregarded if explicit configuration has been specified in 'OnModelCreating'. 
+2024-01-24 23:35:51.9573|10607|DEBUG|Microsoft.EntityFrameworkCore.Model|No relationship from 'User' to 'Message' has been configured by convention because there are multiple properties on one entity type - {'ReceivedMessages', 'SentMessages'} that could be matched with the properties on the other entity type - {'Receiver', 'Sender'}. This message can be disregarded if explicit configuration has been specified in 'OnModelCreating'. 
+2024-01-24 23:35:51.9573|10607|DEBUG|Microsoft.EntityFrameworkCore.Model|No relationship from 'User' to 'Message' has been configured by convention because there are multiple properties on one entity type - {'ReceivedMessages', 'SentMessages'} that could be matched with the properties on the other entity type - {'Receiver', 'Sender'}. This message can be disregarded if explicit configuration has been specified in 'OnModelCreating'. 
+2024-01-24 23:35:52.1168|10607|DEBUG|Microsoft.EntityFrameworkCore.Model|No relationship from 'Message' to 'User' has been configured by convention because there are multiple properties on one entity type - {'Receiver', 'Sender'} that could be matched with the properties on the other entity type - {'ReceivedMessages', 'SentMessages'}. This message can be disregarded if explicit configuration has been specified in 'OnModelCreating'. 
+2024-01-24 23:35:52.1168|10607|DEBUG|Microsoft.EntityFrameworkCore.Model|No relationship from 'User' to 'Message' has been configured by convention because there are multiple properties on one entity type - {'ReceivedMessages', 'SentMessages'} that could be matched with the properties on the other entity type - {'Receiver', 'Sender'}. This message can be disregarded if explicit configuration has been specified in 'OnModelCreating'. 
+2024-01-24 23:35:52.1629|10601|DEBUG|Microsoft.EntityFrameworkCore.Model|The index {'InterestsInterestId'} was not created on entity type 'InterestUser (Dictionary<string, object>)' as the properties are already covered by the index {'InterestsInterestId', 'UsersUserId'}. 
+2024-01-24 23:35:52.1629|10601|DEBUG|Microsoft.EntityFrameworkCore.Model|The index {'MatchFormsMatchFormId'} was not created on entity type 'MatchFormQuestion (Dictionary<string, object>)' as the properties are already covered by the index {'MatchFormsMatchFormId', 'QuestionsQuestionId'}. 
+2024-01-24 23:35:52.1629|10601|DEBUG|Microsoft.EntityFrameworkCore.Model|The index {'PinchesPinchId'} was not created on entity type 'PinchUser (Dictionary<string, object>)' as the properties are already covered by the index {'PinchesPinchId', 'UsersUserId'}. 
+2024-01-24 23:35:52.1629|10601|DEBUG|Microsoft.EntityFrameworkCore.Model|The index {'PreferencesPreferenceId'} was not created on entity type 'PreferenceUser (Dictionary<string, object>)' as the properties are already covered by the index {'PreferencesPreferenceId', 'UsersUserId'}. 
+2024-01-24 23:35:52.2900|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'InterestUser (Dictionary<string, object>).InterestsInterestId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2024-01-24 23:35:52.2900|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'InterestUser (Dictionary<string, object>).UsersUserId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2024-01-24 23:35:52.2900|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'MatchFormQuestion (Dictionary<string, object>).MatchFormsMatchFormId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2024-01-24 23:35:52.2900|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'MatchFormQuestion (Dictionary<string, object>).QuestionsQuestionId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2024-01-24 23:35:52.2900|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'PinchUser (Dictionary<string, object>).PinchesPinchId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2024-01-24 23:35:52.2900|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'PinchUser (Dictionary<string, object>).UsersUserId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2024-01-24 23:35:52.2900|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'PreferenceUser (Dictionary<string, object>).PreferencesPreferenceId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2024-01-24 23:35:52.2900|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'PreferenceUser (Dictionary<string, object>).UsersUserId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2024-01-24 23:35:52.4746|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 7.0.13 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.13' with options: None 
+2024-01-24 23:35:52.5222|10607|DEBUG|Microsoft.EntityFrameworkCore.Model|No relationship from 'Message' to 'User' has been configured by convention because there are multiple properties on one entity type - {'Receiver', 'Sender'} that could be matched with the properties on the other entity type - {'ReceivedMessages', 'SentMessages'}. This message can be disregarded if explicit configuration has been specified in 'OnModelCreating'. 
+2024-01-24 23:35:52.5222|10607|DEBUG|Microsoft.EntityFrameworkCore.Model|No relationship from 'User' to 'Message' has been configured by convention because there are multiple properties on one entity type - {'ReceivedMessages', 'SentMessages'} that could be matched with the properties on the other entity type - {'Receiver', 'Sender'}. This message can be disregarded if explicit configuration has been specified in 'OnModelCreating'. 
+2024-01-24 23:35:52.5222|10607|DEBUG|Microsoft.EntityFrameworkCore.Model|No relationship from 'User' to 'Message' has been configured by convention because there are multiple properties on one entity type - {'ReceivedMessages', 'SentMessages'} that could be matched with the properties on the other entity type - {'Receiver', 'Sender'}. This message can be disregarded if explicit configuration has been specified in 'OnModelCreating'. 
+2024-01-24 23:35:52.5405|10607|DEBUG|Microsoft.EntityFrameworkCore.Model|No relationship from 'Message' to 'User' has been configured by convention because there are multiple properties on one entity type - {'Receiver', 'Sender'} that could be matched with the properties on the other entity type - {'ReceivedMessages', 'SentMessages'}. This message can be disregarded if explicit configuration has been specified in 'OnModelCreating'. 
+2024-01-24 23:35:52.5405|10607|DEBUG|Microsoft.EntityFrameworkCore.Model|No relationship from 'User' to 'Message' has been configured by convention because there are multiple properties on one entity type - {'ReceivedMessages', 'SentMessages'} that could be matched with the properties on the other entity type - {'Receiver', 'Sender'}. This message can be disregarded if explicit configuration has been specified in 'OnModelCreating'. 
+2024-01-24 23:35:52.5405|10601|DEBUG|Microsoft.EntityFrameworkCore.Model|The index {'InterestsInterestId'} was not created on entity type 'InterestUser (Dictionary<string, object>)' as the properties are already covered by the index {'InterestsInterestId', 'UsersUserId'}. 
+2024-01-24 23:35:52.5405|10601|DEBUG|Microsoft.EntityFrameworkCore.Model|The index {'MatchFormsMatchFormId'} was not created on entity type 'MatchFormQuestion (Dictionary<string, object>)' as the properties are already covered by the index {'MatchFormsMatchFormId', 'QuestionsQuestionId'}. 
+2024-01-24 23:35:52.5405|10601|DEBUG|Microsoft.EntityFrameworkCore.Model|The index {'PinchesPinchId'} was not created on entity type 'PinchUser (Dictionary<string, object>)' as the properties are already covered by the index {'PinchesPinchId', 'UsersUserId'}. 
+2024-01-24 23:35:52.5405|10601|DEBUG|Microsoft.EntityFrameworkCore.Model|The index {'PreferencesPreferenceId'} was not created on entity type 'PreferenceUser (Dictionary<string, object>)' as the properties are already covered by the index {'PreferencesPreferenceId', 'UsersUserId'}. 
+2024-01-24 23:35:52.5405|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'InterestUser (Dictionary<string, object>).InterestsInterestId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2024-01-24 23:35:52.5405|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'InterestUser (Dictionary<string, object>).UsersUserId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2024-01-24 23:35:52.5405|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'MatchFormQuestion (Dictionary<string, object>).MatchFormsMatchFormId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2024-01-24 23:35:52.5486|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'MatchFormQuestion (Dictionary<string, object>).QuestionsQuestionId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2024-01-24 23:35:52.5486|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'PinchUser (Dictionary<string, object>).PinchesPinchId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2024-01-24 23:35:52.5486|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'PinchUser (Dictionary<string, object>).UsersUserId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2024-01-24 23:35:52.5486|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'PreferenceUser (Dictionary<string, object>).PreferencesPreferenceId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2024-01-24 23:35:52.5486|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'PreferenceUser (Dictionary<string, object>).UsersUserId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2024-01-24 23:35:52.8290|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'AppDbContext' disposed. 
+2024-01-24 23:36:03.6952|10401|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|An 'IServiceProvider' was created for internal use by Entity Framework. 
+2024-01-24 23:36:03.9913|10607|DEBUG|Microsoft.EntityFrameworkCore.Model|No relationship from 'Message' to 'User' has been configured by convention because there are multiple properties on one entity type - {'Receiver', 'Sender'} that could be matched with the properties on the other entity type - {'ReceivedMessages', 'SentMessages'}. This message can be disregarded if explicit configuration has been specified in 'OnModelCreating'. 
+2024-01-24 23:36:04.0245|10607|DEBUG|Microsoft.EntityFrameworkCore.Model|No relationship from 'User' to 'Message' has been configured by convention because there are multiple properties on one entity type - {'ReceivedMessages', 'SentMessages'} that could be matched with the properties on the other entity type - {'Receiver', 'Sender'}. This message can be disregarded if explicit configuration has been specified in 'OnModelCreating'. 
+2024-01-24 23:36:04.0245|10607|DEBUG|Microsoft.EntityFrameworkCore.Model|No relationship from 'User' to 'Message' has been configured by convention because there are multiple properties on one entity type - {'ReceivedMessages', 'SentMessages'} that could be matched with the properties on the other entity type - {'Receiver', 'Sender'}. This message can be disregarded if explicit configuration has been specified in 'OnModelCreating'. 
+2024-01-24 23:36:04.1579|10607|DEBUG|Microsoft.EntityFrameworkCore.Model|No relationship from 'Message' to 'User' has been configured by convention because there are multiple properties on one entity type - {'Receiver', 'Sender'} that could be matched with the properties on the other entity type - {'ReceivedMessages', 'SentMessages'}. This message can be disregarded if explicit configuration has been specified in 'OnModelCreating'. 
+2024-01-24 23:36:04.1579|10607|DEBUG|Microsoft.EntityFrameworkCore.Model|No relationship from 'User' to 'Message' has been configured by convention because there are multiple properties on one entity type - {'ReceivedMessages', 'SentMessages'} that could be matched with the properties on the other entity type - {'Receiver', 'Sender'}. This message can be disregarded if explicit configuration has been specified in 'OnModelCreating'. 
+2024-01-24 23:36:04.1945|10601|DEBUG|Microsoft.EntityFrameworkCore.Model|The index {'InterestsInterestId'} was not created on entity type 'InterestUser (Dictionary<string, object>)' as the properties are already covered by the index {'InterestsInterestId', 'UsersUserId'}. 
+2024-01-24 23:36:04.1945|10601|DEBUG|Microsoft.EntityFrameworkCore.Model|The index {'MatchFormsMatchFormId'} was not created on entity type 'MatchFormQuestion (Dictionary<string, object>)' as the properties are already covered by the index {'MatchFormsMatchFormId', 'QuestionsQuestionId'}. 
+2024-01-24 23:36:04.1945|10601|DEBUG|Microsoft.EntityFrameworkCore.Model|The index {'PinchesPinchId'} was not created on entity type 'PinchUser (Dictionary<string, object>)' as the properties are already covered by the index {'PinchesPinchId', 'UsersUserId'}. 
+2024-01-24 23:36:04.1945|10601|DEBUG|Microsoft.EntityFrameworkCore.Model|The index {'PreferencesPreferenceId'} was not created on entity type 'PreferenceUser (Dictionary<string, object>)' as the properties are already covered by the index {'PreferencesPreferenceId', 'UsersUserId'}. 
+2024-01-24 23:36:04.2936|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'InterestUser (Dictionary<string, object>).InterestsInterestId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2024-01-24 23:36:04.2936|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'InterestUser (Dictionary<string, object>).UsersUserId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2024-01-24 23:36:04.2936|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'MatchFormQuestion (Dictionary<string, object>).MatchFormsMatchFormId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2024-01-24 23:36:04.2936|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'MatchFormQuestion (Dictionary<string, object>).QuestionsQuestionId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2024-01-24 23:36:04.2936|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'PinchUser (Dictionary<string, object>).PinchesPinchId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2024-01-24 23:36:04.2936|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'PinchUser (Dictionary<string, object>).UsersUserId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2024-01-24 23:36:04.2936|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'PreferenceUser (Dictionary<string, object>).PreferencesPreferenceId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2024-01-24 23:36:04.2936|10600|DEBUG|Microsoft.EntityFrameworkCore.Model.Validation|The property 'PreferenceUser (Dictionary<string, object>).UsersUserId' was created in shadow state because there are no eligible CLR members with a matching name. 
+2024-01-24 23:36:04.4731|10403|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|Entity Framework Core 7.0.13 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.13' with options: None 
+2024-01-24 23:36:04.4939|20005|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Creating DbConnection. 
+2024-01-24 23:36:04.5303|20006|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Created DbConnection. (33ms). 
+2024-01-24 23:36:04.5303|20400|DEBUG|Microsoft.EntityFrameworkCore.Migrations|Migrating using database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2024-01-24 23:36:04.5371|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2024-01-24 23:36:06.1134|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2024-01-24 23:36:06.1134|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2024-01-24 23:36:06.1134|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (4ms). 
+2024-01-24 23:36:06.1134|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (9ms). 
+2024-01-24 23:36:06.1320|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1 
+2024-01-24 23:36:06.1535|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (23ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1 
+2024-01-24 23:36:06.1535|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2024-01-24 23:36:06.1635|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'Findher' on server '(localdb)\MSSQLLocalDB' (4ms). 
+2024-01-24 23:36:06.1635|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteScalar'. 
+2024-01-24 23:36:06.1635|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteScalar' (0ms). 
+2024-01-24 23:36:06.1635|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteScalar' (0ms). 
+2024-01-24 23:36:06.1635|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2024-01-24 23:36:06.1635|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2024-01-24 23:36:06.1635|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]'); 
+2024-01-24 23:36:07.2649|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1,091ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]'); 
+2024-01-24 23:36:07.2649|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2024-01-24 23:36:07.2674|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'Findher' on server '(localdb)\MSSQLLocalDB' (1ms). 
+2024-01-24 23:36:07.2674|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2024-01-24 23:36:07.2674|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2024-01-24 23:36:07.2674|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2024-01-24 23:36:07.2674|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2024-01-24 23:36:07.2674|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2024-01-24 23:36:07.2674|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1 
+2024-01-24 23:36:07.2674|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1 
+2024-01-24 23:36:07.2674|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2024-01-24 23:36:07.2674|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'Findher' on server '(localdb)\MSSQLLocalDB' (0ms). 
+2024-01-24 23:36:07.2674|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteScalar'. 
+2024-01-24 23:36:07.2674|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteScalar' (0ms). 
+2024-01-24 23:36:07.2674|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteScalar' (0ms). 
+2024-01-24 23:36:07.2674|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2024-01-24 23:36:07.2674|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2024-01-24 23:36:07.2674|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]'); 
+2024-01-24 23:36:07.2674|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]'); 
+2024-01-24 23:36:07.2674|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2024-01-24 23:36:07.2674|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'Findher' on server '(localdb)\MSSQLLocalDB' (0ms). 
+2024-01-24 23:36:07.8429|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteReader'. 
+2024-01-24 23:36:07.8429|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteReader' (0ms). 
+2024-01-24 23:36:07.8429|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteReader' (0ms). 
+2024-01-24 23:36:07.8429|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2024-01-24 23:36:07.8429|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2024-01-24 23:36:07.8429|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId]; 
+2024-01-24 23:36:07.8508|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId]; 
+2024-01-24 23:36:07.8508|20301|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Closing data reader to 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2024-01-24 23:36:07.8508|20300|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|A data reader for 'Findher' on server '(localdb)\MSSQLLocalDB' is being disposed after spending 3ms reading results. 
+2024-01-24 23:36:07.8508|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2024-01-24 23:36:07.8508|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'Findher' on server '(localdb)\MSSQLLocalDB' (0ms). 
+2024-01-24 23:36:07.8666|20402|INFO|Microsoft.EntityFrameworkCore.Migrations|Applying migration '20240124223552_ConnectionId'. 
+2024-01-24 23:36:08.9906|20000|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opening connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2024-01-24 23:36:08.9906|20001|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Opened connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2024-01-24 23:36:09.0360|20209|DEBUG|Microsoft.EntityFrameworkCore.Database.Transaction|Beginning transaction with isolation level 'Unspecified'. 
+2024-01-24 23:36:09.0360|20200|DEBUG|Microsoft.EntityFrameworkCore.Database.Transaction|Began transaction with isolation level 'ReadCommitted'. 
+2024-01-24 23:36:09.0360|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2024-01-24 23:36:09.0360|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2024-01-24 23:36:09.0723|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (29ms). 
+2024-01-24 23:36:09.0723|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE [Users] ADD [ConnectionId] nvarchar(max) NULL; 
+2024-01-24 23:36:09.0723|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE [Users] ADD [ConnectionId] nvarchar(max) NULL; 
+2024-01-24 23:36:09.0723|20103|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Creating DbCommand for 'ExecuteNonQuery'. 
+2024-01-24 23:36:09.0723|20104|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Created DbCommand for 'ExecuteNonQuery' (0ms). 
+2024-01-24 23:36:09.0723|20106|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Initialized DbCommand for 'ExecuteNonQuery' (0ms). 
+2024-01-24 23:36:09.0723|20100|DEBUG|Microsoft.EntityFrameworkCore.Database.Command|Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20240124223552_ConnectionId', N'7.0.13'); 
+2024-01-24 23:36:09.0723|20101|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20240124223552_ConnectionId', N'7.0.13'); 
+2024-01-24 23:36:09.0811|20210|DEBUG|Microsoft.EntityFrameworkCore.Database.Transaction|Committing transaction. 
+2024-01-24 23:36:09.0811|20202|DEBUG|Microsoft.EntityFrameworkCore.Database.Transaction|Committed transaction. 
+2024-01-24 23:36:09.0811|20204|DEBUG|Microsoft.EntityFrameworkCore.Database.Transaction|Disposing transaction. 
+2024-01-24 23:36:09.0811|20002|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closing connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2024-01-24 23:36:09.0811|20003|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Closed connection to database 'Findher' on server '(localdb)\MSSQLLocalDB' (0ms). 
+2024-01-24 23:36:09.0811|10407|DEBUG|Microsoft.EntityFrameworkCore.Infrastructure|'AppDbContext' disposed. 
+2024-01-24 23:36:09.0811|20007|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposing connection to database 'Findher' on server '(localdb)\MSSQLLocalDB'. 
+2024-01-24 23:36:09.0811|20008|DEBUG|Microsoft.EntityFrameworkCore.Database.Connection|Disposed connection to database '' on server '' (0ms). 
