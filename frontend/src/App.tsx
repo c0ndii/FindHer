@@ -22,7 +22,6 @@ const App = () => {
         <Route index element={<Welcome />} />
         <Route path="/SignIn" element={<SignIn />} />
         <Route path="/SignUp" element={<SignUp />} />
-        <Route path="/chat" element={<ChatView />} />
       </Route>
       <Route path="/app" element={<RequireAuth />}>
         <Route path="Account" element={<AccountView />} />
@@ -31,6 +30,7 @@ const App = () => {
         <Route path="Matchform" element={<MatchForm />} />
         <Route path="Settings" element={<SettingsView />} />
         <Route path="Home" element={<HomeView />} />
+        <Route path="Chat" element={<ChatView />} />
       </Route>
     </Routes>
   )

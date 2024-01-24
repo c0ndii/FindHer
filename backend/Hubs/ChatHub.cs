@@ -8,7 +8,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Find_H_er.Hubs
 {
-    [Authorize]
     public class ChatHub : Hub
     {
         private readonly AppDbContext _context;
@@ -41,7 +40,7 @@ namespace Find_H_er.Hubs
                 SenderId = sender.UserId,
                 ReceiverId = receiver.UserId
             });
-            Clients.Client(connectionId).SendAsync(messageToSend);
+            Clients.Client(connectionId).SendAsync("ReceiveMessage",messageToSend);
             
         }
         public async Task SaveUserConnection()

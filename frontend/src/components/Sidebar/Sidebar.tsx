@@ -8,6 +8,7 @@ import {
   IconThumbUp,
   IconLogout,
   IconForms,
+  IconMessage,
 } from '@tabler/icons-react'
 import classes from './Sidebar.module.css'
 import { NavLink, useNavigate } from 'react-router-dom'
@@ -46,6 +47,7 @@ const mockdata = [
   { icon: IconThumbUp, label: 'Interests' },
   { icon: IconForms, label: 'Matchform' },
   { icon: IconSettings, label: 'Settings' },
+  { icon: IconMessage, label: 'Chat' },
 ]
 
 export const Sidebar = () => {

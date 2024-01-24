@@ -10,23 +10,23 @@ export const ChatView = () => {
   const [connection, setConnection] = useState<HubConnection>()
   const [messages, setMessages] = useState<any[]>([])
 
-  const joinChatRoom = async (username: string, chatroom: string) => {
+  const joinChatRoom = async (username: string) => {
     try {
       const conn = new HubConnectionBuilder()
-        .withUrl('https://localhost:44360/chathub')
+        .withUrl('https://localhost:44360/chatHub')
         .configureLogging(LogLevel.Information)
         .build()
 
-      conn.on('JoinSpecificChatRoom', (username, msg) => {
-        console.log('msg', msg)
-      })
+      // conn.on('JoinSpecificChatRoom', (username, msg) => {
+      //   console.log('msg', msg)
+      // })
 
-      conn.on('ReceiveSpecificMessage', (username, msg) => {
+      conn.on('ReceiveMessage', (username, msg) => {
         setMessages((messages) => [...messages, { username, msg }])
       })
 
       await conn.start()
-      await conn.invoke('JoinSpecificChatRoom', { username, chatroom })
+      //await conn.invoke('JoinSpecificChatRoom', { username, chatroom })
 
       setConnection(conn)
     } catch (e) {
@@ -47,7 +47,7 @@ export const ChatView = () => {
       {!connection ? (
         <Waitingroom joinChatRoom={joinChatRoom} />
       ) : (
-        <Chatroom messages={messages} sendMEssage={sendMessage} />
+        <Chatroom messages={messages} sendMessage={sendMessage} />
       )}
     </>
   )

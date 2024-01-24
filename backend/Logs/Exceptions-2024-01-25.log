@@ -1,0 +1,28 @@
+2024-01-25 00:01:18.8271|1|ERROR|Microsoft.AspNetCore.SignalR.HubConnectionHandler|Error when dispatching 'OnConnectedAsync' on hub. System.InvalidOperationException: Unable to resolve service for type 'Find_H_er.Services.UserContextService' while attempting to activate 'Find_H_er.Hubs.ChatHub'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method153(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.SignalR.Internal.DefaultHubActivator`1.Create()
+   at Microsoft.AspNetCore.SignalR.Internal.DefaultHubDispatcher`1.OnConnectedAsync(HubConnectionContext connection)
+   at Microsoft.AspNetCore.SignalR.Internal.DefaultHubDispatcher`1.OnConnectedAsync(HubConnectionContext connection)
+   at Microsoft.AspNetCore.SignalR.HubConnectionHandler`1.RunHubAsync(HubConnectionContext connection)
+2024-01-25 00:01:31.6351|1|ERROR|Microsoft.AspNetCore.SignalR.HubConnectionHandler|Error when dispatching 'OnConnectedAsync' on hub. System.InvalidOperationException: Unable to resolve service for type 'Find_H_er.Services.UserContextService' while attempting to activate 'Find_H_er.Hubs.ChatHub'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method153(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.SignalR.Internal.DefaultHubActivator`1.Create()
+   at Microsoft.AspNetCore.SignalR.Internal.DefaultHubDispatcher`1.OnConnectedAsync(HubConnectionContext connection)
+   at Microsoft.AspNetCore.SignalR.Internal.DefaultHubDispatcher`1.OnConnectedAsync(HubConnectionContext connection)
+   at Microsoft.AspNetCore.SignalR.HubConnectionHandler`1.RunHubAsync(HubConnectionContext connection)
+2024-01-25 00:02:16.9646|1|ERROR|Microsoft.AspNetCore.SignalR.HubConnectionHandler|Error when dispatching 'OnConnectedAsync' on hub. System.InvalidOperationException: Unable to resolve service for type 'Find_H_er.Services.UserContextService' while attempting to activate 'Find_H_er.Hubs.ChatHub'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method153(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.SignalR.Internal.DefaultHubActivator`1.Create()
+   at Microsoft.AspNetCore.SignalR.Internal.DefaultHubDispatcher`1.OnConnectedAsync(HubConnectionContext connection)
+   at Microsoft.AspNetCore.SignalR.Internal.DefaultHubDispatcher`1.OnConnectedAsync(HubConnectionContext connection)
+   at Microsoft.AspNetCore.SignalR.HubConnectionHandler`1.RunHubAsync(HubConnectionContext connection)
+2024-01-25 00:02:35.8561|1|ERROR|Microsoft.AspNetCore.SignalR.HubConnectionHandler|Error when dispatching 'OnConnectedAsync' on hub. System.InvalidOperationException: Unable to resolve service for type 'Find_H_er.Services.UserContextService' while attempting to activate 'Find_H_er.Hubs.ChatHub'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method153(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.SignalR.Internal.DefaultHubActivator`1.Create()
+   at Microsoft.AspNetCore.SignalR.Internal.DefaultHubDispatcher`1.OnConnectedAsync(HubConnectionContext connection)
+   at Microsoft.AspNetCore.SignalR.Internal.DefaultHubDispatcher`1.OnConnectedAsync(HubConnectionContext connection)
+   at Microsoft.AspNetCore.SignalR.HubConnectionHandler`1.RunHubAsync(HubConnectionContext connection)

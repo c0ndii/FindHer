@@ -1,11 +1,17 @@
-import { TextInput, Checkbox, Button, Group, Box } from '@mantine/core'
+import {
+  TextInput,
+  Checkbox,
+  Button,
+  Group,
+  Box,
+  NumberInput,
+} from '@mantine/core'
 import { useForm } from '@mantine/form'
 
 export const Waitingroom = ({ joinChatRoom }: any) => {
   const form = useForm({
     initialValues: {
-      username: '',
-      chatroom: '',
+      username: 0,
     },
   })
 
@@ -13,18 +19,13 @@ export const Waitingroom = ({ joinChatRoom }: any) => {
     <Box maw={340} mx="auto">
       <form
         onSubmit={form.onSubmit((values) => {
-          joinChatRoom(values.username, values.chatroom)
+          joinChatRoom(values.username)
         })}
       >
-        <TextInput
+        <NumberInput
           label="Username"
           placeholder="username"
           {...form.getInputProps('username')}
-        />
-        <TextInput
-          label="Chatroom"
-          placeholder="chatroom"
-          {...form.getInputProps('chatroom')}
         />
         <Group justify="flex-end" mt="md">
           <Button type="submit">Submit</Button>
