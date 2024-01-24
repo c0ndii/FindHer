@@ -14,7 +14,6 @@ namespace Find_H_er.Hubs
         private readonly AppDbContext _context;
         private readonly UserContextService _userContextService;
         private List<MessageDto> MessagesToAdd;
-        private int userId;
 
         public ChatHub(AppDbContext context, UserContextService userContextService)
         {
@@ -24,22 +23,41 @@ namespace Find_H_er.Hubs
 
         public async Task SendMessage(int id, string message)
         {
+            var sender = _context.Users.SingleOrDefault(x => x.UserId == _userContextService.GetUserId);
+            if(sender is null)
+            {
+                throw new NotFoundException("User not found");
+            }
             var receiver = _context.Users.SingleOrDefault(x => x.UserId == id);
             if(receiver is null)
             {
                 throw new NotFoundException("User not found");
             }
-
+            var connectionId = receiver.ConnectionId;
+            var messageToSend = sender.Name + ": " + message;
+            MessagesToAdd.Add(new MessageDto()
+            {
+                Content = messageToSend,
+                SenderId = sender.UserId,
+                ReceiverId = receiver.UserId
+            });
+            Clients.Client(connectionId).SendAsync(messageToSend);
+            
         }
-        public override Task OnConnectedAsync()
+        public async Task SaveUserConnection()
         {
-            var id = _userContextService.GetUserId;
-            var user = _context.Users.SingleOrDefaultAsync(x => x.UserId == id);
-            if(user == null)
+            var user = await _context.Users.SingleOrDefaultAsync(x => x.UserId == _userContextService.GetUserId);
+            if(user is null)
             {
                 throw new NotFoundException("User not found");
             }
-            userId = (int)id;
+            var connectionId = Context.ConnectionId;
+            user.ConnectionId = connectionId;
+            _context.Update(user);
+            await _context.SaveChangesAsync();
+        }
+        public override Task OnConnectedAsync()
+        {
             MessagesToAdd = new List<MessageDto>();
             return base.OnConnectedAsync();
         }
@@ -53,6 +71,7 @@ namespace Find_H_er.Hubs
             }).ToList();
             _context.Messages.AddRange(toAdd);
             _context.SaveChanges();
+            MessagesToAdd = new List<MessageDto>();
             return base.OnDisconnectedAsync(exception);
         }
     }

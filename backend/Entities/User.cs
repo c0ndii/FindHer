@@ -26,6 +26,6 @@ namespace Find_H_er.Entities
         public List<Interest>? Interests { get; set; }
         public int? RoleId { get; set; }
         public virtual Role? Role { get; set; }
-        public List<Connection> Connections {  get; set; }
+        public string? ConnectionId {  get; set; }
     }
 }
