@@ -57,24 +57,26 @@ namespace Find_H_er.Hubs
             Clients.Client(receiver.ConnectionId).SendAsync("ReceiveMessage", messageToSendToSender);
             
         }
-        public async Task GetChatHistory(int senderId, int receiverId)
+        public async Task<List<MessageDto>> GetChatHistory(int senderId, int receiverId)
         {
-            var sender = _context.Users.SingleOrDefault(x => x.UserId == senderId);
+            var sender = await _context.Users.SingleOrDefaultAsync(x => x.UserId == senderId);
             if (sender is null)
             {
                 throw new NotFoundException("User not found");
             }
-            var receiver = _context.Users.SingleOrDefault(x => x.UserId == receiverId);
+            var receiver = await _context.Users.SingleOrDefaultAsync(x => x.UserId == receiverId);
             if (receiver is null)
             {
                 throw new NotFoundException("User not found");
             }
-            var messagesHistory = _context.Messages.Where(x => x.SenderUserId == senderId && x.ReceiverUserId == receiverId).ToList();
-            foreach (var message in messagesHistory)
+            var messagesHistory = await _context.Messages.Where(x => x.SenderUserId == senderId && x.ReceiverUserId == receiverId).ToListAsync();
+            var result = messagesHistory.Select(x => new MessageDto()
             {
-                Clients.Client(sender.ConnectionId).SendAsync("ReceiveMessage", "0#"+message);
-                Clients.Client(receiver.ConnectionId).SendAsync("ReceiveMessage", "1#"+message);
-            }
+                SenderId = x.SenderUserId,
+                ReceiverId = x.ReceiverUserId,
+                Content = x.Content
+            }).ToList();
+            return result;
         }
         public async Task SaveUserConnection(int senderId)
         {
