@@ -43,7 +43,6 @@ export const Waitingroom = ({ joinChatRoom }: any) => {
       <form
         onSubmit={form.onSubmit((values) => {
           joinChatRoom(values.username, values.username2, values.message)
-          console.log(values)
         })}
       >
         <NumberInput

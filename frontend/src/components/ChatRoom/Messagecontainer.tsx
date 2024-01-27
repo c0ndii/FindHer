@@ -2,7 +2,6 @@ import styles from './Messagecontainer.module.css'
 
 const handleSenderId = (message: string) => {
   const id = message.slice(0, 1)
-  console.log(id)
   return id
 }
 

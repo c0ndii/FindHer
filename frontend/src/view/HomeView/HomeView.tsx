@@ -10,7 +10,6 @@ export const HomeView = () => {
   const fetchProfiles = async () => {
     try {
       const response = await getForYou()
-      console.log(response)
       setPeople(response.data as personModel[])
     } catch (error) {
       console.error('Failed to fetch questions', error)

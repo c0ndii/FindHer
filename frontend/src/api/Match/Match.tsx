@@ -9,13 +9,12 @@ export const matchPost = async (userData: matchModel) => {
     const response = await axios.put(baseUrl, JSON.stringify(userData), {
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + Cookies.get('token')?.toString(),
+        Authorization: 'Bearer ' + Cookies.get('token')?.toString(),
       },
       withCredentials: true,
       responseType: 'text',
     })
     if (response.request?.status === 200) {
-      console.log(userData)
       return response
     } else {
       const errorData = await response

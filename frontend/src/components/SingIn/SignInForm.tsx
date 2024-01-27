@@ -28,8 +28,6 @@ export const SignInForm = () => {
   const location = useLocation()
   const from = location.state?.from?.pathname || '/app/account'
 
-  console.log(auth)
-
   const handleSubmit = async (values: loginModel) => {
     try {
       const response = await api.post('/api/account/login', values)

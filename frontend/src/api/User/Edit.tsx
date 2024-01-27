@@ -15,7 +15,6 @@ export const editUser = async (userData: userModel) => {
       responseType: 'text',
     })
     if (response.request?.status === 200) {
-      console.log(userData)
       return response
     } else {
       const errorData = await response

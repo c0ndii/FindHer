@@ -37,8 +37,8 @@ export const ChatView = () => {
       // conn.on('JoinSpecificChatRoom', (username, msg) => {
       //   console.log('msg', msg)
       // })
-
-      conn.on('ReceiveMessage', (message) => {
+      //await conn.invoke('GetChatHistory', myid, receiverid)
+      await conn.on('ReceiveMessage', (message) => {
         setMessages((messages) => [...messages, message])
       })
 
@@ -53,7 +53,6 @@ export const ChatView = () => {
 
   const sendMessage = async (message: string) => {
     try {
-      console.log(myid, receiverid, message)
       await connection?.invoke('SaveUserConnection', myid)
       await connection?.invoke('SendMessage', myid, receiverid, message)
     } catch (e) {
