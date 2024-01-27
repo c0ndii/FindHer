@@ -27,7 +27,11 @@ export const Sendmessageform = ({ sendMessage }: any) => {
             placeholder="message"
             {...form.getInputProps('message')}
           />
-          <Button color="red" type="submit">
+          <Button
+            disabled={form.values.message.length === 0}
+            color="red"
+            type="submit"
+          >
             Submit
           </Button>
         </Group>

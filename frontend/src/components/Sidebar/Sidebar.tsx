@@ -76,7 +76,7 @@ export const Sidebar = () => {
       <Center>
         <img src={Logo} style={{ height: '80px' }} alt="logo"></img>
       </Center>
-      <Stack justify="center" gap={450} align="center" h={'100%'}>
+      <Stack justify="center" gap={40} align="center" h={'100%'}>
         <div className={classes.navbarMain}>
           <Stack justify="center" gap={0}>
             {links}

@@ -5,8 +5,14 @@ import { Sendmessageform } from './Sendmessageform'
 export const Chatroom = ({ messages, sendMessage }: any) => {
   return (
     <Box>
-      <Messagecontainer messages={messages} />
-      <Sendmessageform sendMessage={sendMessage} />
+      {/* TODO: apply users sidebar */}
+      <Box></Box>
+      <Box display={'flex'} style={{ flexDirection: 'column', gap: '40px' }}>
+        {/* TODO: apply top chat view */}
+        <Box></Box>
+        <Messagecontainer messages={messages} />
+        <Sendmessageform sendMessage={sendMessage} />
+      </Box>
     </Box>
   )
 }
