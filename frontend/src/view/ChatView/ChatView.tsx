@@ -1,11 +1,16 @@
 import { useState } from 'react'
-import { Chatroom, Waitingroom } from '../../components/ChatRoom'
+import {
+  Chatroom,
+  Messagecontainer,
+  Waitingroom,
+} from '../../components/ChatRoom'
 import {
   HubConnection,
   HubConnectionBuilder,
   LogLevel,
 } from '@microsoft/signalr'
 import { getId } from '../../api/User/GetId'
+import Cookies from 'js-cookie'
 
 export const ChatView = () => {
   const [myid, setmyid] = useState<number>()
@@ -20,7 +25,9 @@ export const ChatView = () => {
   ) => {
     try {
       const conn = new HubConnectionBuilder()
-        .withUrl('https://localhost:44360/chatHub')
+        .withUrl('https://localhost:44360/chatHub', {
+          accessTokenFactory: () => `Bearer ${Cookies.get('token')}`,
+        })
         .configureLogging(LogLevel.Information)
         .build()
 
@@ -57,7 +64,9 @@ export const ChatView = () => {
   return (
     <>
       {!connection ? (
-        <Waitingroom joinChatRoom={joinChatRoom} />
+        <>
+          <Waitingroom joinChatRoom={joinChatRoom} />
+        </>
       ) : (
         <Chatroom messages={messages} sendMessage={sendMessage} />
       )}

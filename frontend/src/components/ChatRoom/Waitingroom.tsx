@@ -18,7 +18,7 @@ export const Waitingroom = ({ joinChatRoom }: any) => {
       const response = await getId()
       setOwnId(response.data as number)
     } catch (error) {
-      console.error('Failed to fetch questions', error)
+      console.error('Failed to fetch id', error)
     }
   }
 

@@ -5,7 +5,6 @@ import { Sendmessageform } from './Sendmessageform'
 export const Chatroom = ({ messages, sendMessage }: any) => {
   return (
     <Box>
-      <></>
       <Messagecontainer messages={messages} />
       <Sendmessageform sendMessage={sendMessage} />
     </Box>
