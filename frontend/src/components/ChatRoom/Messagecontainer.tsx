@@ -1,12 +1,28 @@
+import styles from './Messagecontainer.module.css'
+
+const handleSenderId = (message: string) => {
+  const id = message.slice(0, 1)
+  console.log(id)
+  return id
+}
+
+const handleMessage = (message: string) => {
+  const msg = message.slice(2, message.length)
+  return msg
+}
+
 export const Messagecontainer = ({ messages }: any) => {
   return (
-    <div>
+    <div className={styles.container}>
       {messages.map((msg: string, index: number) => (
-        <table>
-          <tr key={index}>
-            <td>{msg}</td>
-          </tr>
-        </table>
+        <div
+          key={index}
+          className={
+            handleSenderId(msg) === '0' ? styles.sender : styles.receiver
+          }
+        >
+          <p>{handleMessage(msg)}</p>
+        </div>
       ))}
     </div>
   )

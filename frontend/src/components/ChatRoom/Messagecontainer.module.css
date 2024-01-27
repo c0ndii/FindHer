@@ -3,19 +3,21 @@
     flex-direction: column;
     gap:10px;
     width: 100%;
-
+    max-height: 70vh;
+    overflow-y: auto;
 }
 
 
-.sender{
+.receiver{
     display: flex;
     padding: 0 20px 0 20px;
     background-color: rgb(224, 224, 224);
     border-radius: 10px;
-    width:300px;    
+    width:300px;
+    word-break: break-word;
 }
 
-.receiver{
+.sender{
     display: flex;  
     padding: 0 20px 0 20px;
     margin-left: auto; 
@@ -24,4 +26,5 @@
     color: white;
     border-radius: 10px;
     width:300px;    
+    word-break: break-word;
 }
