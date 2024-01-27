@@ -1,7 +1,11 @@
 import { TextInput, Checkbox, Button, Group, Box } from '@mantine/core'
 import { useForm } from '@mantine/form'
 
-export const Sendmessageform = ({ sendMessage }: any) => {
+type Props = {
+  sendMessage: (message: string) => void
+}
+
+export const Sendmessageform = ({ sendMessage }: Props) => {
   const form = useForm({
     initialValues: {
       message: '',

@@ -14,25 +14,28 @@ import { MatchForm } from './components/MatchForm'
 import RequireNoAuth from './components/Authentication/components/RequireNoAuth'
 import { HomeView } from './view/HomeView'
 import { ChatView } from './view/ChatView'
+import { ChatProvider } from './components/ChatRoom/ChatContext'
 
 const App = () => {
   return (
-    <Routes>
-      <Route path="/" element={<RequireNoAuth />}>
-        <Route index element={<Welcome />} />
-        <Route path="/SignIn" element={<SignIn />} />
-        <Route path="/SignUp" element={<SignUp />} />
-      </Route>
-      <Route path="/app" element={<RequireAuth />}>
-        <Route path="Account" element={<AccountView />} />
-        <Route path="Preferences" element={<PreferencesView />} />
-        <Route path="Interests" element={<InterestsView />} />
-        <Route path="Matchform" element={<MatchForm />} />
-        <Route path="Settings" element={<SettingsView />} />
-        <Route path="Home" element={<HomeView />} />
-        <Route path="Chat" element={<ChatView />} />
-      </Route>
-    </Routes>
+    <ChatProvider>
+      <Routes>
+        <Route path="/" element={<RequireNoAuth />}>
+          <Route index element={<Welcome />} />
+          <Route path="/SignIn" element={<SignIn />} />
+          <Route path="/SignUp" element={<SignUp />} />
+        </Route>
+        <Route path="/app" element={<RequireAuth />}>
+          <Route path="Account" element={<AccountView />} />
+          <Route path="Preferences" element={<PreferencesView />} />
+          <Route path="Interests" element={<InterestsView />} />
+          <Route path="Matchform" element={<MatchForm />} />
+          <Route path="Settings" element={<SettingsView />} />
+          <Route path="Home" element={<HomeView />} />
+          <Route path="Chat" element={<ChatView />} />
+        </Route>
+      </Routes>
+    </ChatProvider>
   )
 }
 

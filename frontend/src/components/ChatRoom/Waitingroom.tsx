@@ -30,7 +30,6 @@ export const Waitingroom = ({ joinChatRoom }: any) => {
     initialValues: {
       username: ownId,
       username2: 0,
-      message: '',
     },
   })
 
@@ -42,7 +41,7 @@ export const Waitingroom = ({ joinChatRoom }: any) => {
     <Box maw={340} mx="auto">
       <form
         onSubmit={form.onSubmit((values) => {
-          joinChatRoom(values.username, values.username2, values.message)
+          joinChatRoom(values.username, values.username2)
         })}
       >
         <NumberInput

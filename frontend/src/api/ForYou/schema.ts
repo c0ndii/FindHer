@@ -5,6 +5,7 @@ export const InterestSchema = z.object({
 });
 
 export const PersonSchema = z.object({
+  userId: z.number(),
   name: z.string(),
   age: z.number(),
   description: z.string(),
