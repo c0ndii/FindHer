@@ -14,13 +14,11 @@ namespace Find_H_er.Hubs
     public class ChatHub : Hub
     {
         private readonly AppDbContext _context;
-        private readonly UserContextService _userContextService;
         //private List<MessageDto> MessagesToAdd;
 
-        public ChatHub(AppDbContext context, UserContextService userContextService)
+        public ChatHub(AppDbContext context)
         {
             _context = context;
-            _userContextService = userContextService;
         }
 
         public async Task SendMessage(int senderId, int receiverId, string message)
@@ -59,7 +57,7 @@ namespace Find_H_er.Hubs
             Clients.Client(receiver.ConnectionId).SendAsync("ReceiveMessage", messageToSendToSender);
             
         }
-        private async Task GetChatHistory(int senderId, int receiverId)
+        public async Task GetChatHistory(int senderId, int receiverId)
         {
             var sender = _context.Users.SingleOrDefault(x => x.UserId == senderId);
             if (sender is null)
