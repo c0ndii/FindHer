@@ -32,14 +32,16 @@ namespace Find_H_er.Hubs
                 throw new NotFoundException("User not found");
             }
             var connectionId = receiver.ConnectionId;
-            var messageToSend = sender.Name + ": " + message;
+            var messageToSendToReceiver = "0#" + message;
+            var messageToSendToSender = "1#" + message;
             MessagesToAdd.Add(new MessageDto()
             {
-                Content = messageToSend,
+                Content = messageToSendToSender,
                 SenderId = sender.UserId,
                 ReceiverId = receiver.UserId
             });
-            Clients.Client(connectionId).SendAsync("ReceiveMessage", messageToSend);
+            Clients.Client(sender.ConnectionId).SendAsync("ReceiveMessage", messageToSendToReceiver);
+            Clients.Client(connectionId).SendAsync("ReceiveMessage", messageToSendToSender);
             
         }
         public async Task SaveUserConnection(int senderId)
@@ -61,15 +63,15 @@ namespace Find_H_er.Hubs
         }
         public override Task OnDisconnectedAsync(Exception? exception)
         {
-            List<Message> toAdd = MessagesToAdd.Select(x => new Message()
-            {
-                SenderUserId = x.SenderId,
-                ReceiverUserId = x.ReceiverId,
-                Content = x.Content
-            }).ToList();
-            _context.Messages.AddRange(toAdd);
-            _context.SaveChanges();
-            MessagesToAdd = new List<MessageDto>();
+            //List<Message> toAdd = MessagesToAdd.Select(x => new Message()
+            //{
+            //    SenderUserId = x.SenderId,
+            //    ReceiverUserId = x.ReceiverId,
+            //    Content = x.Content
+            //}).ToList();
+            //_context.Messages.AddRange(toAdd);
+            //_context.SaveChanges();
+            //MessagesToAdd = new List<MessageDto>();
             return base.OnDisconnectedAsync(exception);
         }
     }
