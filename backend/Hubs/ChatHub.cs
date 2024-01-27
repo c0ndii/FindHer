@@ -5,22 +5,27 @@ using Find_H_er.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.Reflection;
+using TableDependency.SqlClient.Base.Messages;
 
 namespace Find_H_er.Hubs
 {
     public class ChatHub : Hub
     {
         private readonly AppDbContext _context;
-        private List<MessageDto> MessagesToAdd;
+        private readonly UserContextService _userContextService;
+        //private List<MessageDto> MessagesToAdd;
 
-        public ChatHub(AppDbContext context)
+        public ChatHub(AppDbContext context, UserContextService userContextService)
         {
             _context = context;
+            _userContextService = userContextService;
         }
 
         public async Task SendMessage(int senderId, int receiverId, string message)
         {
-            MessagesToAdd = new List<MessageDto>();
+            //MessagesToAdd = new List<MessageDto>();
             var sender = _context.Users.SingleOrDefault(x => x.UserId == senderId);
             if(sender is null)
             {
@@ -31,18 +36,47 @@ namespace Find_H_er.Hubs
             {
                 throw new NotFoundException("User not found");
             }
-            var connectionId = receiver.ConnectionId;
+            if (message.IsNullOrEmpty())
+            {
+                throw new Exception("Empty message");
+            }
             var messageToSendToReceiver = "0#" + message;
             var messageToSendToSender = "1#" + message;
-            MessagesToAdd.Add(new MessageDto()
+            _context.Messages.Add(new Entities.Message()
             {
-                Content = messageToSendToSender,
-                SenderId = sender.UserId,
-                ReceiverId = receiver.UserId
+                SenderUserId = senderId,
+                ReceiverUserId = receiverId,
+                Content = message
             });
+            _context.SaveChanges();
+            //MessagesToAdd.Add(new MessageDto()
+            //{
+            //    Content = messageToSendToSender,
+            //    SenderId = sender.UserId,
+            //    ReceiverId = receiver.UserId
+            //});
             Clients.Client(sender.ConnectionId).SendAsync("ReceiveMessage", messageToSendToReceiver);
-            Clients.Client(connectionId).SendAsync("ReceiveMessage", messageToSendToSender);
+            Clients.Client(receiver.ConnectionId).SendAsync("ReceiveMessage", messageToSendToSender);
             
+        }
+        private async Task GetChatHistory(int senderId, int receiverId)
+        {
+            var sender = _context.Users.SingleOrDefault(x => x.UserId == senderId);
+            if (sender is null)
+            {
+                throw new NotFoundException("User not found");
+            }
+            var receiver = _context.Users.SingleOrDefault(x => x.UserId == receiverId);
+            if (receiver is null)
+            {
+                throw new NotFoundException("User not found");
+            }
+            var messagesHistory = _context.Messages.Where(x => x.SenderUserId == senderId && x.ReceiverUserId == receiverId).ToList();
+            foreach (var message in messagesHistory)
+            {
+                Clients.Client(sender.ConnectionId).SendAsync("ReceiveMessage", "0#"+message);
+                Clients.Client(receiver.ConnectionId).SendAsync("ReceiveMessage", "1#"+message);
+            }
         }
         public async Task SaveUserConnection(int senderId)
         {
@@ -58,7 +92,6 @@ namespace Find_H_er.Hubs
         }
         public override Task OnConnectedAsync()
         {
-            MessagesToAdd = new List<MessageDto>();
             return base.OnConnectedAsync();
         }
         public override Task OnDisconnectedAsync(Exception? exception)
