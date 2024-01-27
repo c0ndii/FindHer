@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using System.Collections.Generic;
 using System.Reflection;
 using TableDependency.SqlClient.Base.Messages;
 
@@ -69,14 +70,22 @@ namespace Find_H_er.Hubs
             {
                 throw new NotFoundException("User not found");
             }
-            var messagesHistory = await _context.Messages.Where(x => (x.SenderUserId == senderId && x.ReceiverUserId == receiverId) || (x.SenderUserId == receiverId && x.ReceiverUserId == senderId)).ToListAsync();
+            var messagesHistory = await _context.Messages.Where(x => x.SenderUserId == senderId && x.ReceiverUserId == receiverId).ToListAsync();
+            var messageHistorySecond = await _context.Messages.Where(x => x.SenderUserId == receiverId && x.ReceiverUserId == senderId).ToListAsync();
             var result = messagesHistory.Select(x => new MessageDto()
             {
-                SenderId = x.SenderUserId,
-                ReceiverId = x.ReceiverUserId,
+                SenderId = 0,
+                ReceiverId = 1,
                 Content = x.Content
             }).ToList();
-            return result;
+            var resultSecond = messageHistorySecond.Select(x => new MessageDto()
+            {
+                SenderId = 1,
+                ReceiverId = 0,
+                Content = x.Content
+            }).ToList();
+            var finalResult = (List <MessageDto>)result.Concat(resultSecond);
+            return finalResult;
         }
         public async Task SaveUserConnection(int senderId)
         {
