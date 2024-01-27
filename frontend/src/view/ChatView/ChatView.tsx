@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import {
   Chatroom,
   Messagecontainer,
@@ -11,6 +11,12 @@ import {
 } from '@microsoft/signalr'
 import { getId } from '../../api/User/GetId'
 import Cookies from 'js-cookie'
+
+type History = {
+  senderId: number
+  receiverId: number
+  content: string
+}
 
 export const ChatView = () => {
   const [myid, setmyid] = useState<number>()
@@ -37,7 +43,7 @@ export const ChatView = () => {
       // conn.on('JoinSpecificChatRoom', (username, msg) => {
       //   console.log('msg', msg)
       // })
-      //await conn.invoke('GetChatHistory', myid, receiverid)
+
       await conn.on('ReceiveMessage', (message) => {
         setMessages((messages) => [...messages, message])
       })
@@ -51,9 +57,42 @@ export const ChatView = () => {
     }
   }
 
+  const handleNewConnection = useCallback(async () => {
+    const mess: History[] | undefined = await connection?.invoke(
+      'GetChatHistory',
+      myid,
+      receiverid
+    )
+    const messagesHistory = [] as string[]
+    mess?.forEach((object) => {
+      messagesHistory.push(object.senderId + '#' + object.content)
+      console.log(object.senderId + '#' + object.content)
+    })
+    // const messagesHistory = mess?.map((message) => {
+    //   return `${message.SenderId}#${message.Content}`
+    // })
+
+    setMessages(messagesHistory)
+    await connection?.invoke('SaveUserConnection', myid)
+  }, [connection])
+
+  useEffect(() => {
+    handleNewConnection()
+  }, [connection])
+
   const sendMessage = async (message: string) => {
     try {
-      await connection?.invoke('SaveUserConnection', myid)
+      // const mess = await connection?.invoke('GetChatHistory', myid, receiverid)
+      // console.log(mess, 'xd')
+      // await connection?.on('GetChatHistory', (result: History[]) => {
+      //   console.log(result, 'xd2')
+      //   const messagesHistory = result.map((message) => {
+      //     return `${message.SenderId}#${message.Content}`
+      //   })
+
+      //   setMessages([messagesHistory])
+      // })
+      // await connection?.invoke('SaveUserConnection', myid)
       await connection?.invoke('SendMessage', myid, receiverid, message)
     } catch (e) {
       console.log(e)

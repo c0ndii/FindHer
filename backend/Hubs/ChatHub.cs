@@ -69,7 +69,7 @@ namespace Find_H_er.Hubs
             {
                 throw new NotFoundException("User not found");
             }
-            var messagesHistory = await _context.Messages.Where(x => x.SenderUserId == senderId && x.ReceiverUserId == receiverId).ToListAsync();
+            var messagesHistory = await _context.Messages.Where(x => (x.SenderUserId == senderId && x.ReceiverUserId == receiverId) || (x.SenderUserId == receiverId && x.ReceiverUserId == senderId)).ToListAsync();
             var result = messagesHistory.Select(x => new MessageDto()
             {
                 SenderId = x.SenderUserId,
