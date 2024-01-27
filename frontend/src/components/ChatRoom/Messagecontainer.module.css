@@ -11,9 +11,11 @@
 .receiver{
     display: flex;
     padding: 0 20px 0 20px;
+    margin-left: 0; 
+    margin-right: auto;
     background-color: rgb(224, 224, 224);
     border-radius: 10px;
-    width:300px;
+    max-width:300px;
     word-break: break-word;
 }
 
@@ -25,6 +27,6 @@
     background-color: rgba(255, 69, 69, 0.795);
     color: white;
     border-radius: 10px;
-    width:300px;    
+    max-width:300px;    
     word-break: break-word;
 }

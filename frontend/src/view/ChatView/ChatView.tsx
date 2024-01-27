@@ -16,6 +16,7 @@ type History = {
   senderId: number
   receiverId: number
   content: string
+  sendTime: Date
 }
 
 export const ChatView = () => {
@@ -63,11 +64,16 @@ export const ChatView = () => {
       myid,
       receiverid
     )
+    console.log(mess)
+    mess?.sort(
+      (a, b) => new Date(a.sendTime).getTime() - new Date(b.sendTime).getTime()
+    )
     const messagesHistory = [] as string[]
     mess?.forEach((object) => {
       messagesHistory.push(object.senderId + '#' + object.content)
       console.log(object.senderId + '#' + object.content)
     })
+    console.log(messagesHistory)
     // const messagesHistory = mess?.map((message) => {
     //   return `${message.SenderId}#${message.Content}`
     // })

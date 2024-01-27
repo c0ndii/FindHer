@@ -4,6 +4,7 @@ namespace Find_H_er.Models
 {
     public class UserDto
     {
+        public int UserId { get; set; }
         public string? Name { get; set; }
         public int? Age { get; set; }
         public string? Description { get; set; }

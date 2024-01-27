@@ -76,16 +76,18 @@ namespace Find_H_er.Hubs
             {
                 SenderId = 0,
                 ReceiverId = 1,
-                Content = x.Content
+                Content = x.Content,
+                SendTime = x.SendTime
             }).ToList();
             var resultSecond = messageHistorySecond.Select(x => new MessageDto()
             {
                 SenderId = 1,
                 ReceiverId = 0,
-                Content = x.Content
+                Content = x.Content,
+                SendTime = x.SendTime
             }).ToList();
-            var finalResult = (List <MessageDto>)result.Concat(resultSecond);
-            return finalResult;
+            result.AddRange(resultSecond);
+            return result;
         }
         public async Task SaveUserConnection(int senderId)
         {
