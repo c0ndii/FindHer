@@ -9,9 +9,9 @@ const RequireAuth: React.FC = () => {
   const location = useLocation()
 
   return isAuthorized ? (
-    <Flex mr={0} h={'100vh'}>
+    <Flex mr={0} h={'100vh'} miw="100%">
       <Sidebar />
-      <Container w={'100%'}>
+      <Container w="100%" fluid>
         <Outlet />
       </Container>
     </Flex>

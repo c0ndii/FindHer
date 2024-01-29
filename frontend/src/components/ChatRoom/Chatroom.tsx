@@ -6,6 +6,11 @@ import {
   Box,
   Avatar,
   Text,
+  Flex,
+  rem,
+  Select,
+  Title,
+  Divider,
 } from '@mantine/core'
 import { Messagecontainer } from './Messagecontainer'
 import { Sendmessageform } from './Sendmessageform'
@@ -13,6 +18,7 @@ import { UsersSidebar } from './UsersSidebar'
 import { useState } from 'react'
 import { useChatContext } from './ChatContext'
 import { personModel } from '../../api/ForYou/schema'
+import { IconSearch } from '@tabler/icons-react'
 
 type Props = {
   people: personModel[]
@@ -24,33 +30,26 @@ export const Chatroom = ({ people, messages, sendMessage }: Props) => {
   const { activePerson, setActivePerson } = useChatContext()
 
   return (
-    <Box display={'flex'} style={{ margin: 0 }}>
-      {/* TODO: apply users sidebar */}
-      <Box style={{ flexDirection: 'column', gap: '40px' }}>
-        <UsersSidebar people={people} />
-      </Box>
-      <Box
+    <Flex gap={rem(40)} style={{ border: '1px solid black' }} h="100%">
+      <UsersSidebar people={people} />
+      <Flex
+        direction="column"
         display={'flex'}
-        style={{ flexDirection: 'column', gap: '40px', width: '100%' }}
+        p={rem(24)}
+        style={{ gap: '40px', width: '100%', border: '1px solid green' }}
       >
-        {/* TODO: apply top chat view => change it to another component (use useChatContext for active user info ) */}
-        <Box
-          display={'flex'}
-          style={{
-            justifyContent: 'flex-start',
-            alignItems: 'flex-end',
-            padding: '10px',
-            borderBottom: '1px solid lightgray',
-          }}
-        >
-          <Avatar src="" size={100} radius="xl" alt="avatar" />
-          <Text style={{ marginLeft: '10px', fontSize: '2rem' }}>
-            {activePerson?.name}
-          </Text>
-        </Box>
+        <Flex direction="column">
+          <Group mb="0" align="end">
+            <Avatar src="" size={100} radius="xl" alt="avatar" />
+            <Title style={{ marginLeft: '10px', fontSize: '2rem' }}>
+              {activePerson?.name}
+            </Title>
+          </Group>
+          <Divider mb="0" mt={rem(24)} />
+        </Flex>
         <Messagecontainer messages={messages} />
         <Sendmessageform sendMessage={sendMessage} />
-      </Box>
-    </Box>
+      </Flex>
+    </Flex>
   )
 }

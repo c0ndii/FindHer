@@ -1,0 +1,23 @@
+2024-01-16 11:22:25.6519|0|ERROR|Find_H_er.Middleware.ErrorHandlingMiddleware|Syntax error, command unrecognized. The server response was: 4.3.2 Concurrent connections limit exceeded. Visit https://aka.ms/concurrent_sending for more information. [Hostname=GV1PR10MB6564.EURPRD10.PROD.OUTLOOK.COM] System.Net.Mail.SmtpException: Syntax error, command unrecognized. The server response was: 4.3.2 Concurrent connections limit exceeded. Visit https://aka.ms/concurrent_sending for more information. [Hostname=GV1PR10MB6564.EURPRD10.PROD.OUTLOOK.COM]
+   at System.Net.Mail.DataStopCommand.CheckResponse(SmtpStatusCode statusCode, String serverResponse)
+   at System.Net.Mail.DataStopCommand.Send(SmtpConnection conn)
+   at System.Net.Mail.MailWriter.Close()
+   at System.Net.Mail.SmtpClient.Complete(Exception exception, Object result)
+--- End of stack trace from previous location ---
+   at Find_H_er.Services.EmailSenderService.SendEmailAsync(String email, String subject, String message) in C:\Users\slikm\Pulpit\Studia\Semestr V\Find_H_er\backend\Services\EmailSenderService.cs:line 25
+   at Find_H_er.Services.AccountService.RegisterUser(RegisterUserDto dto) in C:\Users\slikm\Pulpit\Studia\Semestr V\Find_H_er\backend\Services\AccountService.cs:line 71
+   at Find_H_er.Controllers.AccountController.RegisterUser(RegisterUserDto dto) in C:\Users\slikm\Pulpit\Studia\Semestr V\Find_H_er\backend\Controllers\AccountController.cs:line 21
+   at lambda_method24(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Find_H_er.Middleware.ErrorHandlingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next) in C:\Users\slikm\Pulpit\Studia\Semestr V\Find_H_er\backend\Middleware\ErrorHandlingMiddleware.cs:line 16
