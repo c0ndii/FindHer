@@ -11,6 +11,7 @@ using Find_H_er.Exceptions;
 using Microsoft.AspNetCore.Authorization;
 using Find_H_er.Authorization;
 using System.Security.Cryptography;
+using Azure.Core.Pipeline;
 
 namespace Find_H_er.Services
 {
@@ -20,6 +21,9 @@ namespace Find_H_er.Services
         Task RegisterUser(RegisterUserDto dto);
         Task EditProfile(EditProfileDto dto);
         Task<bool> VerifyEmail(string token);
+        Task<User> GetOwnProfile();
+        Task SentInterest(List<Interest> interestDtos);
+        Task MatchScore(int score);
         public int GetUserId();
     }
 
@@ -125,6 +129,34 @@ namespace Find_H_er.Services
             user.Image = dto.Image;
             _context.Update(user);
             await _context.SaveChangesAsync();
+        }
+        public async Task<User> GetOwnProfile()
+        {
+            var userId = _userContextService.GetUserId;
+            var user = await _context.Users.FirstOrDefaultAsync(x => x.UserId == userId);
+            return user; 
+        }
+        public async Task MatchScore(int score)
+        {
+            var userId = _userContextService.GetUserId;
+            var user = await _context.Users.FirstOrDefaultAsync(x => x.UserId == userId);
+            Console.Write(user.UserId + "   " + userId);
+            if (user is null)
+            {
+                throw new NotFoundException("User not found");
+            }
+            user.MatchFormScore = score;
+        }
+        public async Task SentInterest(List<Interest> interests)
+        {
+            var userId = _userContextService.GetUserId;
+            var user = await _context.Users.FirstOrDefaultAsync(x => x.UserId == userId);
+            Console.Write(user.UserId + "   " + userId);
+            if (user is null)
+            {
+                throw new NotFoundException("User not found");
+            }
+            user.Interests = interests;
         }
         private string CreateRandomToken()
         {
