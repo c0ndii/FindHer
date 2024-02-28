@@ -1,0 +1,6 @@
+.form-wrapper {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 30rem;
+  border-radius: 2.5%;
+  z-index: 1;
+}

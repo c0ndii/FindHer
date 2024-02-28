@@ -1,0 +1,9 @@
+.hero-background {
+  background-image: url('../assets/images/datingfhd.png');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}

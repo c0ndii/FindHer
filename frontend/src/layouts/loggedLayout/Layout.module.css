@@ -1,0 +1,20 @@
+
+.layout{
+    display: flex;
+    flex-direction: row;
+}
+
+.left{
+    width: 80px;
+    height: 100vh;
+}
+
+.right{
+    padding:0;margin:0;
+    width: 1820px;
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background-color: #ECECEC;
+}

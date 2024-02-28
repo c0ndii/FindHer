@@ -7,7 +7,7 @@ import { BrowserRouter } from 'react-router-dom'
 import '@mantine/core/styles.css'
 
 import { MantineProvider } from '@mantine/core'
-import { AuthProvider } from './components/Authentication/components/AuthProvider'
+import { AuthProvider } from './context/AuthProvider'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 
