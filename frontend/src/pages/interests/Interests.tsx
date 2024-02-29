@@ -1,7 +1,41 @@
-import { Text, Box, Chip, Container, Flex, rem, Center } from '@mantine/core'
+import React from 'react'
+import { Text, Box, Chip, Center, Paper, Flex, rem } from '@mantine/core'
 import classes from './Interests.module.css'
 
+interface InterestCategoryProps {
+  categoryName: string
+  chips: string[]
+}
+
+const InterestCategory: React.FC<InterestCategoryProps> = ({
+  categoryName,
+  chips,
+}) => (
+  <Box>
+    <Text fz={20} fw={400} className={classes.name}>
+      {categoryName}
+    </Text>
+    <Paper bg="gray">
+      <Box className={classes.chipcontainer}>
+        {chips.map((interest, index) => (
+          <Chip key={index} color="red" variant="filled" size="xs">
+            {interest}
+          </Chip>
+        ))}
+      </Box>
+    </Paper>
+  </Box>
+)
+
 export const Interests = () => {
+  const categories = [
+    { name: 'Kulinaria', interests: ['Sushi', 'Pizza'] },
+    { name: 'Sport', interests: [] },
+    { name: 'Kultura', interests: [] },
+    { name: 'Rozrywka', interests: [] },
+    { name: 'Osobiste', interests: [] },
+  ]
+
   return (
     <Center h="100%" w="75%" mx="auto">
       <Flex direction="column" gap={rem(80)}>
@@ -19,47 +53,13 @@ export const Interests = () => {
           display="flex"
           style={{ gap: '20px', flexWrap: 'wrap', justifyContent: 'center' }}
         >
-          <Box>
-            <Text fz={20} fw={400} className={classes.name}>
-              Kulinaria
-            </Text>
-            <Box className={classes.chipcontainer}>
-              <Chip color="red" variant="light" size="xs">
-                Sushi
-              </Chip>
-              <Chip color="red" variant="light" size="xs">
-                Pizza
-              </Chip>
-            </Box>
-          </Box>
-
-          <Box>
-            <Text fz={20} fw={400} className={classes.name}>
-              Sport
-            </Text>
-            <Box className={classes.chipcontainer}></Box>
-          </Box>
-
-          <Box>
-            <Text fz={20} fw={400} className={classes.name}>
-              Kultura
-            </Text>
-            <Box className={classes.chipcontainer}></Box>
-          </Box>
-
-          <Box>
-            <Text fz={20} fw={400} className={classes.name}>
-              Rozrywka
-            </Text>
-            <Box className={classes.chipcontainer}></Box>
-          </Box>
-
-          <Box>
-            <Text fz={20} fw={400} className={classes.name}>
-              Osobiste
-            </Text>
-            <Box className={classes.chipcontainer}></Box>
-          </Box>
+          {categories.map((category, index) => (
+            <InterestCategory
+              key={index}
+              categoryName={category.name}
+              chips={category.interests}
+            />
+          ))}
         </Box>
       </Flex>
     </Center>

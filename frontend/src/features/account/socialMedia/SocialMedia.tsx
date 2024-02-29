@@ -28,11 +28,7 @@ export const SocialMedia = () => {
               style={{ textDecoration: 'none', color: 'inherit' }}
             >
               <UnstyledButton className={classes.link}>
-                <ActionIcon
-                  color="rgba(0, 0, 0, 1)"
-                  variant="transparent"
-                  size="xl"
-                >
+                <ActionIcon color="red" variant="subtle" size="xl">
                   <IconBrandInstagram />
                 </ActionIcon>
               </UnstyledButton>
@@ -48,11 +44,7 @@ export const SocialMedia = () => {
               style={{ textDecoration: 'none', color: 'inherit' }}
             >
               <UnstyledButton className={classes.link}>
-                <ActionIcon
-                  color="rgba(0, 0, 0, 1)"
-                  variant="transparent"
-                  size="xl"
-                >
+                <ActionIcon color="red" variant="subtle" size="xl">
                   <IconBrandFacebook />
                 </ActionIcon>
               </UnstyledButton>
@@ -68,11 +60,7 @@ export const SocialMedia = () => {
               style={{ textDecoration: 'none', color: 'inherit' }}
             >
               <UnstyledButton className={classes.link}>
-                <ActionIcon
-                  color="rgba(0, 0, 0, 1)"
-                  variant="transparent"
-                  size="xl"
-                >
+                <ActionIcon color="red" variant="subtle" size="xl">
                   <IconBrandX />
                 </ActionIcon>
               </UnstyledButton>
@@ -88,11 +76,7 @@ export const SocialMedia = () => {
               style={{ textDecoration: 'none', color: 'inherit' }}
             >
               <UnstyledButton className={classes.link}>
-                <ActionIcon
-                  color="rgba(0, 0, 0, 1)"
-                  variant="transparent"
-                  size="xl"
-                >
+                <ActionIcon color="red" variant="subtle" size="xl">
                   <IconBrandSpotify />
                 </ActionIcon>
               </UnstyledButton>

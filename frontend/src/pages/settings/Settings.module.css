@@ -16,7 +16,6 @@
     align-content: center;
     gap:5px;
     overflow-y: auto;
-    background-color: #D9D9D9;
     width:  500px;
     height:50px;
   }

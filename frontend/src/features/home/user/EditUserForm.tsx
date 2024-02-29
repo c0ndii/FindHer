@@ -16,7 +16,21 @@ import { userModel, userSchema } from '../../../api/User/schema'
 import { editUser } from '../../../api/User/Edit'
 import { useDisclosure } from '@mantine/hooks'
 
-export const EditUserForm = () => {
+interface UserData {
+  age: number
+  description: string
+  image: string
+  interests: string[] | null
+  name: string
+  sex: string
+  userId: number
+}
+
+interface EditUserFormProps {
+  data?: UserData
+}
+
+export const EditUserForm = ({ data }: EditUserFormProps) => {
   const [opened, { open, close }] = useDisclosure(false)
   const {
     register,
@@ -62,6 +76,7 @@ export const EditUserForm = () => {
             placeholder="Imie"
             {...register('name')}
             error={errors.name?.message}
+            defaultValue={data?.name}
           ></TextInput>
 
           <NumberInput
@@ -72,6 +87,7 @@ export const EditUserForm = () => {
             allowDecimal={false}
             allowNegative={false}
             error={errors.age?.message}
+            defaultValue={data?.age}
           ></NumberInput>
 
           <Textarea
@@ -79,6 +95,7 @@ export const EditUserForm = () => {
             placeholder="Opis"
             {...register('description')}
             error={errors.description?.message}
+            defaultValue={data?.description}
           />
 
           <TextInput
@@ -86,6 +103,7 @@ export const EditUserForm = () => {
             placeholder="Płeć"
             {...register('sex')}
             error={errors.sex?.message}
+            defaultValue={data?.sex}
           ></TextInput>
 
           <FileInput

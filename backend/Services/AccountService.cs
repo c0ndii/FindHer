@@ -21,8 +21,8 @@ namespace Find_H_er.Services
         Task RegisterUser(RegisterUserDto dto);
         Task EditProfile(EditProfileDto dto);
         Task<bool> VerifyEmail(string token);
-        Task<User> GetOwnProfile();
-        Task SentInterest(List<Interest> interestDtos);
+        Task<UserDto> GetOwnProfile();
+        Task SentInterest(List<InterestDto> interestDtos);
         Task MatchScore(int score);
         public int GetUserId();
     }
@@ -130,11 +130,22 @@ namespace Find_H_er.Services
             _context.Update(user);
             await _context.SaveChangesAsync();
         }
-        public async Task<User> GetOwnProfile()
+        public async Task<UserDto> GetOwnProfile()
         {
             var userId = _userContextService.GetUserId;
             var user = await _context.Users.FirstOrDefaultAsync(x => x.UserId == userId);
-            return user; 
+            Console.Write(user.UserId + "   " + userId);
+            if (user is null)
+            {
+                throw new NotFoundException("User not found");
+            }
+            var userInfo = new UserDto();
+            userInfo.Name = user.Name;
+            userInfo.Description = user.Description;
+            userInfo.Age = user.Age;
+            userInfo.Sex = user.Sex;
+            userInfo.Image = user.Image;
+            return userInfo; 
         }
         public async Task MatchScore(int score)
         {
@@ -147,7 +158,7 @@ namespace Find_H_er.Services
             }
             user.MatchFormScore = score;
         }
-        public async Task SentInterest(List<Interest> interests)
+        public async Task SentInterest(List<InterestDto> interests)
         {
             var userId = _userContextService.GetUserId;
             var user = await _context.Users.FirstOrDefaultAsync(x => x.UserId == userId);
@@ -156,7 +167,13 @@ namespace Find_H_er.Services
             {
                 throw new NotFoundException("User not found");
             }
-            user.Interests = interests;
+            foreach (var interest in interests) {
+                var item = new Interest();
+                item.Name = interest.Name;
+                user.Interests.Add(item);
+            }
+            _context.Update(user);
+            await _context.SaveChangesAsync();
         }
         private string CreateRandomToken()
         {

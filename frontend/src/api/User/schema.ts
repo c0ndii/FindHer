@@ -8,4 +8,12 @@ export const userSchema = z.object({
   image: z.string(),
 })
 
+export const interestSchema = z.array(
+  z.object({
+    name: z.string(),
+  })
+)
+
+
 export type userModel = z.infer<typeof userSchema>
+export type intetrestModel = z.infer<typeof interestSchema>

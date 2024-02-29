@@ -4,6 +4,7 @@ import {
   Divider,
   Flex,
   Group,
+  Paper,
   Select,
   Stack,
   Text,
@@ -48,47 +49,46 @@ export const UsersSidebar = ({ people }: Props) => {
       justify="start"
       mih="100%"
     >
-      <Select
-        mt={rem(64)}
-        searchable
-        onSearchChange={(value) =>
-          onSearchChange(value, people, setFilteredPeople)
-        }
-        leftSectionPointerEvents="none"
-        leftSection={<IconSearch size="24px" color="black" />}
-        rightSectionWidth={0}
-        styles={{
-          input: {
-            backgroundColor: '#E0E0E0',
-            border: 'none',
-          },
-        }}
-      />
+      <Paper>
+        <Select
+          mt={rem(64)}
+          searchable
+          onSearchChange={(value) =>
+            onSearchChange(value, people, setFilteredPeople)
+          }
+          leftSectionPointerEvents="none"
+          leftSection={<IconSearch size="24px" />}
+          rightSectionWidth={0}
+          styles={{
+            input: {
+              border: 'none',
+            },
+          }}
+        />
+      </Paper>
       <Stack gap={20} align="center" h={'100%'}>
         {filteredPeople.map((person) => (
           <Stack key={person.userId} style={{ width: '300px' }}>
-            <Flex
-              direction="column"
-              style={{
-                width: '300px',
-                height: '100px',
-                borderBlock: 'red',
-                cursor: 'pointer',
-                backgroundColor:
-                  person.userId === activePerson?.userId
-                    ? 'rgb(224, 224, 224)'
-                    : 'white',
-              }}
-              onClick={() => handleUserClick(person)}
-            >
-              <Group ml={rem(16)} mt="auto" mb={rem(16)} align="end">
-                <Avatar src="" size={50} radius="xl" alt="avatar" />
-                <Text fw={700} size="xl">
-                  {person.name}
-                </Text>
-              </Group>
-              <Divider mb="0" size="md" c="darkgray" />
-            </Flex>
+            <Paper bg={person.userId === activePerson?.userId ? 'gray' : ''}>
+              <Flex
+                direction="column"
+                style={{
+                  width: '300px',
+                  height: '100px',
+                  borderBlock: 'red',
+                  cursor: 'pointer',
+                }}
+                onClick={() => handleUserClick(person)}
+              >
+                <Group ml={rem(16)} mt="auto" mb={rem(16)} align="end">
+                  <Avatar src="" size={50} radius="xl" alt="avatar" />
+                  <Text fw={700} size="xl">
+                    {person.name}
+                  </Text>
+                </Group>
+                <Divider mb="0" size="md" c="darkgray" />
+              </Flex>
+            </Paper>
           </Stack>
         ))}
       </Stack>

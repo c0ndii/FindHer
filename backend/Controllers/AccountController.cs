@@ -43,14 +43,14 @@ namespace Find_H_er.Controllers
         }
         [HttpGet("getownprofile")]
         [Authorize]
-        public async Task<IActionResult> GetOwnProfile()
+        public async Task<UserDto> GetOwnProfile()
         {
             var profile = await _accountService.GetOwnProfile();
-            return await Task.FromResult(Ok(profile));
+            return profile;
         }
         [HttpPatch("sendinterest")]
         [Authorize]
-        public async Task<ActionResult> SentInterest([FromBody] List<Interest> interest)
+        public async Task<ActionResult> SentInterest([FromBody] List<InterestDto> interest)
         {
             await _accountService.SentInterest(interest);
             return await Task.FromResult(Ok());

@@ -33,6 +33,7 @@ export const Messagecontainer = ({ messages }: any) => {
                   p={rem(8)}
                   fw={500}
                   bg="#E0E0E0"
+                  c="black"
                   style={{ wordWrap: 'break-word' }}
                 >
                   {handleMessage(msg)}
