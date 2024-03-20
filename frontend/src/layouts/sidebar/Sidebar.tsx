@@ -15,18 +15,26 @@ import { NavLink, useNavigate } from 'react-router-dom'
 import Logo from '../../assets/logo.png'
 import { useAuth } from '../../features/authentication/hooks/useAuth'
 import Cookies from 'js-cookie'
+import { useTranslation } from 'react-i18next'
 
 interface NavbarLinkProps {
   icon: typeof IconHome2
   label: string
+  path: string
   active?: boolean
   onClick(): void
 }
 
-function NavbarLink({ icon: Icon, label, active, onClick }: NavbarLinkProps) {
+function NavbarLink({
+  icon: Icon,
+  label,
+  path,
+  active,
+  onClick,
+}: NavbarLinkProps) {
   return (
     <Tooltip label={label} position="right" transitionProps={{ duration: 0 }}>
-      <NavLink to={label} style={{ textDecoration: 'none', color: 'inherit' }}>
+      <NavLink to={path} style={{ textDecoration: 'none', color: 'inherit' }}>
         <UnstyledButton
           component="a"
           onClick={onClick}
@@ -40,20 +48,20 @@ function NavbarLink({ icon: Icon, label, active, onClick }: NavbarLinkProps) {
   )
 }
 
-const mockdata = [
-  { icon: IconHome2, label: 'Home' },
-  { icon: IconUser, label: 'Account' },
-  { icon: IconHeart, label: 'Preferences' },
-  { icon: IconThumbUp, label: 'Interests' },
-  { icon: IconForms, label: 'Matchform' },
-  { icon: IconSettings, label: 'Settings' },
-  { icon: IconMessage, label: 'Chat' },
-]
+// const mockdata = [
+//   { icon: IconHome2, label: 'home' },
+//   { icon: IconUser, label: 'account' },
+//   { icon: IconHeart, label: 'preferences' },
+//   { icon: IconThumbUp, label: 'interests' },
+//   { icon: IconForms, label: 'matchForm' },
+//   { icon: IconSettings, label: 'settings' },
+//   { icon: IconMessage, label: 'chat' },
+// ]
 
 export const Sidebar = () => {
   const [active, setActive] = useState(1)
   const navigate = useNavigate()
-
+  const { t } = useTranslation()
   const { setAuth } = useAuth()
 
   const logOut = () => {
@@ -63,10 +71,46 @@ export const Sidebar = () => {
     return false
   }
 
+  // Stałe ścieżki dla NavLink 'to' properties
+  const paths = {
+    home: '/app/Home',
+    account: '/app/Account',
+    preferences: '/app/Preferences',
+    interests: '/app/Interests',
+    matchForm: '/app/MatchForm',
+    settings: '/app/Settings',
+    chat: '/app/Chat',
+  }
+
+  const mockdata = [
+    { icon: IconHome2, label: t('sidebar.home'), path: paths.home },
+    { icon: IconUser, label: t('sidebar.account'), path: paths.account },
+    {
+      icon: IconHeart,
+      label: t('sidebar.preferences'),
+      path: paths.preferences,
+    },
+    { icon: IconThumbUp, label: t('sidebar.interests'), path: paths.interests },
+    { icon: IconForms, label: t('sidebar.matchForm'), path: paths.matchForm },
+    { icon: IconSettings, label: t('sidebar.settings'), path: paths.settings },
+    { icon: IconMessage, label: t('sidebar.chat'), path: paths.chat },
+  ]
+
+  // const links = mockdata.map((link, index) => (
+  //   <NavbarLink
+  //     {...link}
+  //     key={link.label}
+  //     active={index === active}
+  //     onClick={() => setActive(index)}
+  //   />
+  // ))
+
   const links = mockdata.map((link, index) => (
     <NavbarLink
-      {...link}
-      key={link.label}
+      icon={link.icon}
+      label={link.label} // Używane dla Tooltip, etykieta widoczna dla użytkownika
+      path={link.path} // Stała ścieżka używana w NavLink
+      key={link.path} // Zmienione z label na path dla unikalności
       active={index === active}
       onClick={() => setActive(index)}
     />

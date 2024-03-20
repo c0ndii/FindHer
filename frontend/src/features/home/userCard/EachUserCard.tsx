@@ -5,6 +5,7 @@ import { Card, Image } from '@mantine/core'
 import { personModel } from '../../../api/ForYou/schema'
 import { SocialMedia } from '../../account/socialMedia'
 import { IconCheck, IconX } from '@tabler/icons-react'
+import { t } from 'i18next'
 
 type Props = {
   person: personModel
@@ -20,7 +21,7 @@ export const EachUserCard = ({ person }: Props) => {
   return (
     <>
       <Button onClick={open} color="red" fullWidth mt="md" radius="md">
-        Szczegóły
+        {t('home.details')}
       </Button>
       <Modal opened={opened} onClose={close} size={'55%'} centered padding={0}>
         <form onSubmit={handleSubmit(onSubmit)}>

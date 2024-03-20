@@ -3,6 +3,7 @@ import { getForYou } from '../../api/ForYou/ForYou'
 import { useEffect, useState } from 'react'
 import { personModel } from '../../api/ForYou/schema'
 import { UserCard } from '../../features/home/userCard'
+import { t } from 'i18next'
 
 export const Home = () => {
   const [people, setPeople] = useState<personModel[]>([])
@@ -12,7 +13,7 @@ export const Home = () => {
       const response = await getForYou()
       setPeople(response.data as personModel[])
     } catch (error) {
-      console.error('Failed to fetch questions', error)
+      console.error(t('home.fetchFailMessage'), error)
     }
   }
 

@@ -5,6 +5,7 @@ import { EditUserForm } from '../../features/home/user'
 import { SocialMedia } from '../../features/account/socialMedia'
 import { Fragment, useEffect, useState } from 'react'
 import { getOwnInfo } from '../../api/User/OwnInfo'
+import { t } from 'i18next'
 
 interface UserData {
   age: number
@@ -24,7 +25,7 @@ export const Account = () => {
       const response = await getOwnInfo()
       setUser(response.data as UserData)
     } catch (error) {
-      console.error('Failed to fetch id', error)
+      console.error(t('account.fetchIdFailMessage'), error)
     }
   }
 
@@ -54,13 +55,13 @@ export const Account = () => {
           <Flex direction="column" h="50%" my="auto" justify="space-between">
             <Box>
               <Text fz={36} fw={500} className={classes.name}>
-                Imie: {user?.name}
+                {t('account.name')} {user?.name}
               </Text>
               <Text fz={24} fw={400} className={classes.name}>
-                Wiek: {user?.age}
+                {t('account.age')} {user?.age}
               </Text>
               <Text fz={24} fw={400} className={classes.name}>
-                Płeć: {user?.sex}
+                {t('account.gender')} {user?.sex}
               </Text>
               <Text
                 fz="md"

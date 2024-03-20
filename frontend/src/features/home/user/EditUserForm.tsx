@@ -15,7 +15,7 @@ import { useEffect, useState } from 'react'
 import { userModel, userSchema } from '../../../api/User/schema'
 import { editUser } from '../../../api/User/Edit'
 import { useDisclosure } from '@mantine/hooks'
-
+import { t } from 'i18next'
 interface UserData {
   age: number
   description: string
@@ -64,24 +64,28 @@ export const EditUserForm = ({ data }: EditUserFormProps) => {
   return (
     <>
       <Button onClick={open} color="red" style={{ width: '150px' }}>
-        Edytuj profil
+        {t('account.editButton')}
       </Button>
-      <Modal opened={opened} onClose={close} title="Edytuj profil">
+      <Modal
+        opened={opened}
+        onClose={close}
+        title={t('account.editForm.title')}
+      >
         <form
           onSubmit={handleSubmit(onSubmit)}
           style={{ display: 'flex', flexDirection: 'column', gap: '25px' }}
         >
           <TextInput
-            label="Imie"
-            placeholder="Imie"
+            label={t('account.editForm.name')}
+            placeholder={t('account.editForm.name')}
             {...register('name')}
             error={errors.name?.message}
             defaultValue={data?.name}
           ></TextInput>
 
           <NumberInput
-            label="Wiek"
-            placeholder="Wiek"
+            label={t('account.editForm.age')}
+            placeholder={t('account.editForm.age')}
             value={age}
             onChange={setAge}
             allowDecimal={false}
@@ -91,24 +95,24 @@ export const EditUserForm = ({ data }: EditUserFormProps) => {
           ></NumberInput>
 
           <Textarea
-            label="Opis"
-            placeholder="Opis"
+            label={t('account.editForm.description')}
+            placeholder={t('account.editForm.description')}
             {...register('description')}
             error={errors.description?.message}
             defaultValue={data?.description}
           />
 
           <TextInput
-            label="Płeć"
-            placeholder="Płeć"
+            label={t('account.editForm.gender')}
+            placeholder={t('account.editForm.gender')}
             {...register('sex')}
             error={errors.sex?.message}
             defaultValue={data?.sex}
           ></TextInput>
 
           <FileInput
-            label="Obraz"
-            placeholder="Obraz"
+            label={t('account.editForm.picture')}
+            placeholder={t('account.editForm.picture')}
             value={file}
             onChange={setFile}
             error={errors.image?.message}
@@ -120,7 +124,7 @@ export const EditUserForm = ({ data }: EditUserFormProps) => {
           )}
           <Group mb="sm">
             <Button color="red" variant="filled" type="submit">
-              Zatwierdź
+              {t('account.editForm.button')}
             </Button>
           </Group>
         </form>

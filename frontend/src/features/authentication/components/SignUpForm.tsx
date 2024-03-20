@@ -14,6 +14,7 @@ import { Link } from 'react-router-dom'
 import { hasLength, isEmail, useForm } from '@mantine/form'
 import api from '../../../api/api'
 import { useDisclosure } from '@mantine/hooks'
+import { t } from 'i18next'
 
 interface RegisterModel {
   email: string
@@ -31,11 +32,11 @@ export const SignUpForm = () => {
       passwordConfirm: '',
     } as RegisterModel,
     validate: {
-      email: isEmail('Proszę wprowadź poprawny email'),
-      password: hasLength({ min: 8 }, 'Hasło musi mieć minimum 8 znaków'),
+      email: isEmail(t('signUp.validation.email')),
+      password: hasLength({ min: 8 }, t('signUp.validation.password')),
       passwordConfirm: (value, values) => {
         if (value !== values.password) {
-          return 'Hasła nie są takie same'
+          return t('signUp.validation.confirmPassword')
         }
       },
     },
@@ -45,7 +46,7 @@ export const SignUpForm = () => {
     try {
       await api.post('/api/account/register', values)
       toggle()
-      console.log('Konto zostało zarejestrowane pomyślnie')
+      console.log(t('signUp.successMessage'))
     } catch {
       console.log('error')
     }
@@ -55,30 +56,30 @@ export const SignUpForm = () => {
     <Box ml={rem(250)} mt={rem(250)}>
       <form onSubmit={form.onSubmit(handleSubmit)}>
         <FormContainer>
-          <Title c="white">Zarejestruj się</Title>
+          <Title c="white">{t('signUp.form.title')}</Title>
           <TextInput
             c="white"
-            label="Adres email"
+            label={t('signUp.form.email')}
             description=""
-            placeholder="Adres email"
+            placeholder={t('signUp.form.email')}
             {...form.getInputProps('email')}
           ></TextInput>
 
           <PasswordInput
             c="white"
-            label="Hasło"
-            placeholder="Hasło"
+            label={t('signUp.form.password')}
+            placeholder={t('signUp.form.password')}
             {...form.getInputProps('password')}
           ></PasswordInput>
 
           <PasswordInput
             c="white"
-            label="Powtórz hasło"
+            label={t('signUp.form.confirmPassword')}
             {...form.getInputProps('passwordConfirm')}
           ></PasswordInput>
           <Group>
             <Button color="red" variant="filled" type="submit">
-              Zarejestruj
+              {t('signUp.form.button.signUp')}
             </Button>
             <Button
               component={Link}
@@ -87,7 +88,7 @@ export const SignUpForm = () => {
               color="red"
               variant="outline"
             >
-              Mam już konto
+              {t('signUp.form.button.signIn')}
             </Button>
           </Group>
         </FormContainer>
@@ -101,14 +102,14 @@ export const SignUpForm = () => {
           radius="md"
         >
           <Text size="sm" mb="xs" fw={500}>
-            Zarejestrowano pomyślnie!
+            {t('signUp.successMessage')}
           </Text>
           <Text size="sm" mb="xs" fw={500}>
-            Aby się zalogować potwierdź adres email.
+            {t('signUp.confirmRequest')}
           </Text>
           <Group align="flex-end">
             <Button component={Link} onClick={close} to="/SignIn" color="red">
-              Zaloguj
+              {t('signUp.loginButtonText')}
             </Button>
           </Group>
         </Dialog>

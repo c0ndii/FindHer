@@ -1,6 +1,7 @@
 import { Card, Image, Text, Badge, Group, rem } from '@mantine/core'
 import { personModel } from '../../../api/ForYou/schema'
 import { EachUserCard } from './EachUserCard'
+import { t } from 'i18next'
 
 type Props = {
   person: personModel
@@ -29,8 +30,12 @@ export const UserCard = ({ person }: Props) => {
           {person.name}
         </Text>
         <Group justify="flex-end">
-          <Badge color="pink">Wiek: {person.age}</Badge>
-          <Badge color="pink">Płeć: {person.sex}</Badge>
+          <Badge color="pink">
+            {t('home.age')} {person.age}
+          </Badge>
+          <Badge color="pink">
+            {t('home.gender')} {person.sex}
+          </Badge>
         </Group>
       </Group>
 

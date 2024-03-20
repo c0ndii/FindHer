@@ -16,6 +16,7 @@ import { jwtDecode } from 'jwt-decode'
 import { AuthState } from '../../../context/AuthProvider'
 import Cookies from 'js-cookie'
 import { TokenData } from '../Models/tokenData'
+import { t } from 'i18next'
 
 interface loginModel {
   email: string
@@ -62,8 +63,8 @@ export const SignInForm = () => {
       password: '',
     } as loginModel,
     validate: {
-      email: isEmail('Proszę wprowadź poprawny email'),
-      password: hasLength({ min: 8 }, 'Hasło musi mieć minimum 8 znaków'),
+      email: isEmail(t('signUp.validation.email')),
+      password: hasLength({ min: 8 }, t('signUp.validation.password')),
     },
   })
 
@@ -71,26 +72,26 @@ export const SignInForm = () => {
     <Box ml={250} mt={250}>
       <form onSubmit={form.onSubmit((values) => handleSubmit(values))}>
         <FormContainer>
-          <Title c="white">Zaloguj się</Title>
+          <Title c="white">{t('signIn.form.title')}</Title>
 
           <TextInput
             c="#FFFFFF"
-            label="Adres email"
+            label={t('signUp.form.email')}
             description=""
-            placeholder="Adres email"
+            placeholder={t('signUp.form.email')}
             {...form.getInputProps('email')}
           ></TextInput>
 
           <PasswordInput
             c="#FFFFFF"
-            label="Hasło"
-            placeholder="Hasło"
+            label={t('signUp.form.password')}
+            placeholder={t('signUp.form.password')}
             {...form.getInputProps('password')}
           ></PasswordInput>
 
           <Group mb="sm">
             <Button color="red" variant="filled" type="submit">
-              Zaloguj
+              {t('signIn.form.button.signIn')}
             </Button>
             <Button
               component={Link}
@@ -99,7 +100,7 @@ export const SignInForm = () => {
               color="red"
               variant="outline"
             >
-              Załóż konto
+              {t('signIn.form.button.signUp')}
             </Button>
           </Group>
         </FormContainer>

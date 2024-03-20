@@ -1,6 +1,7 @@
 import React from 'react'
 import { Text, Box, Chip, Center, Paper, Flex, rem } from '@mantine/core'
 import classes from './Interests.module.css'
+import { t } from 'i18next'
 
 interface InterestCategoryProps {
   categoryName: string
@@ -29,11 +30,14 @@ const InterestCategory: React.FC<InterestCategoryProps> = ({
 
 export const Interests = () => {
   const categories = [
-    { name: 'Kulinaria', interests: ['Sushi', 'Pizza'] },
+    {
+      name: t('preferences.cardTitle.culinary'),
+      interests: ['Sushi', 'Pizza'],
+    },
     { name: 'Sport', interests: [] },
-    { name: 'Kultura', interests: [] },
-    { name: 'Rozrywka', interests: [] },
-    { name: 'Osobiste', interests: [] },
+    { name: t('preferences.cardTitle.culture'), interests: [] },
+    { name: t('interests.cardTitle.entertainment'), interests: [] },
+    { name: t('preferences.cardTitle.personal'), interests: [] },
   ]
 
   return (
@@ -46,7 +50,7 @@ export const Interests = () => {
             className={classes.name}
             style={{ textAlign: 'center' }}
           >
-            Zainteresowania
+            {t('interests.title')}
           </Text>
         </Box>
         <Box
