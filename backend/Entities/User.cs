@@ -17,8 +17,7 @@ namespace Find_H_er.Entities
         public int? MatchFormScore { get; set; } = 50;
         //public virtual MatchForm? MatchForm { get; set; }
         public List<Pinch>? Pinches { get; set; }
-        public int? ForYouId { get; set; }
-        public virtual ForYou? ForYou { get; set; }
+        public List<Match> MatchedUsers {  get; set; }
         public List<Message> SentMessages { get; set; }
         public List<Message> ReceivedMessages {  get; set; }
         //public  zaczepka

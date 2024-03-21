@@ -48,22 +48,6 @@ namespace Find_H_er.Migrations
                     b.ToTable("Answers");
                 });
 
-            modelBuilder.Entity("Find_H_er.Entities.ForYou", b =>
-                {
-                    b.Property<int>("ForYouId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ForYouId"));
-
-                    b.Property<int>("Distance")
-                        .HasColumnType("int");
-
-                    b.HasKey("ForYouId");
-
-                    b.ToTable("ForYous");
-                });
-
             modelBuilder.Entity("Find_H_er.Entities.Interest", b =>
                 {
                     b.Property<int>("InterestId")
@@ -83,6 +67,30 @@ namespace Find_H_er.Migrations
                     b.HasKey("InterestId");
 
                     b.ToTable("Interests");
+                });
+
+            modelBuilder.Entity("Find_H_er.Entities.Match", b =>
+                {
+                    b.Property<int>("MatchId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MatchId"));
+
+                    b.Property<int>("MatchedId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("isBlocked")
+                        .HasColumnType("bit");
+
+                    b.HasKey("MatchId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Matches");
                 });
 
             modelBuilder.Entity("Find_H_er.Entities.MatchForm", b =>
@@ -220,9 +228,6 @@ namespace Find_H_er.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ForYouId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
@@ -247,8 +252,6 @@ namespace Find_H_er.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("UserId");
-
-                    b.HasIndex("ForYouId");
 
                     b.HasIndex("RoleId");
 
@@ -349,6 +352,17 @@ namespace Find_H_er.Migrations
                     b.Navigation("Question");
                 });
 
+            modelBuilder.Entity("Find_H_er.Entities.Match", b =>
+                {
+                    b.HasOne("Find_H_er.Entities.User", "User")
+                        .WithMany("MatchedUsers")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Find_H_er.Entities.Message", b =>
                 {
                     b.HasOne("Find_H_er.Entities.User", "Receiver")
@@ -370,15 +384,9 @@ namespace Find_H_er.Migrations
 
             modelBuilder.Entity("Find_H_er.Entities.User", b =>
                 {
-                    b.HasOne("Find_H_er.Entities.ForYou", "ForYou")
-                        .WithMany("UsersForYou")
-                        .HasForeignKey("ForYouId");
-
                     b.HasOne("Find_H_er.Entities.Role", "Role")
                         .WithMany()
                         .HasForeignKey("RoleId");
-
-                    b.Navigation("ForYou");
 
                     b.Navigation("Role");
                 });
@@ -443,11 +451,6 @@ namespace Find_H_er.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Find_H_er.Entities.ForYou", b =>
-                {
-                    b.Navigation("UsersForYou");
-                });
-
             modelBuilder.Entity("Find_H_er.Entities.Question", b =>
                 {
                     b.Navigation("Answers");
@@ -455,6 +458,8 @@ namespace Find_H_er.Migrations
 
             modelBuilder.Entity("Find_H_er.Entities.User", b =>
                 {
+                    b.Navigation("MatchedUsers");
+
                     b.Navigation("ReceivedMessages");
 
                     b.Navigation("SentMessages");

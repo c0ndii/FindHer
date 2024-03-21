@@ -25,12 +25,12 @@ namespace Find_H_er
                     _context.MatchForms.AddRange(questions);
                     _context.SaveChanges();
                 }
-                if (!_context.Users.Any())
-                {
-                    var users = GetUser();
-                    _context.Users.Add(users);
-                    _context.SaveChanges();
-                }
+                //if (!_context.Users.Any())
+                //{
+                //    var users = GetUser();
+                //    _context.Users.Add(users);
+                //    _context.SaveChanges();
+                //}
             }
             
             
@@ -54,6 +54,10 @@ namespace Find_H_er
                 new Role()
                 {
                     Name = "Unconfirmed"
+                },
+                new Role()
+                {
+                    Name = "Banned"
                 }
             };
             return roles;
@@ -66,7 +70,7 @@ namespace Find_H_er
                 PasswordHash = "test123",
                 Name = "Adam",
                 SentMessages = new List<Message>(),
-                ReceivedMessages = new List<Message>()
+                ReceivedMessages = new List<Message>(),
             };
             return user;
         }

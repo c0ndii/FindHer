@@ -28,28 +28,28 @@ namespace Find_H_er.Controllers
             return await Task.FromResult(Ok(token));
         }
         [HttpPut("editprofile")]
-        [Authorize]
+        [Authorize(Roles = "User, Admin")]
         public async Task<ActionResult> EditProfile([FromBody] EditProfileDto profileToUpdate)
         {
             await _accountService.EditProfile(profileToUpdate);
             return await Task.FromResult(Ok());
         }
         [HttpPatch("matchscore")]
-        [Authorize]
+        [Authorize(Roles = "User, Admin")]
         public async Task<ActionResult> MatchScore([FromBody] int Score)
         {
             await _accountService.MatchScore(Score);
             return await Task.FromResult(Ok());
         }
         [HttpGet("getownprofile")]
-        [Authorize]
+        [Authorize(Roles = "User, Admin")]
         public async Task<UserDto> GetOwnProfile()
         {
             var profile = await _accountService.GetOwnProfile();
             return profile;
         }
         [HttpPatch("sendinterest")]
-        [Authorize]
+        [Authorize(Roles = "User, Admin")]
         public async Task<ActionResult> SentInterest([FromBody] List<InterestDto> interest)
         {
             await _accountService.SentInterest(interest);
@@ -70,6 +70,33 @@ namespace Find_H_er.Controllers
         {
             var result = _accountService.GetUserId();
             return result;
+        }
+        [Authorize(Roles = "Admin")]
+        [HttpPost("banuser/{userId}")]
+        public async Task<IActionResult> BanUser([FromRoute] int userId)
+        {
+            await _accountService.BanUser(userId);
+            return Ok();
+        }
+        [HttpGet("getmatchedusers")]
+        public async Task<List<UserDto>> GetMatchedUsers()
+        {
+            var result = await _accountService.GetMatchedUsers();
+            return await Task.FromResult(result);
+        }
+        [Authorize(Roles = "Admin, User")]
+        [HttpPost("blockuser/{id}")]
+        public async Task<IActionResult> BlockUser([FromRoute] int id)
+        {
+            await _accountService.BlockUser(id);
+            return Ok();
+        }
+        [Authorize(Roles = "Admin, User")]
+        [HttpPost("addkusertomatched/{id}")]
+        public async Task<IActionResult> AddUserToMatched([FromRoute] int id)
+        {
+            await _accountService.AddToMatched(id);
+            return Ok();
         }
     }
 }

@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Authorization;
 using Find_H_er.Authorization;
 using System.Security.Cryptography;
 using Azure.Core.Pipeline;
+using AutoMapper;
 
 namespace Find_H_er.Services
 {
@@ -25,6 +26,10 @@ namespace Find_H_er.Services
         Task SentInterest(List<InterestDto> interestDtos);
         Task MatchScore(int score);
         public int GetUserId();
+        Task BanUser(int userId);
+        Task<List<UserDto>> GetMatchedUsers();
+        Task BlockUser(int userId);
+        Task AddToMatched(int userId);
     }
 
     public class AccountService : IAccountService
@@ -35,7 +40,8 @@ namespace Find_H_er.Services
         private readonly IUserContextService _userContextService;
         private readonly IAuthorizationService _authorizationService;
         private readonly IEmailSenderService _emailSenderService;
-        public AccountService(AppDbContext context, IPasswordHasher<User> passwordHasher, AuthenticationSettings authenticationSettings, IUserContextService userContextService, IAuthorizationService authorizationService, IEmailSenderService emailSenderService)
+        private readonly IMapper _mapper;
+        public AccountService(AppDbContext context, IPasswordHasher<User> passwordHasher, AuthenticationSettings authenticationSettings, IUserContextService userContextService, IAuthorizationService authorizationService, IEmailSenderService emailSenderService, IMapper mapper)
         {
             _context = context;
             _passwordHasher = passwordHasher;
@@ -43,6 +49,7 @@ namespace Find_H_er.Services
             _userContextService = userContextService;
             _authorizationService = authorizationService;
             _emailSenderService = emailSenderService;
+            _mapper = mapper;
         }
         public async Task RegisterUser(RegisterUserDto dto)
         {
@@ -50,47 +57,45 @@ namespace Find_H_er.Services
             {
                 Email = dto.Email,
                 VerificationToken = CreateRandomToken(),
+                MatchedUsers = new List<Match>()
             };
             var hashedPassword = _passwordHasher.HashPassword(newUser, dto.Password);
             newUser.PasswordHash = hashedPassword;
             newUser.Role = await _context.Roles.FirstOrDefaultAsync(x => x.Name == "Unconfirmed");
-            var matchForm = new MatchForm()
-            {
-                Questions = await _context.Questions.ToListAsync(),
-                //User = newUser,
-                //UserId = newUser.UserId,
-            };
-            var forYous = new ForYou()
-            {
-                Distance = 20,
-                UsersForYou = new List<User>()
-                {
-                    await _context.Users.FirstOrDefaultAsync(),
-                },
-            };
-            newUser.ForYou = forYous;
+            //var matchForm = new MatchForm()
+            //{
+            //    Questions = await _context.Questions.ToListAsync(),
+            //    //User = newUser,
+            //    //UserId = newUser.UserId,
+            //};
             //newUser.MatchForm = matchForm;
-            await _context.MatchForms.AddAsync(matchForm);
+            //await _context.MatchForms.AddAsync(matchForm);
             await _context.Users.AddAsync(newUser);
             await _context.SaveChangesAsync();
-            await _emailSenderService.SendEmailAsync(dto.Email, "Confirm your email", "https://localhost:44360/api/account/verifyemail/"+$"{newUser.VerificationToken}");
+            //await _emailSenderService.SendEmailAsync(dto.Email, "Confirm your email", "https://localhost:44360/api/account/verifyemail/"+$"{newUser.VerificationToken}");
         }
         public async Task<string> GenerateJwt(LoginDto dto)
         {
             var user = await _context.Users
                 .Include(x => x.Role)
                 .FirstOrDefaultAsync(x => x.Email == dto.Email);
-            if (user is null)
+            if(user is null)
             {
-                //throw new BadRequestException("Invalid username or password");
-                throw new Exception();
+                throw new NotFoundException("Account not found");
             }
-
+            if (string.Compare(user.Role.Name, "Unconfirmed") == 0)
+            {
+                throw new BadRequestException("Account has not been confirmed yet");
+            }
+            if (string.Compare(user.Role.Name, "Banned") == 0)
+            {
+                throw new BadRequestException("Account has been banned");
+            }
             var result = _passwordHasher.VerifyHashedPassword(user, user.PasswordHash, dto.Password);
             if (result == PasswordVerificationResult.Failed)
             {
-                //throw new BadRequestException("Invalid username or password");
-                throw new Exception();
+                throw new BadRequestException("Invalid username or password");
+                //throw new Exception();
             }
 
             var claims = new List<Claim>()
@@ -195,6 +200,81 @@ namespace Find_H_er.Services
             _context.Update(user);
             await _context.SaveChangesAsync();
             return await Task.FromResult(true);
+        }
+        public async Task BanUser(int userId)
+        {
+            var user = await _context.Users.Include(x => x.Role).SingleOrDefaultAsync(x => x.UserId == userId);
+            if(user is null)
+            {
+                throw new NotFoundException("User not found");
+            }
+            user.Role = await _context.Roles.SingleOrDefaultAsync(x => x.Name == "Banned");
+            _context.Update(user);
+            await _context.SaveChangesAsync();
+        }
+        public async Task<List<UserDto>> GetMatchedUsers()
+        {
+            var userId = _userContextService.GetUserId;
+            var user = await _context.Users.FirstOrDefaultAsync(x => x.UserId == userId);
+            if (user == null)
+            {
+                throw new NotFoundException("Couldn't find that user");
+            }
+            List<int> userIds = await _context.Matches.Where(x => x.UserId == userId && x.isBlocked == false).Select(x => x.MatchedId).ToListAsync();
+            var usersToShow = _mapper.Map<List<UserDto>>(await _context.Users.Where(x => userIds.Contains(x.UserId)).ToListAsync());
+            return await Task.FromResult(usersToShow);
+        }
+        public async Task BlockUser(int userId)
+        {
+            var currentUserId = _userContextService.GetUserId;
+            if (currentUserId is null)
+            {
+                throw new NotFoundException("Invalid user id");
+            }
+            var user = await _context.Users.SingleOrDefaultAsync(x => x.UserId == currentUserId);
+            if (user is null)
+            {
+                throw new NotFoundException("User not found");
+            }
+            var userToBeBlocked = await _context.Users.SingleOrDefaultAsync(x => x.UserId == userId);
+            if (userToBeBlocked is null)
+            {
+                throw new NotFoundException("User to block not found");
+            }
+            var firstUserMatch = await _context.Matches.SingleOrDefaultAsync(x => x.UserId == currentUserId && x.MatchedId == userId);
+            firstUserMatch.isBlocked = true;
+            var secondUserMatch = await _context.Matches.SingleOrDefaultAsync(x => x.UserId == userId && x.MatchedId == currentUserId);
+            firstUserMatch.isBlocked = true;
+            secondUserMatch.isBlocked = true;
+            _context.UpdateRange(firstUserMatch, secondUserMatch);
+            await _context.SaveChangesAsync();
+        }
+        public async Task AddToMatched(int userId)
+        {
+            var currentUserId = _userContextService.GetUserId;
+            if (currentUserId is null)
+            {
+                throw new NotFoundException("Invalid user id");
+            }
+            var user = await _context.Users.Include(x => x.MatchedUsers).SingleOrDefaultAsync(x => x.UserId == currentUserId);
+            if (user is null)
+            {
+                throw new NotFoundException("User not found");
+            }
+            var userToBeAdded = await _context.Users.Include(x => x.MatchedUsers).SingleOrDefaultAsync(x => x.UserId == userId && x.Role.Name != "Banned" && x.Role.Name != "Unconfirmed");
+            if (userToBeAdded is null)
+            {
+                throw new NotFoundException("User to add not found");
+            }
+            user.MatchedUsers.Add(new Match()
+            {
+                MatchedId = userToBeAdded.UserId,
+            });
+            userToBeAdded.MatchedUsers.Add(new Match()
+            {
+                MatchedId = user.UserId,
+            });
+            await _context.SaveChangesAsync();
         }
     }
 }

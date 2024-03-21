@@ -1,6 +1,0 @@
-2024-02-12 18:50:25.7316|20102|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-CREATE TABLE [ForYous] (
-    [ForYouId] int NOT NULL IDENTITY,
-    [Distance] int NOT NULL,
-    CONSTRAINT [PK_ForYous] PRIMARY KEY ([ForYouId])
-); 
