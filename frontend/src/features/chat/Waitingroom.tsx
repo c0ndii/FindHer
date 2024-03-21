@@ -9,6 +9,7 @@ import {
 import { useForm } from '@mantine/form'
 import { useEffect, useState } from 'react'
 import { getId } from '../../api/User/GetId'
+import { t } from 'i18next'
 
 export const Waitingroom = ({ joinChatRoom }: any) => {
   const [ownId, setOwnId] = useState<number>()
@@ -55,7 +56,7 @@ export const Waitingroom = ({ joinChatRoom }: any) => {
           {...form.getInputProps('username2')}
         />
         <Group justify="flex-end" mt="md">
-          <Button type="submit">Submit</Button>
+          <Button type="submit">{t('chat.sendButton')}</Button>
         </Group>
       </form>
     </Box>

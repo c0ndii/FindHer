@@ -1,5 +1,6 @@
 import { Button, Container, Title, Text, rem } from '@mantine/core'
 import classes from './HeroBanner.module.css'
+import { t } from 'i18next'
 
 export const HeroBanner = () => {
   return (
@@ -7,14 +8,14 @@ export const HeroBanner = () => {
       <Container size={'lg'} className={classes.container}>
         <div className={classes.inner}>
           <Title className={classes.title} c="#FFFFFF" size="70">
-            Szukaj drugiej połówki z{' '}
+            {t('welcome.heroBanner.text')}
             <Text
               span
               inherit
               variant="gradient"
               gradient={{ from: 'pink', to: 'yellow' }}
             >
-              Find(h)er
+              {t('welcome.heroBanner.findher')}
             </Text>{' '}
           </Title>
           <Button
@@ -26,7 +27,7 @@ export const HeroBanner = () => {
             color="red"
             size="xl"
           >
-            Załóż konto
+            {t('welcome.heroBanner.button')}
           </Button>
         </div>
       </Container>

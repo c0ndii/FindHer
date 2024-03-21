@@ -1,5 +1,6 @@
 import { TextInput, Checkbox, Button, Group, Box } from '@mantine/core'
 import { useForm } from '@mantine/form'
+import { t } from 'i18next'
 
 type Props = {
   sendMessage: (message: string) => void
@@ -28,7 +29,7 @@ export const Sendmessageform = ({ sendMessage }: Props) => {
         <Group>
           <TextInput
             width={'auto'}
-            placeholder="message"
+            placeholder={t('chat.messagePlaceholder')}
             {...form.getInputProps('message')}
           />
           <Button
@@ -36,7 +37,7 @@ export const Sendmessageform = ({ sendMessage }: Props) => {
             color="red"
             type="submit"
           >
-            Submit
+            {t('chat.sendButton')}
           </Button>
         </Group>
       </form>

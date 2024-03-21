@@ -10,6 +10,7 @@ import Cookies from 'js-cookie'
 import { personModel } from '../../api/ForYou/schema'
 import { getForYou } from '../../api/ForYou/ForYou'
 import { ChatProvider, useChatContext } from '../../features/chat/ChatContext'
+import { t } from 'i18next'
 
 type History = {
   senderId: number
@@ -38,7 +39,7 @@ export const Chat = () => {
       setActivePerson(response.data[0])
       setIsWaiting(false)
     } catch (error) {
-      console.error('Failed to load data', error)
+      console.error(t('chat.loadFailMessage'), error)
     }
   }
 

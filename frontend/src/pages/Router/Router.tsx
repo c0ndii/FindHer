@@ -33,7 +33,7 @@ export const Router = () => {
         <Route path="Account" element={<Account />} />
         <Route path="Preferences" element={<Preferences />} />
         <Route path="Interests" element={<Interests />} />
-        <Route path="Matchform" element={<MatchForm />} />
+        <Route path="MatchForm" element={<MatchForm />} />
         <Route path="Settings" element={<Settings />} />
         <Route path="Home" element={<Home />} />
         <Route path="Chat" element={<Chat />} />
