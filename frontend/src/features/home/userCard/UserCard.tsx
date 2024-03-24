@@ -5,9 +5,10 @@ import { t } from 'i18next'
 
 type Props = {
   person: personModel
+  children: React.ReactNode
 }
 
-export const UserCard = ({ person }: Props) => {
+export const UserCard = ({ person, children }: Props) => {
   return (
     <Card
       shadow="sm"
@@ -38,8 +39,7 @@ export const UserCard = ({ person }: Props) => {
           </Badge>
         </Group>
       </Group>
-
-      <EachUserCard person={person} />
+      {children}
     </Card>
   )
 }

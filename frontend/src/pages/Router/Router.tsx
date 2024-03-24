@@ -13,6 +13,7 @@ import { MatchForm } from '../../features/matchForm'
 import { Settings } from '../settings'
 import { Home } from '../home'
 import { Chat } from '../chat'
+import { Users } from '../users/Users'
 
 export const Router = () => {
   return (
@@ -37,6 +38,7 @@ export const Router = () => {
         <Route path="Settings" element={<Settings />} />
         <Route path="Home" element={<Home />} />
         <Route path="Chat" element={<Chat />} />
+        <Route path="Users" element={<Users />} />
       </Route>
     </Routes>
   )

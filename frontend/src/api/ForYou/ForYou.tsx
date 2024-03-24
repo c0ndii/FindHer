@@ -1,7 +1,7 @@
 import Cookies from 'js-cookie'
 import axios from 'axios'
 
-const baseUrl = 'https://localhost:44360/api/foryou'
+const baseUrl = 'https://localhost:44360/api/account/getmatchedusers'
 
 export const getForYou = async () => {
   try {

@@ -98,5 +98,12 @@ namespace Find_H_er.Controllers
             await _accountService.AddToMatched(id);
             return Ok();
         }
+        [Authorize(Roles = "Admin")]
+        [HttpGet("getUsers")]
+        public async Task<List<UserDto>> getUsers()
+        {
+            var result = await _accountService.GetUsers();
+            return await Task.FromResult(result);
+        }
     }
 }

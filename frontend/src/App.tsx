@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './App.css'
 import { ChatProvider } from './features/chat/ChatContext'
 import { Router } from './pages/Router/Router'
@@ -11,10 +11,13 @@ import {
   fontSizesBig,
   fontSizesClassic,
 } from './pages/settings/fontAtom'
+import api from './api/api'
+import { useAuth } from './features/authentication/hooks/useAuth'
 
 const App = () => {
   const fontSize = useAtomValue(fontSizeAtom)
   const fontSizes = fontSize === 'big' ? fontSizesBig : fontSizesClassic
+
   return (
     <MantineProvider theme={{ fontSizes: fontSizes }}>
       <React.StrictMode>

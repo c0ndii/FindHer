@@ -6,6 +6,7 @@ import { personModel } from '../../../api/ForYou/schema'
 import { SocialMedia } from '../../account/socialMedia'
 import { IconCheck, IconX } from '@tabler/icons-react'
 import { t } from 'i18next'
+import { blockUser } from '../../../api/User/BlockUser'
 
 type Props = {
   person: personModel
@@ -128,6 +129,10 @@ export const EachUserCard = ({ person }: Props) => {
                 fullWidth
                 radius={0}
                 style={{ height: '50px' }}
+                onClick={() => {
+                  blockUser(person.userId)
+                  close()
+                }}
               >
                 <IconX />
               </Button>

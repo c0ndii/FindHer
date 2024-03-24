@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Center, Tooltip, UnstyledButton, Stack, rem } from '@mantine/core'
 import {
   IconHome2,
@@ -9,6 +9,7 @@ import {
   IconLogout,
   IconForms,
   IconMessage,
+  IconUsers,
 } from '@tabler/icons-react'
 import classes from './Sidebar.module.css'
 import { NavLink, useNavigate } from 'react-router-dom'
@@ -16,6 +17,7 @@ import Logo from '../../assets/logo.png'
 import { useAuth } from '../../features/authentication/hooks/useAuth'
 import Cookies from 'js-cookie'
 import { useTranslation } from 'react-i18next'
+import api from '../../api/api'
 
 interface NavbarLinkProps {
   icon: typeof IconHome2
@@ -62,7 +64,7 @@ export const Sidebar = () => {
   const [active, setActive] = useState(1)
   const navigate = useNavigate()
   const { t } = useTranslation()
-  const { setAuth } = useAuth()
+  const { setAuth, auth, isAuthorized } = useAuth()
 
   const logOut = () => {
     Cookies.remove('token')
@@ -125,6 +127,16 @@ export const Sidebar = () => {
         <div className={classes.navbarMain}>
           <Stack justify="center" gap={0}>
             {links}
+            {auth?.roles.toString() === 'Admin' && (
+              <NavbarLink
+                icon={IconUsers}
+                label={t('sidebar.users')}
+                path={'/app/Users'}
+                key={'/app/Users'}
+                active={links.length + 1 === active}
+                onClick={() => setActive(links.length + 1)}
+              />
+            )}
           </Stack>
         </div>
 

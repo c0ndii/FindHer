@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { personModel } from '../../api/ForYou/schema'
 import { UserCard } from '../../features/home/userCard'
 import { t } from 'i18next'
+import { EachUserCard } from '../../features/home/userCard/EachUserCard'
 
 export const Home = () => {
   const [people, setPeople] = useState<personModel[]>([])
@@ -24,8 +25,10 @@ export const Home = () => {
   return (
     <Grid mt={rem(48)}>
       {people.map((user) => (
-        <GridCol>
-          <UserCard person={user} />
+        <GridCol span={4}>
+          <UserCard person={user}>
+            <EachUserCard person={user} />
+          </UserCard>
         </GridCol>
       ))}
     </Grid>

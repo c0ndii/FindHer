@@ -30,6 +30,7 @@ namespace Find_H_er.Services
         Task<List<UserDto>> GetMatchedUsers();
         Task BlockUser(int userId);
         Task AddToMatched(int userId);
+        Task<List<UserDto>> GetUsers();
     }
 
     public class AccountService : IAccountService
@@ -275,6 +276,19 @@ namespace Find_H_er.Services
                 MatchedId = user.UserId,
             });
             await _context.SaveChangesAsync();
+        }
+
+        public async Task<List<UserDto>> GetUsers()
+        {
+            var userId = _userContextService.GetUserId;
+            var user = await _context.Users.SingleOrDefaultAsync(x => x.UserId == userId);
+            if (user == null)
+            {
+                throw new NotFoundException("Couldn't find that user");
+            }
+            List<User> users = await _context.Users.Where(x => x.UserId != userId && x.Role.Name != "Banned").ToListAsync();
+            var usersToShow = _mapper.Map<List<UserDto>>(users);
+            return await Task.FromResult(usersToShow);
         }
     }
 }
