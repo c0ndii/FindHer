@@ -222,7 +222,7 @@ namespace Find_H_er.Services
                 throw new NotFoundException("Couldn't find that user");
             }
             List<int> userIds = await _context.Matches.Where(x => x.UserId == userId && x.isBlocked == false).Select(x => x.MatchedId).ToListAsync();
-            var usersToShow = _mapper.Map<List<UserDto>>(await _context.Users.Where(x => userIds.Contains(x.UserId)).ToListAsync());
+            var usersToShow = _mapper.Map<List<UserDto>>(await _context.Users.Include(x => x.Role).Where(x => userIds.Contains(x.UserId) && x.Role.Name != "Banned").ToListAsync());
             return await Task.FromResult(usersToShow);
         }
         public async Task BlockUser(int userId)
