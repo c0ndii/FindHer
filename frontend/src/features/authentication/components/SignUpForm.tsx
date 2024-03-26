@@ -15,6 +15,7 @@ import { hasLength, isEmail, useForm } from '@mantine/form'
 import api from '../../../api/api'
 import { useDisclosure } from '@mantine/hooks'
 import { t } from 'i18next'
+import { notifications } from '@mantine/notifications';
 
 interface RegisterModel {
   email: string
@@ -46,7 +47,7 @@ export const SignUpForm = () => {
     try {
       await api.post('/api/account/register', values)
       toggle()
-      console.log(t('signUp.successMessage'))
+      
     } catch {
       console.log('error')
     }

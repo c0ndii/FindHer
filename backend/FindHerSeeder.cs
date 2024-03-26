@@ -1,6 +1,8 @@
 ﻿using Azure;
 using Find_H_er.Entities;
 using System.Net;
+using Find_H_er.Services;
+using Microsoft.AspNetCore.Identity;
 
 namespace Find_H_er
 {
@@ -9,6 +11,7 @@ namespace Find_H_er
 #pragma warning restore IDE1006 // Style nazewnictwa
     {
         private readonly AppDbContext _context;
+
         public void Seed()
         {
             if (_context.Database.CanConnect())
@@ -25,6 +28,13 @@ namespace Find_H_er
                     _context.MatchForms.AddRange(questions);
                     _context.SaveChanges();
                 }
+
+                if (!_context.Users.Any())
+                {
+                    _context.Users.Add(GetAdmin());
+                    _context.SaveChanges();
+                }
+                
                 //if (!_context.Users.Any())
                 //{
                 //    var users = GetUser();
@@ -38,6 +48,20 @@ namespace Find_H_er
         public FindHerSeeder(AppDbContext context)
         {
             _context = context;
+        }
+
+        private User GetAdmin()
+        {
+            var adminRole = _context.Roles.SingleOrDefault(x => x.Name == "Admin");
+            var user = new User()
+            {
+                Email = "admin@admin.com",
+                Role = adminRole,
+            };
+
+            var passwordHash = new PasswordHasher<User>().HashPassword(user, "Admin123..");
+            user.PasswordHash = passwordHash;
+            return user;
         }
         private static IEnumerable<Role> GetRoles()
         {

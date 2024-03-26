@@ -13,6 +13,7 @@ import {
 } from './pages/settings/fontAtom'
 import api from './api/api'
 import { useAuth } from './features/authentication/hooks/useAuth'
+import { Notifications } from '@mantine/notifications'
 
 const App = () => {
   const fontSize = useAtomValue(fontSizeAtom)
@@ -20,6 +21,7 @@ const App = () => {
 
   return (
     <MantineProvider theme={{ fontSizes: fontSizes }}>
+      <Notifications position="top-right" />
       <React.StrictMode>
         <AuthProvider>
           <BrowserRouter>

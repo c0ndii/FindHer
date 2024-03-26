@@ -181,7 +181,7 @@ namespace Find_H_er.Services
             _context.Update(user);
             await _context.SaveChangesAsync();
         }
-        private string CreateRandomToken()
+        public string CreateRandomToken()
         {
             return Convert.ToHexString(RandomNumberGenerator.GetBytes(64));
         }
