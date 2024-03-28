@@ -18,19 +18,22 @@ namespace Find_H_er.Services
 {
     public interface IAccountService
     {
-        Task<string> GenerateJwt(LoginDto dto);
-        Task RegisterUser(RegisterUserDto dto);
-        Task EditProfile(EditProfileDto dto);
-        Task<bool> VerifyEmail(string token);
-        Task<UserDto> GetOwnProfile();
-        Task SentInterest(List<InterestDto> interestDtos);
-        Task MatchScore(int score);
-        public int GetUserId();
+        Task AddToPairs(int userId);
         Task BanUser(int userId);
-        Task<List<UserDto>> GetMatchedUsers();
         Task BlockUser(int userId);
-        Task AddToMatched(int userId);
+        Task CancelUser(int userId);
+        string CreateRandomToken();
+        Task EditProfile(EditProfileDto dto);
+        Task<string> GenerateJwt(LoginDto dto);
+        Task<List<UserDto>> GetMatches();
+        Task<UserDto> GetOwnProfile();
+        Task<List<UserDto>> GetPairs();
+        int GetUserId();
         Task<List<UserDto>> GetUsers();
+        Task MatchScore(int score);
+        Task RegisterUser(RegisterUserDto dto);
+        Task SentInterest(List<InterestDto> interests);
+        Task<bool> VerifyEmail(string token);
     }
 
     public class AccountService : IAccountService
@@ -58,7 +61,6 @@ namespace Find_H_er.Services
             {
                 Email = dto.Email,
                 VerificationToken = CreateRandomToken(),
-                MatchedUsers = new List<Match>()
             };
             var hashedPassword = _passwordHasher.HashPassword(newUser, dto.Password);
             newUser.PasswordHash = hashedPassword;
@@ -80,7 +82,7 @@ namespace Find_H_er.Services
             var user = await _context.Users
                 .Include(x => x.Role)
                 .FirstOrDefaultAsync(x => x.Email == dto.Email);
-            if(user is null)
+            if (user is null)
             {
                 throw new NotFoundException("Account not found");
             }
@@ -124,7 +126,7 @@ namespace Find_H_er.Services
             var userId = _userContextService.GetUserId;
             var user = await _context.Users.FirstOrDefaultAsync(x => x.UserId == userId);
             Console.Write(user.UserId + "   " + userId);
-            if(user is null)
+            if (user is null)
             {
                 throw new NotFoundException("User not found");
             }
@@ -151,7 +153,7 @@ namespace Find_H_er.Services
             userInfo.Age = user.Age;
             userInfo.Sex = user.Sex;
             userInfo.Image = user.Image;
-            return userInfo; 
+            return userInfo;
         }
         public async Task MatchScore(int score)
         {
@@ -173,7 +175,8 @@ namespace Find_H_er.Services
             {
                 throw new NotFoundException("User not found");
             }
-            foreach (var interest in interests) {
+            foreach (var interest in interests)
+            {
                 var item = new Interest();
                 item.Name = interest.Name;
                 user.Interests.Add(item);
@@ -190,6 +193,25 @@ namespace Find_H_er.Services
             var id = _userContextService.GetUserId;
             return (int)id;
         }
+        private async Task AddUserToMatches(int userId)
+        {
+            List<int> userIds = await _context.Users
+                .Include(x => x.Role)
+                .Where(x => x.UserId != userId && x.Role.Name != "Banned" && x.Role.Name != "Unconfirmed")
+                .Select(x => x.UserId)
+                .ToListAsync();
+            List<Match> matches = new List<Match>();
+            foreach (int elem in userIds)
+            {
+                matches.Add(new Match()
+                {
+                    ViewerId = elem,
+                    ViewedId = userId
+                });
+            }
+            await _context.Matches.AddRangeAsync(matches);
+            _context.SaveChanges();
+        }
         public async Task<bool> VerifyEmail(string token)
         {
             var user = await _context.Users.SingleOrDefaultAsync(x => token == x.VerificationToken && x.Role.Name == "Unconfirmed");
@@ -200,12 +222,13 @@ namespace Find_H_er.Services
             user.Role = await _context.Roles.SingleOrDefaultAsync(x => x.Name == "User");
             _context.Update(user);
             await _context.SaveChangesAsync();
+            await AddUserToMatches(user.UserId);
             return await Task.FromResult(true);
         }
         public async Task BanUser(int userId)
         {
             var user = await _context.Users.Include(x => x.Role).SingleOrDefaultAsync(x => x.UserId == userId);
-            if(user is null)
+            if (user is null)
             {
                 throw new NotFoundException("User not found");
             }
@@ -213,15 +236,15 @@ namespace Find_H_er.Services
             _context.Update(user);
             await _context.SaveChangesAsync();
         }
-        public async Task<List<UserDto>> GetMatchedUsers()
+        public async Task<List<UserDto>> GetMatches()
         {
             var userId = _userContextService.GetUserId;
-            var user = await _context.Users.FirstOrDefaultAsync(x => x.UserId == userId);
+            var user = await _context.Users.Include(x => x.Role).FirstOrDefaultAsync(x => x.UserId == userId);
             if (user == null)
             {
                 throw new NotFoundException("Couldn't find that user");
             }
-            List<int> userIds = await _context.Matches.Where(x => x.UserId == userId && x.isBlocked == false).Select(x => x.MatchedId).ToListAsync();
+            List<int> userIds = await _context.Matches.Where(x => (x.ViewerId == userId && x.Cancelled == false && x.Matched == false) || (x.ViewedId == userId && x.Cancelled == false && x.Matched == false)).Select(x => x.ViewerId == userId ? x.ViewedId : x.ViewerId).ToListAsync();
             var usersToShow = _mapper.Map<List<UserDto>>(await _context.Users.Include(x => x.Role).Where(x => userIds.Contains(x.UserId) && x.Role.Name != "Banned").ToListAsync());
             return await Task.FromResult(usersToShow);
         }
@@ -242,39 +265,95 @@ namespace Find_H_er.Services
             {
                 throw new NotFoundException("User to block not found");
             }
-            var firstUserMatch = await _context.Matches.SingleOrDefaultAsync(x => x.UserId == currentUserId && x.MatchedId == userId);
-            firstUserMatch.isBlocked = true;
-            var secondUserMatch = await _context.Matches.SingleOrDefaultAsync(x => x.UserId == userId && x.MatchedId == currentUserId);
-            firstUserMatch.isBlocked = true;
-            secondUserMatch.isBlocked = true;
-            _context.UpdateRange(firstUserMatch, secondUserMatch);
+            var pair = await _context.Pairs
+                .FirstOrDefaultAsync(x => (x.SenderId == currentUserId && x.ReceiverId == userId) || (x.ReceiverId == currentUserId && x.SenderId == userId));
+            if (pair is null)
+            {
+                throw new NotFoundException("Pair not found");
+            }
+            pair.isBlocked = true;
+            _context.Pairs.Update(pair);
             await _context.SaveChangesAsync();
         }
-        public async Task AddToMatched(int userId)
+        public async Task AddToPairs(int userId)
         {
             var currentUserId = _userContextService.GetUserId;
             if (currentUserId is null)
             {
                 throw new NotFoundException("Invalid user id");
             }
-            var user = await _context.Users.Include(x => x.MatchedUsers).SingleOrDefaultAsync(x => x.UserId == currentUserId);
+            var user = await _context.Users.SingleOrDefaultAsync(x => x.UserId == currentUserId);
             if (user is null)
             {
                 throw new NotFoundException("User not found");
             }
-            var userToBeAdded = await _context.Users.Include(x => x.MatchedUsers).SingleOrDefaultAsync(x => x.UserId == userId && x.Role.Name != "Banned" && x.Role.Name != "Unconfirmed");
+            var userToBeAdded = await _context.Users.SingleOrDefaultAsync(x => x.UserId == userId && x.Role.Name != "Banned" && x.Role.Name != "Unconfirmed");
             if (userToBeAdded is null)
             {
                 throw new NotFoundException("User to add not found");
             }
-            user.MatchedUsers.Add(new Match()
+            var match = await _context.Matches.FirstOrDefaultAsync(x => (x.ViewerId == currentUserId && x.ViewedId == userId && x.Cancelled == false) || (x.ViewedId == currentUserId && x.ViewerId == userId && x.Cancelled == false));
+            if (match is null)
             {
-                MatchedId = userToBeAdded.UserId,
-            });
-            userToBeAdded.MatchedUsers.Add(new Match()
+                throw new NotFoundException("Match not found");
+            }
+            if (match.ViewerId == currentUserId)
             {
-                MatchedId = user.UserId,
-            });
+                match.MatchedViewer = true;
+            }
+            else
+            {
+                match.MatchedViewed = true;
+            }
+            if (match.MatchedViewer && match.MatchedViewed)
+            {
+                match.Matched = true;
+                var pair = new Pair()
+                {
+                    SenderId = (int)currentUserId,
+                    ReceiverId = userId,
+                };
+                await _context.AddAsync(pair);
+            }
+            _context.Matches.Update(match);
+            await _context.SaveChangesAsync();
+        }
+        public async Task<List<UserDto>> GetPairs()
+        {
+            var userId = _userContextService.GetUserId;
+            var user = await _context.Users.Include(x => x.Role).FirstOrDefaultAsync(x => x.UserId == userId);
+            if (user == null)
+            {
+                throw new NotFoundException("Couldn't find that user");
+            }
+            List<int> userIds = await _context.Pairs.Where(x => (x.SenderId == userId && x.isBlocked == false) || (x.ReceiverId == userId && x.isBlocked == false)).Select(x => x.SenderId == userId ? x.ReceiverId : x.SenderId).ToListAsync();
+            var usersToShow = _mapper.Map<List<UserDto>>(await _context.Users.Include(x => x.Role).Where(x => userIds.Contains(x.UserId) && x.Role.Name != "Banned").ToListAsync());
+            return await Task.FromResult(usersToShow);
+        }
+        public async Task CancelUser(int userId)
+        {
+            var currentUserId = _userContextService.GetUserId;
+            if (currentUserId is null)
+            {
+                throw new NotFoundException("Invalid user id");
+            }
+            var user = await _context.Users.SingleOrDefaultAsync(x => x.UserId == currentUserId);
+            if (user is null)
+            {
+                throw new NotFoundException("User not found");
+            }
+            var userToBeAdded = await _context.Users.SingleOrDefaultAsync(x => x.UserId == userId && x.Role.Name != "Banned" && x.Role.Name != "Unconfirmed");
+            if (userToBeAdded is null)
+            {
+                throw new NotFoundException("User to add not found");
+            }
+            var match = await _context.Matches.FirstOrDefaultAsync(x => (x.ViewerId == currentUserId && x.ViewedId == userId && x.Cancelled == false) || (x.ViewedId == currentUserId && x.ViewerId == userId && x.Cancelled == false));
+            if (match is null)
+            {
+                throw new NotFoundException("Match not found");
+            }
+            match.Cancelled = true;
+            _context.Matches.Update(match);
             await _context.SaveChangesAsync();
         }
 

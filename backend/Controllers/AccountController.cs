@@ -78,11 +78,26 @@ namespace Find_H_er.Controllers
             await _accountService.BanUser(userId);
             return Ok();
         }
+        [Authorize(Roles = "Admin, User")]
         [HttpGet("getmatchedusers")]
         public async Task<List<UserDto>> GetMatchedUsers()
         {
-            var result = await _accountService.GetMatchedUsers();
+            var result = await _accountService.GetMatches();
             return await Task.FromResult(result);
+        }
+        [Authorize(Roles = "Admin, User")]
+        [HttpGet("getpairs")]
+        public async Task<List<UserDto>> GetPairs()
+        {
+            var result = await _accountService.GetPairs();
+            return await Task.FromResult(result);
+        }
+        [Authorize(Roles = "Admin, User")]
+        [HttpPost("canceluser/{id}")]
+        public async Task<ActionResult> CancelUser([FromRoute] int id)
+        {
+            await _accountService.CancelUser(id);
+            return Ok();
         }
         [Authorize(Roles = "Admin, User")]
         [HttpPost("blockuser/{id}")]
@@ -92,10 +107,10 @@ namespace Find_H_er.Controllers
             return Ok();
         }
         [Authorize(Roles = "Admin, User")]
-        [HttpPost("addkusertomatched/{id}")]
-        public async Task<IActionResult> AddUserToMatched([FromRoute] int id)
+        [HttpPost("addkusertopair/{id}")]
+        public async Task<IActionResult> AddUserToPair([FromRoute] int id)
         {
-            await _accountService.AddToMatched(id);
+            await _accountService.AddToPairs(id);
             return Ok();
         }
         [Authorize(Roles = "Admin")]

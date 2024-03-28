@@ -3,9 +3,11 @@
     public class Match
     {
         public int MatchId { get; set; }
-        public int UserId { get; set; }
-        public virtual User User { get; set; }
-        public bool isBlocked { get; set; } = false;
-        public int MatchedId { get; set; }
+        public int ViewerId { get; set; }
+        public int ViewedId { get; set; }
+        public bool Cancelled { get; set; } = false;
+        public bool MatchedViewer { get; set; } = false;
+        public bool MatchedViewed { get; set; } = false;
+        public bool Matched {  get; set; } = false;
     }
 }

@@ -77,18 +77,25 @@ namespace Find_H_er.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MatchId"));
 
-                    b.Property<int>("MatchedId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("isBlocked")
+                    b.Property<bool>("Cancelled")
                         .HasColumnType("bit");
 
-                    b.HasKey("MatchId");
+                    b.Property<bool>("Matched")
+                        .HasColumnType("bit");
 
-                    b.HasIndex("UserId");
+                    b.Property<bool>("MatchedViewed")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("MatchedViewer")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("ViewedId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ViewerId")
+                        .HasColumnType("int");
+
+                    b.HasKey("MatchId");
 
                     b.ToTable("Matches");
                 });
@@ -136,20 +143,26 @@ namespace Find_H_er.Migrations
                     b.ToTable("Messages");
                 });
 
-            modelBuilder.Entity("Find_H_er.Entities.Pinch", b =>
+            modelBuilder.Entity("Find_H_er.Entities.Pair", b =>
                 {
-                    b.Property<int>("PinchId")
+                    b.Property<int>("PairId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PinchId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PairId"));
 
-                    b.Property<bool>("isMatched")
+                    b.Property<int>("ReceiverId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SenderId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("isBlocked")
                         .HasColumnType("bit");
 
-                    b.HasKey("PinchId");
+                    b.HasKey("PairId");
 
-                    b.ToTable("Pinches");
+                    b.ToTable("Pairs");
                 });
 
             modelBuilder.Entity("Find_H_er.Entities.Preference", b =>
@@ -311,21 +324,6 @@ namespace Find_H_er.Migrations
                     b.ToTable("MatchFormQuestion");
                 });
 
-            modelBuilder.Entity("PinchUser", b =>
-                {
-                    b.Property<int>("PinchesPinchId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UsersUserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("PinchesPinchId", "UsersUserId");
-
-                    b.HasIndex("UsersUserId");
-
-                    b.ToTable("PinchUser");
-                });
-
             modelBuilder.Entity("PreferenceUser", b =>
                 {
                     b.Property<int>("PreferencesPreferenceId")
@@ -350,17 +348,6 @@ namespace Find_H_er.Migrations
                         .IsRequired();
 
                     b.Navigation("Question");
-                });
-
-            modelBuilder.Entity("Find_H_er.Entities.Match", b =>
-                {
-                    b.HasOne("Find_H_er.Entities.User", "User")
-                        .WithMany("MatchedUsers")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Find_H_er.Entities.Message", b =>
@@ -421,21 +408,6 @@ namespace Find_H_er.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("PinchUser", b =>
-                {
-                    b.HasOne("Find_H_er.Entities.Pinch", null)
-                        .WithMany()
-                        .HasForeignKey("PinchesPinchId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Find_H_er.Entities.User", null)
-                        .WithMany()
-                        .HasForeignKey("UsersUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("PreferenceUser", b =>
                 {
                     b.HasOne("Find_H_er.Entities.Preference", null)
@@ -458,8 +430,6 @@ namespace Find_H_er.Migrations
 
             modelBuilder.Entity("Find_H_er.Entities.User", b =>
                 {
-                    b.Navigation("MatchedUsers");
-
                     b.Navigation("ReceivedMessages");
 
                     b.Navigation("SentMessages");
