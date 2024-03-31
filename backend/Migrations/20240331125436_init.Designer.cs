@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Find_H_er.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240328162627_init")]
+    [Migration("20240331125436_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -39,9 +39,12 @@ namespace Find_H_er.Migrations
 
                     b.Property<string>("AnswerLetter")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(1)");
 
-                    b.Property<int>("QuestionId")
+                    b.Property<int>("AnswerWeight")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("QuestionId")
                         .HasColumnType("int");
 
                     b.HasKey("AnswerId");
@@ -106,14 +109,51 @@ namespace Find_H_er.Migrations
             modelBuilder.Entity("Find_H_er.Entities.MatchForm", b =>
                 {
                     b.Property<int>("MatchFormId")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MatchFormId"));
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
 
                     b.HasKey("MatchFormId");
 
                     b.ToTable("MatchForms");
+                });
+
+            modelBuilder.Entity("Find_H_er.Entities.Meeting", b =>
+                {
+                    b.Property<int>("MeetingId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MeetingId"));
+
+                    b.Property<int>("CreatorId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("MeetingDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("MeetingName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MeetingPlace")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PairId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("isAccepted")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("isDeclined")
+                        .HasColumnType("bit");
+
+                    b.HasKey("MeetingId");
+
+                    b.HasIndex("PairId");
+
+                    b.ToTable("Meetings");
                 });
 
             modelBuilder.Entity("Find_H_er.Entities.Message", b =>
@@ -247,6 +287,9 @@ namespace Find_H_er.Migrations
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("MatchFormId")
+                        .HasColumnType("int");
+
                     b.Property<int?>("MatchFormScore")
                         .HasColumnType("int");
 
@@ -344,13 +387,31 @@ namespace Find_H_er.Migrations
 
             modelBuilder.Entity("Find_H_er.Entities.Answer", b =>
                 {
-                    b.HasOne("Find_H_er.Entities.Question", "Question")
+                    b.HasOne("Find_H_er.Entities.Question", null)
                         .WithMany("Answers")
-                        .HasForeignKey("QuestionId")
+                        .HasForeignKey("QuestionId");
+                });
+
+            modelBuilder.Entity("Find_H_er.Entities.MatchForm", b =>
+                {
+                    b.HasOne("Find_H_er.Entities.User", "User")
+                        .WithOne("MatchForm")
+                        .HasForeignKey("Find_H_er.Entities.MatchForm", "MatchFormId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Question");
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Find_H_er.Entities.Meeting", b =>
+                {
+                    b.HasOne("Find_H_er.Entities.Pair", "Pair")
+                        .WithMany("Meetings")
+                        .HasForeignKey("PairId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Pair");
                 });
 
             modelBuilder.Entity("Find_H_er.Entities.Message", b =>
@@ -426,6 +487,11 @@ namespace Find_H_er.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Find_H_er.Entities.Pair", b =>
+                {
+                    b.Navigation("Meetings");
+                });
+
             modelBuilder.Entity("Find_H_er.Entities.Question", b =>
                 {
                     b.Navigation("Answers");
@@ -433,6 +499,8 @@ namespace Find_H_er.Migrations
 
             modelBuilder.Entity("Find_H_er.Entities.User", b =>
                 {
+                    b.Navigation("MatchForm");
+
                     b.Navigation("ReceivedMessages");
 
                     b.Navigation("SentMessages");

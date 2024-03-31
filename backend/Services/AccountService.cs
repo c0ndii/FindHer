@@ -58,15 +58,16 @@ namespace Find_H_er.Services
             var hashedPassword = _passwordHasher.HashPassword(newUser, dto.Password);
             newUser.PasswordHash = hashedPassword;
             newUser.Role = await _context.Roles.FirstOrDefaultAsync(x => x.Name == "Unconfirmed");
-            //var matchForm = new MatchForm()
-            //{
-            //    Questions = await _context.Questions.ToListAsync(),
-            //    //User = newUser,
-            //    //UserId = newUser.UserId,
-            //};
-            //newUser.MatchForm = matchForm;
-            //await _context.MatchForms.AddAsync(matchForm);
             await _context.Users.AddAsync(newUser);
+            await _context.SaveChangesAsync();
+            var matchform = new MatchForm()
+            {
+                Questions = await _context.Questions.ToListAsync(),
+                UserId = newUser.UserId,
+                User = newUser,
+            };
+            await _context.MatchForms.AddAsync(matchform);
+            newUser.MatchForm = matchform;
             await _context.SaveChangesAsync();
             await _emailSenderService.SendEmailAsync(dto.Email, "Confirm your email", "https://localhost:44360/api/account/verifyemail/"+$"{newUser.VerificationToken}");
         }

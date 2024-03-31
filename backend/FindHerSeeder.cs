@@ -22,28 +22,18 @@ namespace Find_H_er
                     _context.Roles.AddRange(roles);
                     _context.SaveChanges();
                 }
-                if (!_context.MatchForms.Any())
+                if (!_context.Questions.Any())
                 {
-                    var questions = GetMatchform();
-                    _context.MatchForms.AddRange(questions);
+                    var questions = GetQuestions();
+                    _context.Questions.AddRange(questions);
                     _context.SaveChanges();
                 }
-
                 if (!_context.Users.Any())
                 {
                     _context.Users.Add(GetAdmin());
                     _context.SaveChanges();
                 }
-                
-                //if (!_context.Users.Any())
-                //{
-                //    var users = GetUser();
-                //    _context.Users.Add(users);
-                //    _context.SaveChanges();
-                //}
-            }
-            
-            
+            }      
         }
         public FindHerSeeder(AppDbContext context)
         {
@@ -98,7 +88,7 @@ namespace Find_H_er
             };
             return user;
         }
-        private static IEnumerable<MatchForm> GetMatchform()
+        private static IEnumerable<Question> GetQuestions()
         {
             var questions = new List<Question>()
             {
@@ -110,22 +100,26 @@ namespace Find_H_er
                         new Answer()
                         {
                             AnswerContent = "Czytam książki lub oglądam filmy sam(a)",
-                            AnswerLetter = "A",
+                            AnswerLetter = 'A',
+                            AnswerWeight = -10,
                         },
                         new Answer()
                         {
                             AnswerContent = "Spotykam się z przyjaciółmi na kawę lub herbatę",
-                            AnswerLetter = "B",
+                            AnswerLetter = 'B',
+                            AnswerWeight = -5,
                         },
                         new Answer()
                         {
                             AnswerContent = "Preferuję indywidualne zajęcia, takie jak spacery",
-                            AnswerLetter = "C",
+                            AnswerLetter = 'C',
+                            AnswerWeight = 5,
                         },
                         new Answer()
                         {
                             AnswerContent = "Wychodzę na imprezy lub wydarzenia społeczne",
-                            AnswerLetter = "D",
+                            AnswerLetter = 'D',
+                            AnswerWeight = 10,
                         },
                     }
                 },
@@ -137,22 +131,26 @@ namespace Find_H_er
                         new Answer()
                         {
                             AnswerContent = "Wolę spokojne i kameralne spotkania",
-                            AnswerLetter = "A",
+                            AnswerLetter = 'A',
+                            AnswerWeight = -10,
                         },
                         new Answer()
                         {
                             AnswerContent = "Lubię spontaniczne randki w kawiarniach lub restauracjach",
-                            AnswerLetter = "B",
+                            AnswerLetter = 'B',
+                            AnswerWeight = -5,
                         },
                         new Answer()
                         {
                             AnswerContent = "Czuje się najlepiej, gdy jestem na dwóch, z dala od tłumów",
-                            AnswerLetter = "C",
+                            AnswerLetter = 'C',
+                            AnswerWeight = 5,
                         },
                         new Answer()
                         {
                             AnswerContent = "Uwielbiam duże spotkania towarzyskie i imprezy",
-                            AnswerLetter = "D",
+                            AnswerLetter = 'D',
+                            AnswerWeight = 10,
                         },
                     }
                 },
@@ -161,25 +159,29 @@ namespace Find_H_er
                     QuestionContent = "Jakie miejsce wybierasz na pierwszą randkę?",
                     Answers = new List<Answer>()
                     {
-                        new Answer()
-                        {
-                            AnswerContent = "Mała kawiarnia z cichą atmosferą",
-                            AnswerLetter = "A",
+                        new Answer() 
+                        { 
+                            AnswerContent = "Mała kawiarnia z cichą atmosferą", 
+                            AnswerLetter = 'A',
+                            AnswerWeight = -10,
                         },
-                        new Answer()
-                        {
-                            AnswerContent = "Nowa restauracja w centrum miasta",
-                            AnswerLetter = "B",
-                        },
-                        new Answer()
-                        {
-                            AnswerContent = "Park lub miejsce na świeżym powietrzu",
-                            AnswerLetter = "C",
-                        },
-                        new Answer()
-                        {
-                            AnswerContent = "Popularne miejsce z dużą ilością ludzi",
-                            AnswerLetter = "D",
+                        new Answer() 
+                        { 
+                            AnswerContent = "Nowa restauracja w centrum miasta", 
+                            AnswerLetter = 'B',
+                            AnswerWeight = -5,
+                        }, 
+                        new Answer() 
+                        { 
+                            AnswerContent = "Park lub miejsce na świeżym powietrzu", 
+                            AnswerLetter = 'C',
+                            AnswerWeight = 5,
+                        }, 
+                        new Answer() 
+                        { 
+                            AnswerContent = "Popularne miejsce z dużą ilością ludzi", 
+                            AnswerLetter = 'D',
+                            AnswerWeight = 10,
                         },
                     }
                 },
@@ -191,22 +193,26 @@ namespace Find_H_er
                         new Answer()
                         {
                             AnswerContent = "Prawdopodobnie odmówię i wolę zostać w domu",
-                            AnswerLetter = "A",
+                            AnswerLetter = 'A',
+                            AnswerWeight = -10,
                         },
                         new Answer()
                         {
                             AnswerContent = "Zastanowiłbym/am się, ale mogę się pojawić",
-                            AnswerLetter = "B",
+                            AnswerLetter = 'B',
+                            AnswerWeight = -5,
                         },
                         new Answer()
                         {
                             AnswerContent = "Sprawdzę, czy mogę zabrać ze sobą znajomego/znajomą",
-                            AnswerLetter = "C",
+                            AnswerLetter = 'C',
+                            AnswerWeight = 5,
                         },
                         new Answer()
                         {
                             AnswerContent = "Z przyjemnością wezmę udział i przygotuję się do dobrej zabawy",
-                            AnswerLetter = "D",
+                            AnswerLetter = 'D',
+                            AnswerWeight = 10,
                         },
                     }
                 },
@@ -215,25 +221,29 @@ namespace Find_H_er
                     QuestionContent = "Co uważasz za idealną randkę?",
                     Answers = new List<Answer>()
                     {
-                        new Answer()
-                        {
-                            AnswerContent = "Ciche spotkanie przy świecach w domu",
-                            AnswerLetter = "A",
-                        },
-                        new Answer()
-                        {
-                            AnswerContent = "Kolacja w restauracji z dobrym jedzeniem",
-                            AnswerLetter = "B",
-                        },
-                        new Answer()
-                        {
+                        new Answer() 
+                        { 
+                            AnswerContent = "Ciche spotkanie przy świecach w domu", 
+                            AnswerLetter = 'A',
+                            AnswerWeight = -10,
+                        }, 
+                        new Answer() 
+                        { 
+                            AnswerContent = "Kolacja w restauracji z dobrym jedzeniem", 
+                            AnswerLetter = 'B',
+                            AnswerWeight = -5,
+                        }, 
+                        new Answer() 
+                        { 
                             AnswerContent = "Spacer w parku lub wzdłuż plaży o zachodzie słońca",
-                            AnswerLetter = "C",
-                        },
-                        new Answer()
-                        {
-                            AnswerContent = "Impreza taneczna lub koncert",
-                            AnswerLetter = "D",
+                            AnswerLetter = 'C',
+                            AnswerWeight = 5,
+                        }, 
+                        new Answer() 
+                        { 
+                            AnswerContent = "Impreza taneczna lub koncert", 
+                            AnswerLetter = 'D',
+                            AnswerWeight = 10,
                         },
                     }
                 },
@@ -245,22 +255,26 @@ namespace Find_H_er
                         new Answer()
                         {
                             AnswerContent = "Czytam, maluję, czy robię coś kreatywnego w domu",
-                            AnswerLetter = "A",
+                            AnswerLetter = 'A',
+                            AnswerWeight = -10,
                         },
                         new Answer()
                         {
                             AnswerContent = "Spotykam się z przyjaciółmi na imprezy",
-                            AnswerLetter = "B",
+                            AnswerLetter = 'B',
+                            AnswerWeight = -5,
                         },
                         new Answer()
                         {
                             AnswerContent = "Eksploruję okoliczne miejsca w pojedynkę",
-                            AnswerLetter = "C",
+                            AnswerLetter = 'C',
+                            AnswerWeight = 5,
                         },
                         new Answer()
                         {
                             AnswerContent = "Biorę udział w różnych wydarzeniach społecznych",
-                            AnswerLetter = "D",
+                            AnswerLetter = 'D',
+                            AnswerWeight = 10,
                         },
                     }
                 },
@@ -269,25 +283,29 @@ namespace Find_H_er
                     QuestionContent = "Jak często potrzebujesz czasu dla siebie?",
                     Answers = new List<Answer>()
                     {
+                        new Answer() 
+                        { 
+                            AnswerContent = "Bardzo często, potrzebuję samotności", 
+                            AnswerLetter = 'A',
+                            AnswerWeight = -10,
+                        }, 
+                        new Answer() 
+                        { 
+                            AnswerContent = "Czasami, ale lubię być w towarzystwie", 
+                            AnswerLetter = 'B',
+                            AnswerWeight = -5,
+                        }, 
                         new Answer()
-                        {
-                            AnswerContent = "Bardzo często, potrzebuję samotności",
-                            AnswerLetter = "A",
-                        },
-                        new Answer()
-                        {
-                            AnswerContent = "Czasami, ale lubię być w towarzystwie",
-                            AnswerLetter = "B",
-                        },
-                        new Answer()
-                        {
-                            AnswerContent = "Spędzam dużo czasu sam(a), ale zdarza się spotykać z ludźmi",
-                            AnswerLetter = "C",
-                        },
-                        new Answer()
-                        {
-                            AnswerContent = "Rzadko, zawsze jestem otwarty/a na towarzystwo",
-                            AnswerLetter = "D",
+                        { 
+                            AnswerContent = "Spędzam dużo czasu sam(a), ale zdarza się spotykać z ludźmi", 
+                            AnswerLetter = 'C',
+                            AnswerWeight = 5,
+                        }, 
+                        new Answer() 
+                        { 
+                            AnswerContent = "Rzadko, zawsze jestem otwarty/a na towarzystwo", 
+                            AnswerLetter = 'D',
+                            AnswerWeight = 10,
                         },
                     }
                 },
@@ -299,22 +317,26 @@ namespace Find_H_er
                         new Answer()
                         {
                             AnswerContent = "Potrzebuję czasu na zastanowienie się, ale prawdopodobnie odmówię",
-                            AnswerLetter = "A",
+                            AnswerLetter = 'A',
+                            AnswerWeight = -10,
                         },
                         new Answer()
                         {
                             AnswerContent = "Zastanowiłbym/am się, ale mogę się zgodzić",
-                            AnswerLetter = "B",
+                            AnswerLetter = 'B',
+                            AnswerWeight = -5,
                         },
                         new Answer()
                         {
                             AnswerContent = "Cieszyłbym/am się, ale preferuję podróże solo",
-                            AnswerLetter = "C",
+                            AnswerLetter = 'C',
+                            AnswerWeight = 5,
                         },
                         new Answer()
                         {
                             AnswerContent = "Z przyjemnością się zgadzam, uwielbiam podróże z innymi",
-                            AnswerLetter = "D",
+                            AnswerLetter = 'D',
+                            AnswerWeight = 10,
                         },
                     }
                 },
@@ -326,22 +348,26 @@ namespace Find_H_er
                         new Answer()
                         {
                             AnswerContent = "Wolę zostać w cieniu i pozwolić innym się zbliżyć",
-                            AnswerLetter = "A",
+                            AnswerLetter = 'A',
+                            AnswerWeight = -10,
                         },
                         new Answer()
                         {
                             AnswerContent = "Inicjuję rozmowy, ale lubię, gdy ktoś podejdzie do mnie",
-                            AnswerLetter = "B",
+                            AnswerLetter = 'B',
+                            AnswerWeight = -5,
                         },
                         new Answer()
                         {
                             AnswerContent = "Otwarty/a na nowe znajomości, ale nie inicjuję zbyt często",
-                            AnswerLetter = "C",
+                            AnswerLetter = 'C',
+                            AnswerWeight = 5,
                         },
                         new Answer()
                         {
                             AnswerContent = "Bez problemu nawiązuję nowe znajomości, jestem bardzo otwarty/a",
-                            AnswerLetter = "D",
+                            AnswerLetter = 'D',
+                            AnswerWeight = 10,
                         },
                     }
                 },
@@ -353,22 +379,26 @@ namespace Find_H_er
                         new Answer()
                         {
                             AnswerContent = "Nie jestem zbyt komunikatywny/a",
-                            AnswerLetter = "A",
+                            AnswerLetter = 'A',
+                            AnswerWeight = -10,
                         },
                         new Answer()
                         {
                             AnswerContent = "Potrafię się otworzyć po pewnym czasie",
-                            AnswerLetter = "B",
+                            AnswerLetter = 'B',
+                            AnswerWeight = -5,
                         },
                         new Answer()
                         {
                             AnswerContent = "Zależy od sytuacji, czasem jestem otwarty/a, czasem nie",
-                            AnswerLetter = "C",
+                            AnswerLetter = 'C',
+                            AnswerWeight = 5,
                         },
                         new Answer()
                         {
                             AnswerContent = "Bardzo łatwo nawiązuję nowe kontakty",
-                            AnswerLetter = "D",
+                            AnswerLetter = 'D',
+                            AnswerWeight = 10,
                         },
                     }
                 },
@@ -380,22 +410,26 @@ namespace Find_H_er
                         new Answer()
                         {
                             AnswerContent = "Zbieram się w jednym miejscu z niewielką grupą",
-                            AnswerLetter = "A",
+                            AnswerLetter = 'A',
+                            AnswerWeight = -10,
                         },
                         new Answer()
                         {
                             AnswerContent = "Rozmawiam z różnymi osobami, ale niekoniecznie tańczę",
-                            AnswerLetter = "B",
+                            AnswerLetter = 'B',
+                            AnswerWeight = -5,
                         },
                         new Answer()
                         {
                             AnswerContent = "Raczej unikam dużych zgromadzeń",
-                            AnswerLetter = "C",
+                            AnswerLetter = 'C',
+                            AnswerWeight = 5,
                         },
                         new Answer()
                         {
                             AnswerContent = "Jestem duszą towarzystwa, tańczę i rozmawiam z wieloma osobami",
-                            AnswerLetter = "D",
+                            AnswerLetter = 'D',
+                            AnswerWeight = 10,
                         },
                     }
                 },
@@ -407,22 +441,26 @@ namespace Find_H_er
                         new Answer()
                         {
                             AnswerContent = "Trzymam emocje dla siebie",
-                            AnswerLetter = "A",
+                            AnswerLetter = 'A',
+                            AnswerWeight = -10,
                         },
                         new Answer()
                         {
                             AnswerContent = "Wyrażam uczucia w odpowiednich sytuacjach",
-                            AnswerLetter = "B",
+                            AnswerLetter = 'B',
+                            AnswerWeight = -5,
                         },
                         new Answer()
                         {
                             AnswerContent = "Okazuję uczucia w prywatności, ale nie publicznie",
-                            AnswerLetter = "C",
+                            AnswerLetter = 'C',
+                            AnswerWeight = 5,
                         },
                         new Answer()
                         {
                             AnswerContent = "Jawnie wyrażam swoje emocje w każdej sytuacji",
-                            AnswerLetter = "D",
+                            AnswerLetter = 'D',
+                            AnswerWeight = 10,
                         },
                     }
                 },
@@ -434,22 +472,26 @@ namespace Find_H_er
                         new Answer()
                         {
                             AnswerContent = "W domowym zaciszu, tylko we dwoje",
-                            AnswerLetter = "A",
+                            AnswerLetter = 'A',
+                            AnswerWeight = -10,
                         },
                         new Answer()
                         {
                             AnswerContent = "Na wspólnych spacerach lub w restauracjach",
-                            AnswerLetter = "B",
+                            AnswerLetter = 'B',
+                            AnswerWeight = -5,
                         },
                         new Answer()
                         {
                             AnswerContent = "Zazwyczaj preferuję indywidualne spotkania",
-                            AnswerLetter = "C",
+                            AnswerLetter = 'C',
+                            AnswerWeight = 5,
                         },
                         new Answer()
                         {
                             AnswerContent = "Na dużych imprezach i wydarzeniach społecznych",
-                            AnswerLetter = "D",
+                            AnswerLetter = 'D',
+                            AnswerWeight = 10,
                         },
                     }
                 },
@@ -461,22 +503,26 @@ namespace Find_H_er
                         new Answer()
                         {
                             AnswerContent = "Prywatność i spokój",
-                            AnswerLetter = "A",
+                            AnswerLetter = 'A',
+                            AnswerWeight = -10,
                         },
                         new Answer()
                         {
                             AnswerContent = "Spontaniczność i aktywność",
-                            AnswerLetter = "B",
+                            AnswerLetter = 'B',
+                            AnswerWeight = -5,
                         },
                         new Answer()
                         {
                             AnswerContent = "Wzajemne zrozumienie i szacunek",
-                            AnswerLetter = "C",
+                            AnswerLetter = 'C',
+                            AnswerWeight = 5,
                         },
                         new Answer()
                         {
                             AnswerContent = "Wspólne doświadczenia i aktywności społeczne",
-                            AnswerLetter = "D",
+                            AnswerLetter = 'D',
+                            AnswerWeight = 10,
                         },
                     }
                 },
@@ -488,22 +534,26 @@ namespace Find_H_er
                         new Answer()
                         {
                             AnswerContent = "Oczekuję, że partner zainicjuje pierwszy krok",
-                            AnswerLetter = "A",
+                            AnswerLetter = 'A',
+                            AnswerWeight = -10,
                         },
                         new Answer()
                         {
                             AnswerContent = "Zależy od sytuacji, ale mogę zrobić pierwszy krok",
-                            AnswerLetter = "B",
+                            AnswerLetter = 'B',
+                            AnswerWeight = -5,
                         },
                         new Answer()
                         {
                             AnswerContent = "Czekam na odpowiedni moment",
-                            AnswerLetter = "C",
+                            AnswerLetter = 'C',
+                            AnswerWeight = 5,
                         },
                         new Answer()
                         {
                             AnswerContent = "Nie waham się zainicjować pierwszego pocałunku",
-                            AnswerLetter = "D",
+                            AnswerLetter = 'D',
+                            AnswerWeight = 10,
                         },
                     }
                 },
@@ -515,22 +565,26 @@ namespace Find_H_er
                         new Answer()
                         {
                             AnswerContent = "Wycofuję się i potrzebuję czasu na przemyślenie",
-                            AnswerLetter = "A",
+                            AnswerLetter = 'A',
+                            AnswerWeight = -10,
                         },
                         new Answer()
                         {
                             AnswerContent = "Staram się rozwiązać konflikt poprzez rozmowę",
-                            AnswerLetter = "B",
+                            AnswerLetter = 'B',
+                            AnswerWeight = -5,
                         },
                         new Answer()
                         {
                             AnswerContent = "Unikam konfliktów, ale staram się unikać sporów",
-                            AnswerLetter = "C",
+                            AnswerLetter = 'C',
+                            AnswerWeight = 5,
                         },
                         new Answer()
                         {
                             AnswerContent = "Jawnie wyrażam swoje uczucia i staram się rozwiązać sytuację",
-                            AnswerLetter = "D",
+                            AnswerLetter = 'D',
+                            AnswerWeight = 10,
                         },
                     }
                 },
@@ -542,22 +596,26 @@ namespace Find_H_er
                         new Answer()
                         {
                             AnswerContent = "Wolę żyć chwilą, nie myślę zbyt wiele o przyszłości",
-                            AnswerLetter = "A",
+                            AnswerLetter = 'A',
+                            AnswerWeight = -10,
                         },
                         new Answer()
                         {
                             AnswerContent = "Planuję przyszłość, ale z elastycznością",
-                            AnswerLetter = "B",
+                            AnswerLetter = 'B',
+                            AnswerWeight = -5,
                         },
                         new Answer()
                         {
                             AnswerContent = "Czasami myślę o przyszłości, ale nie planuję z góry",
-                            AnswerLetter = "C",
+                            AnswerLetter = 'C',
+                            AnswerWeight = 5,
                         },
                         new Answer()
                         {
                             AnswerContent = "Planuję szczegółowo przyszłość i cele związane z związkiem",
-                            AnswerLetter = "D",
+                            AnswerLetter = 'D',
+                            AnswerWeight = 10,
                         },
                     }
                 },
@@ -569,22 +627,26 @@ namespace Find_H_er
                         new Answer()
                         {
                             AnswerContent = "Często, potrzebuję dużo czasu dla siebie",
-                            AnswerLetter = "A",
+                            AnswerLetter = 'A',
+                            AnswerWeight = -10,
                         },
                         new Answer()
                         {
                             AnswerContent = "Czasami, ale lubię też być z partnerem",
-                            AnswerLetter = "B",
+                            AnswerLetter = 'B',
+                            AnswerWeight = -5,
                         },
                         new Answer()
                         {
                             AnswerContent = "Rzadko, ale doceniam czas sam na sam z partnerem",
-                            AnswerLetter = "C",
+                            AnswerLetter = 'C',
+                            AnswerWeight = 5,
                         },
                         new Answer()
                         {
                             AnswerContent = "Rzadko, preferuję spędzanie czasu z partnerem",
-                            AnswerLetter = "D",
+                            AnswerLetter = 'D',
+                            AnswerWeight = 10,
                         },
                     }
                 },
@@ -596,22 +658,26 @@ namespace Find_H_er
                         new Answer()
                         {
                             AnswerContent = "Nie jestem zbyt otwarty/a na nowe znajomości",
-                            AnswerLetter = "A",
+                            AnswerLetter = 'A',
+                            AnswerWeight = -10,
                         },
                         new Answer()
                         {
                             AnswerContent = "Jestem otwarty/a, ale z pewnym wahaniem",
-                            AnswerLetter = "B",
+                            AnswerLetter = 'B',
+                            AnswerWeight = -5,
                         },
                         new Answer()
                         {
                             AnswerContent = "Jawnie wyrażam chęć poznawania nowych osób",
-                            AnswerLetter = "C",
+                            AnswerLetter = 'C',
+                            AnswerWeight = 5,
                         },
                         new Answer()
                         {
                             AnswerContent = "Jestem bardzo otwarty/a na nowe znajomości",
-                            AnswerLetter = "D",
+                            AnswerLetter = 'D',
+                            AnswerWeight = 10,
                         },
                     }
                 },
@@ -623,31 +689,31 @@ namespace Find_H_er
                         new Answer()
                         {
                             AnswerContent = "Bardziej skłonny/a do subtelnych gestów w cztery oczy",
-                            AnswerLetter = "A",
+                            AnswerLetter = 'A',
+                            AnswerWeight = -10,
                         },
                         new Answer()
                         {
                             AnswerContent = "Lubię romantyczne gesty, ale bez przesady",
-                            AnswerLetter = "B",
+                            AnswerLetter = 'B',
+                            AnswerWeight = -5,
                         },
                         new Answer()
                         {
                             AnswerContent = "Rzadko angażuję się w romantyczne gesty",
-                            AnswerLetter = "C",
+                            AnswerLetter = 'C',
+                            AnswerWeight = 5,
                         },
                         new Answer()
                         {
                             AnswerContent = "Uwielbiam romantyczne gesty i uwielbiam je publicznie",
-                            AnswerLetter = "D",
+                            AnswerLetter = 'D',
+                            AnswerWeight = 10,
                         },
                     }
                 },
             };
-            var matchform = new MatchForm()
-            {
-                Questions = questions
-            };
-            yield return matchform;
+            return questions;
         }
 
     }

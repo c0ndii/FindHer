@@ -24,16 +24,18 @@ namespace Find_H_er.Services
         }
         public async Task<MatchFormDto> GetMatchForm()
         {
-            var questions = _mapper.Map<List<QuestionDto>>(await _context.Questions.ToListAsync());
-            foreach(QuestionDto elem in questions)
+            var userId = _userContextService.GetUserId;
+            var user = await _context.Users.Include(x => x.MatchForm).ThenInclude(x => x.Questions).ThenInclude(x => x.Answers).SingleOrDefaultAsync(x => x.UserId == userId);
+            if(user is null)
             {
-                elem.Answers = _mapper.Map<List<AnswerDto>>(await _context.Answers.Where(x => x.QuestionId == elem.QuestionId).ToListAsync());
+                throw new NotFoundException("User not found");
             }
-            var matchForm = new MatchFormDto()
+            var matchform = _mapper.Map<MatchFormDto>(await _context.MatchForms.SingleOrDefaultAsync(x => x.UserId == userId));
+            if(matchform is null)
             {
-                Questions = questions,
-            };
-            return await Task.FromResult(matchForm);
+                throw new NotFoundException("Matchform not found");
+            }
+            return matchform;
         }
     }
 }

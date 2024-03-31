@@ -18,7 +18,7 @@ namespace Find_H_er.Controllers
         public async Task<MatchFormDto> GetMatchForm()
         {
             var result = await _matchFormService.GetMatchForm();
-            return await Task.FromResult(result);
+            return result;
         }
     }
 }

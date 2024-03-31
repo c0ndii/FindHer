@@ -37,6 +37,10 @@ namespace Find_H_er.Entities
                 .WithMany(x => x.ReceivedMessages)
                 .HasForeignKey(x => x.ReceiverUserId)
                 .OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<User>()
+                .HasOne(x => x.MatchForm)
+                .WithOne(x => x.User)
+                .HasForeignKey<MatchForm>(x => x.MatchFormId);
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

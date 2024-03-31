@@ -3,9 +3,8 @@
     public class Answer
     {
         public int AnswerId { get; set; }
-        public string AnswerLetter { get; set; }
+        public char AnswerLetter { get; set; }
         public string AnswerContent { get; set; }
-        public virtual Question Question { get; set; }
-        public int QuestionId { get; set; }
+        public int AnswerWeight {  get; set; }
     }
 }

@@ -10,7 +10,8 @@ namespace Find_H_er
         {
             CreateMap<Answer, AnswerDto>();
             CreateMap<Question, QuestionDto>();
-            CreateMap<MatchForm, MatchFormDto>();
+            CreateMap<MatchForm, MatchFormDto>()
+                .IncludeMembers();
             CreateMap<Interest, InterestDto>();
             CreateMap<User, UserDto>();
             CreateMap<Meeting, MeetingDto>();

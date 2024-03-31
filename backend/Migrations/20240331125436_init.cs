@@ -44,18 +44,6 @@ namespace Find_H_er.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "MatchForms",
-                columns: table => new
-                {
-                    MatchFormId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1")
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_MatchForms", x => x.MatchFormId);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Pairs",
                 columns: table => new
                 {
@@ -126,14 +114,40 @@ namespace Find_H_er.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Meetings",
+                columns: table => new
+                {
+                    MeetingId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    MeetingName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MeetingPlace = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MeetingDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatorId = table.Column<int>(type: "int", nullable: false),
+                    isAccepted = table.Column<bool>(type: "bit", nullable: false),
+                    isDeclined = table.Column<bool>(type: "bit", nullable: false),
+                    PairId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Meetings", x => x.MeetingId);
+                    table.ForeignKey(
+                        name: "FK_Meetings_Pairs_PairId",
+                        column: x => x.PairId,
+                        principalTable: "Pairs",
+                        principalColumn: "PairId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Answers",
                 columns: table => new
                 {
                     AnswerId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    AnswerLetter = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    AnswerLetter = table.Column<string>(type: "nvarchar(1)", nullable: false),
                     AnswerContent = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    QuestionId = table.Column<int>(type: "int", nullable: false)
+                    AnswerWeight = table.Column<int>(type: "int", nullable: false),
+                    QuestionId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -142,32 +156,7 @@ namespace Find_H_er.Migrations
                         name: "FK_Answers_Questions_QuestionId",
                         column: x => x.QuestionId,
                         principalTable: "Questions",
-                        principalColumn: "QuestionId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "MatchFormQuestion",
-                columns: table => new
-                {
-                    MatchFormsMatchFormId = table.Column<int>(type: "int", nullable: false),
-                    QuestionsQuestionId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_MatchFormQuestion", x => new { x.MatchFormsMatchFormId, x.QuestionsQuestionId });
-                    table.ForeignKey(
-                        name: "FK_MatchFormQuestion_MatchForms_MatchFormsMatchFormId",
-                        column: x => x.MatchFormsMatchFormId,
-                        principalTable: "MatchForms",
-                        principalColumn: "MatchFormId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_MatchFormQuestion_Questions_QuestionsQuestionId",
-                        column: x => x.QuestionsQuestionId,
-                        principalTable: "Questions",
-                        principalColumn: "QuestionId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "QuestionId");
                 });
 
             migrationBuilder.CreateTable(
@@ -184,6 +173,7 @@ namespace Find_H_er.Migrations
                     Sex = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     VerificationToken = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MatchFormId = table.Column<int>(type: "int", nullable: true),
                     MatchFormScore = table.Column<int>(type: "int", nullable: true),
                     RoleId = table.Column<int>(type: "int", nullable: true),
                     ConnectionId = table.Column<string>(type: "nvarchar(max)", nullable: true)
@@ -217,6 +207,24 @@ namespace Find_H_er.Migrations
                     table.ForeignKey(
                         name: "FK_InterestUser_Users_UsersUserId",
                         column: x => x.UsersUserId,
+                        principalTable: "Users",
+                        principalColumn: "UserId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "MatchForms",
+                columns: table => new
+                {
+                    MatchFormId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_MatchForms", x => x.MatchFormId);
+                    table.ForeignKey(
+                        name: "FK_MatchForms_Users_MatchFormId",
+                        column: x => x.MatchFormId,
                         principalTable: "Users",
                         principalColumn: "UserId",
                         onDelete: ReferentialAction.Cascade);
@@ -274,6 +282,30 @@ namespace Find_H_er.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "MatchFormQuestion",
+                columns: table => new
+                {
+                    MatchFormsMatchFormId = table.Column<int>(type: "int", nullable: false),
+                    QuestionsQuestionId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_MatchFormQuestion", x => new { x.MatchFormsMatchFormId, x.QuestionsQuestionId });
+                    table.ForeignKey(
+                        name: "FK_MatchFormQuestion_MatchForms_MatchFormsMatchFormId",
+                        column: x => x.MatchFormsMatchFormId,
+                        principalTable: "MatchForms",
+                        principalColumn: "MatchFormId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_MatchFormQuestion_Questions_QuestionsQuestionId",
+                        column: x => x.QuestionsQuestionId,
+                        principalTable: "Questions",
+                        principalColumn: "QuestionId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Answers_QuestionId",
                 table: "Answers",
@@ -288,6 +320,11 @@ namespace Find_H_er.Migrations
                 name: "IX_MatchFormQuestion_QuestionsQuestionId",
                 table: "MatchFormQuestion",
                 column: "QuestionsQuestionId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Meetings_PairId",
+                table: "Meetings",
+                column: "PairId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Messages_ReceiverUserId",
@@ -326,10 +363,10 @@ namespace Find_H_er.Migrations
                 name: "MatchFormQuestion");
 
             migrationBuilder.DropTable(
-                name: "Messages");
+                name: "Meetings");
 
             migrationBuilder.DropTable(
-                name: "Pairs");
+                name: "Messages");
 
             migrationBuilder.DropTable(
                 name: "PreferenceUser");
@@ -345,6 +382,9 @@ namespace Find_H_er.Migrations
 
             migrationBuilder.DropTable(
                 name: "Questions");
+
+            migrationBuilder.DropTable(
+                name: "Pairs");
 
             migrationBuilder.DropTable(
                 name: "Preferences");
