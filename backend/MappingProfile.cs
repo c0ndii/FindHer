@@ -4,15 +4,17 @@ using Find_H_er.Models;
 
 namespace Find_H_er
 {
-    public class MatchformMappingProfile : Profile
+    public class MappingProfile : Profile
     {
-        public MatchformMappingProfile()
+        public MappingProfile()
         {
             CreateMap<Answer, AnswerDto>();
             CreateMap<Question, QuestionDto>();
             CreateMap<MatchForm, MatchFormDto>();
             CreateMap<Interest, InterestDto>();
             CreateMap<User, UserDto>();
+            CreateMap<Meeting, MeetingDto>();
+            CreateMap<CreateMeetingDto, Meeting>();
         }
     }
 }

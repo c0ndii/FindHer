@@ -16,6 +16,7 @@ namespace Find_H_er.Entities
         public DbSet<Match> Matches {  get; set; }
         public DbSet<Pair> Pairs {  get; set; }
         public DbSet<Role> Roles { get; set; }
+        public DbSet<Meeting> Meetings {  get; set; }
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
             
