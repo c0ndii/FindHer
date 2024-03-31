@@ -34,13 +34,6 @@ namespace Find_H_er.Controllers
             await _accountService.EditProfile(profileToUpdate);
             return await Task.FromResult(Ok());
         }
-        [HttpPatch("matchscore")]
-        [Authorize(Roles = "User, Admin")]
-        public async Task<ActionResult> MatchScore([FromBody] int Score)
-        {
-            await _accountService.MatchScore(Score);
-            return await Task.FromResult(Ok());
-        }
         [HttpGet("getownprofile")]
         [Authorize(Roles = "User, Admin")]
         public async Task<UserDto> GetOwnProfile()

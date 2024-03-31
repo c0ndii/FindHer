@@ -23,7 +23,6 @@ namespace Find_H_er.Services
         Task<string> GenerateJwt(LoginDto dto);
         Task<UserDto> GetOwnProfile();
         int GetUserId();
-        Task MatchScore(int score);
         Task RegisterUser(RegisterUserDto dto);
         Task SentInterest(List<InterestDto> interests);
         Task<bool> VerifyEmail(string token);
@@ -149,17 +148,6 @@ namespace Find_H_er.Services
             userInfo.Image = user.Image;
             return userInfo;
         }
-        public async Task MatchScore(int score)
-        {
-            var userId = _userContextService.GetUserId;
-            var user = await _context.Users.FirstOrDefaultAsync(x => x.UserId == userId);
-            Console.Write(user.UserId + "   " + userId);
-            if (user is null)
-            {
-                throw new NotFoundException("User not found");
-            }
-            user.MatchFormScore = score;
-        }
         public async Task SentInterest(List<InterestDto> interests)
         {
             var userId = _userContextService.GetUserId;
@@ -189,9 +177,15 @@ namespace Find_H_er.Services
         }
         private async Task AddUserToMatches(int userId)
         {
+            var user = await _context.Users.SingleOrDefaultAsync(x => x.UserId == userId);
+            if(user is null)
+            {
+                throw new NotFoundException("User not found");
+            }
+            var userScore = user.MatchFormScore;
             List<int> userIds = await _context.Users
                 .Include(x => x.Role)
-                .Where(x => x.UserId != userId && x.Role.Name != "Banned" && x.Role.Name != "Unconfirmed")
+                .Where(x => x.UserId != userId && x.Role.Name != "Banned" && x.Role.Name != "Unconfirmed" && (Math.Sqrt(Math.Pow((double)x.MatchFormScore - (double)userScore,2)) <30))
                 .Select(x => x.UserId)
                 .ToListAsync();
             List<Match> matches = new List<Match>();

@@ -10,6 +10,7 @@ namespace Find_H_er.Services
     public interface IMatchFormService
     {
         Task<MatchFormDto> GetMatchForm();
+        Task SendScore(int score);
     }
     public class MatchFormService : IMatchFormService
     {
@@ -36,6 +37,18 @@ namespace Find_H_er.Services
                 throw new NotFoundException("Matchform not found");
             }
             return matchform;
+        }
+        public async Task SendScore(int score)
+        {
+            var userId = _userContextService.GetUserId;
+            var user = await _context.Users.SingleOrDefaultAsync(x => x.UserId == userId);
+            if(user is null)
+            {
+                throw new NotFoundException("User not found");
+            }
+            user.MatchFormScore += score;
+            _context.Update(user);
+            await _context.SaveChangesAsync();
         }
     }
 }
