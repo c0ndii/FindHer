@@ -41,31 +41,36 @@ export const Interests = () => {
   ]
 
   return (
-    <Center h="100%" w="75%" mx="auto">
-      <Flex direction="column" gap={rem(80)}>
-        <Box>
-          <Text
-            fz={90}
-            fw={500}
-            className={classes.name}
-            style={{ textAlign: 'center' }}
-          >
-            {t('interests.title')}
-          </Text>
-        </Box>
-        <Box
-          display="flex"
-          style={{ gap: '20px', flexWrap: 'wrap', justifyContent: 'center' }}
+    <Flex
+      direction="column"
+      gap={{ lg: rem(80), base: rem(20) }}
+      justify="center"
+      w="80%"
+      mx="auto"
+      mt={{ lg: rem(40), base: rem(10) }}
+    >
+      <Box>
+        <Text
+          fz={90}
+          fw={500}
+          className={classes.name}
+          style={{ textAlign: 'center' }}
         >
-          {categories.map((category, index) => (
-            <InterestCategory
-              key={index}
-              categoryName={category.name}
-              chips={category.interests}
-            />
-          ))}
-        </Box>
-      </Flex>
-    </Center>
+          {t('interests.title')}
+        </Text>
+      </Box>
+      <Box
+        display="flex"
+        style={{ gap: '20px', flexWrap: 'wrap', justifyContent: 'center' }}
+      >
+        {categories.map((category, index) => (
+          <InterestCategory
+            key={index}
+            categoryName={category.name}
+            chips={category.interests}
+          />
+        ))}
+      </Box>
+    </Flex>
   )
 }

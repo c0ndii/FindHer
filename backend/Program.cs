@@ -50,7 +50,7 @@ builder.Services.AddScoped<IAuthorizationHandler, ResourceOperationRequirementHa
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 // Add services to the container.
 
-
+builder.Services.AddProblemDetails();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -76,7 +76,7 @@ builder.Services.AddScoped<IMatchFormService, MatchFormService>();
 builder.Services.AddScoped<IUserContextService, UserContextService>();
 builder.Services.AddScoped<ErrorHandlingMiddleware>();
 var app = builder.Build();
-
+app.UseStatusCodePages();
 // Configure the HTTP request pipeline.
 var scope = app.Services.CreateScope();
 var seeder = scope.ServiceProvider.GetRequiredService<FindHerSeeder>();
