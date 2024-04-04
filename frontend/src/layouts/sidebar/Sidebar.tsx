@@ -120,8 +120,8 @@ export const Sidebar = () => {
 
   return (
     <nav className={classes.navbar}>
-      <Center>
-        <img src={Logo} style={{ height: '80px' }} alt="logo"></img>
+      <Center style={{ paddingBottom: '20px', paddingTop: '20px' }}>
+        <img src={Logo} style={{ height: '50px' }} alt="logo"></img>
       </Center>
       <Stack justify="center" gap={40} align="center" h={'100%'}>
         <div className={classes.navbarMain}>

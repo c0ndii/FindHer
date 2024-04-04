@@ -26,7 +26,7 @@ export const Messagecontainer = ({ messages }: any) => {
       <Flex direction="column" gap={24} mr={rem(48)}>
         {messages.map(
           (msg: string, index: number) =>
-            handleSenderId(msg) === '0' ? (
+            handleSenderId(msg) === '1' ? (
               <Flex w="100%">
                 <Paper
                   maw={rem(600)}

@@ -4,6 +4,7 @@ import { useForm } from '@mantine/form'
 import { matchGet, useMatchForm } from '../../api/MatchForm/getMatch'
 import { t } from 'i18next'
 import { matchModel } from '../../api/MatchForm/schema'
+import { useSendMatch } from '../../api/MatchForm/Match'
 
 type Answer = {
   answerContent: string
@@ -24,6 +25,7 @@ export const MatchForm = () => {
   const [active, setActive] = useState(0)
   let score = 0
   const form = useForm<matchModel>()
+  const { mutateAsync: sendForm } = useSendMatch()
 
   const nextStep = () =>
     setActive((current) => (current < 3 ? current + 1 : current))
@@ -337,7 +339,8 @@ export const MatchForm = () => {
                       form.values.question15 ? form.values.question15 : '0'
                     )
 
-                  console.log(score)
+                  sendForm(score)
+                  window.location.pathname = '/app/Account'
                 }}
                 color="red"
               >

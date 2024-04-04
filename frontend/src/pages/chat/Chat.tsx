@@ -5,12 +5,10 @@ import {
   HubConnectionBuilder,
   LogLevel,
 } from '@microsoft/signalr'
-import { getId } from '../../api/User/GetId'
+import { useId } from '../../api/User/GetId'
 import Cookies from 'js-cookie'
-import { personModel } from '../../api/Match/schema'
-import { getForYou } from '../../api/Match/ForYou'
-import { ChatProvider, useChatContext } from '../../features/chat/ChatContext'
-import { t } from 'i18next'
+import { useChatContext } from '../../features/chat/ChatContext'
+import { usePairs } from '../../api/Pair/GetPairs'
 
 type History = {
   senderId: number
@@ -20,36 +18,26 @@ type History = {
 }
 
 export const Chat = () => {
-  const [myid, setmyid] = useState<number>()
-  //const [receiverid, setreceiverid] = useState<number>()
+  const { data: myid } = useId()
   const [connection, setConnection] = useState<HubConnection>()
   const [messages, setMessages] = useState<any[]>([])
   const { activePerson, setActivePerson } = useChatContext()
 
-  //TODO : Change forYou api to matched users api
-  const [people, setPeople] = useState<personModel[]>([])
+  const { data: people, isFetched } = usePairs()
   const [isWaiting, setIsWaiting] = useState<boolean>(true)
 
-  const fetchProfiles = async () => {
-    try {
-      const response = await getForYou()
-      const responseId = await getId()
-      setmyid(responseId.data)
-      setPeople(response)
-      setActivePerson(response[0])
+  useEffect(() => {
+    if (isFetched && people) {
+      setActivePerson(people[0])
       setIsWaiting(false)
-    } catch (error) {
-      console.error(t('chat.loadFailMessage'), error)
     }
-  }
+  }, [people, isFetched])
 
   useEffect(() => {
-    fetchProfiles()
     if (myid !== undefined && activePerson?.userId !== undefined) {
       joinChatRoom(myid, activePerson?.userId)
     }
   }, [myid])
-  // END OF TODO
 
   useEffect(() => {
     if (myid !== undefined && activePerson?.userId !== undefined) {
@@ -115,7 +103,7 @@ export const Chat = () => {
 
   return (
     <>
-      {isWaiting && !connection ? (
+      {(isWaiting && !connection) || !people ? (
         <Waitingroom joinChatRoom={joinChatRoom} />
       ) : (
         <Chatroom

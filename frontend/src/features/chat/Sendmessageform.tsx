@@ -18,6 +18,7 @@ export const Sendmessageform = ({ sendMessage }: Props) => {
       <form
         onSubmit={form.onSubmit((values) => {
           sendMessage(values.message)
+          form.reset()
         })}
         style={{
           display: 'flex',
