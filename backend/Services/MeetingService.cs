@@ -31,18 +31,22 @@ namespace Find_H_er.Services
         }
         public async Task CreateMeeting(CreateMeetingDto dto)
         {
-            var pair = await _context.Pairs.SingleOrDefaultAsync(x => x.PairId == dto.PairId);
+            var userId = _userContextService.GetUserId;
+            var user = await _context.Users.SingleOrDefaultAsync(x => x.UserId == userId);
+            var secondUser = await _context.Users.SingleOrDefaultAsync(x => x.UserId == dto.UserId);
+            if (user is null || secondUser is null)
+            {
+                throw new NotFoundException("User not found");
+            }
+            
+            var pair = await _context.Pairs.SingleOrDefaultAsync(x => (x.SenderId == userId && x.ReceiverId == dto.UserId) || (x.SenderId == dto.UserId && x.ReceiverId == userId));
             if (pair is null)
             {
                 throw new NotFoundException("Pair not found");
             }
-            var userId = _userContextService.GetUserId;
-            var user = await _context.Users.SingleOrDefaultAsync(x => x.UserId == userId);
-            if (user is null)
-            {
-                throw new NotFoundException("User not found");
-            }
             var meeting = _mapper.Map<Meeting>(dto);
+            meeting.Pair = pair;
+            meeting.PairId = pair.PairId;
             meeting.CreatorId = (int)userId;
             await _context.Meetings.AddAsync(meeting);
             await _context.SaveChangesAsync();
