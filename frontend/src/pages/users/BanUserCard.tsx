@@ -1,12 +1,11 @@
 import { Button, Group, Text, Modal, Box, Chip } from '@mantine/core'
 import { useForm } from 'react-hook-form'
 import { useDisclosure } from '@mantine/hooks'
-import { Card, Image } from '@mantine/core'
-
+import { Card } from '@mantine/core'
 import { IconCheck, IconX } from '@tabler/icons-react'
 import { t } from 'i18next'
-import { personModel } from '../../api/ForYou/schema'
-import { banUser } from '../../api/User/BanUser'
+import { personModel } from '../../api/Match/schema'
+import { useBanUser } from '../../api/Admin/BanUser'
 
 type Props = {
   person: personModel
@@ -14,6 +13,7 @@ type Props = {
 
 export const BanUserCard = ({ person }: Props) => {
   const [opened, { open, close }] = useDisclosure(false)
+  const { mutateAsync: banUser } = useBanUser()
   const { handleSubmit } = useForm({})
   const onSubmit = async () => {
     try {

@@ -7,8 +7,8 @@ import {
 } from '@microsoft/signalr'
 import { getId } from '../../api/User/GetId'
 import Cookies from 'js-cookie'
-import { personModel } from '../../api/ForYou/schema'
-import { getForYou } from '../../api/ForYou/ForYou'
+import { personModel } from '../../api/Match/schema'
+import { getForYou } from '../../api/Match/ForYou'
 import { ChatProvider, useChatContext } from '../../features/chat/ChatContext'
 import { t } from 'i18next'
 
@@ -35,8 +35,8 @@ export const Chat = () => {
       const response = await getForYou()
       const responseId = await getId()
       setmyid(responseId.data)
-      setPeople(response.data)
-      setActivePerson(response.data[0])
+      setPeople(response)
+      setActivePerson(response[0])
       setIsWaiting(false)
     } catch (error) {
       console.error(t('chat.loadFailMessage'), error)

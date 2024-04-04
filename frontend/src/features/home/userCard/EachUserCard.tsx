@@ -2,11 +2,12 @@ import { Button, Group, Text, Modal, Box, Chip } from '@mantine/core'
 import { useForm } from 'react-hook-form'
 import { useDisclosure } from '@mantine/hooks'
 import { Card, Image } from '@mantine/core'
-import { personModel } from '../../../api/ForYou/schema'
+import { personModel } from '../../../api/Match/schema'
 import { SocialMedia } from '../../account/socialMedia'
 import { IconCheck, IconX } from '@tabler/icons-react'
 import { t } from 'i18next'
-import { blockUser } from '../../../api/User/BlockUser'
+import { useCancelUser } from '../../../api/Match/Cancel'
+import { useAddToPair } from '../../../api/Match/AddPair'
 
 type Props = {
   person: personModel
@@ -15,6 +16,8 @@ type Props = {
 export const EachUserCard = ({ person }: Props) => {
   const [opened, { open, close }] = useDisclosure(false)
   const { handleSubmit } = useForm({})
+  const { mutateAsync: cancelUser } = useCancelUser()
+  const { mutateAsync: addToPair } = useAddToPair()
   const onSubmit = async () => {
     try {
     } catch (error: any) {}
@@ -130,7 +133,7 @@ export const EachUserCard = ({ person }: Props) => {
                 radius={0}
                 style={{ height: '50px' }}
                 onClick={() => {
-                  blockUser(person.userId)
+                  cancelUser(person.userId)
                   close()
                 }}
               >
@@ -141,6 +144,10 @@ export const EachUserCard = ({ person }: Props) => {
                 fullWidth
                 radius={0}
                 style={{ height: '50px' }}
+                onClick={() => {
+                  addToPair(person.userId)
+                  close()
+                }}
               >
                 <IconCheck />
               </Button>

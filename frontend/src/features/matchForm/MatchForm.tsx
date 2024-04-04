@@ -1,8 +1,9 @@
 import { Button, Group, Stepper, Select, Box, Center } from '@mantine/core'
 import { useEffect, useState } from 'react'
 import { useForm } from '@mantine/form'
-import { matchGet } from '../../api/Match/getMatch'
+import { matchGet, useMatchForm } from '../../api/MatchForm/getMatch'
 import { t } from 'i18next'
+import { matchModel } from '../../api/MatchForm/schema'
 
 type Answer = {
   answerContent: string
@@ -21,26 +22,15 @@ type MatchFormData = {
 
 export const MatchForm = () => {
   const [active, setActive] = useState(0)
-  const [questions, setQuestions] = useState<MatchFormData | null>(null)
-  const form = useForm()
+  let score = 0
+  const form = useForm<matchModel>()
 
   const nextStep = () =>
     setActive((current) => (current < 3 ? current + 1 : current))
   const prevStep = () =>
     setActive((current) => (current > 0 ? current - 1 : current))
 
-  const fetchQuestions = async () => {
-    try {
-      const response = await matchGet()
-      setQuestions(response.data as MatchFormData)
-    } catch (error) {
-      console.error('Failed to fetch questions', error)
-    }
-  }
-
-  useEffect(() => {
-    fetchQuestions()
-  }, [])
+  const { data: questions } = useMatchForm()
 
   return (
     <Center h="100%">
@@ -63,7 +53,7 @@ export const MatchForm = () => {
                 clearable
                 data={
                   questions?.questions.at(0)?.answers.map((answer) => ({
-                    value: answer.answerLetter,
+                    value: answer.answerWeight.toString(),
                     label: answer.answerContent,
                   })) || []
                 }
@@ -76,7 +66,7 @@ export const MatchForm = () => {
                 clearable
                 data={
                   questions?.questions.at(1)?.answers.map((answer) => ({
-                    value: answer.answerLetter,
+                    value: answer.answerWeight.toString(),
                     label: answer.answerContent,
                   })) || []
                 }
@@ -89,7 +79,7 @@ export const MatchForm = () => {
                 clearable
                 data={
                   questions?.questions.at(2)?.answers.map((answer) => ({
-                    value: answer.answerLetter,
+                    value: answer.answerWeight.toString(),
                     label: answer.answerContent,
                   })) || []
                 }
@@ -102,7 +92,7 @@ export const MatchForm = () => {
                 placeholder={t('matchForm.answerFieldPlaceholder')}
                 data={
                   questions?.questions.at(3)?.answers.map((answer) => ({
-                    value: answer.answerLetter,
+                    value: answer.answerWeight.toString(),
                     label: answer.answerContent,
                   })) || []
                 }
@@ -115,7 +105,7 @@ export const MatchForm = () => {
                 clearable
                 data={
                   questions?.questions.at(4)?.answers.map((answer) => ({
-                    value: answer.answerLetter,
+                    value: answer.answerWeight.toString(),
                     label: answer.answerContent,
                   })) || []
                 }
@@ -143,7 +133,7 @@ export const MatchForm = () => {
                 clearable
                 data={
                   questions?.questions.at(5)?.answers.map((answer) => ({
-                    value: answer.answerLetter,
+                    value: answer.answerWeight.toString(),
                     label: answer.answerContent,
                   })) || []
                 }
@@ -156,7 +146,7 @@ export const MatchForm = () => {
                 clearable
                 data={
                   questions?.questions.at(6)?.answers.map((answer) => ({
-                    value: answer.answerLetter,
+                    value: answer.answerWeight.toString(),
                     label: answer.answerContent,
                   })) || []
                 }
@@ -169,7 +159,7 @@ export const MatchForm = () => {
                 clearable
                 data={
                   questions?.questions.at(7)?.answers.map((answer) => ({
-                    value: answer.answerLetter,
+                    value: answer.answerWeight.toString(),
                     label: answer.answerContent,
                   })) || []
                 }
@@ -182,7 +172,7 @@ export const MatchForm = () => {
                 clearable
                 data={
                   questions?.questions.at(8)?.answers.map((answer) => ({
-                    value: answer.answerLetter,
+                    value: answer.answerWeight.toString(),
                     label: answer.answerContent,
                   })) || []
                 }
@@ -195,7 +185,7 @@ export const MatchForm = () => {
                 clearable
                 data={
                   questions?.questions.at(9)?.answers.map((answer) => ({
-                    value: answer.answerLetter,
+                    value: answer.answerWeight.toString(),
                     label: answer.answerContent,
                   })) || []
                 }
@@ -223,7 +213,7 @@ export const MatchForm = () => {
                 clearable
                 data={
                   questions?.questions.at(10)?.answers.map((answer) => ({
-                    value: answer.answerLetter,
+                    value: answer.answerWeight.toString(),
                     label: answer.answerContent,
                   })) || []
                 }
@@ -236,7 +226,7 @@ export const MatchForm = () => {
                 clearable
                 data={
                   questions?.questions.at(11)?.answers.map((answer) => ({
-                    value: answer.answerLetter,
+                    value: answer.answerWeight.toString(),
                     label: answer.answerContent,
                   })) || []
                 }
@@ -249,7 +239,7 @@ export const MatchForm = () => {
                 clearable
                 data={
                   questions?.questions.at(12)?.answers.map((answer) => ({
-                    value: answer.answerLetter,
+                    value: answer.answerWeight.toString(),
                     label: answer.answerContent,
                   })) || []
                 }
@@ -262,7 +252,7 @@ export const MatchForm = () => {
                 clearable
                 data={
                   questions?.questions.at(13)?.answers.map((answer) => ({
-                    value: answer.answerLetter,
+                    value: answer.answerWeight.toString(),
                     label: answer.answerContent,
                   })) || []
                 }
@@ -275,7 +265,7 @@ export const MatchForm = () => {
                 clearable
                 data={
                   questions?.questions.at(14)?.answers.map((answer) => ({
-                    value: answer.answerLetter,
+                    value: answer.answerWeight.toString(),
                     label: answer.answerContent,
                   })) || []
                 }
@@ -298,7 +288,59 @@ export const MatchForm = () => {
               <Button variant="default" onClick={prevStep}>
                 {t('matchForm.button.back')}
               </Button>
-              <Button onClick={() => console.log(form.values)} color="red">
+              <Button
+                onClick={() => {
+                  score =
+                    parseInt(
+                      form.values.question1 ? form.values.question1 : '0'
+                    ) +
+                    parseInt(
+                      form.values.question2 ? form.values.question2 : '0'
+                    ) +
+                    parseInt(
+                      form.values.question3 ? form.values.question3 : '0'
+                    ) +
+                    parseInt(
+                      form.values.question4 ? form.values.question4 : '0'
+                    ) +
+                    parseInt(
+                      form.values.question5 ? form.values.question5 : '0'
+                    ) +
+                    parseInt(
+                      form.values.question6 ? form.values.question6 : '0'
+                    ) +
+                    parseInt(
+                      form.values.question7 ? form.values.question7 : '0'
+                    ) +
+                    parseInt(
+                      form.values.question8 ? form.values.question8 : '0'
+                    ) +
+                    parseInt(
+                      form.values.question9 ? form.values.question9 : '0'
+                    ) +
+                    parseInt(
+                      form.values.question10 ? form.values.question10 : '0'
+                    ) +
+                    parseInt(
+                      form.values.question11 ? form.values.question11 : '0'
+                    ) +
+                    parseInt(
+                      form.values.question12 ? form.values.question12 : '0'
+                    ) +
+                    parseInt(
+                      form.values.question13 ? form.values.question13 : '0'
+                    ) +
+                    parseInt(
+                      form.values.question14 ? form.values.question14 : '0'
+                    ) +
+                    parseInt(
+                      form.values.question15 ? form.values.question15 : '0'
+                    )
+
+                  console.log(score)
+                }}
+                color="red"
+              >
                 {t('matchForm.button.submit')}
               </Button>
             </Group>

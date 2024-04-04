@@ -13,7 +13,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { userModel, userSchema } from '../../../api/User/schema'
-import { editUser } from '../../../api/User/Edit'
+import { editUser, useEditOwn } from '../../../api/User/Edit'
 import { useDisclosure } from '@mantine/hooks'
 import { t } from 'i18next'
 interface UserData {
@@ -43,12 +43,13 @@ export const EditUserForm = ({ data }: EditUserFormProps) => {
   const [errorMessage, setErrorMessage] = useState<string | undefined>(
     undefined
   )
-  const navigate = useNavigate()
+
+  const { mutateAsync } = useEditOwn()
 
   const onSubmit: SubmitHandler<userModel> = async (data) => {
     try {
-      await editUser(data)
-      navigate('/app/account')
+      mutateAsync(data)
+      close()
     } catch (error: any) {
       setErrorMessage(error.message)
     }
