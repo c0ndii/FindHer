@@ -64,16 +64,17 @@ export const UsersSidebar = ({ people }: Props) => {
               border: 'none',
             },
           }}
+          style={{ minWidth: '300px' }}
         />
       </Paper>
       <Stack gap={20} align="center" h={'100%'}>
         {filteredPeople.map((person) => (
-          <Stack key={person.userId} style={{ width: '300px' }}>
+          <Stack key={person.userId} style={{ minWidth: '300px' }}>
             <Paper bg={person.userId === activePerson?.userId ? 'gray' : ''}>
               <Flex
                 direction="column"
                 style={{
-                  width: '300px',
+                  minWidth: '300px',
                   height: '100px',
                   borderBlock: 'red',
                   cursor: 'pointer',

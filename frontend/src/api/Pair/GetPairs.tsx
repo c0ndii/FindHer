@@ -1,10 +1,11 @@
 import Cookies from 'js-cookie'
 import axios from 'axios'
 import { useQuery } from '@tanstack/react-query'
+import { personModel } from './schema'
 
-const baseUrl = 'https://localhost:44360/api/account/getownid'
+const baseUrl = 'https://localhost:44360/api/pair/getpairs'
 
-export const getId = async () => {
+export const getPairs = async () => {
   try {
     const response = await axios.get(baseUrl, {
       headers: {
@@ -14,23 +15,22 @@ export const getId = async () => {
       withCredentials: true,
       responseType: 'json',
     })
-
-    if (response.status === 200) {
-      return response.data
+    if (response.request?.status === 200) {
+      return response.data as personModel[]
     } else {
+      const errorData = await response
       throw new Error(
-        `Edit profile failed: ${JSON.stringify(response.headers)}`
+        `Profiles load failed: ${JSON.stringify(errorData.headers)}`
       )
     }
   } catch (error: any) {
-    console.error('Failed operation', error)
     throw new Error('Failed operation')
   }
 }
 
-export const useId = () => {
+export const usePairs = () => {
   return useQuery({
-    queryKey: ['getId'],
-    queryFn: getId,
+    queryKey: ['getPairs'],
+    queryFn: getPairs,
   })
 }
