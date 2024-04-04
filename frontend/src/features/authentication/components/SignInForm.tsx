@@ -17,6 +17,8 @@ import { AuthState } from '../../../context/AuthProvider'
 import Cookies from 'js-cookie'
 import { TokenData } from '../Models/tokenData'
 import { t } from 'i18next'
+import { ApiError } from '../../../api/Models/ApiError'
+import { AxiosError } from 'axios'
 
 interface loginModel {
   email: string
@@ -36,7 +38,8 @@ export const SignInForm = () => {
       saveToken(token, setAuth)
       navigate(from, { replace: true })
     } catch (err) {
-      console.log('error')
+      const reponse = (err as AxiosError).response?.data as ApiError
+      form.setFieldError('email', 'Provided credentials are invalid')
     }
   }
 
@@ -73,7 +76,6 @@ export const SignInForm = () => {
       <form onSubmit={form.onSubmit((values) => handleSubmit(values))}>
         <FormContainer>
           <Title c="white">{t('signIn.form.title')}</Title>
-
           <TextInput
             c="#FFFFFF"
             label={t('signUp.form.email')}

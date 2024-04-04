@@ -1,4 +1,4 @@
-import { Grid, Container, GridCol, rem } from '@mantine/core'
+import { Grid, Container, GridCol, rem, Flex, Center } from '@mantine/core'
 import { getForYou } from '../../api/ForYou/ForYou'
 import { useEffect, useState } from 'react'
 import { personModel } from '../../api/ForYou/schema'
@@ -25,12 +25,21 @@ export const Users = () => {
   }, [])
 
   return (
-    <Grid mt={rem(48)}>
+    <Grid
+      //      gap={{ lg: rem(80), base: rem(20) }}
+      gutter="lg"
+      w="80%"
+      mx="auto"
+      mt={{ lg: rem(40), base: rem(10) }}
+      columns={16}
+    >
       {people.map((user) => (
-        <GridCol span={4}>
-          <UserCard person={user}>
-            <BanUserCard person={user} />
-          </UserCard>
+        <GridCol span={{ lg: 7, xl: 5, base: 8 }} mih="400px" miw="400px">
+          <Center>
+            <UserCard person={user}>
+              <BanUserCard person={user} />
+            </UserCard>
+          </Center>
         </GridCol>
       ))}
     </Grid>

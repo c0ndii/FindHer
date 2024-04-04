@@ -1,7 +1,7 @@
 import Cookies from 'js-cookie'
 import axios from 'axios'
 
-const baseUrl = 'https://localhost:44360/api/account/getUsers'
+const baseUrl = 'https://localhost:44360/api/admin/getUsers'
 
 export const getUsers = async () => {
   try {

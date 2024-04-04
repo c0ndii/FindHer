@@ -24,10 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Exceptions\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Remove="Logs\**" />
   </ItemGroup>
 
@@ -41,6 +37,10 @@
 
   <ItemGroup>
     <None Remove="Logs\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Exceptions\Handlers\" />
   </ItemGroup>
 
 </Project>
