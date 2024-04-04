@@ -46,7 +46,7 @@ namespace Find_H_er.Services
             {
                 throw new NotFoundException("User not found");
             }
-            user.MatchFormScore += score;
+            user.MatchFormScore = 50 + score;
             _context.Update(user);
             await _context.SaveChangesAsync();
         }
