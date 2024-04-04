@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import './App.css'
 import { ChatProvider } from './features/chat/ChatContext'
 import { Router } from './pages/Router/Router'
-import { MantineProvider, rem } from '@mantine/core'
+import { MantineProvider } from '@mantine/core'
 import { AuthProvider } from './context/AuthProvider'
 import { BrowserRouter } from 'react-router-dom'
 import { useAtomValue } from 'jotai'
@@ -11,27 +11,30 @@ import {
   fontSizesBig,
   fontSizesClassic,
 } from './pages/settings/fontAtom'
-import api from './api/api'
-import { useAuth } from './features/authentication/hooks/useAuth'
 import { Notifications } from '@mantine/notifications'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+
+const queryClient = new QueryClient()
 
 const App = () => {
   const fontSize = useAtomValue(fontSizeAtom)
   const fontSizes = fontSize === 'big' ? fontSizesBig : fontSizesClassic
 
   return (
-    <MantineProvider theme={{ fontSizes: fontSizes }}>
-      <Notifications position="top-right" />
-      <React.StrictMode>
-        <AuthProvider>
-          <BrowserRouter>
-            <ChatProvider>
-              <Router />
-            </ChatProvider>
-          </BrowserRouter>
-        </AuthProvider>
-      </React.StrictMode>
-    </MantineProvider>
+    <QueryClientProvider client={queryClient}>
+      <MantineProvider theme={{ fontSizes: fontSizes }}>
+        <Notifications position="top-right" />
+        <React.StrictMode>
+          <AuthProvider>
+            <BrowserRouter>
+              <ChatProvider>
+                <Router />
+              </ChatProvider>
+            </BrowserRouter>
+          </AuthProvider>
+        </React.StrictMode>
+      </MantineProvider>
+    </QueryClientProvider>
   )
 }
 

@@ -1,5 +1,5 @@
 import { Card, Image, Text, Badge, Group, rem } from '@mantine/core'
-import { personModel } from '../../../api/ForYou/schema'
+import { personModel } from '../../../api/Match/schema'
 import { EachUserCard } from './EachUserCard'
 import { t } from 'i18next'
 

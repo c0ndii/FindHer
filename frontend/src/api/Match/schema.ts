@@ -1,21 +1,17 @@
-import { z } from "zod";
+import { z } from 'zod';
 
-export const matchSchema = z.object({
-    question1: z.string(),
-    question2: z.string(),
-    question3: z.string(),
-    question4: z.string(),
-    question5: z.string(),
-    question6: z.string(),
-    question7: z.string(),
-    question8: z.string(),
-    question9: z.string(),
-    question10: z.string(),
-    question11: z.string(),
-    question12: z.string(),
-    question13: z.string(),
-    question14: z.string(),
-    question15: z.string(),
+export const InterestSchema = z.object({
+  name: z.string(),
 });
 
-export type matchModel = z.infer<typeof matchSchema>;
+export const PersonSchema = z.object({
+  userId: z.number(),
+  name: z.string(),
+  age: z.number(),
+  description: z.string(),
+  sex: z.string(),
+  image: z.string(),
+  interests: z.array(InterestSchema),
+});
+
+export type personModel = z.infer<typeof PersonSchema>;

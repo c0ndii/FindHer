@@ -10,7 +10,7 @@ import {
   Text,
   rem,
 } from '@mantine/core'
-import { personModel } from '../../api/ForYou/schema'
+import { personModel } from '../../api/Match/schema'
 import { useChatContext } from './ChatContext'
 import { IconSearch } from '@tabler/icons-react'
 import classes from './UsersSideBar.module.css'

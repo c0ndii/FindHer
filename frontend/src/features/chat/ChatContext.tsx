@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from 'react'
-import { personModel } from '../../api/ForYou/schema'
+import { personModel } from '../../api/Match/schema'
 
 interface ChatContextProps {
   activePerson: personModel | null

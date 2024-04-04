@@ -17,7 +17,7 @@ import { Sendmessageform } from './Sendmessageform'
 import { UsersSidebar } from './UsersSidebar'
 import { useState } from 'react'
 import { useChatContext } from './ChatContext'
-import { personModel } from '../../api/ForYou/schema'
+import { personModel } from '../../api/Match/schema'
 import { IconSearch } from '@tabler/icons-react'
 
 type Props = {
