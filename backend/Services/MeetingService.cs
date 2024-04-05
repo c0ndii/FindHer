@@ -4,6 +4,7 @@ using Find_H_er.Exceptions;
 using Find_H_er.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using System.Globalization;
 
 namespace Find_H_er.Services
 {
@@ -38,13 +39,20 @@ namespace Find_H_er.Services
             {
                 throw new NotFoundException("User not found");
             }
-            
-            var pair = await _context.Pairs.SingleOrDefaultAsync(x => (x.SenderId == userId && x.ReceiverId == dto.UserId) || (x.SenderId == dto.UserId && x.ReceiverId == userId));
+
+            var pair = await _context.Pairs.FirstOrDefaultAsync(x => (x.SenderId == userId && x.ReceiverId == dto.UserId) || (x.SenderId == dto.UserId && x.ReceiverId == userId));
             if (pair is null)
             {
                 throw new NotFoundException("Pair not found");
             }
+
+            if (!DateTime.TryParse(dto.MeetingDate, out DateTime meetingDateTime))
+            {
+                throw new ArgumentException("Invalid MeetingDate format");
+            }
+
             var meeting = _mapper.Map<Meeting>(dto);
+            meeting.MeetingDate = meetingDateTime;
             meeting.Pair = pair;
             meeting.PairId = pair.PairId;
             meeting.CreatorId = (int)userId;

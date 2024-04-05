@@ -4,7 +4,7 @@
     {
         public string MeetingName { get; set; }
         public string MeetingPlace {  get; set; }
-        public DateTime MeetingDate { get; set; }
+        public string MeetingDate { get; set; }
         public int UserId { get; set; }
     }
 }

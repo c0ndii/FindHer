@@ -4,7 +4,7 @@ import { z } from 'zod';
 export const meetingSchema = z.object({
     meetingName: z.string().min(1),
     meetingPlace: z.string().min(1),
-    meetingDate: z.date(),
+    meetingDate: z.string().min(1),
     userId: z.number(),
 });
 

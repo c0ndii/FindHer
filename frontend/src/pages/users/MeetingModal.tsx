@@ -1,4 +1,4 @@
-import { Button, Card, Group, Modal, Box, TextInput } from '@mantine/core'
+import { Button, Card, Group, Modal, Box, TextInput, Text } from '@mantine/core'
 import { DatePicker, DateTimePicker } from '@mantine/dates'
 import '@mantine/dates/styles.css'
 import { personModel } from '../../api/Match/schema'
@@ -9,6 +9,7 @@ import { meetingModel, meetingSchema } from './schema'
 import { useEffect, useState } from 'react'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useCreateMeeting } from '../../api/Meeting/Create'
+import { format } from 'date-fns'
 
 type Props = {
   person: personModel
@@ -27,12 +28,17 @@ export const MeetingModal = ({ person }: Props) => {
   const onSubmit = async (data: meetingModel) => {
     try {
       close()
-      console.log(data)
+      createMeeting(data)
     } catch (error: any) {}
   }
 
   useEffect(() => {
-    form.setValue('meetingDate', date ? date : new Date())
+    form.setValue(
+      'meetingDate',
+      date
+        ? format(new Date(date), "yyyy-MM-dd'T'HH:mm:ss'Z'")
+        : format(new Date(), "yyyy-MM-dd'T'HH:mm:ss'Z'")
+    )
   }, [date])
 
   return (
@@ -52,8 +58,10 @@ export const MeetingModal = ({ person }: Props) => {
                 flexDirection: 'column',
                 gap: 25,
                 padding: 20,
+                marginBottom: 5,
               }}
             >
+              <Text size="xl">Create meeting</Text>
               <TextInput
                 label={'Name'}
                 placeholder={'Meeting name'}
@@ -69,9 +77,10 @@ export const MeetingModal = ({ person }: Props) => {
               <Box>
                 <DateTimePicker
                   label={'Date'}
-                  placeholder={'Pick a date'}
+                  placeholder={format(new Date(), "yyyy-MM-dd'T'HH:mm:ss'Z'")}
                   value={date}
                   onChange={setDate}
+                  minDate={new Date()}
                 />
               </Box>
             </Card.Section>
@@ -79,7 +88,11 @@ export const MeetingModal = ({ person }: Props) => {
           <Group>
             <Box
               display={'flex'}
-              style={{ width: '100vw', overflow: 'hidden', height: '50px' }}
+              style={{
+                width: '100vw',
+                overflow: 'hidden',
+                height: '50px',
+              }}
             >
               <Button
                 color="red"
