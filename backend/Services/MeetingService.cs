@@ -13,8 +13,8 @@ namespace Find_H_er.Services
         Task AcceptMeeting(int meetingId);
         Task CreateMeeting(CreateMeetingDto dto);
         Task DeclineMeeting(int meetingId);
-        Task<List<MeetingDto>> GetAllConfirmedPairMeetings(int pairId);
-        Task<List<MeetingDto>> GetAllPendingPairMeetings(int pairId);
+        Task<List<MeetingDto>> GetAllConfirmedPairMeetings();
+        Task<List<MeetingDto>> GetAllPendingPairMeetings();
     }
 
     public class MeetingService : IMeetingService
@@ -69,7 +69,7 @@ namespace Find_H_er.Services
             var result = _mapper.Map<List<MeetingDto>>(meetings);
             return result;
         }
-        public async Task<List<MeetingDto>> GetAllPendingPairMeetings(int pairId)
+        public async Task<List<MeetingDto>> GetAllPendingPairMeetings()
         {
             var userId = _userContextService.GetUserId;
             var user = await _context.Users.SingleOrDefaultAsync(x => x.UserId == userId);
