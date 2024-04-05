@@ -1,4 +1,4 @@
-import { Card, Image, Text, Badge, Group, rem } from '@mantine/core'
+import { Card, Image, Text, Badge, Group, rem, Box } from '@mantine/core'
 import { personModel } from '../../../api/Match/schema'
 import { EachUserCard } from './EachUserCard'
 import { t } from 'i18next'
@@ -39,7 +39,9 @@ export const UserCard = ({ person, children }: Props) => {
           </Badge>
         </Group>
       </Group>
-      {children}
+      <Box display={'flex'} style={{ gap: 8 }}>
+        {children}
+      </Box>
     </Card>
   )
 }

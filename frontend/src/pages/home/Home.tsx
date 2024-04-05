@@ -2,9 +2,15 @@ import { Grid, GridCol, rem, Tabs, Box } from '@mantine/core'
 import { useMatched } from '../../api/Match/ForYou'
 import { UserCard } from '../../features/home/userCard'
 import { EachUserCard } from '../../features/home/userCard/EachUserCard'
-import { IconHeart, IconMasksTheater } from '@tabler/icons-react'
+import {
+  IconHeart,
+  IconMasksTheater,
+  IconCalendarCheck,
+  IconCalendarMinus,
+} from '@tabler/icons-react'
 import { usePairs } from '../../api/Pair/GetPairs'
 import { BlockUserCard } from '../users/BlockUserCard'
+import { MeetingModal } from '../users/MeetingModal'
 
 export const Home = () => {
   const { data: people } = useMatched()
@@ -27,6 +33,20 @@ export const Home = () => {
             style={{ width: '20%' }}
           >
             Pairs
+          </Tabs.Tab>
+          <Tabs.Tab
+            value="Pending"
+            leftSection={<IconCalendarMinus />}
+            style={{ width: '20%' }}
+          >
+            Pending Meetings
+          </Tabs.Tab>
+          <Tabs.Tab
+            value="Confirmed"
+            leftSection={<IconCalendarCheck />}
+            style={{ width: '20%' }}
+          >
+            Confirmed Meetings
           </Tabs.Tab>
         </Tabs.List>
         <Tabs.Panel value="Matches">
@@ -51,6 +71,7 @@ export const Home = () => {
                 <GridCol span={4}>
                   <UserCard person={user}>
                     <BlockUserCard person={user} />
+                    <MeetingModal person={user} />
                   </UserCard>
                 </GridCol>
               ))

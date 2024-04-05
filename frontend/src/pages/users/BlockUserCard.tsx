@@ -1,8 +1,8 @@
-import { Button, Group, Text, Modal, Box, Chip } from '@mantine/core'
+import { Button, Group, Text, Modal, Box, Tooltip } from '@mantine/core'
 import { useForm } from 'react-hook-form'
 import { useDisclosure } from '@mantine/hooks'
 import { Card } from '@mantine/core'
-import { IconCheck, IconX } from '@tabler/icons-react'
+import { IconCheck, IconX, IconLock } from '@tabler/icons-react'
 import { t } from 'i18next'
 import { personModel } from '../../api/Match/schema'
 import { useBlockUser } from '../../api/Pair/BlockUser'
@@ -21,8 +21,8 @@ export const BlockUserCard = ({ person }: Props) => {
   }
   return (
     <>
-      <Button onClick={open} color="red" fullWidth mt="md" radius="md">
-        {t('home.ban')}
+      <Button onClick={open} color="red" mt="md" radius="md">
+        <IconLock />
       </Button>
       <Modal opened={opened} onClose={close} size={'25%'} centered padding={0}>
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -34,7 +34,7 @@ export const BlockUserCard = ({ person }: Props) => {
                 alignContent: 'center',
               }}
             >
-              <Text size={'xl'}>Are you sure?</Text>
+              <Text size={'xl'}>Are you sure to block {person.name}?</Text>
             </Card.Section>
           </Card>
           <Group>
@@ -42,29 +42,33 @@ export const BlockUserCard = ({ person }: Props) => {
               display={'flex'}
               style={{ width: '100vw', overflow: 'hidden', height: '50px' }}
             >
-              <Button
-                color="red"
-                fullWidth
-                radius={0}
-                style={{ height: '50px' }}
-                onClick={() => {
-                  close()
-                }}
-              >
-                <IconX />
-              </Button>
-              <Button
-                color="green"
-                fullWidth
-                radius={0}
-                style={{ height: '50px' }}
-                onClick={() => {
-                  blockUser(person.userId)
-                  close()
-                }}
-              >
-                <IconCheck />
-              </Button>
+              <Tooltip label="Cancel">
+                <Button
+                  color="red"
+                  fullWidth
+                  radius={0}
+                  style={{ height: '50px' }}
+                  onClick={() => {
+                    close()
+                  }}
+                >
+                  <IconX />
+                </Button>
+              </Tooltip>
+              <Tooltip label={`Block ${person.name}`}>
+                <Button
+                  color="green"
+                  fullWidth
+                  radius={0}
+                  style={{ height: '50px' }}
+                  onClick={() => {
+                    blockUser(person.userId)
+                    close()
+                  }}
+                >
+                  <IconCheck />
+                </Button>
+              </Tooltip>
             </Box>
           </Group>
         </form>

@@ -1,4 +1,4 @@
-import { Button, Group, Text, Modal, Box, Chip } from '@mantine/core'
+import { Button, Group, Text, Modal, Box, Chip, Tooltip } from '@mantine/core'
 import { useForm } from 'react-hook-form'
 import { useDisclosure } from '@mantine/hooks'
 import { Card, Image } from '@mantine/core'
@@ -127,30 +127,34 @@ export const EachUserCard = ({ person }: Props) => {
               display={'flex'}
               style={{ width: '100vw', overflow: 'hidden', height: '50px' }}
             >
-              <Button
-                color="red"
-                fullWidth
-                radius={0}
-                style={{ height: '50px' }}
-                onClick={() => {
-                  cancelUser(person.userId)
-                  close()
-                }}
-              >
-                <IconX />
-              </Button>
-              <Button
-                color="green"
-                fullWidth
-                radius={0}
-                style={{ height: '50px' }}
-                onClick={() => {
-                  addToPair(person.userId)
-                  close()
-                }}
-              >
-                <IconCheck />
-              </Button>
+              <Tooltip label="Remove match">
+                <Button
+                  color="red"
+                  fullWidth
+                  radius={0}
+                  style={{ height: '50px' }}
+                  onClick={() => {
+                    cancelUser(person.userId)
+                    close()
+                  }}
+                >
+                  <IconX />
+                </Button>
+              </Tooltip>
+              <Tooltip label={`Pair with ${person.name}`}>
+                <Button
+                  color="green"
+                  fullWidth
+                  radius={0}
+                  style={{ height: '50px' }}
+                  onClick={() => {
+                    addToPair(person.userId)
+                    close()
+                  }}
+                >
+                  <IconCheck />
+                </Button>
+              </Tooltip>
             </Box>
           </Group>
         </form>
