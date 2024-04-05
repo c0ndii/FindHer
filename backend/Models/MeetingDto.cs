@@ -6,5 +6,7 @@
         public string MeetingName { get; set; }
         public string? MeetingPlace { get; set; }
         public DateTime MeetingDate { get; set; }
+        public int CreatorId { get; set; }
+        public bool canAccept { get; set; } = false;
     }
 }

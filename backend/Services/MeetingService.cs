@@ -33,6 +33,10 @@ namespace Find_H_er.Services
         public async Task CreateMeeting(CreateMeetingDto dto)
         {
             var userId = _userContextService.GetUserId;
+            if(userId is null)
+            {
+                throw new NotFoundException("User id not found");
+            }
             var user = await _context.Users.SingleOrDefaultAsync(x => x.UserId == userId);
             var secondUser = await _context.Users.SingleOrDefaultAsync(x => x.UserId == dto.UserId);
             if (user is null || secondUser is null)
@@ -40,7 +44,7 @@ namespace Find_H_er.Services
                 throw new NotFoundException("User not found");
             }
 
-            var pair = await _context.Pairs.SingleOrDefaultAsync(x => (x.SenderId == userId && x.ReceiverId == dto.UserId) || (x.SenderId == dto.UserId && x.ReceiverId == userId));
+            var pair = await _context.Pairs.SingleOrDefaultAsync(x => ((x.SenderId == userId && x.ReceiverId == dto.UserId) || (x.SenderId == dto.UserId && x.ReceiverId == userId)) && x.isBlocked == false);
             if (pair is null)
             {
                 throw new NotFoundException("Pair not found");
@@ -61,7 +65,7 @@ namespace Find_H_er.Services
             {
                 throw new NotFoundException("User not found");
             }
-            var meetings = await _context.Meetings.Include(x => x.Pair).Where(x => (x.Pair.SenderId == userId || x.Pair.ReceiverId == userId) && x.isAccepted == true && x.isDeclined == false).ToListAsync();
+            var meetings = await _context.Meetings.Include(x => x.Pair).Where(x => (x.Pair.SenderId == userId || x.Pair.ReceiverId == userId) && x.isAccepted == true && x.isDeclined == false && x.Pair.isBlocked == false && x.MeetingDate >= DateTime.Now).ToListAsync();
             if (meetings.IsNullOrEmpty())
             {
                 throw new NotFoundException("Pair does not have any meetings scheduled");
@@ -77,12 +81,13 @@ namespace Find_H_er.Services
             {
                 throw new NotFoundException("User not found");
             }
-            var meetings = await _context.Meetings.Include(x => x.Pair).Where(x => (x.Pair.SenderId == userId || x.Pair.ReceiverId == userId) && x.isAccepted == false && x.isDeclined == false).ToListAsync();
+            var meetings = await _context.Meetings.Include(x => x.Pair).Where(x => (x.Pair.SenderId == userId || x.Pair.ReceiverId == userId) && x.isAccepted == false && x.isDeclined == false && x.Pair.isBlocked == false && x.MeetingDate >= DateTime.Now).ToListAsync();
             if (meetings.IsNullOrEmpty())
             {
                 throw new NotFoundException("Pair does not have any unconfirmed meetings");
             }
             var result = _mapper.Map<List<MeetingDto>>(meetings);
+            result.ForEach(x => x.canAccept = (x.CreatorId != userId));
             return result;
         }
         public async Task AcceptMeeting(int meetingId)

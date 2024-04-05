@@ -55,7 +55,7 @@ namespace Find_H_er.Services
             {
                 throw new NotFoundException("User to add not found");
             }
-            var match = await _context.Matches.FirstOrDefaultAsync(x => (x.ViewerId == currentUserId && x.ViewedId == userId && x.Cancelled == false) || (x.ViewedId == currentUserId && x.ViewerId == userId && x.Cancelled == false));
+            var match = await _context.Matches.SingleOrDefaultAsync(x => (x.ViewerId == currentUserId && x.ViewedId == userId && x.Cancelled == false) || (x.ViewedId == currentUserId && x.ViewerId == userId && x.Cancelled == false));
             if (match is null)
             {
                 throw new NotFoundException("Match not found");
