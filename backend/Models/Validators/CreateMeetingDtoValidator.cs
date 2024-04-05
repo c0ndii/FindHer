@@ -12,20 +12,11 @@ namespace Find_H_er.Models.Validators
             RuleFor(x => x.MeetingPlace)
                 .NotNull()
                 .MaximumLength(40);
-            RuleFor(x => x.MeetingDate)
+            RuleFor(x => DateTime.Parse(x.MeetingDate))
                 .NotNull()
-                .Must(BeValidDate);
+                .GreaterThanOrEqualTo(DateTime.Now);
             RuleFor(x => x.UserId)
                 .NotNull();
-        }
-
-        private bool BeValidDate(string meetingDate)
-        {
-            if (!DateTime.TryParse(meetingDate, out DateTime parsedDate))
-            {
-                return false;
-            }
-            return parsedDate.Date >= DateTime.Today;
         }
     }
 }

@@ -15,7 +15,8 @@ namespace Find_H_er
             CreateMap<Interest, InterestDto>();
             CreateMap<User, UserDto>();
             CreateMap<Meeting, MeetingDto>();
-            CreateMap<CreateMeetingDto, Meeting>();
+            CreateMap<CreateMeetingDto, Meeting>()
+                .ForMember(x => x.MeetingDate, y => y.MapFrom(z => DateTime.Parse(z.MeetingDate)));
         }
     }
 }
