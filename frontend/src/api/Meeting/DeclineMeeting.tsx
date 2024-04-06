@@ -2,22 +2,25 @@ import Cookies from 'js-cookie'
 import axios from 'axios'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { notifications } from '@mantine/notifications'
-import { meetingModel } from '../../pages/users/schema'
 
-const baseUrl = 'https://localhost:44360/api/meeting/create'
+const baseUrl = 'https://localhost:44360/api/meeting/decline/'
 
-export const createMeeting = async (data: meetingModel) => {
+export const declineMeeting = async (userId: number) => {
   try {
-    const response = await axios.post(baseUrl, JSON.stringify(data), {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: 'Bearer ' + Cookies.get('token')?.toString(),
-      },
-      withCredentials: true,
-      responseType: 'text',
-    })
+    const response = await axios.post(
+      baseUrl + userId,
+      JSON.stringify(userId),
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: 'Bearer ' + Cookies.get('token')?.toString(),
+        },
+        withCredentials: true,
+        responseType: 'text',
+      }
+    )
     if (response.request?.status === 200) {
-      return response
+      return response.data
     } else {
       const errorData = await response
       throw new Error(
@@ -29,17 +32,17 @@ export const createMeeting = async (data: meetingModel) => {
   }
 }
 
-export const useCreateMeeting = () => {
+export const useDeclineMeeting = () => {
   const queryClient = useQueryClient()
   return useMutation({
-    mutationKey: ['createMeeting'],
-    mutationFn: (data: meetingModel) => createMeeting(data),
+    mutationKey: ['declineMeeting'],
+    mutationFn: (userId: number) => declineMeeting(userId),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['getPending'] })
       notifications.show({
         withCloseButton: true,
         autoClose: 5000,
-        title: 'Meeting pending is created',
+        title: 'Meeting declined',
         color: 'green',
         className: 'my-notification-class',
         loading: false,

@@ -13,11 +13,13 @@ import { BlockUserCard } from '../users/BlockUserCard'
 import { MeetingModal } from '../users/MeetingModal'
 import { useGetPending } from '../../api/Meeting/getPending'
 import { MeetingCard } from '../../features/home/meetingCard'
+import { useGetAccepted } from '../../api/Meeting/getAccepted'
 
 export const Home = () => {
   const { data: people } = useMatched()
   const { data: pairs } = usePairs()
   const { data: pending } = useGetPending()
+  const { data: confirmed } = useGetAccepted()
 
   return (
     <Box style={{ padding: 20, height: '100%', overflowY: 'auto' }}>
@@ -88,6 +90,18 @@ export const Home = () => {
             <Stack mt={rem(48)}>
               {pending ? (
                 pending.map((meeting) => <MeetingCard meeting={meeting} />)
+              ) : (
+                <></>
+              )}
+            </Stack>
+          </Center>
+        </Tabs.Panel>
+
+        <Tabs.Panel value="Confirmed">
+          <Center>
+            <Stack mt={rem(48)}>
+              {confirmed ? (
+                confirmed.map((meeting) => <MeetingCard meeting={meeting} />)
               ) : (
                 <></>
               )}

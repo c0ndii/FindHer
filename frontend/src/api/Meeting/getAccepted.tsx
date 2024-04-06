@@ -11,9 +11,9 @@ export type pendingMeeting = {
   canAccept: boolean
 }
 
-const baseUrl = 'https://localhost:44360/api/meeting/getallpendingmeetings'
+const baseUrl = 'https://localhost:44360/api/meeting/getallacceptedmeetings'
 
-export const getPending = async () => {
+export const getAccepted = async () => {
   try {
     const response = await axios.get(baseUrl, {
       headers: {
@@ -37,9 +37,9 @@ export const getPending = async () => {
   }
 }
 
-export const useGetPending = () => {
+export const useGetAccepted = () => {
   return useQuery({
-    queryKey: ['getPending'],
-    queryFn: getPending,
+    queryKey: ['getAccepted'],
+    queryFn: getAccepted,
   })
 }
