@@ -1,4 +1,4 @@
-import { Grid, GridCol, rem, Tabs, Box, Stack } from '@mantine/core'
+import { Grid, GridCol, rem, Tabs, Box, Stack, Center } from '@mantine/core'
 import { useMatched } from '../../api/Match/ForYou'
 import { UserCard } from '../../features/home/userCard'
 import { EachUserCard } from '../../features/home/userCard/EachUserCard'
@@ -20,7 +20,7 @@ export const Home = () => {
   const { data: pending } = useGetPending()
 
   return (
-    <Box style={{ padding: 20 }}>
+    <Box style={{ padding: 20, height: '100%', overflowY: 'auto' }}>
       <Tabs color="red" variant="default" defaultValue="Matches">
         <Tabs.List justify="center">
           <Tabs.Tab
@@ -83,18 +83,16 @@ export const Home = () => {
             )}
           </Grid>
         </Tabs.Panel>
-        <Tabs.Panel value="Pendings">
-          <Grid mt={rem(48)}>
-            {pending ? (
-              pending.map((meeting) => (
-                <Stack h={300}>
-                  <MeetingCard meeting={meeting} />
-                </Stack>
-              ))
-            ) : (
-              <></>
-            )}
-          </Grid>
+        <Tabs.Panel value="Pending">
+          <Center>
+            <Stack mt={rem(48)}>
+              {pending ? (
+                pending.map((meeting) => <MeetingCard meeting={meeting} />)
+              ) : (
+                <></>
+              )}
+            </Stack>
+          </Center>
         </Tabs.Panel>
       </Tabs>
     </Box>

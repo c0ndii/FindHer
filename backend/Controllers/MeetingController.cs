@@ -15,16 +15,16 @@ namespace Find_H_er.Controllers
         {
             _meetingService = meetingService;
         }
-        [HttpGet("getallpendingmeetings/{id}")]
-        public async Task<List<MeetingDto>> GetAllPendingMeetings([FromRoute]int id)
+        [HttpGet("getallpendingmeetings")]
+        public async Task<List<MeetingDto>> GetAllPendingMeetings()
         {
-            var result = await _meetingService.GetAllPendingPairMeetings(id);
+            var result = await _meetingService.GetAllPendingPairMeetings();
             return result;
         }
-        [HttpGet("getallacceptedmeetings/{id}")]
-        public async Task<List<MeetingDto>> GetAllConfirmedMeetings([FromRoute] int id)
+        [HttpGet("getallacceptedmeetings")]
+        public async Task<List<MeetingDto>> GetAllConfirmedMeetings()
         {
-            var result = await _meetingService.GetAllConfirmedPairMeetings(id);
+            var result = await _meetingService.GetAllConfirmedPairMeetings();
             return result;
         }
         [HttpPost("accept/{id}")]

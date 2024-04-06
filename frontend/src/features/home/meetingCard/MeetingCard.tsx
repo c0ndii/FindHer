@@ -1,4 +1,4 @@
-import { Card, Image, Text } from '@mantine/core'
+import { Card, Avatar, Text } from '@mantine/core'
 import { meetingModel } from '../../../pages/users/schema'
 
 type Props = {
@@ -7,15 +7,10 @@ type Props = {
 
 export const MeetingCard = ({ meeting }: Props) => {
   return (
-    <Card shadow="sm" padding="xl">
+    <Card shadow="sm" padding="xl" style={{ minWidth: '600px' }}>
       <Card.Section>
-        <Image
-          src="https://images.unsplash.com/photo-1579227114347-15d08fc37cae?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80"
-          h={160}
-          alt="No way!"
-        />
+        <Avatar src="" size={90} radius="xl" alt="avatar" />
       </Card.Section>
-
       <Text fw={500} size="lg" mt="md">
         {meeting.meetingName}
       </Text>
