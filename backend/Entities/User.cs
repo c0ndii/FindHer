@@ -23,5 +23,6 @@ namespace Find_H_er.Entities
         public int? RoleId { get; set; }
         public virtual Role? Role { get; set; }
         public string? ConnectionId {  get; set; }
+        public string? VideoChatConnectionId {  get; set; }
     }
 }
