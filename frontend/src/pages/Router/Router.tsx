@@ -39,7 +39,7 @@ export const Router = () => {
         <Route path="Settings" element={<Settings />} />
         <Route path="Home" element={<Home />} />
         <Route path="Chat" element={<Chat />} />
-        <Route path="VideoChat" element={<VideoChat />} />
+        <Route path="VideoChat/:target" element={<VideoChat />} />
         <Route path="Users" element={<Users />} />
       </Route>
     </Routes>

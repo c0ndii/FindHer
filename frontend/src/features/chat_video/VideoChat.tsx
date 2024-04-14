@@ -1,7 +1,11 @@
 import React, { useEffect, useRef } from 'react'
-import { startConnection, callUser } from './useChat'
+import { useVideoChat } from './useChat'
+import { useParams } from 'react-router-dom'
 
 export const VideoChat: React.FC = () => {
+  const { id } = useParams<{ id: string }>()
+  const { startConnection, callUser } = useVideoChat(id ? id : '')
+
   useEffect(() => {
     startConnection()
   }, [])

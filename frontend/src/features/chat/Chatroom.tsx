@@ -49,7 +49,7 @@ export const Chatroom = ({ people, messages, sendMessage }: Props) => {
                 size="xl"
                 radius="xl"
                 component={Link}
-                to={'/app/VideoChat'}
+                to={`/app/VideoChat/target=${activePerson?.userId}`}
               >
                 <IconCamera />
               </ActionIcon>
