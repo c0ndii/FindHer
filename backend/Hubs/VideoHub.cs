@@ -149,6 +149,27 @@ namespace Find_H_er.Hubs
             _context.Update(user);
             await _context.SaveChangesAsync();
         }
+        public async Task SendSignal(string signal, int targetConnectionId)
+        {
+            var callingUser = await _context.Users.SingleOrDefaultAsync(u => u.VideoChatConnectionId == Context.ConnectionId);
+            var targetUser = await _context.Users.SingleOrDefaultAsync(u => u.UserId == targetConnectionId);
+
+            // Make sure both users are valid
+            if (callingUser == null || targetUser == null)
+            {
+                return;
+            }
+
+            // Make sure that the person sending the signal is in a call
+            var userCall = GetUserCall(callingUser.VideoChatConnectionId);
+
+            // ...and that the target is the one they are in a call with
+            if (userCall != null && userCall.Users.Exists(u => u.VideoChatConnectionId == targetUser.VideoChatConnectionId))
+            {
+                // These folks are in a call together, let's let em talk WebRTC
+                await Clients.Client(targetUser.VideoChatConnectionId).ReceiveSignal(callingUser, signal);
+            }
+        }
         public override Task OnConnectedAsync()
         {
             return base.OnConnectedAsync();
