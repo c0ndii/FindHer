@@ -1,4 +1,4 @@
-import { TextInput, Checkbox, Button, Group, Box } from '@mantine/core'
+import { TextInput, Button, Group, Box } from '@mantine/core'
 import { useForm } from '@mantine/form'
 import { t } from 'i18next'
 
