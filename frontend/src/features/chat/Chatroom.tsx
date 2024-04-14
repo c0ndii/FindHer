@@ -15,6 +15,7 @@ import { useChatContext } from './ChatContext'
 import { personModel } from '../../api/Match/schema'
 import { IconCamera } from '@tabler/icons-react'
 import { Link } from 'react-router-dom'
+import { useEffect } from 'react'
 
 type Props = {
   people: personModel[]
@@ -49,7 +50,7 @@ export const Chatroom = ({ people, messages, sendMessage }: Props) => {
                 size="xl"
                 radius="xl"
                 component={Link}
-                to={`/app/VideoChat/target=${activePerson?.userId}`}
+                to={`/app/VideoChat/${activePerson?.userId}`}
               >
                 <IconCamera />
               </ActionIcon>

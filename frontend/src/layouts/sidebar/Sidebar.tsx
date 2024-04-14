@@ -130,7 +130,7 @@ export const Sidebar = () => {
             {auth?.roles.toString() === 'Admin' && (
               <NavbarLink
                 icon={IconUsers}
-                label={t('sidebar.users')}
+                label={'users'}
                 path={'/app/Users'}
                 key={'/app/Users'}
                 active={links.length + 1 === active}
