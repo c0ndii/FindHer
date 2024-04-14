@@ -99,4 +99,5 @@ app.UseAuthorization();
 
 app.MapControllers();
 app.MapHub<ChatHub>("/chatHub");
+app.MapHub<VideoHub>("/videoHub");
 app.Run();
