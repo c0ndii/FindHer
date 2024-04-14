@@ -28,14 +28,19 @@ namespace Find_H_er.Hubs
         private readonly List<UserCall> _userCalls;
         private readonly List<CallOffer> _callOfferList;
 
-        public VideoHub(AppDbContext context, List<UserCall> userCalls, List<CallOffer> callOffersList)
+        public VideoHub(AppDbContext context)
         {
             _context = context;
-            _userCalls = userCalls;
-            _callOfferList = callOffersList;
+            _userCalls = new List<UserCall>();
+            _callOfferList = new List<CallOffer>();
         }
-        public async Task CallUser(User targetConnectionId)
+        public async Task CallUser(int targetUserId)
         {
+            var targetConnectionId = await _context.Users.SingleOrDefaultAsync(x => x.UserId == targetUserId);
+            if(targetConnectionId is null)
+            {
+                throw new NotFoundException("User not found");
+            }
             var caller = await _context.Users.SingleOrDefaultAsync(x => x.VideoChatConnectionId == Context.ConnectionId);
             var target = await _context.Users.SingleOrDefaultAsync(x => x.VideoChatConnectionId == targetConnectionId.VideoChatConnectionId);
 

@@ -48,7 +48,7 @@ namespace Find_H_er.Migrations
 
                     b.HasIndex("QuestionId");
 
-                    b.ToTable("Answers");
+                    b.ToTable("Answers", (string)null);
                 });
 
             modelBuilder.Entity("Find_H_er.Entities.Interest", b =>
@@ -69,7 +69,7 @@ namespace Find_H_er.Migrations
 
                     b.HasKey("InterestId");
 
-                    b.ToTable("Interests");
+                    b.ToTable("Interests", (string)null);
                 });
 
             modelBuilder.Entity("Find_H_er.Entities.Match", b =>
@@ -100,7 +100,7 @@ namespace Find_H_er.Migrations
 
                     b.HasKey("MatchId");
 
-                    b.ToTable("Matches");
+                    b.ToTable("Matches", (string)null);
                 });
 
             modelBuilder.Entity("Find_H_er.Entities.MatchForm", b =>
@@ -113,7 +113,7 @@ namespace Find_H_er.Migrations
 
                     b.HasKey("MatchFormId");
 
-                    b.ToTable("MatchForms");
+                    b.ToTable("MatchForms", (string)null);
                 });
 
             modelBuilder.Entity("Find_H_er.Entities.Meeting", b =>
@@ -150,7 +150,7 @@ namespace Find_H_er.Migrations
 
                     b.HasIndex("PairId");
 
-                    b.ToTable("Meetings");
+                    b.ToTable("Meetings", (string)null);
                 });
 
             modelBuilder.Entity("Find_H_er.Entities.Message", b =>
@@ -180,7 +180,7 @@ namespace Find_H_er.Migrations
 
                     b.HasIndex("SenderUserId");
 
-                    b.ToTable("Messages");
+                    b.ToTable("Messages", (string)null);
                 });
 
             modelBuilder.Entity("Find_H_er.Entities.Pair", b =>
@@ -202,7 +202,7 @@ namespace Find_H_er.Migrations
 
                     b.HasKey("PairId");
 
-                    b.ToTable("Pairs");
+                    b.ToTable("Pairs", (string)null);
                 });
 
             modelBuilder.Entity("Find_H_er.Entities.Preference", b =>
@@ -223,7 +223,7 @@ namespace Find_H_er.Migrations
 
                     b.HasKey("PreferenceId");
 
-                    b.ToTable("Preferences");
+                    b.ToTable("Preferences", (string)null);
                 });
 
             modelBuilder.Entity("Find_H_er.Entities.Question", b =>
@@ -240,7 +240,7 @@ namespace Find_H_er.Migrations
 
                     b.HasKey("QuestionId");
 
-                    b.ToTable("Questions");
+                    b.ToTable("Questions", (string)null);
                 });
 
             modelBuilder.Entity("Find_H_er.Entities.Role", b =>
@@ -257,7 +257,7 @@ namespace Find_H_er.Migrations
 
                     b.HasKey("RoleId");
 
-                    b.ToTable("Roles");
+                    b.ToTable("Roles", (string)null);
                 });
 
             modelBuilder.Entity("Find_H_er.Entities.User", b =>
@@ -314,7 +314,7 @@ namespace Find_H_er.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
                 });
 
             modelBuilder.Entity("Find_H_er.Entities.UserSetting", b =>
@@ -337,7 +337,7 @@ namespace Find_H_er.Migrations
 
                     b.HasKey("UserId");
 
-                    b.ToTable("UserSettings");
+                    b.ToTable("UserSettings", (string)null);
                 });
 
             modelBuilder.Entity("InterestUser", b =>
@@ -352,7 +352,7 @@ namespace Find_H_er.Migrations
 
                     b.HasIndex("UsersUserId");
 
-                    b.ToTable("InterestUser");
+                    b.ToTable("InterestUser", (string)null);
                 });
 
             modelBuilder.Entity("MatchFormQuestion", b =>
@@ -367,7 +367,7 @@ namespace Find_H_er.Migrations
 
                     b.HasIndex("QuestionsQuestionId");
 
-                    b.ToTable("MatchFormQuestion");
+                    b.ToTable("MatchFormQuestion", (string)null);
                 });
 
             modelBuilder.Entity("PreferenceUser", b =>
@@ -382,7 +382,7 @@ namespace Find_H_er.Migrations
 
                     b.HasIndex("UsersUserId");
 
-                    b.ToTable("PreferenceUser");
+                    b.ToTable("PreferenceUser", (string)null);
                 });
 
             modelBuilder.Entity("Find_H_er.Entities.Answer", b =>
