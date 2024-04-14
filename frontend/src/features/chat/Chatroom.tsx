@@ -1,24 +1,20 @@
 import {
-  TextInput,
-  Checkbox,
-  Button,
   Group,
-  Box,
   Avatar,
-  Text,
   Flex,
   rem,
-  Select,
   Title,
   Divider,
+  Indicator,
+  ActionIcon,
 } from '@mantine/core'
 import { Messagecontainer } from './Messagecontainer'
 import { Sendmessageform } from './Sendmessageform'
 import { UsersSidebar } from './UsersSidebar'
-import { useState } from 'react'
 import { useChatContext } from './ChatContext'
 import { personModel } from '../../api/Match/schema'
-import { IconSearch } from '@tabler/icons-react'
+import { IconCamera } from '@tabler/icons-react'
+import { Link } from 'react-router-dom'
 
 type Props = {
   people: personModel[]
@@ -39,12 +35,27 @@ export const Chatroom = ({ people, messages, sendMessage }: Props) => {
         style={{ gap: '40px', width: '100%' }}
       >
         <Flex direction="column">
-          <Group mb="0" align="end">
-            <Avatar src="" size={100} radius="xl" alt="avatar" />
-            <Title style={{ marginLeft: '10px', fontSize: '2rem' }}>
-              {activePerson?.name}
-            </Title>
-          </Group>
+          <Flex justify={'space-between'} align={'flex-end'}>
+            <Group mb="0" align="end">
+              <Avatar src="" size={100} radius="xl" alt="avatar" />
+              <Title style={{ marginLeft: '10px', fontSize: '2rem' }}>
+                {activePerson?.name}
+              </Title>
+            </Group>
+            <Indicator color="green" size={16} processing>
+              <ActionIcon
+                variant="filled"
+                color="red"
+                size="xl"
+                radius="xl"
+                component={Link}
+                to={'/app/VideoChat'}
+              >
+                <IconCamera />
+              </ActionIcon>
+            </Indicator>
+          </Flex>
+
           <Divider mb="0" mt={rem(24)} />
         </Flex>
         <Messagecontainer messages={messages} />

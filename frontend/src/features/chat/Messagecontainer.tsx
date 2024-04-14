@@ -1,14 +1,4 @@
-import {
-  Box,
-  Flex,
-  Paper,
-  ScrollArea,
-  rem,
-  Text,
-  Container,
-  Group,
-} from '@mantine/core'
-import styles from './Messagecontainer.module.css'
+import { Flex, Paper, ScrollArea, rem } from '@mantine/core'
 
 const handleSenderId = (message: string) => {
   const id = message.slice(0, 1)
