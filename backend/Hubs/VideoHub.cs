@@ -36,7 +36,23 @@ namespace Find_H_er.Hubs
             }
             var roomId = pair.RoomConnectionId;
             await Groups.AddToGroupAsync(user.VideoChatConnectionId, roomId);
-            await Clients.Group(roomId).SendAsync("user-connected", target.VideoChatConnectionId);
+            await Clients.Group(roomId).SendAsync("user-connected", roomId);
+        }
+        public async Task<string> GetRoomId(int userId, int targetId)
+        {
+            var user = await _context.Users.SingleOrDefaultAsync(x => x.UserId == userId);
+            var target = await _context.Users.SingleOrDefaultAsync(x => x.UserId == targetId);
+            if (user is null || target is null)
+            {
+                throw new NotFoundException("User not found");
+            }
+            var pair = await _context.Pairs.SingleOrDefaultAsync(x => ((x.SenderId == userId && x.ReceiverId == targetId) || (x.SenderId == targetId && x.ReceiverId == userId)) && x.isBlocked == false);
+            if (pair is null)
+            {
+                throw new NotFoundException("User not found");
+            }
+            var roomId = pair.RoomConnectionId;
+            return roomId;
         }
         public async Task<string> GetRoomId(int userId, int targetId)
         {
