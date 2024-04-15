@@ -3,6 +3,8 @@ using Find_H_er.Entities;
 using System.Net;
 using Find_H_er.Services;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Find_H_er.Exceptions;
 
 namespace Find_H_er
 {
@@ -11,6 +13,8 @@ namespace Find_H_er
 #pragma warning restore IDE1006 // Style nazewnictwa
     {
         private readonly AppDbContext _context;
+        private readonly IPasswordHasher<User> _passwordHasher;
+        private readonly IAccountService _accountService;
 
         public void Seed()
         {
@@ -32,12 +36,15 @@ namespace Find_H_er
                 {
                     _context.Users.Add(GetAdmin());
                     _context.SaveChanges();
+                    PrepareUsers();
                 }
             }      
         }
-        public FindHerSeeder(AppDbContext context)
+        public FindHerSeeder(AppDbContext context, IPasswordHasher<User> passwordHasher, IAccountService accountService)
         {
             _context = context;
+            _passwordHasher = passwordHasher;
+            _accountService = accountService;
         }
 
         private User GetAdmin()
@@ -49,7 +56,7 @@ namespace Find_H_er
                 Role = adminRole,
             };
 
-            var passwordHash = new PasswordHasher<User>().HashPassword(user, "Admin123..");
+            var passwordHash = _passwordHasher.HashPassword(user, "Admin123..");
             user.PasswordHash = passwordHash;
             return user;
         }
@@ -76,17 +83,67 @@ namespace Find_H_er
             };
             return roles;
         }
-        private static User GetUser()
+        private async Task PrepareUsers()
         {
+            var userRole = await _context.Roles.SingleOrDefaultAsync(x => x.Name == "User");
             var user = new User()
             {
-                Email = "adam@wp.pl",
-                PasswordHash = "test123",
+                Email = "user1@wp.pl",
                 Name = "Adam",
-                SentMessages = new List<Message>(),
-                ReceivedMessages = new List<Message>(),
+                VerificationToken = _accountService.CreateRandomToken(),
             };
-            return user;
+            var hashedPassword = _passwordHasher.HashPassword(user, "test12345");
+            user.Role = await _context.Roles.SingleOrDefaultAsync(x => x.Name == "User");
+            user.PasswordHash = hashedPassword;
+            await _context.Users.AddAsync(user);
+            var matchForm = new MatchForm()
+            {
+                Questions = await _context.Questions.ToListAsync(),
+                UserId = user.UserId,
+                User = user,
+            };
+            await _context.MatchForms.AddAsync(matchForm);
+            user.MatchForm = matchForm;
+            await _context.SaveChangesAsync();
+
+            var user2 = new User()
+            {
+                Email = "user2@wp.pl",
+                Name = "Andrzej",
+                VerificationToken = _accountService.CreateRandomToken(),
+            };
+            var hashedPassword2 = _passwordHasher.HashPassword(user2, "test12345");
+            user2.Role = await _context.Roles.SingleOrDefaultAsync(x => x.Name == "Unconfirmed");
+            user2.PasswordHash = hashedPassword;
+            await _context.Users.AddAsync(user2);
+            var matchForm2 = new MatchForm()
+            {
+                Questions = await _context.Questions.ToListAsync(),
+                UserId = user2.UserId,
+                User = user2,
+            };
+            await _context.MatchForms.AddAsync(matchForm2);
+            user2.MatchForm = matchForm2;
+            await _context.SaveChangesAsync();
+
+            var token1 = await _context.Users.SingleOrDefaultAsync(x => x.Email == "user1@wp.pl");
+            var token2 = await _context.Users.SingleOrDefaultAsync(x => x.Email == "user2@wp.pl");
+
+            await _accountService.VerifyEmail(token1.VerificationToken);
+            await _accountService.VerifyEmail(token2.VerificationToken);
+
+            var match = await _context.Matches.SingleOrDefaultAsync(x => (x.ViewerId == user.UserId && x.ViewedId == user2.UserId && x.Cancelled == false));
+
+            match.Matched = true;
+            var pair = new Pair()
+            {
+                SenderId = user2.UserId,
+                ReceiverId = user.UserId,
+            };
+            await _context.AddAsync(pair);
+
+            _context.Matches.Update(match);
+            await _context.SaveChangesAsync();
         }
         private static IEnumerable<Question> GetQuestions()
         {
