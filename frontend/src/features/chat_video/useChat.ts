@@ -1,9 +1,15 @@
 import { HubConnection, HubConnectionBuilder, LogLevel } from "@microsoft/signalr";
 import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
+import { Peer } from "peerjs";
+import { useId } from "../../api/User/GetId";
 
 export const useVideoChat = (target:string) => {
+    const { data: myid } = useId()
+    const [videoId, setVideoId] = useState<string>('')
     const [connection, setConnection] = useState<HubConnection>()
+    const myPeer = new Peer()
+    let localStream: any = null;
 
     const joinChatRoom = async () => {
       try {
@@ -24,37 +30,78 @@ export const useVideoChat = (target:string) => {
 
   useEffect(() => {
     if (target !== '' && connection?.state === 'Connected') {
-      //callUser(target);
+      console.log(target, myid)
+      SaveUserConnection();
     }
   }, [target, connection]);
 
 
-  const callUser = async (targetId: string) => {
+  const TurnOnCamera = async (targetId: string) => {
     try {
-      await connection?.invoke("CallUser", targetId);
-      console.log('called')
+      await connection?.invoke("TurnOnCamera", parseInt(targetId), myid);
+      console.log('turnedon')
     } catch (error) {
       console.error("Error calling user: ", error);
     }
   };
 
-  const receiveSignal = (eventName: string, handler: (data: any) => void) => {
-    connection?.on(eventName, handler);
-  };
-
-  const sendSignal = async (eventName: string, data: any) => {
-    if (connection?.state === "Connected") {
-      try {
-        await connection?.send(eventName, data);
-        console.log('sending signal:', eventName)
-      } catch (error) {
-        console.error("Error sending signal: ", error);
-      }
-    } else {
-      console.error("Cannot send data if the connection is not in the 'Connected' State.");
+  const SaveUserConnection = async () => {
+    try {
+      await connection?.invoke("SaveUserConnection", myid);
+      console.log('saveuserconn')
+    } catch (error) {
+      console.error("Error calling user: ", error);
     }
   };
 
+  connection?.on('camera-on',(response)=>{
+    setVideoId(response)
+    connectNewUser(response,localStream)
+  })
 
-  return { joinChatRoom,callUser, receiveSignal, sendSignal };
+
+  myPeer.on('open', ()=> {
+    TurnOnCamera(target);
+  })
+
+  const videoGrid = document.querySelector('[video-grid]')
+  const myVideo = document.createElement('video')
+  myVideo.muted = true;
+  navigator.mediaDevices.getUserMedia({
+    audio:true,
+    video:true
+  }).then(stream=>{
+    addVideoStream(myVideo,stream)
+    localStream = stream
+  })
+
+  myPeer.on('call',call=>{
+    call.answer(localStream)
+
+    const userVideo = document.createElement('video')
+    call.on('stream',userStream=>{
+      addVideoStream(userVideo,userStream)
+    })
+  })
+
+  const addVideoStream=(video:any,stream:any)=>{
+    video.srcObject = stream;
+    video.addEventListener('loadedmetadata',()=>{
+      video.play();
+    })
+    videoGrid?.appendChild(video)
+  }
+
+
+  const connectNewUser = (videoID: string, localStream:any)=>{
+    const userVideo =document.createElement('video');
+    console.log(videoID)
+    const call = myPeer.call(videoID, localStream);
+
+    call.on('stream', userVideoStream => {
+      addVideoStream(userVideo, userVideoStream)
+    })
+  }
+
+  return { joinChatRoom,TurnOnCamera };
 };
