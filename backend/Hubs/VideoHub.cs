@@ -20,34 +20,31 @@ namespace Find_H_er.Hubs
         {
             _context = context;
         }
-        public async Task TurnOnCamera(int targetId)
+        public async Task JoinRoom(int userId, int targetId)
         {
-            var userEmail = Context.User.Identity.Name;
-            var user = await _context.Users.SingleOrDefaultAsync(x => x.Email == userEmail);
-            if (user is null)
+            var user = await _context.Users.SingleOrDefaultAsync(x => x.UserId == userId);
+            var target = await _context.Users.SingleOrDefaultAsync(x => x.UserId == targetId);
+            if(user is null || target is null)
             {
                 throw new NotFoundException("User not found");
             }
-            var targetUser = await _context.Users.SingleOrDefaultAsync(x => x.UserId == targetId);
-            if(targetUser is null)
+            var pair = await _context.Pairs.SingleOrDefaultAsync(x => ((x.SenderId == userId && x.ReceiverId == targetId) || (x.SenderId == targetId && x.ReceiverId == userId)) && x.isBlocked == false);
+            if (pair is null)
             {
                 throw new NotFoundException("User not found");
             }
-            await Clients.Client(targetUser.VideoChatConnectionId).SendAsync("camera-on", user.VideoChatConnectionId);
+            var roomId = pair.RoomConnectionId;
+            await Groups.AddToGroupAsync(user.VideoChatConnectionId, roomId);
+            await Clients.Group(roomId).SendAsync("user-connected", target.VideoChatConnectionId);
         }
         public override Task OnConnectedAsync()
         {
-            var email = Context.GetHttpContext().User.Identity.Name;
-            var user =  _context.Users.SingleOrDefault(x => x.Email == email);
-            user.VideoChatConnectionId = Context.ConnectionId;
-            _context.Update(user);
-            _context.SaveChanges();
             return base.OnConnectedAsync();
         }
         public override Task OnDisconnectedAsync(Exception? exception)
         {
+            Clients.All.SendAsync("user-disconnected");
             return base.OnDisconnectedAsync(exception);
         }
-
     }
 }

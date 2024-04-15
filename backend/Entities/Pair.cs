@@ -7,5 +7,6 @@
         public int ReceiverId { get; set; }
         public bool isBlocked { get; set; } = false;
         public virtual List<Meeting> Meetings { get; set; } = new List<Meeting>();
+        public string? RoomConnectionId { get; set; } = Guid.NewGuid().ToString();
     }
 }
