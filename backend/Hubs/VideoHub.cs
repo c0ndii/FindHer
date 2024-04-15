@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using NLog.Targets;
 using System.Collections.Generic;
 using System.Reflection;
 using TableDependency.SqlClient.Base.Messages;
@@ -20,7 +21,7 @@ namespace Find_H_er.Hubs
         {
             _context = context;
         }
-        public async Task<string> JoinRoom(int userId, int targetId)
+        public async Task JoinRoom(int userId, int targetId)
         {
             var user = await _context.Users.SingleOrDefaultAsync(x => x.UserId == userId);
             var target = await _context.Users.SingleOrDefaultAsync(x => x.UserId == targetId);
@@ -36,6 +37,21 @@ namespace Find_H_er.Hubs
             var roomId = pair.RoomConnectionId;
             await Groups.AddToGroupAsync(user.VideoChatConnectionId, roomId);
             await Clients.Group(roomId).SendAsync("user-connected", target.VideoChatConnectionId);
+        }
+        public async Task<string> GetRoomId(int userId, int targetId)
+        {
+            var user = await _context.Users.SingleOrDefaultAsync(x => x.UserId == userId);
+            var target = await _context.Users.SingleOrDefaultAsync(x => x.UserId == targetId);
+            if (user is null || target is null)
+            {
+                throw new NotFoundException("User not found");
+            }
+            var pair = await _context.Pairs.SingleOrDefaultAsync(x => ((x.SenderId == userId && x.ReceiverId == targetId) || (x.SenderId == targetId && x.ReceiverId == userId)) && x.isBlocked == false);
+            if (pair is null)
+            {
+                throw new NotFoundException("User not found");
+            }
+            var roomId = pair.RoomConnectionId;
             return roomId;
         }
         public override Task OnConnectedAsync()
