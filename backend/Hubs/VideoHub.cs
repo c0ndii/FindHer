@@ -20,7 +20,7 @@ namespace Find_H_er.Hubs
         {
             _context = context;
         }
-        public async Task JoinRoom(int userId, int targetId)
+        public async Task<string> JoinRoom(int userId, int targetId)
         {
             var user = await _context.Users.SingleOrDefaultAsync(x => x.UserId == userId);
             var target = await _context.Users.SingleOrDefaultAsync(x => x.UserId == targetId);
@@ -36,6 +36,7 @@ namespace Find_H_er.Hubs
             var roomId = pair.RoomConnectionId;
             await Groups.AddToGroupAsync(user.VideoChatConnectionId, roomId);
             await Clients.Group(roomId).SendAsync("user-connected", target.VideoChatConnectionId);
+            return roomId;
         }
         public override Task OnConnectedAsync()
         {
