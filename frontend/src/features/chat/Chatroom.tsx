@@ -16,6 +16,7 @@ import { personModel } from '../../api/Match/schema'
 import { IconCamera } from '@tabler/icons-react'
 import { Link } from 'react-router-dom'
 import { useEffect } from 'react'
+import { useRoomId } from '../../api/VideoChat/getRoomId'
 
 type Props = {
   people: personModel[]
@@ -25,6 +26,7 @@ type Props = {
 
 export const Chatroom = ({ people, messages, sendMessage }: Props) => {
   const { activePerson, setActivePerson } = useChatContext()
+  const { data: roomId } = useRoomId(activePerson?.userId!)
 
   return (
     <Flex gap={rem(40)} h="100%">
@@ -50,7 +52,7 @@ export const Chatroom = ({ people, messages, sendMessage }: Props) => {
                 size="xl"
                 radius="xl"
                 component={Link}
-                to={`/app/VideoChat/${activePerson?.userId}`}
+                to={`/app/VideoChat/${roomId}`}
               >
                 <IconCamera />
               </ActionIcon>
