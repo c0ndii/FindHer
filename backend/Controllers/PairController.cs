@@ -33,5 +33,11 @@ namespace Find_H_er.Controllers
             await _pairService.BlockUser(id);
             return Ok();
         }
+        [HttpGet("getroomid/{id}")]
+        public async Task<IActionResult> GetRoomId([FromRoute] int id)
+        {
+            var result = await _pairService.GetRoomId(id);
+            return Ok(result);
+        }
     }
 }

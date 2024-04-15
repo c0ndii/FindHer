@@ -11,6 +11,7 @@ namespace Find_H_er.Services
         Task AddToPairs(int userId);
         Task BlockUser(int userId);
         Task<List<UserDto>> GetPairs();
+        Task<string> GetRoomId(int targetId);
     }
 
     public class PairService : IPairService
@@ -107,6 +108,27 @@ namespace Find_H_er.Services
             pair.isBlocked = true;
             _context.Pairs.Update(pair);
             await _context.SaveChangesAsync();
+        }
+        public async Task<string> GetRoomId(int targetId)
+        {
+            var userId = _userContextService.GetUserId;
+            if(userId is null)
+            {
+                throw new NotFoundException("User id not found");
+            }
+            var user = await _context.Users.SingleOrDefaultAsync(x => x.UserId == userId);
+            var target = await _context.Users.SingleOrDefaultAsync(x => x.UserId == targetId);
+            if (user is null || target is null)
+            {
+                throw new NotFoundException("User not found");
+            }
+            var pair = await _context.Pairs.SingleOrDefaultAsync(x => ((x.SenderId == userId && x.ReceiverId == targetId) || (x.SenderId == targetId && x.ReceiverId == userId)) && x.isBlocked == false);
+            if (pair is null)
+            {
+                throw new NotFoundException("Pair not found");
+            }
+            var roomId = pair.RoomConnectionId;
+            return roomId;
         }
     }
 }
