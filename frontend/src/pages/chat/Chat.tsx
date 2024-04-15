@@ -51,7 +51,7 @@ export const Chat = () => {
         .withUrl('https://localhost:44360/chatHub', {
           accessTokenFactory: () => `Bearer ${Cookies.get('token')}`,
         })
-        .configureLogging(LogLevel.Information)
+        .configureLogging(LogLevel.None)
         .build()
 
       await conn.on('ReceiveMessage', (message) => {

@@ -1,45 +1,60 @@
 import { HubConnection, HubConnectionBuilder, LogLevel } from "@microsoft/signalr";
 import Cookies from "js-cookie";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
-export const useVideoChat = (targetId:string) => {
-  const [connection, setConnection] = useState<HubConnection | undefined>(undefined);
+export const useVideoChat = (target:string) => {
+    const [connection, setConnection] = useState<HubConnection>()
 
-  const conn = useEffect(() => {
-    const newConnection = new HubConnectionBuilder()
-      .withUrl("https://localhost:44360/videoHub", {
-        accessTokenFactory: () => `Bearer ${Cookies.get("token")}`,
-      })
-      .configureLogging(LogLevel.Information)
-      .build();
+    const joinChatRoom = async () => {
+      try {
+        const conn = new HubConnectionBuilder()
+          .withUrl('https://localhost:44360/videoHub', {
+            accessTokenFactory: () => `Bearer ${Cookies.get('token')}`,
+          })
+          .configureLogging(LogLevel.None)
+          .build()
 
-    setConnection(newConnection);
-
-    newConnection.on("IncomingCall", (caller) => {
-    });
-
-    return () => {
-      newConnection.off("IncomingCall");
-      newConnection.stop();
-    };
-  }, []);
-
-  const startConnection = async () => {
-    try {
-      await connection?.start();
-      console.log("SignalR connected.");
-    } catch (error) {
-      console.error("SignalR connection error: ", error);
+        await conn.start()
+        console.log(conn)
+        setConnection(conn)
+      } catch (e) {
+        console.log(e)
+      }
     }
-  };
 
-  const callUser = async (targetConnectionId: string) => {
+  useEffect(() => {
+    if (target !== '' && connection?.state === 'Connected') {
+      //callUser(target);
+    }
+  }, [target, connection]);
+
+
+  const callUser = async (targetId: string) => {
     try {
-      await connection?.invoke("CallUser", targetConnectionId);
+      await connection?.invoke("CallUser", targetId);
+      console.log('called')
     } catch (error) {
       console.error("Error calling user: ", error);
     }
   };
 
-  return { startConnection, callUser };
+  const receiveSignal = (eventName: string, handler: (data: any) => void) => {
+    connection?.on(eventName, handler);
+  };
+
+  const sendSignal = async (eventName: string, data: any) => {
+    if (connection?.state === "Connected") {
+      try {
+        await connection?.send(eventName, data);
+        console.log('sending signal:', eventName)
+      } catch (error) {
+        console.error("Error sending signal: ", error);
+      }
+    } else {
+      console.error("Cannot send data if the connection is not in the 'Connected' State.");
+    }
+  };
+
+
+  return { joinChatRoom,callUser, receiveSignal, sendSignal };
 };
