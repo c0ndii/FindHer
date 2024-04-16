@@ -12,7 +12,7 @@ import {
   IconUsers,
 } from '@tabler/icons-react'
 import classes from './Sidebar.module.css'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 import Logo from '../../assets/logo.png'
 import { useAuth } from '../../features/authentication/hooks/useAuth'
 import Cookies from 'js-cookie'
@@ -32,13 +32,15 @@ function NavbarLink({
   label,
   path,
   active,
+  isInChat,
   onClick,
-}: NavbarLinkProps) {
+}: NavbarLinkProps & { isInChat: boolean }) {
   return (
     <Tooltip label={label} position="right" transitionProps={{ duration: 0 }}>
       <NavLink to={path} style={{ textDecoration: 'none', color: 'inherit' }}>
         <UnstyledButton
-          component="a"
+          style={{ display: isInChat ? 'none' : '' }}
+          disabled={isInChat}
           onClick={onClick}
           className={classes.link}
           data-active={active || undefined}
@@ -61,6 +63,8 @@ function NavbarLink({
 // ]
 
 export const Sidebar = () => {
+  const location = useLocation()
+  const isInChat = location.pathname.includes('VideoChat')
   const [active, setActive] = useState(1)
   const navigate = useNavigate()
   const { t } = useTranslation()
@@ -109,6 +113,7 @@ export const Sidebar = () => {
 
   const links = mockdata.map((link, index) => (
     <NavbarLink
+      isInChat={isInChat}
       icon={link.icon}
       label={link.label} // Używane dla Tooltip, etykieta widoczna dla użytkownika
       path={link.path} // Stała ścieżka używana w NavLink
@@ -129,6 +134,7 @@ export const Sidebar = () => {
             {links}
             {auth?.roles.toString() === 'Admin' && (
               <NavbarLink
+                isInChat={isInChat}
                 icon={IconUsers}
                 label={'users'}
                 path={'/app/Users'}

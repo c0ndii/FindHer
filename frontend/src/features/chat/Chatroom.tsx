@@ -26,7 +26,7 @@ type Props = {
 
 export const Chatroom = ({ people, messages, sendMessage }: Props) => {
   const { activePerson, setActivePerson } = useChatContext()
-  const { data: roomId } = useRoomId(activePerson?.userId!)
+  //const { data: roomId } = useRoomId(activePerson?.userId!)
 
   return (
     <Flex gap={rem(40)} h="100%">
@@ -45,18 +45,17 @@ export const Chatroom = ({ people, messages, sendMessage }: Props) => {
                 {activePerson?.name}
               </Title>
             </Group>
-            <Indicator color="green" size={16} processing>
-              <ActionIcon
-                variant="filled"
-                color="red"
-                size="xl"
-                radius="xl"
-                component={Link}
-                to={`/app/VideoChat/${roomId}`}
-              >
-                <IconCamera />
-              </ActionIcon>
-            </Indicator>
+
+            <ActionIcon
+              variant="filled"
+              color="red"
+              size="xl"
+              radius="xl"
+              component={Link}
+              to={`/app/VideoChat/${activePerson?.userId}`}
+            >
+              <IconCamera />
+            </ActionIcon>
           </Flex>
 
           <Divider mb="0" mt={rem(24)} />

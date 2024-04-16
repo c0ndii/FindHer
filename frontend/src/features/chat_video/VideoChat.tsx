@@ -1,92 +1,150 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
+import Peer, { DataConnection } from 'peerjs'
+import { useId } from '../../api/User/GetId'
 import { useParams } from 'react-router-dom'
-import Peer from 'peerjs'
+import { ActionIcon, Box, Center, Stack, Text, Tooltip } from '@mantine/core'
+import { IconPhoneCall } from '@tabler/icons-react'
+import { IconPhoneX } from '@tabler/icons-react'
 
-export const VideoChat: React.FC = () => {
-  const { target: roomId } = useParams<{ target: string }>()
-  const [peerId, setPeerId] = useState<string | undefined>(undefined)
+export const VideoChat = () => {
+  const { data: myId } = useId()
+  const { target: targetId } = useParams<{ target: string }>()
+  const [dataConnection, setDataConnection] = useState<DataConnection | null>(
+    null
+  )
+  const [remotePeerIdValue, setRemotePeerIdValue] = useState<string>('')
   const remoteVideoRef = useRef<HTMLVideoElement>(null)
   const currentUserVideoRef = useRef<HTMLVideoElement>(null)
   const peerInstance = useRef<Peer | null>(null)
-  const mediaStreamRef = useRef<MediaStream | null>(null)
 
   useEffect(() => {
-    const initializePeer = async () => {
-      try {
-        const peer = new Peer()
-
-        peer.on('open', async (id) => {
-          setPeerId(id)
-          console.log('Connected to room:', roomId)
-          callOtherUsers(peer, roomId!)
-        })
-
-        peer.on('call', (call) => {
-          console.log(`Received call from peer: ${call.peer}`)
-          if (mediaStreamRef.current) {
-            call.answer(mediaStreamRef.current)
-
-            call.on('stream', (remoteStream) => {
-              remoteVideoRef.current!.srcObject = remoteStream
-              remoteVideoRef.current!.addEventListener('loadedmetadata', () => {
-                remoteVideoRef.current!.play()
-              })
-            })
-          } else {
-            console.error('MediaStream is not available.')
-          }
-        })
-
-        const mediaStream = await navigator.mediaDevices.getUserMedia({
-          video: true,
-          audio: false,
-        })
-        mediaStreamRef.current = mediaStream
-        currentUserVideoRef.current!.srcObject = mediaStream
-        currentUserVideoRef.current!.addEventListener('loadedmetadata', () => {
-          currentUserVideoRef.current!.play()
-        })
-
-        peerInstance.current = peer
-      } catch (error) {
-        console.error('Error initializing Peer:', error)
-      }
+    if (targetId) {
+      setRemotePeerIdValue(targetId)
+      call(targetId)
     }
+  }, [targetId])
 
-    initializePeer()
+  useEffect(() => {
+    const peer = new Peer(myId)
+
+    peer.on('open', () => {})
+
+    peer?.on('connection', (conn) => {
+      setDataConnection(conn)
+    })
+
+    peer.on('call', (call) => {
+      navigator.mediaDevices
+        .getUserMedia({ video: true, audio: true })
+        .then((mediaStream) => {
+          setVideoStream(currentUserVideoRef.current, mediaStream)
+          call.answer(mediaStream)
+          call.on('stream', (remoteStream) => {
+            setVideoStream(remoteVideoRef.current, remoteStream)
+          })
+        })
+        .catch((error) => {
+          console.error('Error accessing media devices:', error)
+        })
+    })
+
+    peerInstance.current = peer
 
     return () => {
-      if (peerInstance.current) {
-        peerInstance.current.disconnect()
-      }
+      peer.disconnect()
     }
-  }, [roomId])
+  }, [])
 
-  const callOtherUsers = (peer: Peer, roomId: string) => {
-    peer.listAllPeers((peers) => {
-      peers.forEach((peerId) => {
-        if (peerId !== peer.id) {
-          const call = peer.call(peerId, mediaStreamRef.current!)
+  const call = (remotePeerId: string) => {
+    navigator.mediaDevices
+      .getUserMedia({ video: true, audio: true })
+      .then((mediaStream) => {
+        setVideoStream(currentUserVideoRef.current, mediaStream)
+        const call = peerInstance.current?.call(remotePeerId, mediaStream)
+
+        if (call) {
           call.on('stream', (remoteStream) => {
-            remoteVideoRef.current!.srcObject = remoteStream
-            remoteVideoRef.current!.addEventListener('loadedmetadata', () => {
-              remoteVideoRef.current!.play()
-            })
+            setVideoStream(remoteVideoRef.current, remoteStream)
           })
         }
       })
-    })
+      .catch((error) => {
+        console.error('Error accessing media devices:', error)
+      })
+  }
+
+  const setVideoStream = (
+    videoRef: HTMLVideoElement | null,
+    stream: MediaStream
+  ) => {
+    if (videoRef) {
+      videoRef.srcObject = stream
+      videoRef.play().catch((error) => {
+        console.error('Error playing video:', error)
+      })
+    }
+  }
+
+  const handleDisconnect = () => {
+    window.location.reload()
   }
 
   return (
-    <div>
-      <h1>Current user id is {peerId}</h1>
-      <div>
-        <video ref={currentUserVideoRef} autoPlay muted />
-      </div>
-      <div>
-        <video ref={remoteVideoRef} autoPlay />
-      </div>
-    </div>
+    <Center style={{ padding: 64 }}>
+      <Stack gap={64}>
+        <Text size="xl" fw={256} style={{ textAlign: 'center' }}>
+          Video chat room
+        </Text>
+        <Box
+          display={'flex'}
+          style={{
+            alignItems: 'center',
+            width: 'auto',
+            justifyContent: 'center',
+            gap: 256,
+          }}
+        >
+          <Tooltip label="Call user">
+            <ActionIcon
+              variant="filled"
+              color="red"
+              size="xl"
+              radius="xl"
+              onClick={() => call(remotePeerIdValue)}
+            >
+              <IconPhoneCall />
+            </ActionIcon>
+          </Tooltip>
+          <Tooltip label="Disconnect">
+            <ActionIcon
+              variant="filled"
+              color="red"
+              size="xl"
+              radius="xl"
+              onClick={handleDisconnect}
+            >
+              <IconPhoneX />
+            </ActionIcon>
+          </Tooltip>
+        </Box>
+        <Box display={'flex'} style={{ gap: 32 }}>
+          <Box style={{ width: '500px', height: '450px', overflow: 'hidden' }}>
+            <video
+              ref={currentUserVideoRef}
+              muted
+              autoPlay
+              style={{ width: '100%', height: '100%' }}
+            />
+          </Box>
+          <Box style={{ width: '500px', height: '450px', overflow: 'hidden' }}>
+            <video
+              ref={remoteVideoRef}
+              autoPlay
+              style={{ width: '100%', height: '100%' }}
+            />
+          </Box>
+        </Box>
+      </Stack>
+    </Center>
   )
 }
