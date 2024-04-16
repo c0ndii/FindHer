@@ -15,6 +15,8 @@ using Find_H_er.Models.Validators;
 using NLog.Web;
 using System.Reflection;
 using Find_H_er.Hubs;
+using PeerJs;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -74,6 +76,7 @@ builder.Services.AddScoped<IMeetingService, MeetingService>();
 builder.Services.AddTransient<IEmailSenderService, EmailSenderService>();
 builder.Services.AddScoped<IMatchFormService, MatchFormService>();
 builder.Services.AddScoped<IUserContextService, UserContextService>();
+builder.Services.AddPeerJsServer();
 builder.Services.AddScoped<ErrorHandlingMiddleware>();
 var app = builder.Build();
 app.UseStatusCodePages();
@@ -91,6 +94,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UsePeerJsServer();
 app.UseMiddleware<ErrorHandlingMiddleware>();
 app.UseAuthentication();
 app.UseHttpsRedirection();
