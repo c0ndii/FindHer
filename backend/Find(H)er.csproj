@@ -43,8 +43,4 @@
     <Folder Include="Exceptions\Handlers\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\VideoCall\peerjs-server-net-master\src\PeerJsServer\PeerJsServer.csproj" />
-  </ItemGroup>
-
 </Project>
