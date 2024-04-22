@@ -1,9 +1,7 @@
-import { Button, Group, Text, Modal, Box, Tooltip } from '@mantine/core'
+import { Button, Group, Text, Modal, Tooltip, Flex, rem } from '@mantine/core'
 import { useForm } from 'react-hook-form'
 import { useDisclosure } from '@mantine/hooks'
-import { Card } from '@mantine/core'
-import { IconCheck, IconX, IconLock } from '@tabler/icons-react'
-import { t } from 'i18next'
+import { IconCheck, IconX, IconLock, IconBan } from '@tabler/icons-react'
 import { personModel } from '../../api/Match/schema'
 import { useBlockUser } from '../../api/Pair/BlockUser'
 
@@ -24,53 +22,50 @@ export const BlockUserCard = ({ person }: Props) => {
       <Button onClick={open} color="red" mt="md" radius="md">
         <IconLock />
       </Button>
-      <Modal opened={opened} onClose={close} size={'25%'} centered padding={0}>
+      <Modal
+        size="md"
+        radius="lg"
+        opened={opened}
+        onClose={close}
+        centered
+        padding={rem(16)}
+      >
         <form onSubmit={handleSubmit(onSubmit)}>
-          <Card padding="xl" radius="md">
-            <Card.Section
+          <Flex
+            justify="center"
+            align="center"
+            direction="column"
+            mih={rem(160)}
+            style={{
+              textAlign: 'center',
+            }}
+          >
+            <Text
+              size="xl"
               style={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignContent: 'center',
+                lineHeight: '2', // Adjust based on your font size
+                maxWidth: '90%', // Keeps text from being too wide
               }}
             >
-              <Text size={'xl'}>Are you sure to block {person.name}?</Text>
-            </Card.Section>
-          </Card>
-          <Group>
-            <Box
-              display={'flex'}
-              style={{ width: '100vw', overflow: 'hidden', height: '50px' }}
-            >
-              <Tooltip label="Cancel">
-                <Button
-                  color="red"
-                  fullWidth
-                  radius={0}
-                  style={{ height: '50px' }}
-                  onClick={() => {
-                    close()
-                  }}
-                >
-                  <IconX />
-                </Button>
-              </Tooltip>
-              <Tooltip label={`Block ${person.name}`}>
-                <Button
-                  color="green"
-                  fullWidth
-                  radius={0}
-                  style={{ height: '50px' }}
-                  onClick={() => {
-                    blockUser(person.userId)
-                    close()
-                  }}
-                >
-                  <IconCheck />
-                </Button>
-              </Tooltip>
-            </Box>
-          </Group>
+              Are you sure you want to block {person.name}?
+            </Text>
+            <Tooltip label={`Block ${person.name}`}>
+              <Button
+                px="xl"
+                mt={rem(16)}
+                leftSection={<IconBan stroke={2} />}
+                color="red"
+                radius="md"
+                style={{ height: '50px' }}
+                onClick={() => {
+                  blockUser(person.userId)
+                  close()
+                }}
+              >
+                <Text size="lg">Block </Text>
+              </Button>
+            </Tooltip>
+          </Flex>
         </form>
       </Modal>
     </>

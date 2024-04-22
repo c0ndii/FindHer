@@ -1,4 +1,17 @@
-import { Button, Group, Text, Modal, Box, Chip, Tooltip } from '@mantine/core'
+import {
+  Button,
+  Group,
+  Text,
+  Modal,
+  Box,
+  Chip,
+  Tooltip,
+  rem,
+  Stack,
+  Flex,
+  Textarea,
+  Center,
+} from '@mantine/core'
 import { useForm } from 'react-hook-form'
 import { useDisclosure } from '@mantine/hooks'
 import { Card, Image } from '@mantine/core'
@@ -27,135 +40,93 @@ export const EachUserCard = ({ person }: Props) => {
       <Button onClick={open} color="red" fullWidth mt="md" radius="md">
         {t('home.details')}
       </Button>
-      <Modal opened={opened} onClose={close} size={'55%'} centered padding={0}>
+      <Modal
+        opened={opened}
+        onClose={close}
+        centered
+        radius="lg"
+        size="xl"
+        padding={rem(16)}
+      >
         <form onSubmit={handleSubmit(onSubmit)}>
-          <Card padding="xl" radius="md">
-            <Card.Section
+          <Flex h={rem(160)} gap="lg">
+            <Image
+              src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png"
+              height={160}
+              alt={person.image}
               style={{
-                display: 'flex',
-                justifyContent: 'space-around',
-                paddingBottom: '20px',
+                border: '1px solid lightGray',
+                borderRadius: '10px',
               }}
-            >
-              <Group
+            />
+            <Stack w="75%">
+              <Text fw={700} size="xl" tt="capitalize">
+                {person.name}
+              </Text>
+              <Box
+                h="100%"
+                w="100%"
                 style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  maxWidth: '40%',
+                  border: '1px solid lightGray',
+                  borderRadius: '10px',
+                  padding: '10px',
                 }}
               >
-                <Image
-                  src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png"
-                  height={160}
-                  alt={person.image}
-                  style={{
-                    border: '1px solid lightGray',
-                    borderRadius: '10px',
-                  }}
-                />
-                <Text fw={700} size="xl" tt="capitalize">
-                  {person.name}
+                <Text
+                  h="100%"
+                  style={{ overflowWrap: 'break-word' }}
+                  lineClamp={3}
+                >
+                  {person.description}
                 </Text>
-              </Group>
-              <Group
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  maxWidth: '60%',
+              </Box>
+            </Stack>
+          </Flex>
+          <SocialMedia />
+          <Group
+            style={{ flexGrow: 1 }}
+            w="80%"
+            mx="auto"
+            align="center"
+            justify="center"
+          >
+            {person.interests.map((interest) => (
+              <Chip checked={false} color="red" variant="light" size="xs">
+                {interest.name}
+              </Chip>
+            ))}
+          </Group>
+          <Group mt="lg" justify="space-evenly">
+            <Tooltip label="Remove match">
+              <Button
+                leftSection={<IconX />}
+                color="red"
+                w={rem(200)}
+                radius="md"
+                style={{ height: '50px' }}
+                onClick={() => {
+                  cancelUser(person.userId)
+                  close()
                 }}
               >
-                <Box
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    border: '1px solid lightGray',
-                    borderRadius: '10px',
-                    padding: '10px',
-                  }}
-                >
-                  <Text size="sm" style={{ paddingBottom: '40px' }}>
-                    {person.description}
-                  </Text>
-                  <SocialMedia />
-                </Box>
-                <Box>
-                  <Box
-                    display={'flex'}
-                    style={{
-                      gap: '5px',
-                      flexWrap: 'wrap',
-                    }}
-                  >
-                    {person.interests.map((interest) => (
-                      <Chip
-                        checked={false}
-                        color="red"
-                        variant="light"
-                        size="xs"
-                      >
-                        {interest.name}
-                      </Chip>
-                    ))}
-                    <Chip checked={false} color="red" variant="light" size="xs">
-                      Sushi
-                    </Chip>
-                    <Chip checked={false} color="red" variant="light" size="xs">
-                      Auta
-                    </Chip>
-                    <Chip checked={false} color="red" variant="light" size="xs">
-                      Sport
-                    </Chip>
-                    <Chip checked={false} color="red" variant="light" size="xs">
-                      Telewizor
-                    </Chip>
-                    <Chip checked={false} color="red" variant="light" size="xs">
-                      Książki
-                    </Chip>
-                    <Chip checked={false} color="red" variant="light" size="xs">
-                      Badminton
-                    </Chip>
-                    <Chip checked={false} color="red" variant="light" size="xs">
-                      Kasyno
-                    </Chip>
-                  </Box>
-                </Box>
-              </Group>
-            </Card.Section>
-          </Card>
-          <Group>
-            <Box
-              display={'flex'}
-              style={{ width: '100vw', overflow: 'hidden', height: '50px' }}
-            >
-              <Tooltip label="Remove match">
-                <Button
-                  color="red"
-                  fullWidth
-                  radius={0}
-                  style={{ height: '50px' }}
-                  onClick={() => {
-                    cancelUser(person.userId)
-                    close()
-                  }}
-                >
-                  <IconX />
-                </Button>
-              </Tooltip>
-              <Tooltip label={`Pair with ${person.name}`}>
-                <Button
-                  color="green"
-                  fullWidth
-                  radius={0}
-                  style={{ height: '50px' }}
-                  onClick={() => {
-                    addToPair(person.userId)
-                    close()
-                  }}
-                >
-                  <IconCheck />
-                </Button>
-              </Tooltip>
-            </Box>
+                Unmatch
+              </Button>
+            </Tooltip>
+            <Tooltip label={`Pair with ${person.name}`}>
+              <Button
+                leftSection={<IconCheck />}
+                color="green"
+                w={rem(200)}
+                radius="md"
+                style={{ height: '50px' }}
+                onClick={() => {
+                  addToPair(person.userId)
+                  close()
+                }}
+              >
+                Pair
+              </Button>
+            </Tooltip>
           </Group>
         </form>
       </Modal>

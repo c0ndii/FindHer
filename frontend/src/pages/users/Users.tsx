@@ -16,7 +16,7 @@ export const Users = () => {
       columns={16}
     >
       {people ? (
-        people.map((user) => (
+        people.map((user : any) => (
           <GridCol span={{ lg: 7, xl: 5, base: 8 }} mih="400px" miw="400px">
             <Center>
               <UserCard person={user}>

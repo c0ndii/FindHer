@@ -1,4 +1,14 @@
-import { Button, Card, Group, Modal, Box, TextInput, Text } from '@mantine/core'
+import {
+  Button,
+  Card,
+  Group,
+  Modal,
+  Box,
+  TextInput,
+  Text,
+  Flex,
+  rem,
+} from '@mantine/core'
 import { DatePicker, DateTimePicker } from '@mantine/dates'
 import '@mantine/dates/styles.css'
 import { personModel } from '../../api/Match/schema'
@@ -47,75 +57,66 @@ export const MeetingModal = ({ person }: Props) => {
         <IconCalendar />
         Meeting
       </Button>
-      <Modal opened={opened} onClose={close} size={'25%'} centered padding={0}>
+      <Modal
+        size="md"
+        radius="lg"
+        opened={opened}
+        onClose={close}
+        centered
+        padding={rem(16)}
+      >
         <form onSubmit={form.handleSubmit(onSubmit)} {...form}>
-          <Card padding="xl" radius="md">
-            <Card.Section
-              style={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignContent: 'center',
-                flexDirection: 'column',
-                gap: 25,
-                padding: 20,
-                marginBottom: 5,
-              }}
-            >
-              <Text size="xl">Create meeting</Text>
+          <Flex
+            w="100%"
+            justify="center"
+            align="start"
+            direction="column"
+            mih="320px" // Adjust min-height based on your content needs
+            style={{
+              gap: '20px', // Provides consistent spacing between form elements
+            }}
+          >
+            <Text mx="auto" size="xl">
+              Create meeting
+            </Text>
+            <Group mx="auto" w="80%">
               <TextInput
+                w="100%"
                 label={'Name'}
                 placeholder={'Meeting name'}
                 {...form.register('meetingName')}
                 error={form.formState.errors.meetingName?.message}
               />
               <TextInput
+                w="100%"
                 label={'Place'}
                 placeholder={'Meeting place'}
                 {...form.register('meetingPlace')}
                 error={form.formState.errors.meetingPlace?.message}
               />
-              <Box>
-                <DateTimePicker
-                  label={'Date'}
-                  placeholder={format(new Date(), "yyyy-MM-dd'T'HH:mm:ss'Z'")}
-                  value={date}
-                  onChange={setDate}
-                  minDate={new Date()}
-                />
-              </Box>
-            </Card.Section>
-          </Card>
-          <Group>
-            <Box
-              display={'flex'}
-              style={{
-                width: '100vw',
-                overflow: 'hidden',
-                height: '50px',
-              }}
-            >
+              <DateTimePicker
+                w="100%"
+                label={'Date'}
+                placeholder={format(new Date(), "yyyy-MM-dd'T'HH:mm:ss'Z'")}
+                value={date}
+                onChange={setDate}
+                minDate={new Date()}
+              />
+
               <Button
-                color="red"
-                fullWidth
-                radius={0}
-                style={{ height: '50px' }}
-                onClick={() => {
-                  close()
-                }}
-              >
-                <IconX />
-              </Button>
-              <Button
+                mx="auto"
+                px="lg"
+                leftSection={<IconCheck stroke={2} />}
+                mt="lg"
                 color="green"
-                fullWidth
-                radius={0}
+                radius={2.5}
                 style={{ height: '50px' }}
                 type="submit"
               >
-                <IconCheck />
+                <Text size="lg">Create</Text>
               </Button>
-            </Box>
-          </Group>
+            </Group>
+          </Flex>
         </form>
       </Modal>
     </>
