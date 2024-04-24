@@ -13,6 +13,7 @@ namespace Find_H_er.Entities
         public DbSet<UserSetting> UserSettings { get; set; }
         public DbSet<Interest> Interests { get; set; }
         public DbSet<Preference> Preferences { get; set; }
+        public DbSet<PreferenceCategory> PreferenceCategories { get; set; }
         public DbSet<Match> Matches {  get; set; }
         public DbSet<Pair> Pairs {  get; set; }
         public DbSet<Role> Roles { get; set; }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   Text,
   Box,
@@ -8,13 +8,21 @@ import {
   rem,
   Paper,
   Container,
+  Group,
+  Button,
 } from '@mantine/core'
 import classes from './Preferences.module.css'
 import { t } from 'i18next'
+import { useSetState } from '@mantine/hooks'
+import { preference, useGetAllPreferences } from '../../api/Preferences/getAll'
+import {
+  preferenceCategory,
+  useGetAllPreferenceCategories,
+} from '../../api/PreferenceCategories/getAll'
 
 interface PreferenceCategoryProps {
   categoryName: string
-  chips: string[]
+  chips: preferenceCategory[]
 }
 
 const PreferenceCategory: React.FC<PreferenceCategoryProps> = ({
@@ -28,8 +36,14 @@ const PreferenceCategory: React.FC<PreferenceCategoryProps> = ({
     <Paper bg="gray">
       <Box className={classes.chipcontainer}>
         {chips.map((preference, index) => (
-          <Chip key={index} color="red" variant="filled" size="xs">
-            {preference}
+          <Chip
+            key={index}
+            color="red"
+            variant="filled"
+            size="xs"
+            value={preference.id.toString()}
+          >
+            {preference.name}
           </Chip>
         ))}
       </Box>
@@ -38,17 +52,9 @@ const PreferenceCategory: React.FC<PreferenceCategoryProps> = ({
 )
 
 export const Preferences = () => {
-  const categories = [
-    {
-      name: t('preferences.cardTitle.culinary'),
-      preferences: ['Sushi', 'Pizza'],
-    },
-    { name: 'Sport', preferences: [] },
-    { name: t('preferences.cardTitle.culture'), preferences: [] },
-    { name: t('preferences.cardTitle.personal'), preferences: [] },
-    { name: t('preferences.cardTitle.personal'), preferences: [] },
-    { name: t('preferences.cardTitle.personal'), preferences: [] },
-  ]
+  const [preferencesChanged, setPreferencesChanged] = useState<boolean>(false)
+  const preferences = useGetAllPreferences().data
+  const categories = useGetAllPreferenceCategories().data
 
   return (
     <Flex
@@ -73,14 +79,36 @@ export const Preferences = () => {
         display="flex"
         style={{ gap: '20px', flexWrap: 'wrap', justifyContent: 'center' }}
       >
-        {categories.map((category, index) => (
-          <PreferenceCategory
-            key={index}
-            categoryName={category.name}
-            chips={category.preferences}
-          />
-        ))}
+        {preferences && (
+          <Chip.Group
+            multiple
+            onChange={async (e) => {
+              console.log(e)
+              setPreferencesChanged(true)
+              setTimeout(() => {
+                setPreferencesChanged(false)
+              }, 4000)
+            }}
+          >
+            {categories?.map((category, index) => (
+              <PreferenceCategory
+                key={index}
+                categoryName={category.name}
+                chips={preferences[category.id]}
+              />
+            ))}
+          </Chip.Group>
+        )}
       </Box>
+      <Button mx="auto" color="red" w={rem(140)} disabled={!preferencesChanged}>
+        Update
+      </Button>
+      <Chip key={12442} value={1}>
+        a
+      </Chip>
+      <Chip key={2342} value={2}>
+        b
+      </Chip>
     </Flex>
   )
 }

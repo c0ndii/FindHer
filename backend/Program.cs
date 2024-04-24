@@ -76,6 +76,8 @@ builder.Services.AddTransient<IEmailSenderService, EmailSenderService>();
 builder.Services.AddScoped<IMatchFormService, MatchFormService>();
 builder.Services.AddScoped<IUserContextService, UserContextService>();
 builder.Services.AddScoped<ErrorHandlingMiddleware>();
+builder.Services.AddScoped<IPreferenceService, PreferenceService>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
 var app = builder.Build();
 app.UseStatusCodePages();
 // Configure the HTTP request pipeline.
