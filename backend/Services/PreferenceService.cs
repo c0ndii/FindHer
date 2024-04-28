@@ -2,6 +2,7 @@
 using Find_H_er.Exceptions;
 using Find_H_er.Models;
 using Microsoft.EntityFrameworkCore;
+using NLog.LayoutRenderers;
 
 namespace Find_H_er.Services;
 
@@ -9,6 +10,7 @@ public interface IPreferenceService
 {
     Task<List<PreferenceDto>> GetAll();
     Task<List<PreferenceDto>> GetUserPreferenceIds();
+    Task UpdateUserPreferenceIds(List<int> preferenceIds);
 }
 
 public class PreferenceService : IPreferenceService
@@ -43,5 +45,27 @@ public class PreferenceService : IPreferenceService
             Name = p.Name,
             CategoryId = p.CategoryId,
         }).ToList();
+    }
+
+    public async Task UpdateUserPreferenceIds(List<int> preferenceIds)
+    {
+        var userId = _userContextService.GetUserId;
+        var user = await _context.Users.Include(u => u.Preferences).SingleAsync(x => x.UserId == userId);
+        var preferences = await _context.Preferences
+            .Where(p => preferenceIds.Contains(p.PreferenceId))
+            .ToListAsync();
+        
+        user.Preferences = preferences;
+        _context.Update(user);
+        try
+        {
+            await _context.SaveChangesAsync();
+
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
     }
 }

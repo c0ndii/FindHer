@@ -21,4 +21,8 @@ public class PreferenceController : Controller
     public async Task<List<PreferenceDto>> GetUserPreferenceIds() 
         => await _preferenceService.GetUserPreferenceIds();
 
+    [HttpPut("user")]
+    public async Task UpdateUserPreferenceIds(List<int> preferenceIds) 
+        => await _preferenceService.UpdateUserPreferenceIds(preferenceIds);
+
 }

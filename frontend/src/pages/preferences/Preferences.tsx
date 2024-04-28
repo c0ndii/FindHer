@@ -19,6 +19,7 @@ import {
 import { on } from 'events'
 import { useGetUserPreferences } from '../../api/Preferences/getUserPreferences'
 import { notifications } from '@mantine/notifications'
+import { useUpdateUserPreferences } from '../../api/Preferences/updateUserPreferences'
 
 interface PreferenceCategoryProps {
   categoryName: string
@@ -71,12 +72,19 @@ export const Preferences = () => {
   const { data: categories } = useGetAllPreferenceCategories()
   const { data: userPreferences } = useGetUserPreferences()
   const [userPreferencsIds, setUserPreferencsIds] = useState<string[]>([])
+  const { mutate } = useUpdateUserPreferences()
 
   useEffect(() => {
     if (userPreferences) {
       setUserPreferencsIds(userPreferences.map((p) => p.id.toString()))
     }
   }, [userPreferences])
+
+  const handleUpdate = () => {
+    mutate({ preferenceIds: userPreferencsIds })
+    setPreferencesChanged(false)
+    refetch()
+  }
 
   return (
     <Flex
@@ -104,14 +112,7 @@ export const Preferences = () => {
             multiple
             onChange={async (e) => {
               setUserPreferencsIds(e)
-              notifications.show({
-                message: 'xd',
-              })
-              console.log(e)
               setPreferencesChanged(true)
-              setTimeout(() => {
-                setPreferencesChanged(false)
-              }, 4000)
             }}
           >
             {categories?.map((category, index) => (
@@ -129,6 +130,7 @@ export const Preferences = () => {
         mx="auto"
         color="red"
         w={rem(140)}
+        onClick={handleUpdate}
         disabled={!preferencesChanged}
       >
         Update

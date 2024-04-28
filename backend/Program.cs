@@ -14,6 +14,7 @@ using Find_H_er.Models;
 using Find_H_er.Models.Validators;
 using NLog.Web;
 using System.Reflection;
+using System.Text.Json.Serialization;
 using Find_H_er.Hubs;
 
 
@@ -52,7 +53,8 @@ builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 // Add services to the container.
 
 builder.Services.AddProblemDetails();
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddJsonOptions(options => options.JsonSerializerOptions.NumberHandling = JsonNumberHandling.AllowReadingFromString);
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
