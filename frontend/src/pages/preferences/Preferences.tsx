@@ -1,60 +1,82 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   Text,
   Box,
   Chip,
-  Center,
   Flex,
   rem,
   Paper,
-  Container,
-  Group,
   Button,
+  ScrollArea,
 } from '@mantine/core'
 import classes from './Preferences.module.css'
 import { t } from 'i18next'
-import { useSetState } from '@mantine/hooks'
-import { preference, useGetAllPreferences } from '../../api/Preferences/getAll'
+import { useGetAllPreferences } from '../../api/Preferences/getAll'
 import {
   preferenceCategory,
   useGetAllPreferenceCategories,
 } from '../../api/PreferenceCategories/getAll'
+import { on } from 'events'
+import { useGetUserPreferences } from '../../api/Preferences/getUserPreferences'
+import { notifications } from '@mantine/notifications'
 
 interface PreferenceCategoryProps {
   categoryName: string
-  chips: preferenceCategory[]
+  preferences: preferenceCategory[]
 }
 
 const PreferenceCategory: React.FC<PreferenceCategoryProps> = ({
   categoryName,
-  chips,
-}) => (
-  <Box>
-    <Text fz={20} fw={400} className={classes.name}>
-      {categoryName}
-    </Text>
-    <Paper bg="gray">
-      <Box className={classes.chipcontainer}>
-        {chips.map((preference, index) => (
-          <Chip
-            key={index}
-            color="red"
-            variant="filled"
-            size="xs"
-            value={preference.id.toString()}
+  preferences,
+}) => {
+  return (
+    <Box>
+      <Text fz={20} fw={400} className={classes.name}>
+        {categoryName}
+      </Text>
+      <Paper bg="gray">
+        <ScrollArea type="auto">
+          <Flex
+            p={rem(10)}
+            wrap="wrap"
+            h={rem(230)}
+            w={rem(420)}
+            justify="start"
+            align="start"
           >
-            {preference.name}
-          </Chip>
-        ))}
-      </Box>
-    </Paper>
-  </Box>
-)
+            <Flex wrap="wrap" gap={rem(24)}>
+              {preferences.map((preference, index) => (
+                <Chip
+                  styles={{ root: { height: rem(16) } }}
+                  key={index}
+                  color="red"
+                  variant="filled"
+                  size="xs"
+                  value={preference.id.toString()}
+                >
+                  {preference.name}
+                </Chip>
+              ))}
+            </Flex>
+          </Flex>
+        </ScrollArea>
+      </Paper>
+    </Box>
+  )
+}
 
 export const Preferences = () => {
   const [preferencesChanged, setPreferencesChanged] = useState<boolean>(false)
-  const preferences = useGetAllPreferences().data
-  const categories = useGetAllPreferenceCategories().data
+  const { data: preferences, refetch } = useGetAllPreferences()
+  const { data: categories } = useGetAllPreferenceCategories()
+  const { data: userPreferences } = useGetUserPreferences()
+  const [userPreferencsIds, setUserPreferencsIds] = useState<string[]>([])
+
+  useEffect(() => {
+    if (userPreferences) {
+      setUserPreferencsIds(userPreferences.map((p) => p.id.toString()))
+    }
+  }, [userPreferences])
 
   return (
     <Flex
@@ -75,14 +97,16 @@ export const Preferences = () => {
           {t('preferences.title')}
         </Text>
       </Box>
-      <Box
-        display="flex"
-        style={{ gap: '20px', flexWrap: 'wrap', justifyContent: 'center' }}
-      >
-        {preferences && (
+      <Flex wrap="wrap" gap={rem(24)} align="center" justify="center">
+        {preferences && userPreferences && (
           <Chip.Group
+            value={userPreferencsIds}
             multiple
             onChange={async (e) => {
+              setUserPreferencsIds(e)
+              notifications.show({
+                message: 'xd',
+              })
               console.log(e)
               setPreferencesChanged(true)
               setTimeout(() => {
@@ -94,21 +118,21 @@ export const Preferences = () => {
               <PreferenceCategory
                 key={index}
                 categoryName={category.name}
-                chips={preferences[category.id]}
+                preferences={preferences[category.id]}
               />
             ))}
           </Chip.Group>
         )}
-      </Box>
-      <Button mx="auto" color="red" w={rem(140)} disabled={!preferencesChanged}>
+      </Flex>
+      <Button
+        mb="xl"
+        mx="auto"
+        color="red"
+        w={rem(140)}
+        disabled={!preferencesChanged}
+      >
         Update
       </Button>
-      <Chip key={12442} value={1}>
-        a
-      </Chip>
-      <Chip key={2342} value={2}>
-        b
-      </Chip>
     </Flex>
   )
 }

@@ -1,16 +1,11 @@
 import Cookies from 'js-cookie'
 import axios from 'axios'
 import { useQuery } from '@tanstack/react-query'
+import { preference } from './getAll'
 
-export type preference = {
-  id: number
-  name: string
-  categoryId: number
-}
+const baseUrl = 'https://localhost:44360/api/preferences/user'
 
-const baseUrl = 'https://localhost:44360/api/preferences'
-
-export const getAll = async () => {
+export const getUserPreferences = async () => {
   try {
     const response = await axios.get(baseUrl, {
       headers: {
@@ -22,22 +17,20 @@ export const getAll = async () => {
     })
 
     if (response.status === 200) {
-      const preferences =
-        (response.data as preference[]) ??
-        console.error('Invalid return format')
-
-      return preferences.reduce(
-        (acc: Record<number, preference[]>, p: preference) => {
+      const preferences = response.data as preference[]
+      return preferences
+      /*  return preferences.reduce(
+        (acc: Record<number, Set<number>>, p: preference) => {
           const key = p.categoryId
 
           if (!acc[key]) {
-            acc[key] = []
+            acc[key] = new Set<number>()
           }
-          acc[key].push(p)
+          acc[key].add(p.id)
           return acc
         },
-        {} as Record<number, preference[]>
-      )
+        {} as Record<number, Set<number>>
+      ) */
     } else {
       throw new Error(
         `Edit profile failed: ${JSON.stringify(response.headers)}`
@@ -49,9 +42,9 @@ export const getAll = async () => {
   }
 }
 
-export const useGetAllPreferences = () => {
+export const useGetUserPreferences = () => {
   return useQuery({
-    queryKey: ['getAllPreferences'],
-    queryFn: getAll,
+    queryKey: ['getUserPreferenceIds'],
+    queryFn: getUserPreferences,
   })
 }
