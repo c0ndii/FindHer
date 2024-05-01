@@ -90,10 +90,12 @@ export const Preferences = () => {
     <Flex
       direction="column"
       gap={{ lg: rem(80), base: rem(20) }}
-      justify="center"
+      justify="start"
+      align="center"
       w="80%"
       mx="auto"
       mt={{ lg: rem(40), base: rem(10) }}
+      style={{ flexGrow: 1 }}
     >
       <Box>
         <Text
@@ -126,6 +128,7 @@ export const Preferences = () => {
         )}
       </Flex>
       <Button
+        mt="auto"
         mb="xl"
         mx="auto"
         color="red"

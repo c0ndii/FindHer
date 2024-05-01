@@ -9,8 +9,8 @@ namespace Find_H_er.Services;
 public interface IPreferenceService
 {
     Task<List<PreferenceDto>> GetAll();
-    Task<List<PreferenceDto>> GetUserPreferenceIds();
-    Task UpdateUserPreferenceIds(List<int> preferenceIds);
+    Task<List<PreferenceDto>> GetUserPreferences();
+    Task UpdateUserPreferences(List<int> preferenceIds);
 }
 
 public class PreferenceService : IPreferenceService
@@ -33,7 +33,7 @@ public class PreferenceService : IPreferenceService
                 CategoryId = p.CategoryId,
             }).ToListAsync();
 
-    public async Task<List<PreferenceDto>> GetUserPreferenceIds()
+    public async Task<List<PreferenceDto>> GetUserPreferences()
     {
         var userId = _userContextService.GetUserId;
         var user = await _context.Users.Include(u => u.Preferences)
@@ -47,25 +47,19 @@ public class PreferenceService : IPreferenceService
         }).ToList();
     }
 
-    public async Task UpdateUserPreferenceIds(List<int> preferenceIds)
+    public async Task UpdateUserPreferences(List<int> preferenceIds)
     {
         var userId = _userContextService.GetUserId;
-        var user = await _context.Users.Include(u => u.Preferences).SingleAsync(x => x.UserId == userId);
+        var user = await _context.Users
+            .Include(u => u.Preferences)
+            .SingleAsync(x => x.UserId == userId);
         var preferences = await _context.Preferences
             .Where(p => preferenceIds.Contains(p.PreferenceId))
             .ToListAsync();
         
         user.Preferences = preferences;
         _context.Update(user);
-        try
-        {
-            await _context.SaveChangesAsync();
-
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            throw;
-        }
+        await _context.SaveChangesAsync();
+        
     }
 }

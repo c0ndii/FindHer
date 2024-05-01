@@ -2,12 +2,13 @@ import Cookies from 'js-cookie'
 import axios from 'axios'
 import { useQuery } from '@tanstack/react-query'
 
-export type preferenceCategory = {
+export type interest = {
   id: number
   name: string
+  categoryId: number
 }
 
-const baseUrl = 'https://localhost:44360/api/categories/preferences'
+const baseUrl = 'https://localhost:44360/api/interests'
 
 export const getAll = async () => {
   try {
@@ -21,7 +22,22 @@ export const getAll = async () => {
     })
 
     if (response.status === 200) {
-      return response.data as preferenceCategory[]
+      const Interests =
+        (response.data as interest[]) ??
+        console.error('Invalid return format')
+
+      return Interests.reduce(
+        (acc: Record<number, interest[]>, p: interest) => {
+          const key = p.categoryId
+
+          if (!acc[key]) {
+            acc[key] = []
+          }
+          acc[key].push(p)
+          return acc
+        },
+        {} as Record<number, interest[]>
+      )
     } else {
       throw new Error(
         `Edit profile failed: ${JSON.stringify(response.headers)}`
@@ -33,9 +49,9 @@ export const getAll = async () => {
   }
 }
 
-export const useGetAllPreferenceCategories = () => {
+export const useGetAllInterests = () => {
   return useQuery({
-    queryKey: ['getAllPreferenceCategories'],
+    queryKey: ['getAllInterests'],
     queryFn: getAll,
   })
 }

@@ -27,7 +27,7 @@ const App = () => {
         <React.StrictMode>
           <AuthProvider>
             <BrowserRouter>
-              <ChatProvider>
+            <ChatProvider>
                 <Router />
               </ChatProvider>
             </BrowserRouter>

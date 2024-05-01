@@ -4,23 +4,23 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Find_H_er.Services;
 
-public interface ICategoryService
+public interface IPreferenceCategoryService
 {
-    Task<List<CategoryDto>> GetAll();
+    Task<List<PreferenceCategoryDto>> GetAll();
 }
 
-public class CategoryService : ICategoryService
+public class PreferenceCategoryService : IPreferenceCategoryService
 {
     private AppDbContext _context;
 
-    public CategoryService(AppDbContext context)
+    public PreferenceCategoryService(AppDbContext context)
     {
         _context = context;
     }
 
-    public async Task<List<CategoryDto>> GetAll()
+    public async Task<List<PreferenceCategoryDto>> GetAll()
         => await _context.PreferenceCategories.Select(c 
-            => new CategoryDto
+            => new PreferenceCategoryDto
             {
                 Id = c.Id,
                 Name = c.Name,

@@ -79,7 +79,9 @@ builder.Services.AddScoped<IMatchFormService, MatchFormService>();
 builder.Services.AddScoped<IUserContextService, UserContextService>();
 builder.Services.AddScoped<ErrorHandlingMiddleware>();
 builder.Services.AddScoped<IPreferenceService, PreferenceService>();
-builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<IInterestService, InterestService>();
+builder.Services.AddScoped<IPreferenceCategoryService, PreferenceCategoryService>();
+builder.Services.AddScoped<IInterestCategoryService, InterestCategoryService>();
 var app = builder.Build();
 app.UseStatusCodePages();
 // Configure the HTTP request pipeline.

@@ -18,11 +18,11 @@ public class PreferenceController : Controller
         => await _preferenceService.GetAll();
     
     [HttpGet("user")]
-    public async Task<List<PreferenceDto>> GetUserPreferenceIds() 
-        => await _preferenceService.GetUserPreferenceIds();
+    public async Task<List<PreferenceDto>> GetUserPreferences() 
+        => await _preferenceService.GetUserPreferences();
 
     [HttpPut("user")]
     public async Task UpdateUserPreferenceIds(List<int> preferenceIds) 
-        => await _preferenceService.UpdateUserPreferenceIds(preferenceIds);
+        => await _preferenceService.UpdateUserPreferences(preferenceIds);
 
 }

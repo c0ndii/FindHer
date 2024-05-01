@@ -19,18 +19,6 @@ export const getUserPreferences = async () => {
     if (response.status === 200) {
       const preferences = response.data as preference[]
       return preferences
-      /*  return preferences.reduce(
-        (acc: Record<number, Set<number>>, p: preference) => {
-          const key = p.categoryId
-
-          if (!acc[key]) {
-            acc[key] = new Set<number>()
-          }
-          acc[key].add(p.id)
-          return acc
-        },
-        {} as Record<number, Set<number>>
-      ) */
     } else {
       throw new Error(
         `Edit profile failed: ${JSON.stringify(response.headers)}`
