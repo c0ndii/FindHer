@@ -6,6 +6,7 @@ import { MantineProvider } from '@mantine/core'
 import { AuthProvider } from './context/AuthProvider'
 import { BrowserRouter } from 'react-router-dom'
 import { useAtomValue } from 'jotai'
+import { GoogleOAuthProvider } from '@react-oauth/google'
 import {
   fontSizeAtom,
   fontSizesBig,
@@ -21,20 +22,22 @@ const App = () => {
   const fontSizes = fontSize === 'big' ? fontSizesBig : fontSizesClassic
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <MantineProvider theme={{ fontSizes: fontSizes }}>
-        <Notifications position="top-right" />
-        <React.StrictMode>
-          <AuthProvider>
-            <BrowserRouter>
-            <ChatProvider>
-                <Router />
-              </ChatProvider>
-            </BrowserRouter>
-          </AuthProvider>
-        </React.StrictMode>
-      </MantineProvider>
-    </QueryClientProvider>
+    <GoogleOAuthProvider clientId={''}>
+      <QueryClientProvider client={queryClient}>
+        <MantineProvider theme={{ fontSizes: fontSizes }}>
+          <Notifications position="top-right" />
+          <React.StrictMode>
+            <AuthProvider>
+              <BrowserRouter>
+                <ChatProvider>
+                  <Router />
+                </ChatProvider>
+              </BrowserRouter>
+            </AuthProvider>
+          </React.StrictMode>
+        </MantineProvider>
+      </QueryClientProvider>
+    </GoogleOAuthProvider>
   )
 }
 

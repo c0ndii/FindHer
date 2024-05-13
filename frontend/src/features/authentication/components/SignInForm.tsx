@@ -19,6 +19,7 @@ import { TokenData } from '../Models/tokenData'
 import { t } from 'i18next'
 import { ApiError } from '../../../api/Models/ApiError'
 import { AxiosError } from 'axios'
+import { GoogleLogin } from '@react-oauth/google'
 
 interface loginModel {
   email: string
@@ -83,14 +84,12 @@ export const SignInForm = () => {
             placeholder={t('signUp.form.email')}
             {...form.getInputProps('email')}
           ></TextInput>
-
           <PasswordInput
             c="#FFFFFF"
             label={t('signUp.form.password')}
             placeholder={t('signUp.form.password')}
             {...form.getInputProps('password')}
           ></PasswordInput>
-
           <Group mb="sm">
             <Button color="red" variant="filled" type="submit">
               {t('signIn.form.button.signIn')}
@@ -105,6 +104,20 @@ export const SignInForm = () => {
               {t('signIn.form.button.signUp')}
             </Button>
           </Group>
+          <GoogleLogin
+            onSuccess={(credentialResponse) => {
+              if (credentialResponse.credential) {
+                const credentialResponseDecoded = jwtDecode<any>(
+                  credentialResponse.credential
+                )
+                console.log(credentialResponseDecoded)
+              }
+              console.log(credentialResponse)
+            }}
+            onError={() => {
+              console.log('Login Failed')
+            }}
+          />
         </FormContainer>
       </form>
     </Box>
