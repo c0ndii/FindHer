@@ -18,6 +18,7 @@ import { useAuth } from '../../features/authentication/hooks/useAuth'
 import Cookies from 'js-cookie'
 import { useTranslation } from 'react-i18next'
 import api from '../../api/api'
+import { googleLogout } from '@react-oauth/google'
 
 interface NavbarLinkProps {
   icon: typeof IconHome2
@@ -72,6 +73,7 @@ export const Sidebar = () => {
 
   const logOut = () => {
     Cookies.remove('token')
+    googleLogout()
     setAuth(null)
 
     return false
