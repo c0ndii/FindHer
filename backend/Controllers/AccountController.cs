@@ -3,6 +3,7 @@ using Find_H_er.Entities;
 using Find_H_er.Services;
 using Find_H_er.Models;
 using Microsoft.AspNetCore.Authorization;
+using System.Runtime.InteropServices;
 
 namespace Find_H_er.Controllers
 {
@@ -63,6 +64,12 @@ namespace Find_H_er.Controllers
         {
             var result = _accountService.GetUserId();
             return result;
-        }   
+        }
+        [HttpPost("googleauth")]
+        public async Task<IActionResult> GoogleAuth([FromBody] GoogleAuthDto dto)
+        {
+            var token = await _accountService.GoogleAuth(dto);
+            return Ok(token);
+        }
     }
 }
