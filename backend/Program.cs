@@ -30,6 +30,11 @@ var authenticationSetting = new AuthenticationSettings();
 var emailSenderSetting = new EmailSenderSettings();
 builder.Configuration.GetSection("Authentication").Bind(authenticationSetting);
 builder.Configuration.GetSection("EmailSender").Bind(emailSenderSetting);
+builder.Services.AddAuthentication().AddGoogle(googleoptions =>
+{
+    googleoptions.ClientId = builder.Configuration.GetSection("GoogleAuth").GetSection("ClientId").Value;
+    googleoptions.ClientSecret = builder.Configuration.GetSection("GoogleAuth").GetSection("Secret").Value;
+});
 builder.Services.AddSingleton(emailSenderSetting);
 builder.Services.AddSingleton(authenticationSetting);
 builder.Services.AddAuthentication(option =>
