@@ -224,8 +224,10 @@ namespace Find_H_er.Services
                 var newUser = new User()
                 {
                     Email = dto.Email,
+                    Name = dto.Name,
                     PasswordHash = "s",
-                    Role = role                    
+                    Role = role,
+                    Image = dto.Image,
                 };
                 await _context.Users.AddAsync(newUser);
                 await _context.SaveChangesAsync();
@@ -237,8 +239,10 @@ namespace Find_H_er.Services
                 };
                 await _context.MatchForms.AddAsync(matchform);
                 newUser.MatchForm = matchform;
+                await AddUserToMatches(newUser.UserId);
                 await _context.SaveChangesAsync();
-            } 
+            }
+            user = await _context.Users.Include(x=> x.Role).SingleOrDefaultAsync(x => x.Email == dto.Email);
             if (string.Compare(user.Role.Name, "Banned") == 0)
             {
                 throw new BadRequestException("Account has been banned");

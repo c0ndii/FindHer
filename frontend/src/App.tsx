@@ -20,9 +20,10 @@ const queryClient = new QueryClient()
 const App = () => {
   const fontSize = useAtomValue(fontSizeAtom)
   const fontSizes = fontSize === 'big' ? fontSizesBig : fontSizesClassic
+  const client_id = process.env.REACT_APP_CLIENT_ID?.toString()
 
   return (
-    <GoogleOAuthProvider clientId={''}>
+    <GoogleOAuthProvider clientId={client_id ? client_id : ''}>
       <QueryClientProvider client={queryClient}>
         <MantineProvider theme={{ fontSizes: fontSizes }}>
           <Notifications position="top-right" />

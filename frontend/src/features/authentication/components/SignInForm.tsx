@@ -26,6 +26,12 @@ interface loginModel {
   password: string
 }
 
+interface googleModel {
+  email: string
+  name: string
+  image: string
+}
+
 export const SignInForm = () => {
   const { auth, setAuth } = useAuth()
   const navigate = useNavigate()
@@ -35,6 +41,18 @@ export const SignInForm = () => {
   const handleSubmit = async (values: loginModel) => {
     try {
       const response = await api.post('/api/account/login', values)
+      const token = response?.data as string
+      saveToken(token, setAuth)
+      navigate(from, { replace: true })
+    } catch (err) {
+      const reponse = (err as AxiosError).response?.data as ApiError
+      form.setFieldError('email', 'Provided credentials are invalid')
+    }
+  }
+
+  const handleGoogleSubmit = async (values: googleModel) => {
+    try {
+      const response = await api.post('/api/account/googleauth', values)
       const token = response?.data as string
       saveToken(token, setAuth)
       navigate(from, { replace: true })
@@ -110,12 +128,15 @@ export const SignInForm = () => {
                 const credentialResponseDecoded = jwtDecode<any>(
                   credentialResponse.credential
                 )
-                console.log(credentialResponseDecoded)
+                handleGoogleSubmit({
+                  email: credentialResponseDecoded.email,
+                  name: credentialResponseDecoded.given_name,
+                  image: credentialResponseDecoded.picture,
+                })
               }
-              console.log(credentialResponse)
             }}
             onError={() => {
-              console.log('Login Failed')
+              console.log('OAtuh Login Failed')
             }}
           />
         </FormContainer>

@@ -21,7 +21,12 @@ export const Account = () => {
               align="center"
               justify="space-between"
             >
-              <Avatar src="" size={300} radius="xl" alt="avatar" />
+              <Avatar
+                src={user?.image ? user?.image : ''}
+                size={300}
+                radius="xl"
+                alt="avatar"
+              />
               <SocialMedia />
             </Flex>
           </Flex>
