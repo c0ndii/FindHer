@@ -35,3 +35,4 @@ Users can adjust the font size used in the application to improve readability.
 - Large Font: Increases the font size for better readability.
 
 ![Settings Page Screenshot](../../../assets/settings/settings.png)
+![Settings-white Page Screenshot](../../../assets/settings/settings-white.png)
