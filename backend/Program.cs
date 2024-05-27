@@ -90,9 +90,6 @@ builder.Services.AddScoped<IInterestCategoryService, InterestCategoryService>();
 var app = builder.Build();
 app.UseStatusCodePages();
 // Configure the HTTP request pipeline.
-var scope = app.Services.CreateScope();
-var seeder = scope.ServiceProvider.GetRequiredService<FindHerSeeder>();
-seeder.Seed();
 app.UseCors(x => x
     .AllowAnyMethod()
     .AllowAnyHeader()
