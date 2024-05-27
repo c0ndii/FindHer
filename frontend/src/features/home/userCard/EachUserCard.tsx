@@ -38,7 +38,7 @@ export const EachUserCard = ({ person }: Props) => {
   return (
     <>
       <Button onClick={open} color="red" fullWidth mt="md" radius="md">
-        {t('home.details')}
+        {t('home.matches.details.title')}
       </Button>
       <Modal
         opened={opened}
@@ -97,7 +97,7 @@ export const EachUserCard = ({ person }: Props) => {
             ))}
           </Group>
           <Group mt="lg" justify="space-evenly">
-            <Tooltip label="Remove match">
+            <Tooltip label={t('home.matches.details.unmatchHover')}>
               <Button
                 leftSection={<IconX />}
                 color="red"
@@ -109,10 +109,12 @@ export const EachUserCard = ({ person }: Props) => {
                   close()
                 }}
               >
-                Unmatch
+                {t('home.matches.details.unmatchButton')}
               </Button>
             </Tooltip>
-            <Tooltip label={`Pair with ${person.name}`}>
+            <Tooltip
+              label={`${t('home.matches.details.pairHover')} ${person.name}`}
+            >
               <Button
                 leftSection={<IconCheck />}
                 color="green"
@@ -124,7 +126,7 @@ export const EachUserCard = ({ person }: Props) => {
                   close()
                 }}
               >
-                Pair
+                {t('home.matches.details.pairButton')}
               </Button>
             </Tooltip>
           </Group>

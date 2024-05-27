@@ -14,12 +14,14 @@ import { MeetingModal } from '../users/MeetingModal'
 import { useGetPending } from '../../api/Meeting/getPending'
 import { MeetingCard } from '../../features/home/meetingCard'
 import { useGetAccepted } from '../../api/Meeting/getAccepted'
+import { useTranslation } from 'react-i18next'
 
 export const Home = () => {
   const { data: people } = useMatched()
   const { data: pairs } = usePairs()
   const { data: pending } = useGetPending()
   const { data: confirmed } = useGetAccepted()
+  const { t, i18n } = useTranslation()
 
   return (
     <Box style={{ padding: 20, height: '100%', overflowY: 'auto' }}>
@@ -30,28 +32,28 @@ export const Home = () => {
             leftSection={<IconMasksTheater />}
             style={{ width: '20%' }}
           >
-            Matches
+            {t('home.matches.title')}
           </Tabs.Tab>
           <Tabs.Tab
             value="Pairs"
             leftSection={<IconHeart />}
             style={{ width: '20%' }}
           >
-            Pairs
+            {t('home.pairs.title')}
           </Tabs.Tab>
           <Tabs.Tab
             value="Pending"
             leftSection={<IconCalendarMinus />}
             style={{ width: '20%' }}
           >
-            Pending Meetings
+            {t('home.pendingMeetings.title')}
           </Tabs.Tab>
           <Tabs.Tab
             value="Confirmed"
             leftSection={<IconCalendarCheck />}
             style={{ width: '20%' }}
           >
-            Confirmed Meetings
+            {t('home.confirmedMeetings')}
           </Tabs.Tab>
         </Tabs.List>
         <Tabs.Panel value="Matches">

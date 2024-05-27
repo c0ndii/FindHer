@@ -138,7 +138,7 @@ export const Sidebar = () => {
               <NavbarLink
                 isInChat={isInChat}
                 icon={IconUsers}
-                label={'users'}
+                label={t('sidebar.users')}
                 path={'/app/Users'}
                 key={'/app/Users'}
                 active={links.length + 1 === active}

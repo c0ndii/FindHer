@@ -22,7 +22,7 @@ export const BanUserCard = ({ person }: Props) => {
   return (
     <>
       <Button onClick={open} color="red" fullWidth mt="md" radius="md">
-        {t('home.ban')}
+        {t('users.buttonText')}
       </Button>
       <Modal opened={opened} onClose={close} size={'25%'} centered padding={0}>
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -34,7 +34,7 @@ export const BanUserCard = ({ person }: Props) => {
                 alignContent: 'center',
               }}
             >
-              <Text size={'xl'}>Are you sure?</Text>
+              <Text size={'xl'}>{t('users.confirmQuestion')}</Text>
             </Card.Section>
           </Card>
           <Group>

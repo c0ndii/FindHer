@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useMutation, useQuery } from '@tanstack/react-query'
 import { preference } from './getAll'
 import { notifications } from '@mantine/notifications'
+import { t } from 'i18next'
 
 const baseUrl = 'https://localhost:44360/api/preferences/user'
 
@@ -48,7 +49,7 @@ export const useUpdateUserPreferences = () => {
       notifications.show({
         withCloseButton: true,
         autoClose: 5000,
-        title: 'Preferences updated successfully',
+        title: t('preferences_interests.preferencesUpdatePopup'),
         color: 'green',
         className: 'my-notification-class',
         loading: false,
@@ -59,7 +60,7 @@ export const useUpdateUserPreferences = () => {
       notifications.show({
         withCloseButton: true,
         autoClose: 5000,
-        title: 'Server connection error',
+        title: t('pairs.connectionError'),
         color: 'red',
         className: 'my-notification-class',
         loading: false,

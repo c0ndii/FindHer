@@ -2,6 +2,7 @@ import Cookies from 'js-cookie'
 import axios from 'axios'
 import { useMutation, useQuery } from '@tanstack/react-query'
 import { notifications } from '@mantine/notifications'
+import { t } from 'i18next'
 
 const baseUrl = 'https://localhost:44360/api/interests/user'
 
@@ -9,9 +10,7 @@ interface UpdateInterestsRequst {
   interestIds: string[]
 }
 
-export const updateUserInterests = async (
-  request: UpdateInterestsRequst
-) => {
+export const updateUserInterests = async (request: UpdateInterestsRequst) => {
   try {
     const response = await axios.put(
       baseUrl,
@@ -47,7 +46,7 @@ export const useUpdateUserInterests = () => {
       notifications.show({
         withCloseButton: true,
         autoClose: 5000,
-        title: 'Interests updated successfully',
+        title: t('preferences_interests.interestsUpdatePopup'),
         color: 'green',
         className: 'my-notification-class',
         loading: false,
@@ -58,7 +57,7 @@ export const useUpdateUserInterests = () => {
       notifications.show({
         withCloseButton: true,
         autoClose: 5000,
-        title: 'Server connection error',
+        title: t('pairs.connectionError'),
         color: 'red',
         className: 'my-notification-class',
         loading: false,

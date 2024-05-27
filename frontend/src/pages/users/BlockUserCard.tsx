@@ -4,6 +4,7 @@ import { useDisclosure } from '@mantine/hooks'
 import { IconCheck, IconX, IconLock, IconBan } from '@tabler/icons-react'
 import { personModel } from '../../api/Match/schema'
 import { useBlockUser } from '../../api/Pair/BlockUser'
+import { useTranslation } from 'react-i18next'
 
 type Props = {
   person: personModel
@@ -13,6 +14,7 @@ export const BlockUserCard = ({ person }: Props) => {
   const [opened, { open, close }] = useDisclosure(false)
   const { mutateAsync: blockUser } = useBlockUser()
   const { handleSubmit } = useForm({})
+  const { t, i18n } = useTranslation()
   const onSubmit = async () => {
     try {
     } catch (error: any) {}
@@ -47,9 +49,11 @@ export const BlockUserCard = ({ person }: Props) => {
                 maxWidth: '90%', // Keeps text from being too wide
               }}
             >
-              Are you sure you want to block {person.name}?
+              {t('home.pairs.blockButton.confirmPopup')} {person.name}?
             </Text>
-            <Tooltip label={`Block ${person.name}`}>
+            <Tooltip
+              label={`${t('home.pairs.blockButton.hover')} ${person.name}`}
+            >
               <Button
                 px="xl"
                 mt={rem(16)}
@@ -62,7 +66,7 @@ export const BlockUserCard = ({ person }: Props) => {
                   close()
                 }}
               >
-                <Text size="lg">Block </Text>
+                <Text size="lg">{t('home.pairs.blockButton.text')} </Text>
               </Button>
             </Tooltip>
           </Flex>

@@ -2,6 +2,7 @@ import Cookies from 'js-cookie'
 import axios from 'axios'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { notifications } from '@mantine/notifications'
+import { useTranslation } from 'react-i18next'
 
 const baseUrl = 'https://localhost:44360/api/pair/addusertopair/'
 
@@ -34,6 +35,7 @@ export const addToPair = async (userId: number) => {
 
 export const useAddToPair = () => {
   const queryClient = useQueryClient()
+  const { t, i18n } = useTranslation()
   return useMutation({
     mutationKey: ['addToPair'],
     mutationFn: (user: number) => addToPair(user),
@@ -42,7 +44,7 @@ export const useAddToPair = () => {
       notifications.show({
         withCloseButton: true,
         autoClose: 5000,
-        title: 'Added user to pair',
+        title: t('home.matches.pairAcceptPopup'),
         color: 'green',
         className: 'my-notification-class',
         loading: false,

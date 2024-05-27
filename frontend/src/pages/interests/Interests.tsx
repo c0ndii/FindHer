@@ -32,7 +32,7 @@ const InterestCategory: React.FC<InterestCategoryProps> = ({
   return (
     <Box>
       <Text fz={20} fw={400} className={classes.name}>
-        {categoryName}
+        {t('preferences_interests.' + categoryName.toLowerCase())}
       </Text>
       <Paper bg="gray">
         <ScrollArea type="auto">
@@ -54,7 +54,7 @@ const InterestCategory: React.FC<InterestCategoryProps> = ({
                   size="xs"
                   value={interest.id.toString()}
                 >
-                  {interest.name}
+                  {t('preferences_interests.' + interest.name.toLowerCase())}
                 </Chip>
               ))}
             </Flex>
@@ -103,7 +103,7 @@ export const Interests = () => {
           className={classes.name}
           style={{ textAlign: 'center' }}
         >
-          {t('Interests.title')}
+          {t('preferences_interests.i_title')}
         </Text>
       </Box>
       <Flex wrap="wrap" gap={rem(24)} align="center" justify="center">
@@ -135,7 +135,7 @@ export const Interests = () => {
         onClick={handleUpdate}
         disabled={!InterestsChanged}
       >
-        Update
+        {t('preferences_interests.updateButton')}
       </Button>
     </Flex>
   )

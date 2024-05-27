@@ -4,6 +4,7 @@ import axios from 'axios'
 import { notifications } from '@mantine/notifications'
 import '@mantine/notifications/styles.css'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { t } from 'i18next'
 
 const baseUrl = 'https://localhost:44360/api/admin/banuser/'
 
@@ -42,7 +43,7 @@ export const useBanUser = () => {
       notifications.show({
         withCloseButton: true,
         autoClose: 5000,
-        title: 'User banned',
+        title: t('users.banPopup'),
         color: 'red',
         className: 'my-notification-class',
         loading: false,
@@ -53,7 +54,7 @@ export const useBanUser = () => {
       notifications.show({
         withCloseButton: true,
         autoClose: 5000,
-        title: 'Server connection error',
+        title: t('home.pairs.connectionError'),
         color: 'red',
         className: 'my-notification-class',
         loading: false,

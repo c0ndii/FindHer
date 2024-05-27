@@ -20,6 +20,7 @@ import { useEffect, useState } from 'react'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useCreateMeeting } from '../../api/Meeting/Create'
 import { format } from 'date-fns'
+import { useTranslation } from 'react-i18next'
 
 type Props = {
   person: personModel
@@ -29,6 +30,7 @@ export const MeetingModal = ({ person }: Props) => {
   const [opened, { open, close }] = useDisclosure(false)
   const [date, setDate] = useState<Date | null>()
   const { mutateAsync: createMeeting } = useCreateMeeting()
+  const { t, i18n } = useTranslation()
   const form = useForm<meetingModel>({
     defaultValues: {
       userId: person.userId,
@@ -55,7 +57,7 @@ export const MeetingModal = ({ person }: Props) => {
     <>
       <Button onClick={open} color="blue" fullWidth mt="md" radius="md">
         <IconCalendar />
-        Meeting
+        {t('home.pairs.meetingButton.text')}
       </Button>
       <Modal
         size="md"
@@ -77,26 +79,26 @@ export const MeetingModal = ({ person }: Props) => {
             }}
           >
             <Text mx="auto" size="xl">
-              Create meeting
+              {t('home.pairs.meetingButton.modalTitle')}
             </Text>
             <Group mx="auto" w="80%">
               <TextInput
                 w="100%"
-                label={'Name'}
-                placeholder={'Meeting name'}
+                label={t('home.pairs.meetingButton.name')}
+                placeholder={t('home.pairs.meetingButton.namePlaceholder')}
                 {...form.register('meetingName')}
                 error={form.formState.errors.meetingName?.message}
               />
               <TextInput
                 w="100%"
-                label={'Place'}
-                placeholder={'Meeting place'}
+                label={t('home.pairs.meetingButton.place')}
+                placeholder={t('home.pairs.meetingButton.placePlaceholder')}
                 {...form.register('meetingPlace')}
                 error={form.formState.errors.meetingPlace?.message}
               />
               <DateTimePicker
                 w="100%"
-                label={'Date'}
+                label={t('home.pairs.meetingButton.date')}
                 placeholder={format(new Date(), "yyyy-MM-dd'T'HH:mm:ss'Z'")}
                 value={date}
                 onChange={setDate}
@@ -113,7 +115,9 @@ export const MeetingModal = ({ person }: Props) => {
                 style={{ height: '50px' }}
                 type="submit"
               >
-                <Text size="lg">Create</Text>
+                <Text size="lg">
+                  {t('home.pairs.meetingButton.confirmButton')}
+                </Text>
               </Button>
             </Group>
           </Flex>

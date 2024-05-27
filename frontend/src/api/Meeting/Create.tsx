@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { notifications } from '@mantine/notifications'
 import { meetingModel } from '../../pages/users/schema'
+import { t } from 'i18next'
 
 const baseUrl = 'https://localhost:44360/api/meeting/create'
 
@@ -39,7 +40,7 @@ export const useCreateMeeting = () => {
       notifications.show({
         withCloseButton: true,
         autoClose: 5000,
-        title: 'Meeting pending is created',
+        title: t('home.pairs.meetingPopup'),
         color: 'green',
         className: 'my-notification-class',
         loading: false,
@@ -50,7 +51,7 @@ export const useCreateMeeting = () => {
       notifications.show({
         withCloseButton: true,
         autoClose: 5000,
-        title: 'Server connection error',
+        title: t('home.pairs.connectionError'),
         color: 'red',
         className: 'my-notification-class',
         loading: false,

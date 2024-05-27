@@ -2,6 +2,7 @@ import Cookies from 'js-cookie'
 import axios from 'axios'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { notifications } from '@mantine/notifications'
+import { useTranslation } from 'react-i18next'
 
 const baseUrl = 'https://localhost:44360/api/match/canceluser/'
 
@@ -34,6 +35,7 @@ export const cancelUser = async (userId: number) => {
 
 export const useCancelUser = () => {
   const queryClient = useQueryClient()
+  const { t, i18n } = useTranslation()
   return useMutation({
     mutationKey: ['cancelUser'],
     mutationFn: (user: number) => cancelUser(user),
@@ -42,7 +44,7 @@ export const useCancelUser = () => {
       notifications.show({
         withCloseButton: true,
         autoClose: 5000,
-        title: 'User removed from matches',
+        title: t('home.matches.matchRemovalPopup'),
         color: 'red',
         className: 'my-notification-class',
         loading: false,

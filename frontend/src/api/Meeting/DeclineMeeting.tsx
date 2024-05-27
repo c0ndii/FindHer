@@ -2,6 +2,7 @@ import Cookies from 'js-cookie'
 import axios from 'axios'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { notifications } from '@mantine/notifications'
+import { t } from 'i18next'
 
 const baseUrl = 'https://localhost:44360/api/meeting/decline/'
 
@@ -42,7 +43,7 @@ export const useDeclineMeeting = () => {
       notifications.show({
         withCloseButton: true,
         autoClose: 5000,
-        title: 'Meeting declined',
+        title: t('home.pendingMeetings.declinePopup'),
         color: 'green',
         className: 'my-notification-class',
         loading: false,
@@ -53,7 +54,7 @@ export const useDeclineMeeting = () => {
       notifications.show({
         withCloseButton: true,
         autoClose: 5000,
-        title: 'Server connection error',
+        title: t('home.pairs.connectionError'),
         color: 'red',
         className: 'my-notification-class',
         loading: false,
