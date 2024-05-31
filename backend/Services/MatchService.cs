@@ -60,7 +60,7 @@ namespace Find_H_er.Services
                 throw new NotFoundException("Couldn't find that user");
             }
             List<int> userIds = await _context.Matches.Where(x => (x.ViewerId == userId && x.Cancelled == false && x.Matched == false && x.MatchedViewer == false) || (x.ViewedId == userId && x.Cancelled == false && x.Matched == false && x.MatchedViewed == false)).Select(x => x.ViewerId == userId ? x.ViewedId : x.ViewerId).ToListAsync();
-            var usersToShow = _mapper.Map<List<UserDto>>(await _context.Users.Include(x => x.Role).Where(x => userIds.Contains(x.UserId) && x.Role.Name != "Banned").ToListAsync());
+            var usersToShow = _mapper.Map<List<UserDto>>(await _context.Users.Include(x => x.Role).Include(x => x.Interests).Where(x => userIds.Contains(x.UserId) && x.Role.Name != "Banned").ToListAsync());
             return await Task.FromResult(usersToShow);
         }
     }

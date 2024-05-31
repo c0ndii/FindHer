@@ -1,6 +1,7 @@
 import {
   Avatar,
   Box,
+  Burger,
   Divider,
   Flex,
   Group,
@@ -15,9 +16,11 @@ import { useChatContext } from './ChatContext'
 import { IconSearch } from '@tabler/icons-react'
 import classes from './UsersSideBar.module.css'
 import { Dispatch, SetStateAction, useState } from 'react'
+import { useDisclosure } from '@mantine/hooks'
 
 interface Props {
   people: personModel[]
+  visible: boolean
 }
 
 const onSearchChange = (
@@ -33,7 +36,7 @@ const onSearchChange = (
   }
 }
 
-export const UsersSidebar = ({ people }: Props) => {
+export const UsersSidebar = ({ people, visible }: Props) => {
   const { activePerson, setActivePerson } = useChatContext()
   const [filteredPeople, setFilteredPeople] = useState<personModel[]>(people)
 
@@ -43,6 +46,7 @@ export const UsersSidebar = ({ people }: Props) => {
 
   return (
     <Flex
+      hidden={!visible}
       p={rem(24)}
       direction="column"
       gap={rem(40)}

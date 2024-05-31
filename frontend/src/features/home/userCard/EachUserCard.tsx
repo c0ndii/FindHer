@@ -35,6 +35,7 @@ export const EachUserCard = ({ person }: Props) => {
     try {
     } catch (error: any) {}
   }
+  console.log(person)
   return (
     <>
       <Button onClick={open} color="red" fullWidth mt="md" radius="md">
@@ -91,7 +92,7 @@ export const EachUserCard = ({ person }: Props) => {
             justify="center"
           >
             {person.interests.map((interest) => (
-              <Chip checked={false} color="red" variant="light" size="xs">
+              <Chip checked={false} color="grape" size="xs">
                 {interest.name}
               </Chip>
             ))}

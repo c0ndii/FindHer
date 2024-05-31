@@ -16,6 +16,7 @@ export const getForYou = async () => {
       responseType: 'json',
     })
     if (response.request?.status === 200) {
+      console.log(response.data)
       return response.data as personModel[]
     } else {
       const errorData = await response

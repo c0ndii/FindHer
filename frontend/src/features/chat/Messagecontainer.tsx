@@ -12,7 +12,7 @@ const handleMessage = (message: string) => {
 
 export const Messagecontainer = ({ messages }: any) => {
   return (
-    <ScrollArea type="always" h="100%" key={messages}>
+    <ScrollArea type="always" h="100%" key={messages} >
       <Flex direction="column" gap={24} mr={rem(48)}>
         {messages.map(
           (msg: string, index: number) =>
