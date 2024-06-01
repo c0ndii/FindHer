@@ -3,6 +3,7 @@ import { pendingMeeting } from '../../../api/Meeting/getPending'
 import { IconCheck, IconX } from '@tabler/icons-react'
 import { useAcceptMeeting } from '../../../api/Meeting/AcceptMeeting'
 import { useDeclineMeeting } from '../../../api/Meeting/DeclineMeeting'
+import { format } from 'date-fns'
 
 type Props = {
   meeting: pendingMeeting
@@ -43,7 +44,8 @@ export const MeetingCard = ({ meeting }: Props) => {
         </Text>
 
         <Text mt="xs" c="dimmed" size="sm">
-          {meeting.meetingPlace}: {meeting.meetingDate.toString()}
+          {meeting.meetingPlace}:{' '}
+          {format(new Date(meeting.meetingDate), 'dd/MM/yy hh:mm a')}
         </Text>
       </Box>
     </Card>

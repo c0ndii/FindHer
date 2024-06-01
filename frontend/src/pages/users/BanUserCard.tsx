@@ -1,4 +1,4 @@
-import { Button, Group, Text, Modal, Box, Chip } from '@mantine/core'
+import { Button, Group, Text, Modal, Box, Chip, rem, Flex } from '@mantine/core'
 import { useForm } from 'react-hook-form'
 import { useDisclosure } from '@mantine/hooks'
 import { Card } from '@mantine/core'
@@ -26,47 +26,33 @@ export const BanUserCard = ({ person }: Props) => {
       </Button>
       <Modal opened={opened} onClose={close} size={'25%'} centered padding={0}>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <Card padding="xl" radius="md">
-            <Card.Section
-              style={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignContent: 'center',
+          <Flex
+            justify="center"
+            align="center"
+            direction="column"
+            mih={rem(160)}
+            style={{
+              textAlign: 'center',
+            }}
+          >
+            <Text ta="center" size={'xl'}>
+              {t('users.confirmQuestion')}
+            </Text>
+            <Button
+              px="xl"
+              mt={rem(16)}
+              leftSection={<IconX stroke={2} />}
+              color="red"
+              radius="md"
+              style={{ height: '50px' }}
+              onClick={() => {
+                banUser(person.userId)
+                close()
               }}
             >
-              <Text size={'xl'}>{t('users.confirmQuestion')}</Text>
-            </Card.Section>
-          </Card>
-          <Group>
-            <Box
-              display={'flex'}
-              style={{ width: '100vw', overflow: 'hidden', height: '50px' }}
-            >
-              <Button
-                color="red"
-                fullWidth
-                radius={0}
-                style={{ height: '50px' }}
-                onClick={() => {
-                  close()
-                }}
-              >
-                <IconX />
-              </Button>
-              <Button
-                color="green"
-                fullWidth
-                radius={0}
-                style={{ height: '50px' }}
-                onClick={() => {
-                  banUser(person.userId)
-                  close()
-                }}
-              >
-                <IconCheck />
-              </Button>
-            </Box>
-          </Group>
+              <Text size="lg">{t('home.pairs.banButton.text')} </Text>
+            </Button>
+          </Flex>
         </form>
       </Modal>
     </>

@@ -6,6 +6,7 @@ import {
   NumberInput,
   FileInput,
   Textarea,
+  Select,
 } from '@mantine/core'
 import { useState } from 'react'
 import { useEditOwn } from '../../../api/User/Edit'
@@ -107,13 +108,16 @@ export const EditUserForm = ({ data }: EditUserFormProps) => {
             {...form.getInputProps('description')}
           />
 
-          <TextInput
+          <Select
             label={t('account.editForm.gender')}
             placeholder={t('account.editForm.gender')}
+            data={['Man', 'Woman', 'Other', 'Prefer not to say']}
             {...form.getInputProps('gender')}
-          ></TextInput>
+          ></Select>
 
           <FileInput
+            accept="image/png,image/jpeg,image/jpg"
+            clearable
             label={t('account.editForm.picture')}
             placeholder={t('account.editForm.picture')}
             {...form.getInputProps('picture')}

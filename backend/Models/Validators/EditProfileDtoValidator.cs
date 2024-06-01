@@ -20,9 +20,6 @@ namespace Find_H_er.Models.Validators
             RuleFor(x => x.Sex)
             .Cascade(CascadeMode.Stop)  
                 .NotEmpty();
-            RuleFor(x => x.Image)
-                .Cascade(CascadeMode.Stop)
-                .NotEmpty();
         }
     }
 }
