@@ -7,7 +7,8 @@ namespace Find_H_er.Controllers;
 
 [ApiController]
 [Route("api/categories/preferences")]
-public class PreferenceCategoryController : Controller
+public class PreferenceCategoryController : ControllerBase
+
 {
     private readonly IPreferenceCategoryService _preferenceCategoryService;
     public PreferenceCategoryController(IPreferenceCategoryService preferenceCategoryService) => _preferenceCategoryService = preferenceCategoryService;

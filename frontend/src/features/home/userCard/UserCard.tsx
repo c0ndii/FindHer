@@ -20,7 +20,11 @@ export const UserCard = ({ person, children }: Props) => {
     >
       <Card.Section>
         <Image
-          src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png"
+          src={
+            person?.image
+              ? `https://localhost:44360/api/images/${person.image}`
+              : 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png'
+          }
           height={260}
           alt={person.image}
         />

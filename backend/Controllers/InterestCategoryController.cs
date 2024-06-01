@@ -6,7 +6,7 @@ namespace Find_H_er.Controllers;
 
 [ApiController]
 [Route("api/categories/interests")]
-public class InterestCategoryController
+public class InterestCategoryController : ControllerBase
 {
     private readonly IInterestCategoryService _interestCategoryService;
     public InterestCategoryController(IInterestCategoryService interestCategoryService) =>

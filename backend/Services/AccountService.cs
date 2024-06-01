@@ -33,15 +33,17 @@ namespace Find_H_er.Services
     public class AccountService : IAccountService
     {
         private readonly AppDbContext _context;
+        private readonly IImageService _imageService;
         private readonly IPasswordHasher<User> _passwordHasher;
         private readonly AuthenticationSettings _authenticationSettings;
         private readonly IUserContextService _userContextService;
         private readonly IAuthorizationService _authorizationService;
         private readonly IEmailSenderService _emailSenderService;
         private readonly IMapper _mapper;
-        public AccountService(AppDbContext context, IPasswordHasher<User> passwordHasher, AuthenticationSettings authenticationSettings, IUserContextService userContextService, IAuthorizationService authorizationService, IEmailSenderService emailSenderService, IMapper mapper)
+        public AccountService(AppDbContext context, IImageService imageService, IPasswordHasher<User> passwordHasher, AuthenticationSettings authenticationSettings, IUserContextService userContextService, IAuthorizationService authorizationService, IEmailSenderService emailSenderService, IMapper mapper)
         {
             _context = context;
+            _imageService = imageService;
             _passwordHasher = passwordHasher;
             _authenticationSettings = authenticationSettings;
             _userContextService = userContextService;
@@ -98,9 +100,9 @@ namespace Find_H_er.Services
 
             var claims = new List<Claim>()
             {
-                new Claim(ClaimTypes.NameIdentifier, user.UserId.ToString()),
-                new Claim(ClaimTypes.Name, $"{user.Email}"),
-                new Claim(ClaimTypes.Role, $"{user.Role.Name}"),
+                new(ClaimTypes.NameIdentifier, user.UserId.ToString()),
+                new(ClaimTypes.Name, $"{user.Email}"),
+                new(ClaimTypes.Role, $"{user.Role.Name}"),
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_authenticationSettings.JwtKey));
@@ -120,16 +122,24 @@ namespace Find_H_er.Services
         {
             var userId = _userContextService.GetUserId;
             var user = await _context.Users.FirstOrDefaultAsync(x => x.UserId == userId);
-            Console.Write(user.UserId + "   " + userId);
+
             if (user is null)
             {
                 throw new NotFoundException("User not found");
             }
+            if (dto.Image is not null)
+            {
+                _imageService.Delete(user.Image);
+                var fileName = await _imageService.SaveAsync(dto.Image);
+                user.Image = fileName;
+            }
+            Console.Write(user.UserId + "   " + userId);
+            
             user.Name = dto.Name;
             user.Description = dto.Description;
             user.Age = dto.Age;
             user.Sex = dto.Sex;
-            user.Image = dto.Image;
+            
             _context.Update(user);
             await _context.SaveChangesAsync();
         }

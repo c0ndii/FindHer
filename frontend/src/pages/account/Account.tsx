@@ -22,7 +22,7 @@ export const Account = () => {
               justify="space-between"
             >
               <Avatar
-                src={user?.image ? user?.image : ''}
+                src={user?.image ? `https://localhost:44360/api/images/${user.image}` :''}
                 size={300}
                 radius="xl"
                 alt="avatar"
@@ -60,7 +60,7 @@ export const Account = () => {
                     {user?.description}
                   </Text>
                 </Box>
-                <EditUserForm data={user} />
+                {user && <EditUserForm data={user} />}
               </Flex>
             </Flex>
           </Center>

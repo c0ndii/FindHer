@@ -30,7 +30,7 @@ namespace Find_H_er.Controllers
         }
         [HttpPut("editprofile")]
         [Authorize(Roles = "User, Admin")]
-        public async Task<ActionResult> EditProfile([FromBody] EditProfileDto profileToUpdate)
+        public async Task<ActionResult> EditProfile([FromForm] EditProfileDto profileToUpdate)
         {
             await _accountService.EditProfile(profileToUpdate);
             return await Task.FromResult(Ok());

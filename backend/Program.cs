@@ -78,6 +78,7 @@ builder.Services.AddScoped<IAccountService, AccountService>();
 builder.Services.AddScoped<IAdminService, AdminService>();
 builder.Services.AddScoped<IMatchService, MatchService>();
 builder.Services.AddScoped<IPairService, PairService>();
+builder.Services.AddScoped<IImageService, ImageService>();
 builder.Services.AddScoped<IMeetingService, MeetingService>();
 builder.Services.AddTransient<IEmailSenderService, EmailSenderService>();
 builder.Services.AddScoped<IMatchFormService, MatchFormService>();

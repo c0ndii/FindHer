@@ -2,66 +2,76 @@ import {
   Button,
   Group,
   TextInput,
-  Text,
   Modal,
   NumberInput,
   FileInput,
   Textarea,
 } from '@mantine/core'
-import { SubmitHandler, useForm } from 'react-hook-form'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { useNavigate } from 'react-router-dom'
-import { useEffect, useState } from 'react'
-import { userModel, userSchema } from '../../../api/User/schema'
-import { editUser, useEditOwn } from '../../../api/User/Edit'
+import { useState } from 'react'
+import { useEditOwn } from '../../../api/User/Edit'
 import { useDisclosure } from '@mantine/hooks'
 import { t } from 'i18next'
+import { isInRange, useForm } from '@mantine/form'
+import { userModel } from '../../../api/User/schema'
 interface UserData {
   age: number
   description: string
   image: string
-  interests: string[] | null
   name: string
   sex: string
   userId: number
 }
 
 interface EditUserFormProps {
-  data?: UserData
+  data: UserData
+}
+
+interface FormProps {
+  name: string
+  age: number
+  description: string
+  gender: string
+  picture: File | null
+  userId: number
 }
 
 export const EditUserForm = ({ data }: EditUserFormProps) => {
   const [opened, { open, close }] = useDisclosure(false)
-  const {
-    register,
-    handleSubmit,
-    setValue,
-    formState: { errors },
-  } = useForm<userModel>({
-    resolver: zodResolver(userSchema),
+  const form = useForm<FormProps, (values: FormProps) => userModel>({
+    initialValues: {
+      name: data.name,
+      age: data.age,
+      description: data.description,
+      gender: data.sex,
+      picture: null,
+      userId: data.userId,
+    },
+    validate: {
+      age: isInRange({ min: 18 }, 'Your age needs to be at least 18 years old'),
+      picture: (value) => {
+        if (
+          value !== null &&
+          !['image/jpeg', 'image/png', 'image/jpg'].includes(value.type)
+        ) {
+          return 'Only jpeg or png files are allowed'
+        }
+      },
+    },
+    transformValues: (values: FormProps): userModel => ({
+      name: values.name,
+      age: values.age,
+      description: values.description,
+      sex: values.gender,
+      image: values.picture,
+      userId: values.userId,
+    }),
   })
-  const [errorMessage, setErrorMessage] = useState<string | undefined>(
-    undefined
-  )
-
-  const { mutateAsync } = useEditOwn()
-
-  const onSubmit: SubmitHandler<userModel> = async (data) => {
-    try {
-      mutateAsync(data)
-      close()
-    } catch (error: any) {
-      setErrorMessage(error.message)
-    }
+  const { mutateAsync: editUserProfile } = useEditOwn()
+  const handleSubmit = (data: userModel) => {
+    editUserProfile(data)
+    close()
   }
-  const [age, setAge] = useState<string | number>(0)
-  const [file, setFile] = useState<File | null>(null)
-  useEffect(() => {
-    setValue('age', age as number)
-  }, [age, register])
-  useEffect(() => {
-    setValue('image', file?.name as string)
-  }, [file, register])
+
   return (
     <>
       <Button onClick={open} color="red" style={{ width: '150px' }}>
@@ -73,56 +83,42 @@ export const EditUserForm = ({ data }: EditUserFormProps) => {
         title={t('account.editForm.title')}
       >
         <form
-          onSubmit={handleSubmit(onSubmit)}
+          encType="multipart/form-data"
           style={{ display: 'flex', flexDirection: 'column', gap: '25px' }}
+          onSubmit={form.onSubmit(handleSubmit)}
         >
           <TextInput
             label={t('account.editForm.name')}
             placeholder={t('account.editForm.name')}
-            {...register('name')}
-            error={errors.name?.message}
-            defaultValue={data?.name}
+            {...form.getInputProps('name')}
           ></TextInput>
 
           <NumberInput
             label={t('account.editForm.age')}
             placeholder={t('account.editForm.age')}
-            value={age}
-            onChange={setAge}
             allowDecimal={false}
             allowNegative={false}
-            error={errors.age?.message}
-            defaultValue={data?.age}
+            {...form.getInputProps('age')}
           ></NumberInput>
 
           <Textarea
             label={t('account.editForm.description')}
             placeholder={t('account.editForm.description')}
-            {...register('description')}
-            error={errors.description?.message}
-            defaultValue={data?.description}
+            {...form.getInputProps('description')}
           />
 
           <TextInput
             label={t('account.editForm.gender')}
             placeholder={t('account.editForm.gender')}
-            {...register('sex')}
-            error={errors.sex?.message}
-            defaultValue={data?.sex}
+            {...form.getInputProps('gender')}
           ></TextInput>
 
           <FileInput
             label={t('account.editForm.picture')}
             placeholder={t('account.editForm.picture')}
-            value={file}
-            onChange={setFile}
-            error={errors.image?.message}
+            {...form.getInputProps('picture')}
           ></FileInput>
-          {errorMessage && (
-            <Text size="xs" color="red">
-              {errorMessage}
-            </Text>
-          )}
+
           <Group mb="sm">
             <Button color="red" variant="filled" type="submit">
               {t('account.editForm.button')}

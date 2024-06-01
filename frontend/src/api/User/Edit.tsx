@@ -8,9 +8,17 @@ const baseUrl = 'https://localhost:44360/api/account/editprofile'
 
 export const editUser = async (userData: userModel) => {
   try {
-    const response = await axios.put(baseUrl, JSON.stringify(userData), {
+    const formData = new FormData()
+    formData.append('name', userData.name)
+    formData.append('age', userData.age.toString())
+    formData.append('description', userData.description)
+    formData.append('sex', userData.sex)
+    if (userData.image) {
+      formData.append('image', userData.image)
+    }
+
+    const response = await axios.put(baseUrl, formData, {
       headers: {
-        'Content-Type': 'application/json',
         Authorization: 'Bearer ' + Cookies.get('token')?.toString(),
       },
       withCredentials: true,

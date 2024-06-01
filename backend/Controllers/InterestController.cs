@@ -8,7 +8,8 @@ namespace Find_H_er.Controllers;
 [Authorize(Roles = "User, Admin")]
 [ApiController]
 [Route("api/interests")]
-public class InterestController : Controller
+public class InterestController : ControllerBase
+
 {
     private readonly IInterestService _interestService;
     public InterestController(IInterestService interestService) => _interestService = interestService;

@@ -11,6 +11,7 @@ import {
   Flex,
   Textarea,
   Center,
+  Badge,
 } from '@mantine/core'
 import { useForm } from 'react-hook-form'
 import { useDisclosure } from '@mantine/hooks'
@@ -52,7 +53,11 @@ export const EachUserCard = ({ person }: Props) => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <Flex h={rem(160)} gap="lg">
             <Image
-              src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png"
+              src={
+                person?.image
+                  ? `https://localhost:44360/api/images/${person.image}`
+                  : 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png'
+              }
               height={160}
               alt={person.image}
               style={{
@@ -92,9 +97,9 @@ export const EachUserCard = ({ person }: Props) => {
             justify="center"
           >
             {person.interests.map((interest) => (
-              <Chip checked={false} color="grape" size="xs">
+              <Badge color="red" size="md">
                 {interest.name}
-              </Chip>
+              </Badge>
             ))}
           </Group>
           <Group mt="lg" justify="space-evenly">

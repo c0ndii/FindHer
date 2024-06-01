@@ -23,6 +23,9 @@ namespace Find_H_er.Migrations
                     Email = "user1@wp.pl",
                     Name = "Adam",
                     VerificationToken = "randomToken1",
+                    Age = 24,
+                    Sex = "Man",
+                    Description = "I am a 24 year old blue collar worker",
                     VideoChatConnectionId = Guid.NewGuid().ToString(),
                     RoleId = 1 
                 },
@@ -31,7 +34,10 @@ namespace Find_H_er.Migrations
                     UserId = 2,
                     Email = "user2@wp.pl",
                     Name = "Andrzej",
+                    Sex = "Other",
+                    Age = 21,
                     VerificationToken = "randomToken2",
+                    Description = string.Empty,
                     VideoChatConnectionId = Guid.NewGuid().ToString(),
                     RoleId = 2
                 },
@@ -40,6 +46,9 @@ namespace Find_H_er.Migrations
                     UserId = 3,
                     Email = "user3@wp.pl",
                     Name = "Beata",
+                    Sex = "Woman",
+                    Age = 24,
+                    Description = string.Empty,
                     VerificationToken = "randomToken3",
                     VideoChatConnectionId = Guid.NewGuid().ToString(),
                     RoleId = 1
@@ -49,6 +58,9 @@ namespace Find_H_er.Migrations
                     UserId = 4,
                     Email = "user4@wp.pl",
                     Name = "Cecylia",
+                    Sex = "Woman",
+                    Age = 18,
+                    Description = string.Empty,
                     VerificationToken = "randomToken4",
                     VideoChatConnectionId = Guid.NewGuid().ToString(),
                     RoleId = 1 
@@ -68,9 +80,9 @@ namespace Find_H_er.Migrations
             {
                 sb.AppendLine(
                 $"""
-                    INSERT INTO Users (UserId, Email, PasswordHash, Name, VerificationToken, RoleId, MatchFormScore, VideoChatConnectionId) 
+                    INSERT INTO Users (UserId, Email, PasswordHash, Name, VerificationToken, RoleId, MatchFormScore, VideoChatConnectionId, Sex, Age, Description) 
                     VALUES ({user.UserId}, '{user.Email}', '{user.PasswordHash}', '{user.Name}', '{user.VerificationToken}', 
-                            {user.RoleId}, {user.MatchFormScore ?? 50}, '{user.VideoChatConnectionId}');
+                            {user.RoleId}, {user.MatchFormScore ?? 50}, '{user.VideoChatConnectionId}', '{user.Sex}', '{user.Age}', '{user.Description}');
                 """);
                 
                 sb.AppendLine(

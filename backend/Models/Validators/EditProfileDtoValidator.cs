@@ -6,17 +6,22 @@ namespace Find_H_er.Models.Validators
         public EditProfileDtoValidator()
         {
             RuleFor(x => x.Name)
+                .Cascade(CascadeMode.Stop)
                 .MaximumLength(20)
                 .NotEmpty();
             RuleFor(x => x.Description)
+                .Cascade(CascadeMode.Stop)
                 .NotEmpty()
                 .MaximumLength(100);
             RuleFor(x => x.Age)
+                .Cascade(CascadeMode.Stop)
                 .InclusiveBetween(18, 100)
                 .NotEmpty();
             RuleFor(x => x.Sex)
+            .Cascade(CascadeMode.Stop)  
                 .NotEmpty();
             RuleFor(x => x.Image)
+                .Cascade(CascadeMode.Stop)
                 .NotEmpty();
         }
     }

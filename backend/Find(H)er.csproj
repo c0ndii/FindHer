@@ -42,6 +42,7 @@
 
   <ItemGroup>
     <Folder Include="Exceptions\Handlers\" />
+    <Folder Include="images\" />
   </ItemGroup>
 
 </Project>

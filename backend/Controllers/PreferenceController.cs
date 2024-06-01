@@ -8,7 +8,8 @@ namespace Find_H_er.Controllers;
 [Authorize(Roles = "User, Admin")]
 [ApiController]
 [Route("api/preferences")]
-public class PreferenceController : Controller
+public class PreferenceController : ControllerBase
+
 {
     private readonly IPreferenceService _preferenceService;
     public PreferenceController(IPreferenceService preferenceService) => _preferenceService = preferenceService;

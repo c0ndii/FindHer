@@ -5,7 +5,8 @@ export const userSchema = z.object({
   age: z.number().min(18),
   description: z.string(),
   sex: z.string(),
-  image: z.string(),
+  image: z.union([z.instanceof(File), z.null()]),
+  userId: z.number(),
 })
 
 export const interestSchema = z.array(
@@ -13,7 +14,6 @@ export const interestSchema = z.array(
     name: z.string(),
   })
 )
-
 
 export type userModel = z.infer<typeof userSchema>
 export type intetrestModel = z.infer<typeof interestSchema>
