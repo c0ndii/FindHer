@@ -48,13 +48,13 @@ export const EditUserForm = ({ data }: EditUserFormProps) => {
       userId: data.userId,
     },
     validate: {
-      age: isInRange({ min: 18 }, 'Your age needs to be at least 18 years old'),
+      age: isInRange({ min: 18 }, t('account.validation.age')),
       picture: (value) => {
         if (
           value !== null &&
           !['image/jpeg', 'image/png', 'image/jpg'].includes(value.type)
         ) {
-          return 'Only jpeg or png files are allowed'
+          return t('account.validation.image')
         }
       },
     },
@@ -111,7 +111,12 @@ export const EditUserForm = ({ data }: EditUserFormProps) => {
           <Select
             label={t('account.editForm.gender')}
             placeholder={t('account.editForm.gender')}
-            data={['Man', 'Woman', 'Other', 'Prefer not to say']}
+            data={[
+              t('home.Man'),
+              t('home.Woman'),
+              t('home.Other'),
+              t('home.Prefer not to say'),
+            ]}
             {...form.getInputProps('gender')}
           ></Select>
 

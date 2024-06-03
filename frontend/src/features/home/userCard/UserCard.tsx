@@ -39,7 +39,7 @@ export const UserCard = ({ person, children }: Props) => {
             {t('home.age')} {person.age}
           </Badge>
           <Badge color="pink">
-            {t('home.gender')} {person.sex}
+            {t('home.gender')} {t(`home.${person.sex}`)}
           </Badge>
         </Group>
       </Group>

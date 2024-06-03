@@ -74,6 +74,10 @@ i18n
           home: {
             age: 'Wiek: ',
             gender: 'Płeć: ',
+            Man: 'Mężczyzna',
+            Woman: 'Kobieta',
+            Other: 'Inna',
+            'Prefer not to say': 'Nie chcę podawać',
             matches: {
               title: 'Dopasowania',
               details: {
@@ -116,6 +120,10 @@ i18n
             fetchFailMessage: 'Nie udało się pobrać profili',
           },
           account: {
+            validation: {
+              age: 'Musisz mieć ukończone 18 lat',
+              image: 'Niepoprawny format obrazu. Dozwolone formaty: jpeg, png',
+            },
             fetchIdFailMessage: 'Nie udało się pobrać id',
             name: 'Imię',
             age: 'Wiek',
@@ -481,6 +489,10 @@ i18n
           home: {
             age: 'Age: ',
             gender: 'Gender: ',
+            Man: 'Man',
+            Woman: 'Woman',
+            Other: 'Other',
+            'Prefer not to say': 'Prefer not to say',
             matches: {
               title: 'Matches',
               details: {
@@ -523,6 +535,10 @@ i18n
             fetchFailMessage: 'Failed to fetch profiles',
           },
           account: {
+            validation: {
+              age: 'You need to be at least 18 years old',
+              image: 'Invalid image format. Allowed formats: jpeg, png',
+            },
             fetchIdFailMessage: 'Failed to fetch id',
             name: 'Name',
             age: 'Age',

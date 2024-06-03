@@ -22,7 +22,11 @@ export const Account = () => {
               justify="space-between"
             >
               <Avatar
-                src={user?.image ? `https://localhost:44360/api/images/${user.image}` :''}
+                src={
+                  user?.image
+                    ? `https://localhost:44360/api/images/${user.image}`
+                    : ''
+                }
                 size={300}
                 radius="xl"
                 alt="avatar"
@@ -49,7 +53,7 @@ export const Account = () => {
                     {t('account.age')}: {user?.age}
                   </Text>
                   <Text fz={24} fw={400} className={classes.name}>
-                    {t('account.gender')}: {user?.sex}
+                    {t('account.gender')}: {t(`home.${user?.sex}`)}
                   </Text>
                   <Text
                     fz="md"
