@@ -135,9 +135,7 @@ export const SignInForm = () => {
                 })
               }
             }}
-            onError={() => {
-              console.log('OAtuh Login Failed')
-            }}
+            onError={() => {}}
           />
         </FormContainer>
       </form>

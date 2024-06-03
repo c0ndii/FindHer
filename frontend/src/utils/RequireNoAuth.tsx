@@ -5,7 +5,6 @@ import { Navigate, Outlet, useLocation } from 'react-router-dom'
 const RequireNoAuth: React.FC = () => {
   const { isAuthorized } = useAuth()
   const location = useLocation()
-  console.log(isAuthorized)
 
   return !isAuthorized ? ( //true / false
     <Outlet />

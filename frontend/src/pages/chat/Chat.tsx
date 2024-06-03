@@ -61,9 +61,7 @@ export const Chat = () => {
       await conn.start()
 
       setConnection(conn)
-    } catch (e) {
-      console.log(e)
-    }
+    } catch (e) {}
   }
 
   const handleNewConnection = useCallback(async () => {
@@ -96,9 +94,7 @@ export const Chat = () => {
         activePerson?.userId,
         message
       )
-    } catch (e) {
-      console.log(e)
-    }
+    } catch (e) {}
   }
 
   return (

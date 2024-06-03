@@ -24,7 +24,7 @@ export const getAll = async () => {
     if (response.status === 200) {
       const preferences =
         (response.data as preference[]) ??
-        console.error('Invalid return format')
+        []
 
       return preferences.reduce(
         (acc: Record<number, preference[]>, p: preference) => {
@@ -44,7 +44,6 @@ export const getAll = async () => {
       )
     }
   } catch (error: any) {
-    console.error('Failed operation', error)
     throw new Error('Failed operation')
   }
 }

@@ -43,9 +43,7 @@ export const VideoChat = () => {
             setVideoStream(remoteVideoRef.current, remoteStream)
           })
         })
-        .catch((error) => {
-          console.error('Error accessing media devices:', error)
-        })
+        .catch((error) => {})
     })
 
     peerInstance.current = peer
@@ -68,9 +66,7 @@ export const VideoChat = () => {
           })
         }
       })
-      .catch((error) => {
-        console.error('Error accessing media devices:', error)
-      })
+      .catch((error) => {})
   }
 
   const setVideoStream = (
@@ -79,9 +75,7 @@ export const VideoChat = () => {
   ) => {
     if (videoRef) {
       videoRef.srcObject = stream
-      videoRef.play().catch((error) => {
-        console.error('Error playing video:', error)
-      })
+      videoRef.play().catch((error) => {})
     }
   }
 

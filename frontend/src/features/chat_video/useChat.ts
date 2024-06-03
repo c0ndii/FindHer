@@ -42,27 +42,27 @@ export const useVideoChat = (target: string) => {
                 .build();
 
             conn.on("user-connected", (roomId) => {
-                console.log("User connected to room:", roomId);
+                // Handle if needed
             });
 
             await conn.start();
             setConnection(conn);
 
         } catch (e) {
-            console.log(e);
+            
         }
     };
 
     const JoinRoom = async () => {
         try {
             await connection?.invoke("JoinRoom", parseInt(myid), parseInt(target));
-            console.log('joinedRoom');
+         
             // After joining the room, start PeerJS connection
             if(videoId!==''){
               startPeerJsConnection(videoId);
             }
         } catch (error) {
-            console.error("Error calling user: ", error);
+          
         }
     };
 
@@ -80,7 +80,7 @@ export const useVideoChat = (target: string) => {
         setMyPeer(myPeer);
 
         myPeer.on('open', () => {
-            console.log('Connected to PeerJS with room ID:', videoId);
+            
         });
 
         myPeer.on('call', (call) => {
@@ -107,7 +107,7 @@ export const useVideoChat = (target: string) => {
                 await JoinRoom();
             }
         } catch (error) {
-            console.error("Error: ", error);
+           
         }
     };
 
@@ -122,7 +122,7 @@ export const useVideoChat = (target: string) => {
                 videoElement.playsInline = true;
                 videoGrid.appendChild(videoElement);
             } else {
-                console.error('Video grid container not found');
+                
             }
         }
     };
@@ -136,7 +136,7 @@ export const useVideoChat = (target: string) => {
                 localStreamRef.current = stream;
                 addVideoStream(stream);
             }).catch(error => {
-                console.error('Error accessing media devices:', error);
+               
             });
         }
     }, [target, connection]);
