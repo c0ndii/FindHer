@@ -41,6 +41,7 @@ export const useAddToPair = () => {
     mutationFn: (user: number) => addToPair(user),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['getMatched'] })
+      queryClient.invalidateQueries({ queryKey: ['getPairs'] })
       notifications.show({
         withCloseButton: true,
         autoClose: 5000,

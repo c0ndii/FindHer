@@ -20,8 +20,11 @@ namespace Find_H_er.Migrations
                 new Match { MatchId = 5, ViewerId = 2, ViewedId = 3, Cancelled = false, MatchedViewer = false, MatchedViewed = false, Matched = false },
                 new Match { MatchId = 6, ViewerId = 2, ViewedId = 4, Cancelled = false, MatchedViewer = false, MatchedViewed = false, Matched = false },
                 new Match { MatchId = 9, ViewerId = 3, ViewedId = 4, Cancelled = false, MatchedViewer = false, MatchedViewed = false, Matched = false },
+                new Match { MatchId = 10, ViewerId = 5, ViewedId = 6, Cancelled = false, MatchedViewer = false, MatchedViewed = false, Matched = false },
+                new Match { MatchId = 11, ViewerId = 7, ViewedId = 1, Cancelled = false, MatchedViewer = false, MatchedViewed = false, Matched = false },
+                new Match { MatchId = 12, ViewerId = 1, ViewedId = 8, Cancelled = false, MatchedViewer = false, MatchedViewed = false, Matched = false },
+                new Match { MatchId = 13, ViewerId = 1, ViewedId = 9, Cancelled = false, MatchedViewer = false, MatchedViewed = false, Matched = false }
             };
-
             var sb = new StringBuilder();
 
             sb.AppendLine("SET IDENTITY_INSERT Matches ON;");

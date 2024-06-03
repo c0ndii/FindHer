@@ -27,7 +27,7 @@ namespace Find_H_er.Migrations
                     Sex = "Man",
                     Description = "I am a 24 year old blue collar worker",
                     VideoChatConnectionId = Guid.NewGuid().ToString(),
-                    RoleId = 1 
+                    RoleId = 1
                 },
                 new User
                 {
@@ -63,10 +63,142 @@ namespace Find_H_er.Migrations
                     Description = string.Empty,
                     VerificationToken = "randomToken4",
                     VideoChatConnectionId = Guid.NewGuid().ToString(),
-                    RoleId = 1 
+                    RoleId = 1
+                },
+                new User
+                {
+                    UserId = 5,
+                    Email = "user5@wp.pl",
+                    Name = "Daniel",
+                    Sex = "Man",
+                    Age = 30,
+                    Description = "Software developer with a passion for AI",
+                    VerificationToken = "randomToken5",
+                    VideoChatConnectionId = Guid.NewGuid().ToString(),
+                    RoleId = 1
+                },
+                new User
+                {
+                    UserId = 6,
+                    Email = "user6@wp.pl",
+                    Name = "Eliza",
+                    Sex = "Woman",
+                    Age = 22,
+                    Description = "College student majoring in biology",
+                    VerificationToken = "randomToken6",
+                    VideoChatConnectionId = Guid.NewGuid().ToString(),
+                    RoleId = 1
+                },
+                new User
+                {
+                    UserId = 7,
+                    Email = "user7@wp.pl",
+                    Name = "Frank",
+                    Sex = "Man",
+                    Age = 28,
+                    Description = "Entrepreneur and small business owner",
+                    VerificationToken = "randomToken7",
+                    VideoChatConnectionId = Guid.NewGuid().ToString(),
+                    RoleId = 1
+                },
+                new User
+                {
+                    UserId = 8,
+                    Email = "user8@wp.pl",
+                    Name = "Greta",
+                    Sex = "Woman",
+                    Age = 26,
+                    Description = "Marketing specialist with 5 years of experience",
+                    VerificationToken = "randomToken8",
+                    VideoChatConnectionId = Guid.NewGuid().ToString(),
+                    RoleId = 1
+                },
+                new User
+                {
+                    UserId = 9,
+                    Email = "user9@wp.pl",
+                    Name = "Henry",
+                    Sex = "Man",
+                    Age = 32,
+                    Description = "Project manager in the construction industry",
+                    VerificationToken = "randomToken9",
+                    VideoChatConnectionId = Guid.NewGuid().ToString(),
+                    RoleId = 1
+                },
+                new User
+                {
+                    UserId = 10,
+                    Email = "user10@wp.pl",
+                    Name = "Irene",
+                    Sex = "Woman",
+                    Age = 29,
+                    Description = "Graphic designer and freelance artist",
+                    VerificationToken = "randomToken10",
+                    VideoChatConnectionId = Guid.NewGuid().ToString(),
+                    RoleId = 1
+                },
+                new User
+                {
+                    UserId = 11,
+                    Email = "user11@wp.pl",
+                    Name = "Jack",
+                    Sex = "Man",
+                    Age = 27,
+                    Description = "Financial advisor with a knack for numbers",
+                    VerificationToken = "randomToken11",
+                    VideoChatConnectionId = Guid.NewGuid().ToString(),
+                    RoleId = 1
+                },
+                new User
+                {
+                    UserId = 12,
+                    Email = "user12@wp.pl",
+                    Name = "Kathy",
+                    Sex = "Woman",
+                    Age = 23,
+                    Description = "Aspiring writer and literature enthusiast",
+                    VerificationToken = "randomToken12",
+                    VideoChatConnectionId = Guid.NewGuid().ToString(),
+                    RoleId = 1
+                },
+                new User
+                {
+                    UserId = 13,
+                    Email = "user13@wp.pl",
+                    Name = "Leo",
+                    Sex = "Man",
+                    Age = 25,
+                    Description = "Data analyst who loves solving complex problems",
+                    VerificationToken = "randomToken13",
+                    VideoChatConnectionId = Guid.NewGuid().ToString(),
+                    RoleId = 1
+                },
+                new User
+                {
+                    UserId = 14,
+                    Email = "user14@wp.pl",
+                    Name = "Mona",
+                    Sex = "Woman",
+                    Age = 31,
+                    Description = "HR manager focused on team building",
+                    VerificationToken = "randomToken14",
+                    VideoChatConnectionId = Guid.NewGuid().ToString(),
+                    RoleId = 1
+                },
+                new User
+                {
+                    UserId = 15,
+                    Email = "user15@wp.pl",
+                    Name = "Nick",
+                    Sex = "Man",
+                    Age = 22,
+                    Description = "Musician and composer working on my first album",
+                    VerificationToken = "randomToken15",
+                    VideoChatConnectionId = Guid.NewGuid().ToString(),
+                    RoleId = 1
                 }
             };
-
+            
             foreach (var user in users)
             {
                 user.PasswordHash = passwordHasher.HashPassword(user, "test12345");
