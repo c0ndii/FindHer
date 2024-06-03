@@ -72,7 +72,7 @@ namespace Find_H_er.Services
             await _context.MatchForms.AddAsync(matchform);
             newUser.MatchForm = matchform;
             await _context.SaveChangesAsync();
-            await _emailSenderService.SendEmailAsync(dto.Email, "Confirm your email", "https://localhost:44360/api/account/verifyemail/"+$"{newUser.VerificationToken}");
+            await _emailSenderService.SendEmailAsync(dto.Email, "Confirm your email", "https://localhost:44360/api/account/verifyemail/" + $"{newUser.VerificationToken}");
         }
         public async Task<string> GenerateJwt(LoginDto dto)
         {
@@ -133,13 +133,12 @@ namespace Find_H_er.Services
                 var fileName = await _imageService.SaveAsync(dto.Image);
                 user.Image = fileName;
             }
-            Console.Write(user.UserId + "   " + userId);
-            
+
             user.Name = dto.Name;
             user.Description = dto.Description;
             user.Age = dto.Age;
             user.Sex = dto.Sex;
-            
+
             _context.Update(user);
             await _context.SaveChangesAsync();
         }
@@ -147,7 +146,6 @@ namespace Find_H_er.Services
         {
             var userId = _userContextService.GetUserId;
             var user = await _context.Users.FirstOrDefaultAsync(x => x.UserId == userId);
-            Console.Write(user.UserId + "   " + userId);
             if (user is null)
             {
                 throw new NotFoundException("User not found");
@@ -164,7 +162,6 @@ namespace Find_H_er.Services
         {
             var userId = _userContextService.GetUserId;
             var user = await _context.Users.FirstOrDefaultAsync(x => x.UserId == userId);
-            Console.Write(user.UserId + "   " + userId);
             if (user is null)
             {
                 throw new NotFoundException("User not found");
@@ -190,14 +187,14 @@ namespace Find_H_er.Services
         private async Task AddUserToMatches(int userId)
         {
             var user = await _context.Users.SingleOrDefaultAsync(x => x.UserId == userId);
-            if(user is null)
+            if (user is null)
             {
                 throw new NotFoundException("User not found");
             }
             var userScore = user.MatchFormScore;
             List<int> userIds = await _context.Users
                 .Include(x => x.Role)
-                .Where(x => x.UserId != userId && x.Role.Name != "Banned" && x.Role.Name != "Unconfirmed" && (Math.Sqrt(Math.Pow((double)x.MatchFormScore - (double)userScore,2)) <30))
+                .Where(x => x.UserId != userId && x.Role.Name != "Banned" && x.Role.Name != "Unconfirmed" && (Math.Sqrt(Math.Pow((double)x.MatchFormScore - (double)userScore, 2)) < 30))
                 .Select(x => x.UserId)
                 .ToListAsync();
             List<Match> matches = new List<Match>();
@@ -228,7 +225,7 @@ namespace Find_H_er.Services
         public async Task<string> GoogleAuth(GoogleAuthDto dto)
         {
             var user = await _context.Users.SingleOrDefaultAsync(x => x.Email == dto.Email);
-            if(user is null)
+            if (user is null)
             {
                 var role = await _context.Roles.FirstOrDefaultAsync(x => x.Name == "User");
                 var newUser = new User()
@@ -252,7 +249,7 @@ namespace Find_H_er.Services
                 await AddUserToMatches(newUser.UserId);
                 await _context.SaveChangesAsync();
             }
-            user = await _context.Users.Include(x=> x.Role).SingleOrDefaultAsync(x => x.Email == dto.Email);
+            user = await _context.Users.Include(x => x.Role).SingleOrDefaultAsync(x => x.Email == dto.Email);
             if (string.Compare(user.Role.Name, "Banned") == 0)
             {
                 throw new BadRequestException("Account has been banned");

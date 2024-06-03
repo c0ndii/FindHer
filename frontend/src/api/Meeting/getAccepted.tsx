@@ -32,7 +32,6 @@ export const getAccepted = async () => {
       )
     }
   } catch (error: any) {
-    console.error('Failed operation', error)
     throw new Error('Failed operation')
   }
 }

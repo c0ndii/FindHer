@@ -39,7 +39,6 @@ export const matchGet = async () => {
       )
     }
   } catch (error: any) {
-    console.error('Failed operation', error)
     throw new Error('Failed operation')
   }
 }

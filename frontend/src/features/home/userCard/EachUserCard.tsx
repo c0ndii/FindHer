@@ -36,7 +36,7 @@ export const EachUserCard = ({ person }: Props) => {
     try {
     } catch (error: any) {}
   }
-  console.log(person)
+
   return (
     <>
       <Button onClick={open} color="red" fullWidth mt="md" radius="md">
