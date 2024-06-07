@@ -222,6 +222,8 @@ namespace Find_H_er.Services
             await AddUserToMatches(user.UserId);
             return await Task.FromResult(true);
         }
+
+        //Just a placeholder, doesnt work as intented, TODO in the future
         public async Task<string> GoogleAuth(GoogleAuthDto dto)
         {
             var user = await _context.Users.SingleOrDefaultAsync(x => x.Email == dto.Email);
